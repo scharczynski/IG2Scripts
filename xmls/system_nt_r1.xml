@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<system a500updaterate="50" xmlns="http://www.ptcusa.com" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.ptcusa.com A510.xsd"
+  type="pyramid">
+  <hosts>
+    <!-- NOTE: the ip address does not matter for bcs, but may be required to be present -->
+    <host ip="192.168.100.135" name="wnett" localhost="true" />
+  </hosts>
+  <loopcontrollers>
+    <!--<loopcontroller type="C400" name="C400_A" ip="192.168.9.55">
+      <channels>
+        <channel name="r_c400_a_digital_in_running" wire="digital_in_running" />
+        <channel name="c_c400_a_int_out_accum_mode" wire="int_out_accum_mode" />
+        <channel name="r_c400_a_int_in_counts_1" wire="int_in_counts_1" />
+        <channel name="r_c400_a_analog_in_rate_1" wire="analog_in_rate_1" />
+        <channel name="r_c400_a_int_out_trig_buf" wire="int_out_trig_buf" />
+      </channels>
+    </loopcontroller>-->
+    <!--<loopcontroller type="F3200E" name="F3200E_A" ip="192.168.9.56" timeout="5000">
+      <channels>
+        <channel name="c_f3200e_a_initiate" wire="digital_out_initiate" />
+        <channel name="r_f3200e_a_data" wire="variant_in_data" />
+        <channel name="r_f3200e_a_range" wire="variant_in_range" />
+        <channel name="c_f3200e_a_range" wire="variant_out_range_set" />
+        <channel name="c_f3200e_a_buffered_acquisition" wire="digital_out_buffered_acquisition" />
+        <channel name="c_f3200e_a_acquisition_mode" wire="int_out_acquisition_mode" />
+        <channel name="c_f3200e_a_adc_rate" wire="int_out_adc_rate" />
+        <channel name="c_f3200e_a_conversions_per_sample" wire="int_out_conversions_per_sample" />
+        <channel name="c_f3200e_a_start_trigger_source" wire="int_out_start_trigger_source" />
+        <channel name="c_f3200e_a_pause_trigger_source" wire="int_out_pause_trigger_source" />
+        <channel name="c_f3200e_a_stop_trigger_source" wire="int_out_stop_trigger_source" />
+        <channel name="c_f3200e_a_stop_count" wire="int_out_stop_count" />
+        <channel name="c_f3200e_a_burst_count" wire="int_out_burst_count" />
+        <channel name="c_f3200e_a_register_offset" wire="int_out_register_offset" />
+        <channel name="c_f3200e_a_register_contents" wire="int_out_register_contents" />
+        <channel name="c_f3200e_a_base_address" wire="int_out_base_address" />
+        <channel name="c_f3200e_a_register_command" wire="digital_out_register_command" />
+      </channels>
+    </loopcontroller>-->
+    <loopcontroller type="F460" name="F460_1" ip="192.168.9.54">
+      <channels>
+        <channel name="r_F460_1_data" wire="variant_in_data" />
+        <channel name="r_F460_1_data_buffer" wire="variant_in_buffered_variant_data" aMax=500/>
+        <!--<channel name="c_F460_1_initiate" wire="digital_out_initiate" init="1" />
+        <channel name="c_F460_1_analog_1" wire="analog_out_1" />
+        <channel name="c_F460_1_analog_2" wire="analog_out_2" />
+        <channel name="c_F460_1_analog_3" wire="analog_out_3" />
+        <channel name="c_F460_1_analog_4" wire="analog_out_4" />
+        <channel name="r_F460_1_analog_1" wire="analog_in_1" />
+        <channel name="r_F460_1_analog_2" wire="analog_in_2" />
+        <channel name="c_F460_1_avgTime" wire="analog_out_integration_time" />
+        <channel name="c_F460_1_chA_Range" wire="int_out_range_1" />
+        <channel name="c_F460_1_chB_Range" wire="int_out_range_2" />
+        <channel name="c_F460_1_chC_Range" wire="int_out_range_3" />
+        <channel name="c_F460_1_chD_Range" wire="int_out_range_4" />
+        <channel name="r_F460_1_chA_Curr" wire="analog_in_current_1" />
+        <channel name="r_F460_1_chB_Curr" wire="analog_in_current_2" />
+        <channel name="r_F460_1_chC_Curr" wire="analog_in_current_3" />
+        <channel name="r_F460_1_chD_Curr" wire="analog_in_current_4" />
+        <channel name="r_F460_1_channel_1" wire="analog_in_channel_1" />
+        <channel name="r_F460_1_channel_2" wire="analog_in_channel_2" />
+        <channel name="r_F460_1_channel_3" wire="analog_in_channel_3" />
+        <channel name="r_F460_1_channel_4" wire="analog_in_channel_4" />
+        <channel name="r_F460_1_xPos" wire="analog_in_x_pos" />
+        <channel name="r_F460_1_yPos" wire="analog_in_y_pos" />
+        <channel name="c_F460_1_monMode" wire="int_out_monitor" />
+        <channel name="c_F460_1_bias" wire="analog_out_bias" />
+        <channel name="r_F460_1_bias" wire="analog_in_bias" />
+        <channel name="c_F460_1_servo_kp" wire="analog_out_kp" />
+        <channel name="c_F460_1_servo_ki" wire="analog_out_ki" />
+        <channel name="c_F460_1_servo_locurrlim" wire="analog_out_low_current_limit" />
+        <channel name="c_F460_1_servo_procctrllo" wire="analog_out_dac_low_limit" />
+        <channel name="c_F460_1_servo_procctrlhi" wire="analog_out_dac_high_limit" />
+        <channel name="c_F460_1_servo_per" wire="int_out_servo_period" />
+        <channel name="c_F460_1_servo_mode" wire="int_out_servo_mode" />
+        <channel name="c_F460_1_servo_enable" wire="digital_out_servo_enable" />
+        <channel name="r_F460_1_servo_pvalue" wire="analog_in_process_value" />
+        <channel name="r_F460_1_servo_ptarget" wire="analog_in_process_target" />-->
+      </channels>
+    </loopcontroller>
+  </loopcontrollers>
+  <interpreter>
+    <devices>
+      <epicscas type="epicscas" name="epicsserver" />
+
+      <!--<database name="ig2_database" type="database">
+        <property name="dbname" value="ig2" />
+        <property name="user" value="pyramid" />
+        <property name="password" value="pyramid" />
+        <property name="hostaddr" value="192.168.9.170" />
+        <property name="port" value="5432" />
+      </database>-->
+
+      <control_f460 name="control_f460" type="control_f460">
+        <channels>
+
+        </channels>
+      </control_f460>
+
+    </devices>
+  </interpreter>
+</system>

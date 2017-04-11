@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<system xmlns="http://www.ptcusa.com" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.ptcusa.com A510.xsd" type="pyramid">
+	<version major=1 minor=0/>
+	<properties>
+		<property name="enable_logging" value="true" user="true"/>
+	</properties>
+	<hosts>
+		<!-- y = Bx + C, where y=user units, and x=device units -->
+		<!-- NOTE: the ip address has no effect on the system, but is required to be present -->
+		<host ip="192.168.100.131" name="T40client" localhost="true"/>
+	</hosts>
+	<loopcontrollers/>
+	<interpreter>
+		<devices>
+			<epicscas type="epicscas" name="epics_server"/>
+
+			<bbbgpio type="bbbgpio" name="PRU0_DEBUG" pin="P9_11" direction="output" defaultValue="false" />
+			<bbbgpio type="bbbgpio" name="PRU1_DEBUG" pin="P9_13" direction="output" defaultValue="false" />
+			<bbbgpio type="bbbgpio" name="DAC_LDAC" pin="P9_15" direction="output" defaultValue="false" />
+			<bbbgpio type="bbbgpio" name="BOARD_POWER" pin="P8_7" direction="output" defaultValue="true" />
+
+			<bbbgpio type="bbbgpio" name="ADC_RESET" pin="P9_23" direction="output" defaultValue="false" />
+
+			<m80base type="m80base" name="m80" serviceTimerMilliseconds="100" >
+				<channels>
+					<channel name="SERIAL0000_r_samproc_m80" wire="int_in_digitals" />
+					<channel name="SERIAL0000_c_adc_debug_m80" wire="analog_out_debug" />
+					<channel name="SERIAL0000_r_t40_data_m80" wire="variant_in_data" />
+
+					<channel name="SERIAL0000_r_adc_1_m80" wire="analog_in_3" scaleB="3.67e-04" scaleC="5.05e-03" />
+					<channel name="SERIAL0000_r_adc_2_m80" wire="analog_in_1" scaleB="3.67e-04" scaleC="5.05e-03" />
+					<channel name="SERIAL0000_r_adc_3_m80" wire="analog_in_7" scaleB="3.67e-04" scaleC="5.05e-03" />
+					<channel name="SERIAL0000_r_adc_4_m80" wire="analog_in_2" scaleB="3.67e-04" scaleC="5.05e-03" />
+
+					<channel name="SERIAL0000_r_adc_5_m80" wire="analog_in_5" scaleB="3.67e-04" scaleC="5.05e-03" />
+					<channel name="SERIAL0000_r_adc_6_m80" wire="analog_in_6" scaleB="3.67e-04" scaleC="5.05e-03" />
+					<channel name="SERIAL0000_r_adc_7_m80" wire="analog_in_11" scaleB="3.67e-04" scaleC="5.05e-03" />
+					<channel name="SERIAL0000_r_adc_8_m80" wire="analog_in_9" scaleB="3.67e-04" scaleC="5.05e-03" />
+
+					<channel name="SERIAL0000_r_adc_9_m80" wire="analog_in_10" scaleB="3.67e-04" scaleC="5.05e-03" />
+					<channel name="SERIAL0000_r_adc_10_m80" wire="analog_in_15" scaleB="3.67e-04" scaleC="5.05e-03" />
+					<channel name="SERIAL0000_r_adc_11_m80" wire="analog_in_14" scaleB="3.67e-04" scaleC="5.05e-03" />
+					<channel name="SERIAL0000_r_adc_12_m80" wire="analog_in_13" scaleB="3.67e-04" scaleC="5.05e-03" />
+
+					<channel name="SERIAL0000_r_adc_13_m80" wire="analog_in_4" scaleB="3.67e-04" scaleC="5.05e-03" />
+					<channel name="SERIAL0000_r_adc_14_m80" wire="analog_in_8" scaleB="3.67e-04" scaleC="5.05e-03" />
+					<channel name="SERIAL0000_r_adc_15_m80" wire="analog_in_12" scaleB="3.67e-04" scaleC="5.05e-03" />
+					<channel name="SERIAL0000_r_adc_16_m80" wire="analog_in_16" scaleB="3.67e-04" scaleC="5.05e-03" />
+
+					<channel name="SERIAL0000_c_dac_a_m80" wire="analog_out_5" scaleB="3.06e-04" scaleC="7.58e-03"  />
+					<channel name="SERIAL0000_c_dac_b_m80" wire="analog_out_6" scaleB="3.06e-04" scaleC="7.58e-03"  />
+					<channel name="SERIAL0000_c_dac_c_m80" wire="analog_out_7" scaleB="3.06e-04" scaleC="7.58e-03"  />
+					<channel name="SERIAL0000_c_dac_d_m80" wire="analog_out_8" scaleB="3.06e-04" scaleC="7.58e-03"  />
+
+					<channel name="SERIAL0000_c_dac_e_m80" wire="analog_out_1" scaleB="3.06e-04" scaleC="7.58e-03"  />
+					<channel name="SERIAL0000_c_dac_f_m80" wire="analog_out_2" scaleB="3.06e-04" scaleC="7.58e-03"  />
+					<channel name="SERIAL0000_c_dac_g_m80" wire="analog_out_3" scaleB="3.06e-04" scaleC="7.58e-03"  />
+					<channel name="SERIAL0000_c_dac_h_m80" wire="analog_out_4" scaleB="3.06e-04" scaleC="7.58e-03"  />
+
+				</channels>
+			</m80base>
+
+			<pcf8574bus type="pcf8574bus" name="pcf8574bus1" device="/dev/i2c-2" pollingPeriod="50" >
+				<channels/>
+				<pcf8574s>
+					<pcf8574 type="pcf8574" name="digins_1" address="33" defaultValue="255">
+						<channels>
+							<channel name="SERIAL0000_r_digin_1_m80" wire="digital_in_1"/>
+							<channel name="SERIAL0000_r_digin_2_m80" wire="digital_in_2"/>
+							<channel name="SERIAL0000_r_digin_3_m80" wire="digital_in_3"/>
+							<channel name="SERIAL0000_r_digin_4_m80" wire="digital_in_4"/>
+							<channel name="SERIAL0000_r_digin_5_m80" wire="digital_in_5"/>
+							<channel name="SERIAL0000_r_digin_6_m80" wire="digital_in_6"/>
+							<channel name="SERIAL0000_r_digin_7_m80" wire="digital_in_7"/>
+							<channel name="SERIAL0000_r_digin_8_m80" wire="digital_in_8"/>
+						</channels>
+					</pcf8574>
+					<pcf8574 type="pcf8574" name="digins_2" address="34" defaultValue="255">
+						<channels>
+							<channel name="SERIAL0000_r_digin_9_m80" wire="digital_in_1"/>
+							<channel name="SERIAL0000_r_digin_10_m80" wire="digital_in_2"/>
+							<channel name="SERIAL0000_r_digin_11_m80" wire="digital_in_3"/>
+							<channel name="SERIAL0000_r_digin_12_m80" wire="digital_in_4"/>
+							<channel name="SERIAL0000_r_digin_13_m80" wire="digital_in_5"/>
+							<channel name="SERIAL0000_r_digin_14_m80" wire="digital_in_6"/>
+							<channel name="SERIAL0000_r_digin_15_m80" wire="digital_in_7"/>
+							<channel name="SERIAL0000_r_digin_16_m80" wire="digital_in_8"/>
+						</channels>
+					</pcf8574>
+
+					<pcf8574 type="pcf8574" name="digouts_1" address="35" defaultValue="0">
+						<channels>
+							<channel name="SERIAL0000_c_digout_1_m80" wire="digital_out_1"/>
+							<channel name="SERIAL0000_c_digout_2_m80" wire="digital_out_2"/>
+							<channel name="SERIAL0000_c_digout_3_m80" wire="digital_out_3"/>
+							<channel name="SERIAL0000_c_digout_4_m80" wire="digital_out_4"/>
+							<channel name="SERIAL0000_c_digout_5_m80" wire="digital_out_5"/>
+							<channel name="SERIAL0000_c_digout_6_m80" wire="digital_out_6"/>
+							<channel name="SERIAL0000_c_digout_7_m80" wire="digital_out_7"/>
+							<channel name="SERIAL0000_c_digout_8_m80" wire="digital_out_8"/>
+						</channels>
+					</pcf8574>
+
+					<pcf8574 type="pcf8574" name="digouts_2" address="36" defaultValue="255">
+						<channels>
+							<channel name="SERIAL0000_c_digout_9_m80" wire="digital_out_1"/>
+							<channel name="SERIAL0000_c_digout_10_m80" wire="digital_out_2"/>
+							<channel name="SERIAL0000_c_digout_11_m80" wire="digital_out_3"/>
+							<channel name="SERIAL0000_c_digout_12_m80" wire="digital_out_4"/>
+							<channel name="SERIAL0000_c_digout_13_m80" wire="digital_out_5"/>
+							<channel name="SERIAL0000_c_digout_14_m80" wire="digital_out_6"/>
+							<channel name="SERIAL0000_c_digout_15_m80" wire="digital_out_7"/>
+							<channel name="SERIAL0000_c_digout_16_m80" wire="digital_out_8"/>
+						</channels>
+					</pcf8574>
+
+					<pcf8574 type="pcf8574" name="trans" address="37" defaultValue="207">
+						<channels>
+							<channel name="SERIAL0000_r_pcf8574_5_1_m80" wire="digital_in_1"/>
+							<channel name="SERIAL0000_r_pcf8574_5_2_m80" wire="digital_in_2"/>
+							<channel name="SERIAL0000_r_pcf8574_5_3_m80" wire="digital_in_3"/>
+							<channel name="SERIAL0000_r_pcf8574_5_4_m80" wire="digital_in_4"/>
+							<channel name="SERIAL0000_r_pcf8574_5_5_m80" wire="digital_in_5"/>
+							<channel name="SERIAL0000_r_pcf8574_5_6_m80" wire="digital_in_6"/>
+							<channel name="SERIAL0000_r_pcf8574_5_7_m80" wire="digital_in_7"/>
+							<channel name="SERIAL0000_r_pcf8574_5_8_m80" wire="digital_in_8"/>
+						</channels>
+					</pcf8574>
+
+					<pcf8574 type="pcf8574" name="misc" address="38" defaultValue="255">
+						<channels>
+							<channel name="SERIAL0000_r_pcf8574_6_1_m80" wire="digital_in_1"/>
+							<channel name="SERIAL0000_r_pcf8574_6_2_m80" wire="digital_in_2"/>
+							<channel name="SERIAL0000_r_pcf8574_6_3_m80" wire="digital_in_3"/>
+							<channel name="SERIAL0000_r_pcf8574_6_4_m80" wire="digital_in_4"/>
+							<channel name="SERIAL0000_r_pcf8574_6_5_m80" wire="digital_in_5"/>
+							<channel name="SERIAL0000_r_pcf8574_6_6_m80" wire="digital_in_6"/>
+							<channel name="SERIAL0000_r_pcf8574_6_7_m80" wire="digital_in_7"/>
+							<channel name="SERIAL0000_r_pcf8574_6_8_m80" wire="digital_in_8"/>
+						</channels>
+					</pcf8574>
+
+				</pcf8574s>
+			</pcf8574bus>
+
+			<memblock type="memblock" name="T40_status" size="5">
+				<channels>
+					<channel name="SERIAL0000_r_T40_heartbeat" wire="int_in_1"/>
+					<channel name="SERIAL0000_r_T40_version" wire="int_in_2"/>
+
+					<channel name="SERIAL0000_power_on_2" wire="int_in_3"/>
+					<channel name="SERIAL0000_power_on_1" wire="int_in_3"/>
+
+				</channels>
+			</memblock>
+
+			<serial type="serial" name="serial_uart5">
+				<properties>
+					<property name="device" value="/dev/ttyO5"/>
+					<property name="baud_rate" value="9600"/>
+					<property name="poll_rate" value="1000"/>
+					<property name="read_match" value="(.*)\r\n"/>
+				</properties>
+				<channels>
+					<channel name="SERIAL0000_r_serial_uart5_message" wire="string_in_1"/>
+					<channel name="SERIAL0000_c_serial_uart5_command" wire="string_out_1"/>
+				</channels>
+			</serial>
+
+			<luminox type="luminox" name="luminox_1">
+				<channels>
+					<channel name="SERIAL0000_r_luminox_1_partial_pressure_oxygen" wire="analog_in_partial_pressure"/>
+					<channel name="SERIAL0000_r_luminox_1_temperature" wire="analog_in_temperature"/>
+					<channel name="SERIAL0000_r_luminox_1_pressure" wire="analog_in_pressure"/>
+					<channel name="SERIAL0000_r_luminox_1_oxygen_percent" wire="analog_in_percent"/>
+				</channels>
+				<pipes>
+					<pipe source="SERIAL0000_r_serial_uart5_message" wire="string_out_message"/>
+				</pipes>
+			</luminox>
+
+
+		</devices>
+	</interpreter>
+</system>

@@ -1,0 +1,2702 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<system
+  xmlns="http://www.ptcusa.com"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://www.ptcusa.com A510.xsd" type="dds" >
+  <hosts>
+    <!-- NOTE: the ip address does not matter for bcs, but may be required to be present -->
+    <host ip="192.168.8.177" name="pyramid-room-server" localhost="true" />
+  </hosts>
+  <loopcontrollers>
+    <!-- A560 #1 ******************************************************************************************************************* -->
+    <loopcontroller type="A560" name="A1" ip="192.168.100.3" >
+      <loops>
+        
+        <!-- I think this should be A1:LOOP1 ("A1"), not A2:LOOP1 ************************************************************************************************************** -->
+        <loop number="2" name="biraloop">
+          <boards>
+
+            <board type="M40" name="m40_1" address="1">
+              <channels>
+                <channel name="c_m40_1aout1" wire="analog_out_1" />
+                <channel name="c_m40_1aout2" wire="analog_out_2" />
+                <channel name="c_m40_1aout3" wire="analog_out_3" />
+                <channel name="c_m40_1aout4" wire="analog_out_4" />
+                <channel name="c_m40_1aout5" wire="analog_out_5" />
+                <channel name="c_m40_1aout6" wire="analog_out_6" />
+                <channel name="c_m40_1aout7" wire="analog_out_7" />
+                <channel name="c_m40_1aout8" wire="analog_out_8" />
+                <channel name="r_m40_1ain1" wire="analog_in_1" />
+                <channel name="r_m40_1ain2" wire="analog_in_2" />
+                <channel name="r_m40_1ain3" wire="analog_in_3" />
+                <channel name="r_m40_1ain4" wire="analog_in_4" />
+                <channel name="r_m40_1ain5" wire="analog_in_5" />
+                <channel name="r_m40_1ain6" wire="analog_in_6" />
+                <channel name="r_m40_1ain7" wire="analog_in_7" />
+                <channel name="r_m40_1ain8" wire="analog_in_8" />
+                <channel name="r_m40_1din1" wire="digital_in_1" />
+                <channel name="r_m40_1din2" wire="digital_in_2" />
+                <channel name="r_m40_1din3" wire="digital_in_3" />
+                <channel name="r_m40_1din4" wire="digital_in_4" />
+                <channel name="r_m40_1din5" wire="digital_in_5" />
+                <channel name="r_m40_1din6" wire="digital_in_6" />
+                <channel name="r_m40_1din7" wire="digital_in_7" />
+                <channel name="r_m40_1din8" wire="digital_in_8" />
+                <channel name="c_m40_1dout1" wire="digital_out_1" />
+                <channel name="c_m40_1dout2" wire="digital_out_2" />
+                <channel name="c_m40_1dout3" wire="digital_out_3" />
+                <channel name="c_m40_1dout4" wire="digital_out_4" />
+                <channel name="c_m40_1dout5" wire="digital_out_5" />
+                <channel name="c_m40_1dout6" wire="digital_out_6" />
+                <channel name="c_m40_1dout7" wire="digital_out_7" />
+                <channel name="c_m40_1dout8" wire="digital_out_8" />
+              </channels>
+            </board>
+
+            <board type="M40" name="m40_2" address="2">
+              <channels>
+                <channel name="c_m40_2aout1" wire="analog_out_1" />
+                <channel name="c_m40_2aout2" wire="analog_out_2" />
+                <channel name="c_m40_2aout3" wire="analog_out_3" />
+                <channel name="c_m40_2aout4" wire="analog_out_4" />
+                <channel name="c_m40_2aout5" wire="analog_out_5" />
+                <channel name="c_m40_2aout6" wire="analog_out_6" />
+                <channel name="c_m40_2aout7" wire="analog_out_7" />
+                <channel name="c_m40_2aout8" wire="analog_out_8" />
+                <channel name="r_m40_2ain1" wire="analog_in_1" />
+                <channel name="r_m40_2ain2" wire="analog_in_2" />
+                <channel name="r_m40_2ain3" wire="analog_in_3" />
+                <channel name="r_m40_2ain4" wire="analog_in_4" />
+                <channel name="r_m40_2ain5" wire="analog_in_5" />
+                <channel name="r_m40_2ain6" wire="analog_in_6" />
+                <channel name="r_m40_2ain7" wire="analog_in_7" />
+                <channel name="r_m40_2ain8" wire="analog_in_8" />
+                <channel name="r_m40_2din1" wire="digital_in_1" />
+                <channel name="r_m40_2din2" wire="digital_in_2" />
+                <channel name="r_m40_2din3" wire="digital_in_3" />
+                <channel name="r_m40_2din4" wire="digital_in_4" />
+                <channel name="r_m40_2din5" wire="digital_in_5" />
+                <channel name="r_m40_2din6" wire="digital_in_6" />
+                <channel name="r_m40_2din7" wire="digital_in_7" />
+                <channel name="r_m40_2din8" wire="digital_in_8" />
+                <channel name="c_m40_2dout1" wire="digital_out_1" />
+                <channel name="c_m40_2dout2" wire="digital_out_2" />
+                <channel name="c_m40_2dout3" wire="digital_out_3" />
+                <channel name="c_m40_2dout4" wire="digital_out_4" />
+                <channel name="c_m40_2dout5" wire="digital_out_5" />
+                <channel name="c_m40_2dout6" wire="digital_out_6" />
+                <channel name="c_m40_2dout7" wire="digital_out_7" />
+                <channel name="c_m40_2dout8" wire="digital_out_8" />
+              </channels>
+            </board>
+
+            <board type="M40" name="m40_3" address="3">
+              <channels>
+                <channel name="c_m40_3aout1" wire="analog_out_1" />
+                <channel name="c_m40_3aout2" wire="analog_out_2" />
+                <channel name="c_m40_3aout3" wire="analog_out_3" />
+                <channel name="c_m40_3aout4" wire="analog_out_4" />
+                <channel name="c_m40_3aout5" wire="analog_out_5" />
+                <channel name="c_m40_3aout6" wire="analog_out_6" />
+                <channel name="c_m40_3aout7" wire="analog_out_7" />
+                <channel name="c_m40_3aout8" wire="analog_out_8" />
+                <channel name="r_m40_3ain1" wire="analog_in_1" />
+                <channel name="r_m40_3ain2" wire="analog_in_2" />
+                <channel name="r_m40_3ain3" wire="analog_in_3" />
+                <channel name="r_m40_3ain4" wire="analog_in_4" />
+                <channel name="r_m40_3ain5" wire="analog_in_5" />
+                <channel name="r_m40_3ain6" wire="analog_in_6" />
+                <channel name="r_m40_3ain7" wire="analog_in_7" />
+                <channel name="r_m40_3ain8" wire="analog_in_8" />
+                <channel name="r_m40_3din1" wire="digital_in_1" />
+                <channel name="r_m40_3din2" wire="digital_in_2" />
+                <channel name="r_m40_3din3" wire="digital_in_3" />
+                <channel name="r_m40_3din4" wire="digital_in_4" />
+                <channel name="r_m40_3din5" wire="digital_in_5" />
+                <channel name="r_m40_3din6" wire="digital_in_6" />
+                <channel name="r_m40_3din7" wire="digital_in_7" />
+                <channel name="r_m40_3din8" wire="digital_in_8" />
+                <channel name="c_m40_3dout1" wire="digital_out_1" />
+                <channel name="c_m40_3dout2" wire="digital_out_2" />
+                <channel name="c_m40_3dout3" wire="digital_out_3" />
+                <channel name="c_m40_3dout4" wire="digital_out_4" />
+                <channel name="c_m40_3dout5" wire="digital_out_5" />
+                <channel name="c_m40_3dout6" wire="digital_out_6" />
+                <channel name="c_m40_3dout7" wire="digital_out_7" />
+                <channel name="c_m40_3dout8" wire="digital_out_8" />
+              </channels>
+            </board>
+
+            <board type="M40" name="m40_4" address="4">
+              <channels>
+                <channel name="c_m40_4aout1" wire="analog_out_1" />
+                <channel name="c_m40_4aout2" wire="analog_out_2" />
+                <channel name="c_m40_4aout3" wire="analog_out_3" />
+                <channel name="c_m40_4aout4" wire="analog_out_4" />
+                <channel name="c_m40_4aout5" wire="analog_out_5" />
+                <channel name="c_m40_4aout6" wire="analog_out_6" />
+                <channel name="c_m40_4aout7" wire="analog_out_7" />
+                <channel name="c_m40_4aout8" wire="analog_out_8" />
+                <channel name="r_m40_4ain1" wire="analog_in_1" />
+                <channel name="r_m40_4ain2" wire="analog_in_2" />
+                <channel name="r_m40_4ain3" wire="analog_in_3" />
+                <channel name="r_m40_4ain4" wire="analog_in_4" />
+                <channel name="r_m40_4ain5" wire="analog_in_5" />
+                <channel name="r_m40_4ain6" wire="analog_in_6" />
+                <channel name="r_m40_4ain7" wire="analog_in_7" />
+                <channel name="r_m40_4ain8" wire="analog_in_8" />
+                <channel name="r_m40_4din1" wire="digital_in_1" />
+                <channel name="r_m40_4din2" wire="digital_in_2" />
+                <channel name="r_m40_4din3" wire="digital_in_3" />
+                <channel name="r_m40_4din4" wire="digital_in_4" />
+                <channel name="r_m40_4din5" wire="digital_in_5" />
+                <channel name="r_m40_4din6" wire="digital_in_6" />
+                <channel name="r_m40_4din7" wire="digital_in_7" />
+                <channel name="r_m40_4din8" wire="digital_in_8" />
+                <channel name="c_m40_4dout1" wire="digital_out_1" />
+                <channel name="c_m40_4dout2" wire="digital_out_2" />
+                <channel name="c_m40_4dout3" wire="digital_out_3" />
+                <channel name="c_m40_4dout4" wire="digital_out_4" />
+                <channel name="c_m40_4dout5" wire="digital_out_5" />
+                <channel name="c_m40_4dout6" wire="digital_out_6" />
+                <channel name="c_m40_4dout7" wire="digital_out_7" />
+                <channel name="c_m40_4dout8" wire="digital_out_8" />
+              </channels>
+            </board>            
+
+          </boards>
+        </loop>		
+		
+        <!-- A1:LOOP2 ************************************************************************************************************** -->
+        <loop number="1" name="ExtractionAndHV">
+          <boards>
+            <board type="M10" name="Extraction" address="1">
+              <channels>
+                <channel name="r_ExtractionI" wire="analog_in_1" scaleB="0.0125" units="A"/>
+                <channel name="r_ExtractionV" wire="analog_in_2" scaleB="8000" units="V"/>
+                <channel name="c_ExtractionV" wire="analog_out_1" scaleB="8000" units="V"/>
+                <channel name="r_ExtractionFault" wire="digital_in_1" />
+                <channel name="r_ExtractionArcMonitor" wire="digital_in_2" />
+                <channel name="r_ExtractionInterlockMonitor" wire="digital_in_3" />
+                <channel name="r_ExtractionAlternatorTempSwitch" wire="digital_in_4" />
+                <channel name="c_ExtractionEnable" wire="digital_out_1"/>
+                <channel name="c_ExtractionFastInterlockEnable" wire="digital_out_2" />
+              </channels>
+            </board>
+            <board type="M10" name="ExtractionSuppresion" address="2">
+              <channels>
+                <channel name="r_ExtractionSuppressionI" wire="analog_in_1" scaleB="0.002" units="A"/>
+                <channel name="r_ExtractionSuppressionV" wire="analog_in_2" scaleB="-500" units="V"/>
+                <channel name="c_ExtractionSuppressionV" wire="analog_out_2" scaleB="-500" units="V"/>
+                <channel name="c_ExtractionSuppressionEnable" wire="digital_out_1" />
+              </channels>
+            </board>
+            <board type="M10" name="Accel3" address="3">
+              <channels>
+                <channel name="r_Accel3I" wire="analog_in_1" scaleB="0.0125" units="A"/>
+                <channel name="r_Accel3V" wire="analog_in_2" scaleB="8000" units="V" />
+                <channel name="c_Accel3V" wire="analog_out_2" scaleB="8000" units="V" />
+                <channel name="r_Accel3Fault" wire="digital_in_1" />
+                <channel name="r_Accel3ArcMonitor" wire="digital_in_2" />
+                <channel name="r_Accel3InterlockMonitor" wire="digital_in_3" />
+                <channel name="r_Alternator3TempSwitch" wire="digital_in_4" />
+                <channel name="c_Accel3HVEnable" wire="digital_out_1"/>
+                <channel name="c_Accel3InterlockEnable" wire="digital_out_2" />
+              </channels>
+            </board>
+            <board type="M10" name="Accel6" address="4" >
+              <channels>
+                <channel name="r_Accel6I" wire="analog_in_1" scaleB="0.0125" units="A"/>
+                <channel name="r_Accel6V" wire="analog_in_2" scaleB="8000" units="V"/>
+                <channel name="c_Accel6V" wire="analog_out_2" scaleB="8000" units="V"/>
+                <channel name="r_Accel6Fault" wire="digital_in_1" />
+                <channel name="r_Accel6ArcMonitor" wire="digital_in_2" />
+                <channel name="r_Accel6InterlockMonitor" wire="digital_in_3" />
+                <channel name="r_Alternator6TempSwitch" wire="digital_in_4" />
+                <channel name="c_Accel6HVEnable" wire="digital_out_1" />
+                <channel name="c_Accel6InterlockEnable" wire="digital_out_2" />
+              </channels>
+            </board>
+            <board type="M10" name="Accel9" address="5">
+              <channels>
+                <channel name="r_Accel9I" wire="analog_in_1" scaleB="0.0125" units="A"/>
+                <channel name="r_Accel9V" wire="analog_in_2" scaleB="8000" units="V"/>
+                <channel name="c_Accel9V" wire="analog_out_2" scaleB="8000" units="V"/>
+                <channel name="r_Accel9Fault" wire="digital_in_1" />
+                <channel name="r_Accel9ArcMonitor" wire="digital_in_2" />
+                <channel name="r_Accel9InterlockMonitor" wire="digital_in_3" />
+                <channel name="r_Alternator9TempSwitch" wire="digital_in_4" />
+                <channel name="c_Accel9HVEnable" wire="digital_out_1" />
+                <channel name="c_Accel9InterlockEnable" wire="digital_out_2" />
+              </channels>
+            </board>
+            <board type="M10" name="Accel8" address="8">
+              <channels>
+                <channel name="r_Accel8I" wire="analog_in_1" scaleB="0.0125" units="A"/>
+                <channel name="r_Accel8V" wire="analog_in_2" scaleB="8000" units="V"/>
+                <channel name="c_Accel8V" wire="analog_out_2" scaleB="8000" units="V"/>
+                <channel name="r_Accel8Fault" wire="digital_in_1" />
+                <channel name="r_Accel8ArcMonitor" wire="digital_in_2" />
+                <channel name="r_Accel8InterlockMonitor" wire="digital_in_3" />
+                <channel name="r_Alternator8TempSwitch" wire="digital_in_4" />
+                <channel name="c_Accel8HVEnable" wire="digital_out_1" />
+                <channel name="c_Accel8InterlockEnable" wire="digital_out_2" />
+              </channels>
+            </board>
+            <board type="M10" name="Accel11" address="9">
+              <channels>
+                <channel name="r_Accel11I" wire="analog_in_1" scaleB="0.0125" units="A"/>
+                <channel name="r_Accel11V" wire="analog_in_2" scaleB="8000" units="V"/>
+                <channel name="c_Accel11V" wire="analog_out_2" scaleB="8000" units="V"/>
+                <channel name="r_Accel11Fault" wire="digital_in_1" />
+                <channel name="r_Accel11ArcMonitor" wire="digital_in_2" />
+                <channel name="r_Accel11InterlockMonitor" wire="digital_in_3" />
+                <channel name="r_Alternator11TempSwitch" wire="digital_in_4" />
+                <channel name="c_Accel11HVEnable" wire="digital_out_1" />
+                <channel name="c_Accel11InterlockEnable" wire="digital_out_2" />
+              </channels>
+            </board>
+            <board type="M10" name="Accel14" address="10">
+              <channels>
+                <channel name="r_Accel14I" wire="analog_in_1" scaleB="0.0125" units="A"/>
+                <channel name="r_Accel14V" wire="analog_in_2" scaleB="8000" units="V"/>
+                <channel name="c_Accel14V" wire="analog_out_2" scaleB="8000" units="V"/>
+                <channel name="r_Accel14Fault" wire="digital_in_1" />
+                <channel name="r_Accel14ArcMonitor" wire="digital_in_2" />
+                <channel name="r_Accel14InterlockMonitor" wire="digital_in_3" />
+                <channel name="r_Alternator14TempSwitch" wire="digital_in_4" />
+                <channel name="c_Accel14HVEnable" wire="digital_out_1" />
+                <channel name="c_Accel14InterlockEnable" wire="digital_out_2" />
+              </channels>
+            </board>	   
+            <board type="M10" name="Accel1" address="11">
+              <channels>
+                <channel name="r_Accel1I" wire="analog_in_1" scaleB="0.0125" units="A"/>
+                <channel name="r_Accel1V" wire="analog_in_2" scaleB="8000" units="V"/>
+                <channel name="c_Accel1V" wire="analog_out_2" scaleB="8000" units="V"/>
+                <channel name="r_Accel1Fault" wire="digital_in_1" />
+                <channel name="r_Accel1ArcMonitor" wire="digital_in_2" />
+                <channel name="r_Accel1InterlockMonitor" wire="digital_in_3" />
+                <channel name="r_Alternator1TempSwitch" wire="digital_in_4" />
+                <channel name="c_Accel1HVEnable" wire="digital_out_1" />
+                <channel name="c_Accel1InterlockEnable" wire="digital_out_2" />
+              </channels>
+            </board>
+            <board type="M10" name="Accel4" address="12">
+              <channels>
+                <channel name="r_Accel4I" wire="analog_in_1" scaleB="0.0125" units="A"/>
+                <channel name="r_Accel4V" wire="analog_in_2" scaleB="8000" units="V"/>
+                <channel name="c_Accel4V" wire="analog_out_2" scaleB="8000" units="V"/>
+                <channel name="r_Accel4Fault" wire="digital_in_1" />
+                <channel name="r_Accel4ArcMonitor" wire="digital_in_2" />
+                <channel name="r_Accel4InterlockMonitor" wire="digital_in_3" />
+                <channel name="r_Alternator4TempSwitch" wire="digital_in_4" />
+                <channel name="c_Accel4HVEnable" wire="digital_out_1" />
+                <channel name="c_Accel4InterlockEnable" wire="digital_out_2" />
+              </channels>
+            </board>
+            <board type="M10" name="Accel7" address="13">
+              <channels>
+                <channel name="r_Accel7I" wire="analog_in_1" scaleB="0.0125" units="A"/>
+                <channel name="r_Accel7V" wire="analog_in_2" scaleB="8000" units="V"/>
+                <channel name="c_Accel7V" wire="analog_out_2" scaleB="8000" units="V"/>
+                <channel name="r_Accel7Fault" wire="digital_in_1" />
+                <channel name="r_Accel7ArcMonitor" wire="digital_in_2" />
+                <channel name="r_Accel7InterlockMonitor" wire="digital_in_3" />
+                <channel name="r_Alternator7TempSwitch" wire="digital_in_4" />
+                <channel name="c_Accel7HVEnable" wire="digital_out_1" />
+                <channel name="c_Accel7InterlockEnable" wire="digital_out_2" />
+              </channels>
+            </board>
+            <board type="M10" name="Accel10" address="14">
+              <channels>
+                <channel name="r_Accel10I" wire="analog_in_1" scaleB="0.0125" units="A"/>
+                <channel name="r_Accel10V" wire="analog_in_2" scaleB="8000" units="V"/>
+                <channel name="c_Accel10V" wire="analog_out_2" scaleB="1" units="V"/>
+                <channel name="r_Accel10Fault" wire="digital_in_1" />
+                <channel name="r_Accel10ArcMonitor" wire="digital_in_2" />
+                <channel name="r_Accel10InterlockMonitor" wire="digital_in_3" />
+                <channel name="r_Alternator10TempSwitch" wire="digital_in_4" />
+                <channel name="c_Accel10HVEnable" wire="digital_out_1" />
+                <channel name="c_Accel10InterlockEnable" wire="digital_out_2" />
+              </channels>
+            </board>
+            <board type="M10" name="Accel13" address="15">
+              <channels>
+                <channel name="r_Accel13I" wire="analog_in_1" scaleB="0.0125" units="A"/>
+                <channel name="r_Accel13V" wire="analog_in_2" scaleB="8000" units="V"/>
+                <channel name="c_Accel13V" wire="analog_out_2" scaleB="8000" units="V"/>
+                <channel name="r_Accel13Fault" wire="digital_in_1" />
+                <channel name="r_Accel13ArcMonitor" wire="digital_in_2" />
+                <channel name="r_Accel13InterlockMonitor" wire="digital_in_3" />
+                <channel name="r_Alternator13TempSwitch" wire="digital_in_4" />
+                <channel name="c_Accel13HVEnable" wire="digital_out_1" />
+                <channel name="c_Accel13InterlockEnable" wire="digital_out_2" />
+              </channels>
+            </board>	   
+          </boards>
+        </loop>
+		
+<!-- A1:LOOP4 ************************************************************************************************************** -->
+        <loop number="4" name="aciloop">
+          <boards>
+			<board type="M40" name="m40_mbc" address="4">
+              <channels>
+                <channel name="c_m40_mbcaout1" wire="analog_out_1" />
+                <channel name="c_m40_mbcaout2" wire="analog_out_2" />
+                <channel name="c_m40_mbcaout3" wire="analog_out_3" />
+                <channel name="c_m40_mbcaout4" wire="analog_out_4" />
+                <channel name="c_m40_mbcaout5" wire="analog_out_5" />
+                <channel name="c_m40_mbcaout6" wire="analog_out_6" />
+                <channel name="c_m40_mbcaout7" wire="analog_out_7" />
+                <channel name="c_m40_mbcaout8" wire="analog_out_8" />
+                <channel name="r_m40_mbcain1" wire="analog_in_1" />
+                <channel name="r_m40_mbcain2" wire="analog_in_2" />
+                <channel name="r_m40_mbcain3" wire="analog_in_3" />
+                <channel name="r_m40_mbcain4" wire="analog_in_4" />
+                <channel name="r_m40_mbcain5" wire="analog_in_5" />
+                <channel name="r_m40_mbcain6" wire="analog_in_6" />
+                <channel name="r_m40_mbcain7" wire="analog_in_7" />
+                <channel name="r_m40_mbcain8" wire="analog_in_8" />
+                <channel name="r_m40_mbcdin1" wire="digital_in_1" />
+                <channel name="r_m40_mbcdin2" wire="digital_in_2" />
+                <channel name="r_m40_mbcdin3" wire="digital_in_3" />
+                <channel name="r_m40_mbcdin4" wire="digital_in_4" />
+                <channel name="r_m40_mbcdin5" wire="digital_in_5" />
+                <channel name="r_m40_mbcdin6" wire="digital_in_6" />
+                <channel name="r_m40_mbcdin7" wire="digital_in_7" />
+                <channel name="r_m40_mbcdin8" wire="digital_in_8" />
+                <channel name="c_m40_mbcdout1" wire="digital_out_1" />
+                <channel name="c_m40_mbcdout2" wire="digital_out_2" />
+                <channel name="c_m40_mbcdout3" wire="digital_out_3" />
+                <channel name="c_m40_mbcdout4" wire="digital_out_4" />
+                <channel name="c_m40_mbcdout5" wire="digital_out_5" />
+                <channel name="c_m40_mbcdout6" wire="digital_out_6" />
+                <channel name="c_m40_mbcdout7" wire="digital_out_7" />
+                <channel name="c_m40_mbcdout8" wire="digital_out_8" />
+              </channels>
+            </board> 
+			<board type="M40" name="m40_bsc" address="5">
+              <channels>
+                <channel name="c_m40_bscaout1" wire="analog_out_1" />
+                <channel name="c_m40_bscaout2" wire="analog_out_2" />
+                <channel name="c_m40_bscaout3" wire="analog_out_3" />
+                <channel name="c_m40_bscaout4" wire="analog_out_4" />
+                <channel name="c_m40_bscaout5" wire="analog_out_5" />
+                <channel name="c_m40_bscaout6" wire="analog_out_6" />
+                <channel name="c_m40_bscaout7" wire="analog_out_7" />
+                <channel name="c_m40_bscaout8" wire="analog_out_8" />
+                <channel name="r_m40_bscain1" wire="analog_in_1" />
+                <channel name="r_m40_bscain2" wire="analog_in_2" />
+                <channel name="r_m40_bscain3" wire="analog_in_3" />
+                <channel name="r_m40_bscain4" wire="analog_in_4" />
+                <channel name="r_m40_bscain5" wire="analog_in_5" />
+                <channel name="r_m40_bscain6" wire="analog_in_6" />
+                <channel name="r_m40_bscain7" wire="analog_in_7" />
+                <channel name="r_m40_bscain8" wire="analog_in_8" />
+                <channel name="r_m40_bscdin1" wire="digital_in_1" />
+                <channel name="r_m40_bscdin2" wire="digital_in_2" />
+                <channel name="r_m40_bscdin3" wire="digital_in_3" />
+                <channel name="r_m40_bscdin4" wire="digital_in_4" />
+                <channel name="r_m40_bscdin5" wire="digital_in_5" />
+                <channel name="r_m40_bscdin6" wire="digital_in_6" />
+                <channel name="r_m40_bscdin7" wire="digital_in_7" />
+                <channel name="r_m40_bscdin8" wire="digital_in_8" />
+                <channel name="c_m40_bscdout1" wire="digital_out_1" />
+                <channel name="c_m40_bscdout2" wire="digital_out_2" />
+                <channel name="c_m40_bscdout3" wire="digital_out_3" />
+                <channel name="c_m40_bscdout4" wire="digital_out_4" />
+                <channel name="c_m40_bscdout5" wire="digital_out_5" />
+                <channel name="c_m40_bscdout6" wire="digital_out_6" />
+                <channel name="c_m40_bscdout7" wire="digital_out_7" />
+                <channel name="c_m40_bscdout8" wire="digital_out_8" />
+              </channels>
+            </board>   					  
+          </boards>
+        </loop>  					
+        
+		<!-- A1:LOOP5 ************************************************************************************************************** -->
+        <loop number="5" name="matsusadaloop">
+          <boards>
+            <board type="M10" name="matsusada_control" address="6">
+              <channels>
+                <channel name="c_matsusada_current" wire="analog_out_1" units="A"/>
+              	<channel name="r_matsusada_current" wire="analog_in_1" units="A"/>
+                <channel name="r_matsusada_voltage" wire="analog_in_2" units="V"/>
+                <channel name="r_matsusada_thermalok" wire="digital_in_1" />
+                <channel name="r_matsusada_currentcontrol" wire="digital_in_2" />
+                <channel name="r_matsusada_supplyon" wire="digital_in_3" />
+                <channel name="r_matsusada_fault" wire="digital_in_4" />
+                <channel name="c_matsusada_remote" wire="digital_out_2" />
+                <channel name="c_matsusada_reset" wire="digital_out_3" />
+              </channels>
+            </board>
+            <board type="I3200" name="bpm_control" address="9">
+			  <configurations>
+			    <configuration name="period" value="100e-6" />
+				<configuration name="capacitor" value="0" />
+                <configuration name="triggerSource" value="1" />
+                <configuration name="bias" value="500" />
+			  </configurations>			
+              <channels>
+                <channel name="testi3200_in_bias" wire="analog_in_bias" />
+                <channel name="testi3200_in_measuring" wire="digital_in_measuring" />
+                <channel name="testi3200_in_actuatorA" wire="digital_in_actuator_limitA" />
+                <channel name="testi3200_in_actuatorB" wire="digital_in_actuator_limitB" />
+                <channel name="testi3200_in_current" wire="variant_in_current" />
+                <channel name="testi3200_out_bias" wire="analog_out_bias" />
+                <channel name="testi3200_out_actuator" wire="digital_out_actuator" />
+                <channel name="testi3200_out_capacitor" wire="int_out_capacitor" />
+                <channel name="testi3200_out_initiate" wire="digital_out_initiate" />
+                <channel name="testi3200_out_period" wire="analog_out_period" />
+              </channels>
+            </board>            
+          </boards>
+        </loop>      	
+		
+		<!-- A1:LOOP4 ************************************************************************************************************** -->
+        <loop number="4" name="bpm3loop">
+          <boards>
+            <board type="I3200" name="bpm_control4" address="3">
+            </board>        
+            <board type="I3200" name="bpm_control5" address="4">
+            </board>  			
+          </boards>
+        </loop>  			
+        
+      </loops>
+    </loopcontroller>
+  </loopcontrollers>
+  <interpreter>
+    <devices>
+	
+	<bls2100 name="bls_1" type="bls2100" 
+		imon_rdbk="r_m40_mbcain1" vmon1_rdbk="r_m40_mbcain1" vmon2_rdbk="r_m40_mbcain1" 
+		statusok_rdbk="r_m40_mbcdin1" tempalarm_rdbk="r_m40_mbcdin1" switchon_rdbk="r_m40_mbcdin1" 
+		temptrip_rdbk="r_m40_mbcdin1" switchoff_rdbk="r_m40_mbcdin1"
+		oktoswitch_rdbk="r_m40_mbcdin1" dooropen_rdbk="r_m40_mbcdin1" 
+		turnoff_cmd="c_m40_mbcdout1" oktoswitch_cmd="c_m40_mbcdout1"
+		turnon_cmd="c_m40_mbcdout1" switch1on_cmd="c_m40_mbcdout1" 
+		switch2on_cmd="c_m40_mbcdout1" switch3on_cmd="c_m40_mbcdout1" 
+		switch4on_cmd="c_m40_mbcdout1" >
+		<channels>
+			<channel name="bls_1_c_switch_seq" wire="digital_out_switch_seq" />
+			<channel name="bls_1_r_imon" wire="analog_in_imon" />
+			<channel name="bls_1_r_vmon1" wire="analog_in_vmon1" />
+			<channel name="bls_1_r_vmon2" wire="analog_in_vmon2" />
+			<channel name="bls_1_r_statusok" wire="digital_in_statusok" />
+			<channel name="bls_1_r_tempalarm" wire="digital_in_tempalarm" />
+			<channel name="bls_1_r_switchon" wire="digital_in_switchon" />
+			<channel name="bls_1_r_temptrip" wire="digital_in_temptrip" />
+			<channel name="bls_1_r_switchoff" wire="digital_in_switchoff" />
+			<channel name="bls_1_r_oktoswitch" wire="digital_in_oktoswitch" />
+			<channel name="bls_1_r_dooropen" wire="digital_in_dooropen" />
+			<channel name="bls_1_c_turnoff" wire="digital_out_turnoff" />
+			<channel name="bls_1_c_oktoswitch" wire="digital_out_oktoswitch" />
+			<channel name="bls_1_c_turnon" wire="digital_out_turnon" />
+			<channel name="bls_1_c_switch1on" wire="digital_out_switch1on" />
+			<channel name="bls_1_c_switch2on" wire="digital_out_switch2on" />
+			<channel name="bls_1_c_switch3on" wire="digital_out_switch3on" />
+			<channel name="bls_1_c_switch4on" wire="digital_out_switch4on" />
+			<channel name="bls_1_c_switch_seq" wire="digital_out_switch_seq" />
+		</channels>
+	</bls2100>
+	
+	<accelci name="aci_1" type="accelci" ip="192.168.100.121" port="100" timeout="100" 
+		mbc_current_cmded_0="r_m40_mbcain1" mbc_charge_remain_0="r_m40_mbcain2" 
+		mbc_current_cmd_0="c_m40_mbcdout1" mbc_beam_enabled_0="r_m40_mbcdin1" 
+		mbc_beam_ok_0="r_m40_mbcdin2" mbc_beam_stop_in_0="r_m40_mbcdin4" 
+		mbc_beam_stop_out_0="r_m40_mbcdin5" mbc_room_selected_0="r_m40_mbcdin6" 
+		mbc_soft_intlck_fault="r_m40_mbcdin7" mbc_hard_intlck_fault="r_m40_mbcdin8" 
+		mbc_beam_stop_cmd_0="c_m40_mbcdout1" bsc_room_selected_0="r_m40_bscdin1" 
+		bsc_room_selected_1="r_m40_bscdin2" bsc_beam_stop_in_1="r_m40_bscdin3" 
+		bsc_beam_stop_out_1="r_m40_bscdin4" bsc_beam_stop_in_2="r_m40_bscdin5" 
+		ebsc_beam_stop_out_2="r_m40_bscdin6" ebsc_beam_stop_in_3="r_m40_bscdin7"
+		ebsc_beam_stop_out_3="r_m40_bscdin8" ebsc_room_select_0="c_m40_bscdout1" 
+		ebsc_room_select_1="c_m40_bscdout2" >
+		<channels>
+			<channel name="aci_1_r_functional_state" wire="int_in_functional_state" />
+			<channel name="aci_1_r_operational_state" wire="int_in_operational_state" />
+			<channel name="aci_1_r_eth_room_select_cmd" wire="int_in_eth_room_select_cmd" />
+			<channel name="aci_1_r_eth_room_select_rdbk" wire="int_in_eth_room_select_rdbk" />
+			<channel name="aci_1_r_eth_beam_ok" wire="digital_in_eth_beam_ok" />
+			<channel name="aci_1_r_eth_beam_energy" wire="digital_in_eth_beam_energy" />
+			<channel name="aci_1_r_eth_beam_enabled" wire="digital_in_eth_beam_enabled" />
+			<channel name="aci_1_r_eth_hard_intlck_fault" wire="digital_in_eth_hard_intlck_fault" />
+			<channel name="aci_1_r_eth_soft_intlck_fault" wire="digital_in_eth_soft_intlck_fault" />
+			<channel name="aci_1_r_eth_fault_24v" wire="digital_in_eth_fault_24v" />   
+			<channel name="aci_1_r_eth_beam_enable_0" wire="digital_in_eth_beam_enable_0" />   
+			<channel name="aci_1_r_eth_beam_stop_in_0" wire="digital_in_eth_beam_stop_in_0" />   
+			<channel name="aci_1_r_eth_beam_stop_out_0" wire="digital_in_eth_beam_stop_out_0" />   
+			<channel name="aci_1_r_eth_beam_stop_cmd_0" wire="digital_in_eth_beam_stop_cmd_0" />
+			<channel name="aci_1_r_eth_beam_enable_1" wire="digital_in_eth_beam_enable_1" />   
+			<channel name="aci_1_r_eth_beam_stop_in_1" wire="digital_in_eth_beam_stop_in_1" />   
+			<channel name="aci_1_r_eth_beam_stop_out_1" wire="digital_in_eth_beam_stop_out_1" />   
+			<channel name="aci_1_r_eth_beam_stop_cmd_1" wire="digital_in_eth_beam_stop_cmd_1" /> 
+			<channel name="aci_1_r_eth_beam_enable_2" wire="digital_in_eth_beam_enable_2" />   
+			<channel name="aci_1_r_eth_beam_stop_in_2" wire="digital_in_eth_beam_stop_in_2" />   
+			<channel name="aci_1_r_eth_beam_stop_out_2" wire="digital_in_eth_beam_stop_out_2" />   
+			<channel name="aci_1_r_eth_beam_stop_cmd_2" wire="digital_in_eth_beam_stop_cmd_2" />   
+			<channel name="aci_1_r_eth_beam_enable_3" wire="digital_in_eth_beam_enable_3" />   
+			<channel name="aci_1_r_eth_beam_stop_in_3" wire="digital_in_eth_beam_stop_in_3" />   
+			<channel name="aci_1_r_eth_beam_stop_out_3" wire="digital_in_eth_beam_stop_out_3" />   
+			<channel name="aci_1_r_eth_beam_stop_cmd_3" wire="digital_in_eth_beam_stop_cmd_3" />   
+			<channel name="aci_1_c_current_cmd_0" wire="analog_out_current_cmd_0" />
+			<channel name="aci_1_r_current_cmd_0" wire="analog_in_current_cmd_0" />
+			<channel name="aci_1_r_charge_remain_0" wire="digital_in_charge_remain_0" />
+			<channel name="aci_1_r_beam_enabled_0" wire="digital_in_beam_enabled_0" />
+			<channel name="aci_1_r_beam_ok_0" wire="digital_in_beam_ok_0" />
+			<channel name="aci_1_c_beam_stop_cmd_0" wire="digital_out_beam_stop_cmd_0" />
+			<channel name="aci_1_r_beam_stop_in_0" wire="digital_in_beam_stop_in_0" />   
+			<channel name="aci_1_r_beam_stop_out_0" wire="digital_in_beam_stop_out_0" />   		
+			<channel name="aci_1_r_room_selected_0" wire="digital_in_room_selected_0" />  
+			<channel name="aci_1_r_hard_intlck_fault" wire="digital_in_hard_intlck_fault" />
+			<channel name="aci_1_r_soft_intlck_fault" wire="digital_in_soft_intlck_fault" /> 	
+			<channel name="aci_1_c_room_select" wire="int_out_room_select" />
+			<channel name="aci_1_r_room_selected" wire="int_in_room_selected" />		
+			<channel name="aci_1_r_beam_stop_in_1" wire="digital_in_beam_stop_in_1" />   
+			<channel name="aci_1_r_beam_stop_out_1" wire="digital_in_beam_stop_out_1" />   
+			<channel name="aci_1_r_beam_stop_in_2" wire="digital_in_beam_stop_in_2" />   
+			<channel name="aci_1_r_beam_stop_out_2" wire="digital_in_beam_stop_out_2" /> 
+			<channel name="aci_1_r_beam_stop_in_3" wire="digital_in_beam_stop_in_3" />   
+			<channel name="aci_1_r_beam_stop_out_3" wire="digital_in_beam_stop_out_3" />   				
+		</channels>
+	</accelci>		
+
+	<ilockci name="ici_1" type="ilockci" ip="192.168.100.122" port="100" timeout="100" >
+		<channels>
+			<channel name="ici_1_r_functional_state" wire="int_in_functional_state" />
+			<channel name="ici_1_r_operational_state" wire="int_in_operational_state" />
+			<channel name="ici_1_r_room_selected" wire="int_in_room_selected" />
+			<channel name="ici_1_r_bottom_connect" wire="digital_in_bottom_connect" />
+			<channel name="ici_1_r_top_connect" wire="digital_in_top_connect" />
+			<channel name="ici_1_r_soft_intlck_out_a" wire="digital_in_soft_intlck_out_a" />
+			<channel name="ici_1_r_soft_intlck_out_b" wire="digital_in_soft_intlck_out_b" />      
+			<channel name="ici_1_r_hard_intlck_out_a" wire="digital_in_hard_intlck_out_a" />
+			<channel name="ici_1_r_hard_intlck_out_b" wire="digital_in_hard_intlck_out_b" />    
+			<channel name="ici_1_r_soft_intlck_0_a" wire="digital_in_soft_intlck_0_a" />
+			<channel name="ici_1_r_soft_intlck_0_b" wire="digital_in_soft_intlck_0_b" />   
+			<channel name="ici_1_r_soft_intlck_1_a" wire="digital_in_soft_intlck_1_a" />
+			<channel name="ici_1_r_soft_intlck_1_b" wire="digital_in_soft_intlck_1_b" />   		
+			<channel name="ici_1_r_soft_intlck_2_a" wire="digital_in_soft_intlck_2_a" />
+			<channel name="ici_1_r_soft_intlck_2_b" wire="digital_in_soft_intlck_2_b" />   	
+			<channel name="ici_1_r_soft_intlck_3_a" wire="digital_in_soft_intlck_3_a" />
+			<channel name="ici_1_r_soft_intlck_3_b" wire="digital_in_soft_intlck_3_b" />   
+			<channel name="ici_1_r_hard_intlck_0_a" wire="digital_in_hard_intlck_0_a" />
+			<channel name="ici_1_r_hard_intlck_0_b" wire="digital_in_hard_intlck_0_b" />   
+			<channel name="ici_1_r_hard_intlck_1_a" wire="digital_in_hard_intlck_1_a" />
+			<channel name="ici_1_r_hard_intlck_1_b" wire="digital_in_hard_intlck_1_b" />   		
+			<channel name="ici_1_r_hard_intlck_2_a" wire="digital_in_hard_intlck_2_a" />
+			<channel name="ici_1_r_hard_intlck_2_b" wire="digital_in_hard_intlck_2_b" />   	
+			<channel name="ici_1_r_hard_intlck_3_a" wire="digital_in_hard_intlck_3_a" />
+			<channel name="ici_1_r_hard_intlck_3_b" wire="digital_in_hard_intlck_3_b" />   
+			<channel name="ici_1_r_hard_intlck_pps_a" wire="digital_in_hard_intlck_pps_a" />
+			<channel name="ici_1_r_hard_intlck_pps_b" wire="digital_in_hard_intlck_pps_b" />   		
+			<channel name="ici_1_r_hard_intlck_facility_a" wire="digital_in_hard_intlck_facility_a" />
+			<channel name="ici_1_r_hard_intlck_facility_b" wire="digital_in_hard_intlck_facility_b" /> 
+			<channel name="ici_1_r_fault_24v" wire="digital_in_fault_24v" />   			
+		</channels>
+	</ilockci>	
+	
+	  <script name="python1" type="script" > 
+		<channels>
+			<channel name="c_run_python_script1" wire="string_out_run_script_file" />
+			<channel name="c_stop_python_script1" wire="digital_out_stop_script" />      
+			<channel name="r_python1_script_running" wire="string_in_script_running" />
+		</channels>
+	  </script>
+	  
+	  <script name="python2" type="script" > 
+		<channels>
+			<channel name="c_run_python_script2" wire="string_out_run_script_file" />
+			<channel name="r_python2_script_running" wire="string_in_script_running" />
+		</channels>
+	  </script> 	
+
+      <supply type="biracrate" name="biracrate1"
+              hardinterlockmode="r_m40_3din1" softinterlockmode="r_m40_3din2"
+              interlockfault="r_m40_4din1" crateenable="r_m40_4din2"
+              softwareenable="c_m40_4dout1" crateok="r_m40_3din8"
+              resetbus="c_m40_3dout2" >
+        <supplies>
+          <supply type="birasupply" name="XEV0"
+                  dac1="c_m40_1aout1" adc1="r_m40_1ain1"
+                  adc2="r_m40_3ain1" digin1="r_m40_1din1" >
+            <channels>
+              <!-- y = Bx + C, where y=user units, and x=device units -->
+              <channel name="c_XEV0_current" wire="analog_out_current" scaleB="1" limitLow="-10" limitHigh="10" units="A" />
+              <channel name="c_XEV0_enable" wire="digital_out_enable" />
+              <channel name="r_XEV0_current" wire="analog_in_current" scaleB="1" units="A" />
+              <channel name="r_XEV0_voltage" wire="analog_in_voltage" scaleB="1" units="V" />
+              <channel name="r_XEV0_coiltemp" wire="digital_in_coiltemp" />
+              <channel name="r_XEV0_limit" wire="digital_in_limit" />
+              <channel name="r_XEV0_open" wire="digital_in_open" />
+              <channel name="r_XEV0_fault" wire="digital_in_fault" />
+              <channel name="r_XEV0_enabled" wire="int_in_enabled" />
+            </channels>
+          </supply>
+          <supply type="birasupply" name="XEV1"
+                  dac1="c_m40_1aout1" adc1="r_m40_1ain1"
+                  adc2="r_m40_3ain1" digin1="r_m40_1din1" >
+            <channels>
+              <!-- y = Bx + C, where y=user units, and x=device units -->
+              <channel name="c_XEV1_current" wire="analog_out_current" scaleB="1" limitLow="-10" limitHigh="10" units="A" />
+              <channel name="c_XEV1_enable" wire="digital_out_enable" />
+              <channel name="r_XEV1_current" wire="analog_in_current" scaleB="1" units="A" />
+              <channel name="r_XEV1_voltage" wire="analog_in_voltage" scaleB="1" units="V" />
+              <channel name="r_XEV1_coiltemp" wire="digital_in_coiltemp" />
+              <channel name="r_XEV1_limit" wire="digital_in_limit" />
+              <channel name="r_XEV1_open" wire="digital_in_open" />
+              <channel name="r_XEV1_fault" wire="digital_in_fault" />
+              <channel name="r_XEV1_enabled" wire="int_in_enabled" />
+            </channels>
+          </supply>
+          <supply type="birasupply" name="XEV2"
+                  dac1="c_m40_1aout1" adc1="r_m40_1ain1"
+                  adc2="r_m40_3ain1" digin1="r_m40_1din1" >
+            <channels>
+              <!-- y = Bx + C, where y=user units, and x=device units -->
+              <channel name="c_XEV2_current" wire="analog_out_current" scaleB="1" limitLow="-10" limitHigh="10" units="A" />
+              <channel name="c_XEV2_enable" wire="digital_out_enable" />
+              <channel name="r_XEV2_current" wire="analog_in_current" scaleB="1" units="A" />
+              <channel name="r_XEV2_voltage" wire="analog_in_voltage" scaleB="1" units="V" />
+              <channel name="r_XEV2_coiltemp" wire="digital_in_coiltemp" />
+              <channel name="r_XEV2_limit" wire="digital_in_limit" />
+              <channel name="r_XEV2_open" wire="digital_in_open" />
+              <channel name="r_XEV2_fault" wire="digital_in_fault" />
+              <channel name="r_XEV2_enabled" wire="int_in_enabled" />
+            </channels>
+          </supply>
+          <supply type="birasupply" name="XEV3"
+                  dac1="c_m40_1aout1" adc1="r_m40_1ain1"
+                  adc2="r_m40_3ain1" digin1="r_m40_1din1" >
+            <channels>
+              <!-- y = Bx + C, where y=user units, and x=device units -->
+              <channel name="c_XEV3_current" wire="analog_out_current" scaleB="1" limitLow="-10" limitHigh="10" units="A" />
+              <channel name="c_XEV3_enable" wire="digital_out_enable" />
+              <channel name="r_XEV3_current" wire="analog_in_current" scaleB="1" units="A" />
+              <channel name="r_XEV3_voltage" wire="analog_in_voltage" scaleB="1" units="V" />
+              <channel name="r_XEV3_coiltemp" wire="digital_in_coiltemp" />
+              <channel name="r_XEV3_limit" wire="digital_in_limit" />
+              <channel name="r_XEV3_open" wire="digital_in_open" />
+              <channel name="r_XEV3_fault" wire="digital_in_fault" />
+              <channel name="r_XEV3_enabled" wire="int_in_enabled" />
+            </channels>
+          </supply>
+          <supply type="birasupply" name="XBM3"
+                  dac1="c_m40_1aout1" adc1="r_m40_1ain1"
+                  adc2="r_m40_3ain1" digin1="r_m40_1din1" >
+            <channels>
+              <!-- y = Bx + C, where y=user units, and x=device units -->
+              <channel name="c_XBM3_current" wire="analog_out_current" scaleB="1" limitLow="-10" limitHigh="10" units="A" />
+              <channel name="c_XBM3_enable" wire="digital_out_enable" />
+              <channel name="r_XBM3_current" wire="analog_in_current" scaleB="1" units="A" />
+              <channel name="r_XBM3_voltage" wire="analog_in_voltage" scaleB="1" units="V" />
+              <channel name="r_XBM3_coiltemp" wire="digital_in_coiltemp" />
+              <channel name="r_XBM3_limit" wire="digital_in_limit" />
+              <channel name="r_XBM3_open" wire="digital_in_open" />
+              <channel name="r_XBM3_fault" wire="digital_in_fault" />
+              <channel name="r_XBM3_enabled" wire="int_in_enabled" />
+            </channels>
+          </supply>
+          <supply type="birasupply" name="XBM4"
+                  dac1="c_m40_1aout1" adc1="r_m40_1ain1"
+                  adc2="r_m40_3ain1" digin1="r_m40_1din1" >
+            <channels>
+              <!-- y = Bx + C, where y=user units, and x=device units -->
+              <channel name="c_XBM4_current" wire="analog_out_current" scaleB="1" limitLow="-10" limitHigh="10" units="A" />
+              <channel name="c_XBM4_enable" wire="digital_out_enable" />
+              <channel name="r_XBM4_current" wire="analog_in_current" scaleB="1" units="A" />
+              <channel name="r_XBM4_voltage" wire="analog_in_voltage" scaleB="1" units="V" />
+              <channel name="r_XBM4_coiltemp" wire="digital_in_coiltemp" />
+              <channel name="r_XBM4_limit" wire="digital_in_limit" />
+              <channel name="r_XBM4_open" wire="digital_in_open" />
+              <channel name="r_XBM4_fault" wire="digital_in_fault" />
+              <channel name="r_XBM4_enabled" wire="int_in_enabled" />
+            </channels>
+          </supply>
+          <supply type="birasupply" name="XEH0"
+                  dac1="c_m40_1aout1" adc1="r_m40_1ain1"
+                  adc2="r_m40_3ain1" digin1="r_m40_1din1" >
+            <channels>
+              <!-- y = Bx + C, where y=user units, and x=device units -->
+              <channel name="c_XEH0_current" wire="analog_out_current" scaleB="1" limitLow="-10" limitHigh="10" units="A" />
+              <channel name="c_XEH0_enable" wire="digital_out_enable" />
+              <channel name="r_XEH0_current" wire="analog_in_current" scaleB="1" units="A" />
+              <channel name="r_XEH0_voltage" wire="analog_in_voltage" scaleB="1" units="V" />
+              <channel name="r_XEH0_coiltemp" wire="digital_in_coiltemp" />
+              <channel name="r_XEH0_limit" wire="digital_in_limit" />
+              <channel name="r_XEH0_open" wire="digital_in_open" />
+              <channel name="r_XEH0_fault" wire="digital_in_fault" />
+              <channel name="r_XEH0_enabled" wire="int_in_enabled" />
+            </channels>
+          </supply>
+          <supply type="birasupply" name="XEH1"
+                  dac1="c_m40_1aout1" adc1="r_m40_1ain1"
+                  adc2="r_m40_3ain1" digin1="r_m40_1din1" >
+            <channels>
+              <!-- y = Bx + C, where y=user units, and x=device units -->
+              <channel name="c_XEH1_current" wire="analog_out_current" scaleB="1" limitLow="-10" limitHigh="10" units="A" />
+              <channel name="c_XEH1_enable" wire="digital_out_enable" />
+              <channel name="r_XEH1_current" wire="analog_in_current" scaleB="1" units="A" />
+              <channel name="r_XEH1_voltage" wire="analog_in_voltage" scaleB="1" units="V" />
+              <channel name="r_XEH1_coiltemp" wire="digital_in_coiltemp" />
+              <channel name="r_XEH1_limit" wire="digital_in_limit" />
+              <channel name="r_XEH1_open" wire="digital_in_open" />
+              <channel name="r_XEH1_fault" wire="digital_in_fault" />
+              <channel name="r_XEH1_enabled" wire="int_in_enabled" />
+            </channels>
+          </supply>
+          <supply type="birasupply" name="XEH2"
+                  dac1="c_m40_1aout1" adc1="r_m40_1ain1"
+                  adc2="r_m40_3ain1" digin1="r_m40_1din1" >
+            <channels>
+              <!-- y = Bx + C, where y=user units, and x=device units -->
+              <channel name="c_XEH2_current" wire="analog_out_current" scaleB="1" limitLow="-10" limitHigh="10" units="A" />
+              <channel name="c_XEH2_enable" wire="digital_out_enable" />
+              <channel name="r_XEH2_current" wire="analog_in_current" scaleB="1" units="A" />
+              <channel name="r_XEH2_voltage" wire="analog_in_voltage" scaleB="1" units="V" />
+              <channel name="r_XEH2_coiltemp" wire="digital_in_coiltemp" />
+              <channel name="r_XEH2_limit" wire="digital_in_limit" />
+              <channel name="r_XEH2_open" wire="digital_in_open" />
+              <channel name="r_XEH2_fault" wire="digital_in_fault" />
+              <channel name="r_XEH2_enabled" wire="int_in_enabled" />
+            </channels>
+          </supply>		  
+          <supply type="birasupply" name="AEV1"
+                  dac1="c_m40_1aout1" adc1="r_m40_1ain1"
+                  adc2="r_m40_3ain1" digin1="r_m40_1din1" >
+            <channels>
+              <!-- y = Bx + C, where y=user units, and x=device units -->
+              <channel name="c_AEV1_current" wire="analog_out_current" scaleB="1" limitLow="-10" limitHigh="10" units="A" />
+              <channel name="c_AEV1_enable" wire="digital_out_enable" />
+              <channel name="r_AEV1_current" wire="analog_in_current" scaleB="1" units="A" />
+              <channel name="r_AEV1_voltage" wire="analog_in_voltage" scaleB="1" units="V" />
+              <channel name="r_AEV1_coiltemp" wire="digital_in_coiltemp" />
+              <channel name="r_AEV1_limit" wire="digital_in_limit" />
+              <channel name="r_AEV1_open" wire="digital_in_open" />
+              <channel name="r_AEV1_fault" wire="digital_in_fault" />
+              <channel name="r_AEV1_enabled" wire="int_in_enabled" />
+            </channels>
+          </supply>
+          <supply type="birasupply" name="BEV1"
+                  dac1="c_m40_1aout2" adc1="r_m40_1ain2"
+                  adc2="r_m40_3ain2" digin1="r_m40_1din2" >
+            <channels>
+              <!-- y = Bx + C, where y=user units, and x=device units -->
+              <channel name="c_BEV1_current" wire="analog_out_current" scaleB="1" limitLow="-10" limitHigh="10" units="A" />
+              <channel name="c_BEV1_enable" wire="digital_out_enable" />
+              <channel name="r_BEV1_current" wire="analog_in_current" scaleB="1" units="A" />
+              <channel name="r_BEV1_voltage" wire="analog_in_voltage" scaleB="1" units="V" />
+              <channel name="r_BEV1_coiltemp" wire="digital_in_coiltemp" />
+              <channel name="r_BEV1_limit" wire="digital_in_limit" />
+              <channel name="r_BEV1_open" wire="digital_in_open" />
+              <channel name="r_BEV1_fault" wire="digital_in_fault" />
+              <channel name="r_BEV1_enabled" wire="int_in_enabled" />
+            </channels>
+          </supply>  
+          <supply type="birasupply" name="BEV2"
+                  dac1="c_m40_1aout2" adc1="r_m40_1ain2"
+                  adc2="r_m40_3ain2" digin1="r_m40_1din2" >
+            <channels>
+              <!-- y = Bx + C, where y=user units, and x=device units -->
+              <channel name="c_BEV2_current" wire="analog_out_current" scaleB="1" limitLow="-10" limitHigh="10" units="A" />
+              <channel name="c_BEV2_enable" wire="digital_out_enable" />
+              <channel name="r_BEV2_current" wire="analog_in_current" scaleB="1" units="A" />
+              <channel name="r_BEV2_voltage" wire="analog_in_voltage" scaleB="1" units="V" />
+              <channel name="r_BEV2_coiltemp" wire="digital_in_coiltemp" />
+              <channel name="r_BEV2_limit" wire="digital_in_limit" />
+              <channel name="r_BEV2_open" wire="digital_in_open" />
+              <channel name="r_BEV2_fault" wire="digital_in_fault" />
+              <channel name="r_BEV2_enabled" wire="int_in_enabled" />
+            </channels>
+          </supply>		
+          <supply type="birasupply" name="BEV3"
+                  dac1="c_m40_1aout2" adc1="r_m40_1ain2"
+                  adc2="r_m40_3ain2" digin1="r_m40_1din2" >
+            <channels>
+              <!-- y = Bx + C, where y=user units, and x=device units -->
+              <channel name="c_BEV3_current" wire="analog_out_current" scaleB="1" limitLow="-10" limitHigh="10" units="A" />
+              <channel name="c_BEV3_enable" wire="digital_out_enable" />
+              <channel name="r_BEV3_current" wire="analog_in_current" scaleB="1" units="A" />
+              <channel name="r_BEV3_voltage" wire="analog_in_voltage" scaleB="1" units="V" />
+              <channel name="r_BEV3_coiltemp" wire="digital_in_coiltemp" />
+              <channel name="r_BEV3_limit" wire="digital_in_limit" />
+              <channel name="r_BEV3_open" wire="digital_in_open" />
+              <channel name="r_BEV3_fault" wire="digital_in_fault" />
+              <channel name="r_BEV3_enabled" wire="int_in_enabled" />
+            </channels>
+          </supply>	
+          <supply type="birasupply" name="BEV4"
+                  dac1="c_m40_1aout2" adc1="r_m40_1ain2"
+                  adc2="r_m40_3ain2" digin1="r_m40_1din2" >
+            <channels>
+              <!-- y = Bx + C, where y=user units, and x=device units -->
+              <channel name="c_BEV4_current" wire="analog_out_current" scaleB="1" limitLow="-10" limitHigh="10" units="A" />
+              <channel name="c_BEV4_enable" wire="digital_out_enable" />
+              <channel name="r_BEV4_current" wire="analog_in_current" scaleB="1" units="A" />
+              <channel name="r_BEV4_voltage" wire="analog_in_voltage" scaleB="1" units="V" />
+              <channel name="r_BEV4_coiltemp" wire="digital_in_coiltemp" />
+              <channel name="r_BEV4_limit" wire="digital_in_limit" />
+              <channel name="r_BEV4_open" wire="digital_in_open" />
+              <channel name="r_BEV4_fault" wire="digital_in_fault" />
+              <channel name="r_BEV4_enabled" wire="int_in_enabled" />
+            </channels>
+          </supply>			  
+          <supply type="birasupply" name="BEH1"
+                  dac1="c_m40_1aout2" adc1="r_m40_1ain2"
+                  adc2="r_m40_3ain2" digin1="r_m40_1din2" >
+            <channels>
+              <!-- y = Bx + C, where y=user units, and x=device units -->
+              <channel name="c_BEH1_current" wire="analog_out_current" scaleB="1" limitLow="-10" limitHigh="10" units="A" />
+              <channel name="c_BEH1_enable" wire="digital_out_enable" />
+              <channel name="r_BEH1_current" wire="analog_in_current" scaleB="1" units="A" />
+              <channel name="r_BEH1_voltage" wire="analog_in_voltage" scaleB="1" units="V" />
+              <channel name="r_BEH1_coiltemp" wire="digital_in_coiltemp" />
+              <channel name="r_BEH1_limit" wire="digital_in_limit" />
+              <channel name="r_BEH1_open" wire="digital_in_open" />
+              <channel name="r_BEH1_fault" wire="digital_in_fault" />
+              <channel name="r_BEH1_enabled" wire="int_in_enabled" />
+            </channels>
+          </supply>	
+          <supply type="birasupply" name="BEH2"
+                  dac1="c_m40_1aout2" adc1="r_m40_1ain2"
+                  adc2="r_m40_3ain2" digin1="r_m40_1din2" >
+            <channels>
+              <!-- y = Bx + C, where y=user units, and x=device units -->
+              <channel name="c_BEH2_current" wire="analog_out_current" scaleB="1" limitLow="-10" limitHigh="10" units="A" />
+              <channel name="c_BEH2_enable" wire="digital_out_enable" />
+              <channel name="r_BEH2_current" wire="analog_in_current" scaleB="1" units="A" />
+              <channel name="r_BEH2_voltage" wire="analog_in_voltage" scaleB="1" units="V" />
+              <channel name="r_BEH2_coiltemp" wire="digital_in_coiltemp" />
+              <channel name="r_BEH2_limit" wire="digital_in_limit" />
+              <channel name="r_BEH2_open" wire="digital_in_open" />
+              <channel name="r_BEH2_fault" wire="digital_in_fault" />
+              <channel name="r_BEH2_enabled" wire="int_in_enabled" />
+            </channels>
+          </supply>	
+          <supply type="birasupply" name="BEH3"
+                  dac1="c_m40_1aout2" adc1="r_m40_1ain2"
+                  adc2="r_m40_3ain2" digin1="r_m40_1din2" >
+            <channels>
+              <!-- y = Bx + C, where y=user units, and x=device units -->
+              <channel name="c_BEH3_current" wire="analog_out_current" scaleB="1" limitLow="-10" limitHigh="10" units="A" />
+              <channel name="c_BEH3_enable" wire="digital_out_enable" />
+              <channel name="r_BEH3_current" wire="analog_in_current" scaleB="1" units="A" />
+              <channel name="r_BEH3_voltage" wire="analog_in_voltage" scaleB="1" units="V" />
+              <channel name="r_BEH3_coiltemp" wire="digital_in_coiltemp" />
+              <channel name="r_BEH3_limit" wire="digital_in_limit" />
+              <channel name="r_BEH3_open" wire="digital_in_open" />
+              <channel name="r_BEH3_fault" wire="digital_in_fault" />
+              <channel name="r_BEH3_enabled" wire="int_in_enabled" />
+            </channels>
+          </supply>			  
+          <supply type="birasupply" name="CEV1"
+                  dac1="c_m40_1aout2" adc1="r_m40_1ain2"
+                  adc2="r_m40_3ain2" digin1="r_m40_1din2" >
+            <channels>
+              <!-- y = Bx + C, where y=user units, and x=device units -->
+              <channel name="c_CEV1_current" wire="analog_out_current" scaleB="1" limitLow="-10" limitHigh="10" units="A" />
+              <channel name="c_CEV1_enable" wire="digital_out_enable" />
+              <channel name="r_CEV1_current" wire="analog_in_current" scaleB="1" units="A" />
+              <channel name="r_CEV1_voltage" wire="analog_in_voltage" scaleB="1" units="V" />
+              <channel name="r_CEV1_coiltemp" wire="digital_in_coiltemp" />
+              <channel name="r_CEV1_limit" wire="digital_in_limit" />
+              <channel name="r_CEV1_open" wire="digital_in_open" />
+              <channel name="r_CEV1_fault" wire="digital_in_fault" />
+              <channel name="r_CEV1_enabled" wire="int_in_enabled" />
+            </channels>
+          </supply>
+          <supply type="birasupply" name="BBM1_C1"
+					  dac1="c_m40_1aout2" adc1="r_m40_1ain2"
+					  adc2="r_m40_3ain2" digin1="r_m40_1din2" >
+				<channels>
+				  <!-- y = Bx + C, where y=user units, and x=device units -->
+				  <channel name="c_BBM1_C1_current" wire="analog_out_current" scaleB="1" limitLow="-10" limitHigh="10" units="A" />
+				  <channel name="c_BBM1_C1_enable" wire="digital_out_enable" />
+				  <channel name="r_BBM1_C1_current" wire="analog_in_current" scaleB="1" units="A" />
+				  <channel name="r_BBM1_C1_voltage" wire="analog_in_voltage" scaleB="1" units="V" />
+				  <channel name="r_BBM1_C1_coiltemp" wire="digital_in_coiltemp" />
+				  <channel name="r_BBM1_C1_limit" wire="digital_in_limit" />
+				  <channel name="r_BBM1_C1_open" wire="digital_in_open" />
+				  <channel name="r_BBM1_C1_fault" wire="digital_in_fault" />
+				  <channel name="r_BBM1_C1_enabled" wire="int_in_enabled" />
+				</channels>
+			  </supply>  		
+          <supply type="birasupply" name="BBM1_C2"
+					  dac1="c_m40_1aout2" adc1="r_m40_1ain2"
+					  adc2="r_m40_3ain2" digin1="r_m40_1din2" >
+				<channels>
+				  <!-- y = Bx + C, where y=user units, and x=device units -->
+				  <channel name="c_BBM1_C2_current" wire="analog_out_current" scaleB="1" limitLow="-10" limitHigh="10" units="A" />
+				  <channel name="c_BBM1_C2_enable" wire="digital_out_enable" />
+				  <channel name="r_BBM1_C2_current" wire="analog_in_current" scaleB="1" units="A" />
+				  <channel name="r_BBM1_C2_voltage" wire="analog_in_voltage" scaleB="1" units="V" />
+				  <channel name="r_BBM1_C2_coiltemp" wire="digital_in_coiltemp" />
+				  <channel name="r_BBM1_C2_limit" wire="digital_in_limit" />
+				  <channel name="r_BBM1_C2_open" wire="digital_in_open" />
+				  <channel name="r_BBM1_C2_fault" wire="digital_in_fault" />
+				  <channel name="r_BBM1_C2_enabled" wire="int_in_enabled" />
+				</channels>
+			  </supply>    
+          <supply type="birasupply" name="BBM2_C3"
+					  dac1="c_m40_1aout2" adc1="r_m40_1ain2"
+					  adc2="r_m40_3ain2" digin1="r_m40_1din2" >
+            <channels>
+              <!-- y = Bx + C, where y=user units, and x=device units -->
+              <channel name="c_BBM2_C3_current" wire="analog_out_current" scaleB="1" limitLow="-10" limitHigh="10" units="A" />
+              <channel name="c_BBM2_C3_enable" wire="digital_out_enable" />
+              <channel name="r_BBM2_C3_current" wire="analog_in_current" scaleB="1" units="A" />
+              <channel name="r_BBM2_C3_voltage" wire="analog_in_voltage" scaleB="1" units="V" />
+              <channel name="r_BBM2_C3_coiltemp" wire="digital_in_coiltemp" />
+              <channel name="r_BBM2_C3_limit" wire="digital_in_limit" />
+              <channel name="r_BBM2_C3_open" wire="digital_in_open" />
+              <channel name="r_BBM2_C3_fault" wire="digital_in_fault" />
+              <channel name="r_BBM2_C3_enabled" wire="int_in_enabled" />
+            </channels>
+          </supply>  
+          <supply type="birasupply" name="BBM2_C4"
+					  dac1="c_m40_1aout2" adc1="r_m40_1ain2"
+					  adc2="r_m40_3ain2" digin1="r_m40_1din2" >
+            <channels>
+              <!-- y = Bx + C, where y=user units, and x=device units -->
+              <channel name="c_BBM2_C4_current" wire="analog_out_current" scaleB="1" limitLow="-10" limitHigh="10" units="A" />
+              <channel name="c_BBM2_C4_enable" wire="digital_out_enable" />
+              <channel name="r_BBM2_C4_current" wire="analog_in_current" scaleB="1" units="A" />
+              <channel name="r_BBM2_C4_voltage" wire="analog_in_voltage" scaleB="1" units="V" />
+              <channel name="r_BBM2_C4_coiltemp" wire="digital_in_coiltemp" />
+              <channel name="r_BBM2_C4_limit" wire="digital_in_limit" />
+              <channel name="r_BBM2_C4_open" wire="digital_in_open" />
+              <channel name="r_BBM2_C4_fault" wire="digital_in_fault" />
+              <channel name="r_BBM2_C4_enabled" wire="int_in_enabled" />
+            </channels>
+          </supply>  	
+          <supply type="birasupply" name="BBM3_C5"
+					  dac1="c_m40_1aout2" adc1="r_m40_1ain2"
+					  adc2="r_m40_3ain2" digin1="r_m40_1din2" >
+            <channels>
+              <!-- y = Bx + C, where y=user units, and x=device units -->
+              <channel name="c_BBM3_C5_current" wire="analog_out_current" scaleB="1" limitLow="-10" limitHigh="10" units="A" />
+              <channel name="c_BBM3_C5_enable" wire="digital_out_enable" />
+              <channel name="r_BBM3_C5_current" wire="analog_in_current" scaleB="1" units="A" />
+              <channel name="r_BBM3_C5_voltage" wire="analog_in_voltage" scaleB="1" units="V" />
+              <channel name="r_BBM3_C5_coiltemp" wire="digital_in_coiltemp" />
+              <channel name="r_BBM3_C5_limit" wire="digital_in_limit" />
+              <channel name="r_BBM3_C5_open" wire="digital_in_open" />
+              <channel name="r_BBM3_C5_fault" wire="digital_in_fault" />
+              <channel name="r_BBM3_C5_enabled" wire="int_in_enabled" />
+            </channels>
+          </supply>  		
+          <supply type="birasupply" name="BBM3_C6"
+					  dac1="c_m40_1aout2" adc1="r_m40_1ain2"
+					  adc2="r_m40_3ain2" digin1="r_m40_1din2" >
+            <channels>
+              <!-- y = Bx + C, where y=user units, and x=device units -->
+              <channel name="c_BBM3_C6_current" wire="analog_out_current" scaleB="1" limitLow="-10" limitHigh="10" units="A" />
+              <channel name="c_BBM3_C6_enable" wire="digital_out_enable" />
+              <channel name="r_BBM3_C6_current" wire="analog_in_current" scaleB="1" units="A" />
+              <channel name="r_BBM3_C6_voltage" wire="analog_in_voltage" scaleB="1" units="V" />
+              <channel name="r_BBM3_C6_coiltemp" wire="digital_in_coiltemp" />
+              <channel name="r_BBM3_C6_limit" wire="digital_in_limit" />
+              <channel name="r_BBM3_C6_open" wire="digital_in_open" />
+              <channel name="r_BBM3_C6_fault" wire="digital_in_fault" />
+              <channel name="r_BBM3_C6_enabled" wire="int_in_enabled" />
+            </channels>
+          </supply>  
+          <supply type="birasupply" name="BBM4_C7"
+					  dac1="c_m40_1aout2" adc1="r_m40_1ain2"
+					  adc2="r_m40_3ain2" digin1="r_m40_1din2" >
+            <channels>
+              <!-- y = Bx + C, where y=user units, and x=device units -->
+              <channel name="c_BBM4_C7_current" wire="analog_out_current" scaleB="1" limitLow="-10" limitHigh="10" units="A" />
+              <channel name="c_BBM4_C7_enable" wire="digital_out_enable" />
+              <channel name="r_BBM4_C7_current" wire="analog_in_current" scaleB="1" units="A" />
+              <channel name="r_BBM4_C7_voltage" wire="analog_in_voltage" scaleB="1" units="V" />
+              <channel name="r_BBM4_C7_coiltemp" wire="digital_in_coiltemp" />
+              <channel name="r_BBM4_C7_limit" wire="digital_in_limit" />
+              <channel name="r_BBM4_C7_open" wire="digital_in_open" />
+              <channel name="r_BBM4_C7_fault" wire="digital_in_fault" />
+              <channel name="r_BBM4_C7_enabled" wire="int_in_enabled" />
+            </channels>
+          </supply>  		
+          <supply type="birasupply" name="BBM4_C8"
+					  dac1="c_m40_1aout2" adc1="r_m40_1ain2"
+					  adc2="r_m40_3ain2" digin1="r_m40_1din2" >
+            <channels>
+              <!-- y = Bx + C, where y=user units, and x=device units -->
+              <channel name="c_BBM4_C8_current" wire="analog_out_current" scaleB="1" limitLow="-10" limitHigh="10" units="A" />
+              <channel name="c_BBM4_C8_enable" wire="digital_out_enable" />
+              <channel name="r_BBM4_C8_current" wire="analog_in_current" scaleB="1" units="A" />
+              <channel name="r_BBM4_C8_voltage" wire="analog_in_voltage" scaleB="1" units="V" />
+              <channel name="r_BBM4_C8_coiltemp" wire="digital_in_coiltemp" />
+              <channel name="r_BBM4_C8_limit" wire="digital_in_limit" />
+              <channel name="r_BBM4_C8_open" wire="digital_in_open" />
+              <channel name="r_BBM4_C8_fault" wire="digital_in_fault" />
+              <channel name="r_BBM4_C8_enabled" wire="int_in_enabled" />
+            </channels>
+          </supply>
+          <supply type="birasupply" name="BBM5_C9"
+					  dac1="c_m40_1aout2" adc1="r_m40_1ain2"
+					  adc2="r_m40_3ain2" digin1="r_m40_1din2" >
+            <channels>
+              <!-- y = Bx + C, where y=user units, and x=device units -->
+              <channel name="c_BBM5_C9_current" wire="analog_out_current" scaleB="1" limitLow="-10" limitHigh="10" units="A" />
+              <channel name="c_BBM5_C9_enable" wire="digital_out_enable" />
+              <channel name="r_BBM5_C9_current" wire="analog_in_current" scaleB="1" units="A" />
+              <channel name="r_BBM5_C9_voltage" wire="analog_in_voltage" scaleB="1" units="V" />
+              <channel name="r_BBM5_C9_coiltemp" wire="digital_in_coiltemp" />
+              <channel name="r_BBM5_C9_limit" wire="digital_in_limit" />
+              <channel name="r_BBM5_C9_open" wire="digital_in_open" />
+              <channel name="r_BBM5_C9_fault" wire="digital_in_fault" />
+              <channel name="r_BBM5_C9_enabled" wire="int_in_enabled" />
+            </channels>
+          </supply>  		 
+          <supply type="birasupply" name="BBM5_C10"
+					  dac1="c_m40_1aout2" adc1="r_m40_1ain2"
+					  adc2="r_m40_3ain2" digin1="r_m40_1din2" >
+            <channels>
+              <!-- y = Bx + C, where y=user units, and x=device units -->
+              <channel name="c_BBM5_C10_current" wire="analog_out_current" scaleB="1" limitLow="-10" limitHigh="10" units="A" />
+              <channel name="c_BBM5_C10_enable" wire="digital_out_enable" />
+              <channel name="r_BBM5_C10_current" wire="analog_in_current" scaleB="1" units="A" />
+              <channel name="r_BBM5_C10_voltage" wire="analog_in_voltage" scaleB="1" units="V" />
+              <channel name="r_BBM5_C10_coiltemp" wire="digital_in_coiltemp" />
+              <channel name="r_BBM5_C10_limit" wire="digital_in_limit" />
+              <channel name="r_BBM5_C10_open" wire="digital_in_open" />
+              <channel name="r_BBM5_C10_fault" wire="digital_in_fault" />
+              <channel name="r_BBM5_C10_enabled" wire="int_in_enabled" />
+            </channels>
+          </supply>  		  
+        </supplies>
+      </supply>      
+      
+
+      <detector type="bpm" name="XPM1"
+    current="testi3200_in_current" limitA="testi3200_in_actuatorA" limitB="testi3200_in_actuatorB" biasrdbk="testi3200_in_bias"
+    biascmd="testi3200_out_bias" actuator="testi3200_out_actuator" initiate="testi3200_out_initiate" > 
+        <channels>
+          <channel name="c_XPM1_position" wire="digital_out_position" />
+          <channel name="c_XPM1_bias" wire="analog_out_bias" />
+          <channel name="r_XPM1_bias" wire="analog_in_bias" />
+          <channel name="r_XPM1_position" wire="int_in_position" />
+          <channel name="r_XPM1_beam_current" wire="analog_in_beamcurrent" />
+          <channel name="r_XPM1_x_current" wire="analog_in_xcurrent" />
+          <channel name="r_XPM1_y_current" wire="analog_in_ycurrent" />
+          <channel name="r_XPM1_channels" wire="variant_in_channels" />
+          <channel name="r_XPM1_xpos_actual" wire="analog_in_xpos_actual" units="mm" />
+          <channel name="r_XPM1_ypos_actual" wire="analog_in_ypos_actual" units="mm" />
+          <channel name="r_XPM1_width_actual" wire="analog_in_width_actual" units="mm" />
+          <channel name="r_XPM1_height_actual" wire="analog_in_height_actual" units="mm" />
+          <channel name="r_XPM1_xpos_target" wire="analog_in_xpos_target" units="mm" />
+          <channel name="r_XPM1_ypos_target" wire="analog_in_ypos_target" units="mm" />
+          <channel name="r_XPM1_width_target" wire="analog_in_width_target" units="mm" />
+          <channel name="r_XPM1_height_target" wire="analog_in_height_target" units="mm" />
+        </channels>
+      </detector>
+
+      <detector type="bpm" name="XPM2"
+          current="testi3200_in_current" limitA="testi3200_in_actuatorA" limitB="testi3200_in_actuatorB" biasrdbk="testi3200_in_bias"
+          biascmd="testi3200_out_bias" actuator="testi3200_out_actuator" initiate="testi3200_out_initiate" > 
+        <channels>
+          <channel name="c_XPM2_position" wire="digital_out_position" />
+          <channel name="c_XPM2_bias" wire="analog_out_bias" />
+          <channel name="r_XPM2_bias" wire="analog_in_bias" />
+          <channel name="r_XPM2_position" wire="int_in_position" />
+          <channel name="r_XPM2_beam_current" wire="analog_in_beamcurrent" />
+	  <channel name="r_XPM2_x_current" wire="analog_in_xcurrent" />
+	  <channel name="r_XPM2_y_current" wire="analog_in_ycurrent" />
+          <channel name="r_XPM2_channels" wire="variant_in_channels" />
+          <channel name="r_XPM2_xpos_actual" wire="analog_in_xpos_actual" units="mm" />
+          <channel name="r_XPM2_ypos_actual" wire="analog_in_ypos_actual" units="mm" />
+          <channel name="r_XPM2_width_actual" wire="analog_in_width_actual" units="mm" />
+          <channel name="r_XPM2_height_actual" wire="analog_in_height_actual" units="mm" />
+          <channel name="r_XPM2_xpos_target" wire="analog_in_xpos_target" units="mm" />
+          <channel name="r_XPM2_ypos_target" wire="analog_in_ypos_target" units="mm" />
+          <channel name="r_XPM2_width_target" wire="analog_in_width_target" units="mm" />
+          <channel name="r_XPM2_height_target" wire="analog_in_height_target" units="mm" />
+        </channels>
+      </detector>
+
+      <detector type="bpm" name="XPM3"
+          current="testi3200_in_current" limitA="testi3200_in_actuatorA" limitB="testi3200_in_actuatorB" biasrdbk="testi3200_in_bias"
+          biascmd="testi3200_out_bias" actuator="testi3200_out_actuator" initiate="testi3200_out_initiate" > 
+        <channels>
+          <channel name="c_XPM3_position" wire="digital_out_position" />
+          <channel name="c_XPM3_bias" wire="analog_out_bias" />
+          <channel name="r_XPM3_bias" wire="analog_in_bias" />
+          <channel name="r_XPM3_position" wire="int_in_position" />
+          <channel name="r_XPM3_beam_current" wire="analog_in_beamcurrent" scaleB="0.0133" />
+	  <channel name="r_XPM3_x_current" wire="analog_in_xcurrent" />
+	  <channel name="r_XPM3_y_current" wire="analog_in_ycurrent" />
+          <channel name="r_XPM3_channels" wire="variant_in_channels" />
+          <channel name="r_XPM3_xpos_actual" wire="analog_in_xpos_actual" units="mm" />
+          <channel name="r_XPM3_ypos_actual" wire="analog_in_ypos_actual" units="mm" />
+          <channel name="r_XPM3_width_actual" wire="analog_in_width_actual" units="mm" />
+          <channel name="r_XPM3_height_actual" wire="analog_in_height_actual" units="mm" />
+          <channel name="r_XPM3_xpos_target" wire="analog_in_xpos_target" units="mm" />
+          <channel name="r_XPM3_ypos_target" wire="analog_in_ypos_target" units="mm" />
+          <channel name="r_XPM3_width_target" wire="analog_in_width_target" units="mm" />
+          <channel name="r_XPM3_height_target" wire="analog_in_height_target" units="mm" />
+        </channels>
+      </detector>
+
+      <detector type="bpm" name="XPM4"
+          current="testi3200_in_current" limitA="testi3200_in_actuatorA" limitB="testi3200_in_actuatorB" biasrdbk="testi3200_in_bias"
+          biascmd="testi3200_out_bias" actuator="testi3200_out_actuator" initiate="testi3200_out_initiate" > 
+        <channels>
+          <channel name="c_XPM4_position" wire="digital_out_position" />
+          <channel name="c_XPM4_bias" wire="analog_out_bias" />
+          <channel name="r_XPM4_bias" wire="analog_in_bias" />
+          <channel name="r_XPM4_position" wire="int_in_position" />
+          <channel name="r_XPM4_beam_current" wire="analog_in_beamcurrent" />
+	  <channel name="r_XPM4_x_current" wire="analog_in_xcurrent" />
+	  <channel name="r_XPM4_y_current" wire="analog_in_ycurrent" />
+          <channel name="r_XPM4_channels" wire="variant_in_channels" />
+          <channel name="r_XPM4_xpos_actual" wire="analog_in_xpos_actual" units="mm" />
+          <channel name="r_XPM4_ypos_actual" wire="analog_in_ypos_actual" units="mm" />
+          <channel name="r_XPM4_width_actual" wire="analog_in_width_actual" units="mm" />
+          <channel name="r_XPM4_height_actual" wire="analog_in_height_actual" units="mm" />
+          <channel name="r_XPM4_xpos_target" wire="analog_in_xpos_target" units="mm" />
+          <channel name="r_XPM4_ypos_target" wire="analog_in_ypos_target" units="mm" />
+          <channel name="r_XPM4_width_target" wire="analog_in_width_target" units="mm" />
+          <channel name="r_XPM4_height_target" wire="analog_in_height_target" units="mm" />
+        </channels>
+      </detector>
+
+      <detector type="bpm" name="XPM5"
+          current="testi3200_in_current" limitA="testi3200_in_actuatorA" limitB="testi3200_in_actuatorB" biasrdbk="testi3200_in_bias"
+          biascmd="testi3200_out_bias" actuator="testi3200_out_actuator" initiate="testi3200_out_initiate" > 
+        <channels>
+          <channel name="c_XPM5_position" wire="digital_out_position" />
+          <channel name="c_XPM5_bias" wire="analog_out_bias" />
+          <channel name="r_XPM5_bias" wire="analog_in_bias" />
+          <channel name="r_XPM5_position" wire="int_in_position" />
+          <channel name="r_XPM5_beam_current" wire="analog_in_beamcurrent" />
+	  <channel name="r_XPM5_x_current" wire="analog_in_xcurrent" />
+	  <channel name="r_XPM5_y_current" wire="analog_in_ycurrent" />
+          <channel name="r_XPM5_channels" wire="variant_in_channels" />
+          <channel name="r_XPM5_xpos_actual" wire="analog_in_xpos_actual" units="mm" />
+          <channel name="r_XPM5_ypos_actual" wire="analog_in_ypos_actual" units="mm" />
+          <channel name="r_XPM5_width_actual" wire="analog_in_width_actual" units="mm" />
+          <channel name="r_XPM5_height_actual" wire="analog_in_height_actual" units="mm" />
+          <channel name="r_XPM5_xpos_target" wire="analog_in_xpos_target" units="mm" />
+          <channel name="r_XPM5_ypos_target" wire="analog_in_ypos_target" units="mm" />
+          <channel name="r_XPM5_width_target" wire="analog_in_width_target" units="mm" />
+          <channel name="r_XPM5_height_target" wire="analog_in_height_target" units="mm" />
+        </channels>
+      </detector>
+
+      <detector type="bpm" name="XPM6"
+          current="testi3200_in_current" limitA="testi3200_in_actuatorA" limitB="testi3200_in_actuatorB" biasrdbk="testi3200_in_bias"
+          biascmd="testi3200_out_bias" actuator="testi3200_out_actuator" initiate="testi3200_out_initiate" > 
+        <channels>
+          <channel name="c_XPM6_position" wire="digital_out_position" />
+          <channel name="c_XPM6_bias" wire="analog_out_bias" />
+          <channel name="r_XPM6_bias" wire="analog_in_bias" />
+          <channel name="r_XPM6_position" wire="int_in_position" />
+          <channel name="r_XPM6_beam_current" wire="analog_in_beamcurrent" />
+	  <channel name="r_XPM6_x_current" wire="analog_in_xcurrent" />
+	  <channel name="r_XPM6_y_current" wire="analog_in_ycurrent" />
+          <channel name="r_XPM6_channels" wire="variant_in_channels" />
+          <channel name="r_XPM6_xpos_actual" wire="analog_in_xpos_actual" units="mm" />
+          <channel name="r_XPM6_ypos_actual" wire="analog_in_ypos_actual" units="mm" />
+          <channel name="r_XPM6_width_actual" wire="analog_in_width_actual" units="mm" />
+          <channel name="r_XPM6_height_actual" wire="analog_in_height_actual" units="mm" />
+          <channel name="r_XPM6_xpos_target" wire="analog_in_xpos_target" units="mm" />
+          <channel name="r_XPM6_ypos_target" wire="analog_in_ypos_target" units="mm" />
+          <channel name="r_XPM6_width_target" wire="analog_in_width_target" units="mm" />
+          <channel name="r_XPM6_height_target" wire="analog_in_height_target" units="mm" />
+        </channels>
+      </detector>
+	  
+      <detector type="bpm" name="XPM7"
+          current="testi3200_in_current" limitA="testi3200_in_actuatorA" limitB="testi3200_in_actuatorB" biasrdbk="testi3200_in_bias"
+          biascmd="testi3200_out_bias" actuator="testi3200_out_actuator" initiate="testi3200_out_initiate" > 
+        <channels>
+          <channel name="c_XPM7_position" wire="digital_out_position" />
+          <channel name="c_XPM7_bias" wire="analog_out_bias" />
+          <channel name="r_XPM7_bias" wire="analog_in_bias" />
+          <channel name="r_XPM7_position" wire="int_in_position" />
+          <channel name="r_XPM7_beam_current" wire="analog_in_beamcurrent" />
+	  <channel name="r_XPM7_x_current" wire="analog_in_xcurrent" />
+	  <channel name="r_XPM7_y_current" wire="analog_in_ycurrent" />
+          <channel name="r_XPM7_channels" wire="variant_in_channels" />
+          <channel name="r_XPM7_xpos_actual" wire="analog_in_xpos_actual" units="mm" />
+          <channel name="r_XPM7_ypos_actual" wire="analog_in_ypos_actual" units="mm" />
+          <channel name="r_XPM7_width_actual" wire="analog_in_width_actual" units="mm" />
+          <channel name="r_XPM7_height_actual" wire="analog_in_height_actual" units="mm" />
+          <channel name="r_XPM7_xpos_target" wire="analog_in_xpos_target" units="mm" />
+          <channel name="r_XPM7_ypos_target" wire="analog_in_ypos_target" units="mm" />
+          <channel name="r_XPM7_width_target" wire="analog_in_width_target" units="mm" />
+          <channel name="r_XPM7_height_target" wire="analog_in_height_target" units="mm" />
+        </channels>
+      </detector>	  
+	  
+      <detector type="bpm" name="XPM8"
+          current="testi3200_in_current" limitA="testi3200_in_actuatorA" limitB="testi3200_in_actuatorB" biasrdbk="testi3200_in_bias"
+          biascmd="testi3200_out_bias" actuator="testi3200_out_actuator" initiate="testi3200_out_initiate" > 
+        <channels>
+          <channel name="c_XPM8_position" wire="digital_out_position" />
+          <channel name="c_XPM8_bias" wire="analog_out_bias" />
+          <channel name="r_XPM8_bias" wire="analog_in_bias" />
+          <channel name="r_XPM8_position" wire="int_in_position" />
+          <channel name="r_XPM8_beam_current" wire="analog_in_beamcurrent" />
+	  <channel name="r_XPM8_x_current" wire="analog_in_xcurrent" />
+	  <channel name="r_XPM8_y_current" wire="analog_in_ycurrent" />
+          <channel name="r_XPM8_channels" wire="variant_in_channels" />
+          <channel name="r_XPM8_xpos_actual" wire="analog_in_xpos_actual" units="mm" />
+          <channel name="r_XPM8_ypos_actual" wire="analog_in_ypos_actual" units="mm" />
+          <channel name="r_XPM8_width_actual" wire="analog_in_width_actual" units="mm" />
+          <channel name="r_XPM8_height_actual" wire="analog_in_height_actual" units="mm" />
+          <channel name="r_XPM8_xpos_target" wire="analog_in_xpos_target" units="mm" />
+          <channel name="r_XPM8_ypos_target" wire="analog_in_ypos_target" units="mm" />
+          <channel name="r_XPM8_width_target" wire="analog_in_width_target" units="mm" />
+          <channel name="r_XPM8_height_target" wire="analog_in_height_target" units="mm" />
+        </channels>
+      </detector>		  
+
+      <detector type="bpm" name="APM1"
+          current="testi3200_in_current" limitA="testi3200_in_actuatorA" limitB="testi3200_in_actuatorB" biasrdbk="testi3200_in_bias"
+          biascmd="testi3200_out_bias" actuator="testi3200_out_actuator" initiate="testi3200_out_initiate" > 
+        <channels>
+          <channel name="c_APM1_position" wire="digital_out_position" />
+          <channel name="c_APM1_bias" wire="analog_out_bias" />
+          <channel name="r_APM1_bias" wire="analog_in_bias" />
+          <channel name="r_APM1_position" wire="int_in_position" />
+          <channel name="r_APM1_beam_current" wire="analog_in_beamcurrent" />
+	  <channel name="r_APM1_x_current" wire="analog_in_xcurrent" />
+	  <channel name="r_APM1_y_current" wire="analog_in_ycurrent" />
+          <channel name="r_APM1_channels" wire="variant_in_channels" />
+          <channel name="r_APM1_xpos_actual" wire="analog_in_xpos_actual" units="mm" />
+          <channel name="r_APM1_ypos_actual" wire="analog_in_ypos_actual" units="mm" />
+          <channel name="r_APM1_width_actual" wire="analog_in_width_actual" units="mm" />
+          <channel name="r_APM1_height_actual" wire="analog_in_height_actual" units="mm" />
+          <channel name="r_APM1_xpos_target" wire="analog_in_xpos_target" units="mm" />
+          <channel name="r_APM1_ypos_target" wire="analog_in_ypos_target" units="mm" />
+          <channel name="r_APM1_width_target" wire="analog_in_width_target" units="mm" />
+          <channel name="r_APM1_height_target" wire="analog_in_height_target" units="mm" />
+        </channels>
+      </detector>
+
+      <detector type="bpm" name="APM2"
+          current="testi3200_in_current" limitA="testi3200_in_actuatorA" limitB="testi3200_in_actuatorB" biasrdbk="testi3200_in_bias"
+          biascmd="testi3200_out_bias" actuator="testi3200_out_actuator" initiate="testi3200_out_initiate" > 
+        <channels>
+          <channel name="c_APM2_position" wire="digital_out_position" />
+          <channel name="c_APM2_bias" wire="analog_out_bias" />
+          <channel name="r_APM2_bias" wire="analog_in_bias" />
+          <channel name="r_APM2_position" wire="int_in_position" />
+	  <channel name="r_APM2_beam_current" wire="analog_in_beamcurrent" />
+	  <channel name="r_APM2_x_current" wire="analog_in_xcurrent" />
+	  <channel name="r_APM2_y_current" wire="analog_in_ycurrent" />
+          <channel name="r_APM2_channels" wire="variant_in_channels" />
+          <channel name="r_APM2_xpos_actual" wire="analog_in_xpos_actual" units="mm" />
+          <channel name="r_APM2_ypos_actual" wire="analog_in_ypos_actual" units="mm" />
+          <channel name="r_APM2_width_actual" wire="analog_in_width_actual" units="mm" />
+          <channel name="r_APM2_height_actual" wire="analog_in_height_actual" units="mm" />
+          <channel name="r_APM2_xpos_target" wire="analog_in_xpos_target" units="mm" />
+          <channel name="r_APM2_ypos_target" wire="analog_in_ypos_target" units="mm" />
+          <channel name="r_APM2_width_target" wire="analog_in_width_target" units="mm" />
+          <channel name="r_APM2_height_target" wire="analog_in_height_target" units="mm" />
+        </channels>
+      </detector>
+
+      <detector type="bpm" name="APM3"
+          current="testi3200_in_current" limitA="testi3200_in_actuatorA" limitB="testi3200_in_actuatorB" biasrdbk="testi3200_in_bias"
+          biascmd="testi3200_out_bias" actuator="testi3200_out_actuator" initiate="testi3200_out_initiate" > 
+        <channels>
+          <channel name="c_APM3_position" wire="digital_out_position" />
+          <channel name="c_APM3_bias" wire="analog_out_bias" />
+          <channel name="r_APM3_bias" wire="analog_in_bias" />
+          <channel name="r_APM3_position" wire="int_in_position" />
+	  <channel name="r_APM3_beam_current" wire="analog_in_beamcurrent" />
+	  <channel name="r_APM3_x_current" wire="analog_in_xcurrent" />
+	  <channel name="r_APM3_y_current" wire="analog_in_ycurrent" />
+          <channel name="r_APM3_channels" wire="variant_in_channels" />
+          <channel name="r_APM3_xpos_actual" wire="analog_in_xpos_actual" units="mm" />
+          <channel name="r_APM3_ypos_actual" wire="analog_in_ypos_actual" units="mm" />
+          <channel name="r_APM3_width_actual" wire="analog_in_width_actual" units="mm" scaleB="1.0" />  <!-- NOTE: scaleB here will scale the width, or X-axis of the ellipse -->
+          <channel name="r_APM3_height_actual" wire="analog_in_height_actual" units="mm" scaleB="1.0" />  <!-- NOTE: scaleB here will scale the height, or Y-axis of the ellipse -->
+          <channel name="r_APM3_xpos_target" wire="analog_in_xpos_target" units="mm" />
+          <channel name="r_APM3_ypos_target" wire="analog_in_ypos_target" units="mm" />
+          <channel name="r_APM3_width_target" wire="analog_in_width_target" units="mm" />
+          <channel name="r_APM3_height_target" wire="analog_in_height_target" units="mm" />
+        </channels>
+      </detector>
+
+      <detector type="bpm" name="APM4"
+          current="testi3200_in_current" limitA="testi3200_in_actuatorA" limitB="testi3200_in_actuatorB" biasrdbk="testi3200_in_bias"
+          biascmd="testi3200_out_bias" actuator="testi3200_out_actuator" initiate="testi3200_out_initiate" > 
+        <channels>
+          <channel name="c_APM4_position" wire="digital_out_position" />
+          <channel name="c_APM4_bias" wire="analog_out_bias" />
+          <channel name="r_APM4_bias" wire="analog_in_bias" />
+          <channel name="r_APM4_position" wire="int_in_position" />
+	  <channel name="r_APM4_beam_current" wire="analog_in_beamcurrent" />
+	  <channel name="r_APM4_x_current" wire="analog_in_xcurrent" />
+	  <channel name="r_APM4_y_current" wire="analog_in_ycurrent" />
+          <channel name="r_APM4_channels" wire="variant_in_channels" />
+          <channel name="r_APM4_xpos_actual" wire="analog_in_xpos_actual" units="mm" />
+          <channel name="r_APM4_ypos_actual" wire="analog_in_ypos_actual" units="mm" />
+          <channel name="r_APM4_width_actual" wire="analog_in_width_actual" units="mm" />
+          <channel name="r_APM4_height_actual" wire="analog_in_height_actual" units="mm" />
+          <channel name="r_APM4_xpos_target" wire="analog_in_xpos_target" units="mm" />
+          <channel name="r_APM4_ypos_target" wire="analog_in_ypos_target" units="mm" />
+          <channel name="r_APM4_width_target" wire="analog_in_width_target" units="mm" />
+          <channel name="r_APM4_height_target" wire="analog_in_height_target" units="mm" />
+        </channels>
+      </detector>
+
+      <detector type="bpm" name="BPM1"
+          current="testi3200_in_current" limitA="testi3200_in_actuatorA" limitB="testi3200_in_actuatorB" biasrdbk="testi3200_in_bias"
+          biascmd="testi3200_out_bias" actuator="testi3200_out_actuator" initiate="testi3200_out_initiate" > 
+        <channels>
+          <channel name="c_BPM1_position" wire="digital_out_position" />
+          <channel name="c_BPM1_bias" wire="analog_out_bias" />
+          <channel name="r_BPM1_bias" wire="analog_in_bias" />
+          <channel name="r_BPM1_position" wire="int_in_position" />
+	  <channel name="r_BPM1_beam_current" wire="analog_in_beamcurrent" />
+	  <channel name="r_BPM1_x_current" wire="analog_in_xcurrent" />
+	  <channel name="r_BPM1_y_current" wire="analog_in_ycurrent" />
+          <channel name="r_BPM1_channels" wire="variant_in_channels" />
+          <channel name="r_BPM1_xpos_actual" wire="analog_in_xpos_actual" units="mm" />
+          <channel name="r_BPM1_ypos_actual" wire="analog_in_ypos_actual" units="mm" />
+          <channel name="r_BPM1_width_actual" wire="analog_in_width_actual" units="mm" />
+          <channel name="r_BPM1_height_actual" wire="analog_in_height_actual" units="mm" />
+          <channel name="r_BPM1_xpos_target" wire="analog_in_xpos_target" units="mm" />
+          <channel name="r_BPM1_ypos_target" wire="analog_in_ypos_target" units="mm" />
+          <channel name="r_BPM1_width_target" wire="analog_in_width_target" units="mm" />
+          <channel name="r_BPM1_height_target" wire="analog_in_height_target" units="mm" />
+        </channels>
+      </detector>
+
+      <detector type="bpm" name="BPM2"
+          current="testi3200_in_current" limitA="testi3200_in_actuatorA" limitB="testi3200_in_actuatorB" biasrdbk="testi3200_in_bias"
+          biascmd="testi3200_out_bias" actuator="testi3200_out_actuator" initiate="testi3200_out_initiate" > 
+        <channels>
+          <channel name="c_BPM2_position" wire="digital_out_position" />
+          <channel name="c_BPM2_bias" wire="analog_out_bias" />
+          <channel name="r_BPM2_bias" wire="analog_in_bias" />
+          <channel name="r_BPM2_position" wire="int_in_position" />
+	  <channel name="r_BPM2_beam_current" wire="analog_in_beamcurrent" />
+	  <channel name="r_BPM2_x_current" wire="analog_in_xcurrent" />
+	  <channel name="r_BPM2_y_current" wire="analog_in_ycurrent" />
+          <channel name="r_BPM2_channels" wire="variant_in_channels" />
+          <channel name="r_BPM2_xpos_actual" wire="analog_in_xpos_actual" units="mm" />
+          <channel name="r_BPM2_ypos_actual" wire="analog_in_ypos_actual" units="mm" />
+          <channel name="r_BPM2_width_actual" wire="analog_in_width_actual" units="mm" />
+          <channel name="r_BPM2_height_actual" wire="analog_in_height_actual" units="mm" />
+          <channel name="r_BPM2_xpos_target" wire="analog_in_xpos_target" units="mm" />
+          <channel name="r_BPM2_ypos_target" wire="analog_in_ypos_target" units="mm" />
+          <channel name="r_BPM2_width_target" wire="analog_in_width_target" units="mm" />
+          <channel name="r_BPM2_height_target" wire="analog_in_height_target" units="mm" />
+        </channels>
+      </detector>
+
+      <detector type="bpm" name="BPM3"
+          current="testi3200_in_current" limitA="testi3200_in_actuatorA" limitB="testi3200_in_actuatorB" biasrdbk="testi3200_in_bias"
+          biascmd="testi3200_out_bias" actuator="testi3200_out_actuator" initiate="testi3200_out_initiate" > 
+        <channels>
+          <channel name="c_BPM3_position" wire="digital_out_position" />
+          <channel name="c_BPM3_bias" wire="analog_out_bias" />
+          <channel name="r_BPM3_bias" wire="analog_in_bias" />
+          <channel name="r_BPM3_position" wire="int_in_position" />
+	  <channel name="r_BPM3_beam_current" wire="analog_in_beamcurrent" />
+	  <channel name="r_BPM3_x_current" wire="analog_in_xcurrent" />
+	  <channel name="r_BPM3_y_current" wire="analog_in_ycurrent" />
+          <channel name="r_BPM3_channels" wire="variant_in_channels" />
+          <channel name="r_BPM3_xpos_actual" wire="analog_in_xpos_actual" units="mm" />
+          <channel name="r_BPM3_ypos_actual" wire="analog_in_ypos_actual" units="mm" />
+          <channel name="r_BPM3_width_actual" wire="analog_in_width_actual" units="mm" />
+          <channel name="r_BPM3_height_actual" wire="analog_in_height_actual" units="mm" />
+          <channel name="r_BPM3_xpos_target" wire="analog_in_xpos_target" units="mm" />
+          <channel name="r_BPM3_ypos_target" wire="analog_in_ypos_target" units="mm" />
+          <channel name="r_BPM3_width_target" wire="analog_in_width_target" units="mm" />
+          <channel name="r_BPM3_height_target" wire="analog_in_height_target" units="mm" />
+        </channels>
+      </detector>
+
+      <detector type="bpm" name="BPM4"
+          current="testi3200_in_current" limitA="testi3200_in_actuatorA" limitB="testi3200_in_actuatorB" biasrdbk="testi3200_in_bias"
+          biascmd="testi3200_out_bias" actuator="testi3200_out_actuator" initiate="testi3200_out_initiate" > 
+        <channels>
+          <channel name="c_BPM4_position" wire="digital_out_position" />
+          <channel name="c_BPM4_bias" wire="analog_out_bias" />
+          <channel name="r_BPM4_bias" wire="analog_in_bias" />
+          <channel name="r_BPM4_position" wire="int_in_position" />
+	  <channel name="r_BPM4_beam_current" wire="analog_in_beamcurrent" />
+	  <channel name="r_BPM4_x_current" wire="analog_in_xcurrent" />
+	  <channel name="r_BPM4_y_current" wire="analog_in_ycurrent" />
+          <channel name="r_BPM4_channels" wire="variant_in_channels" />
+          <channel name="r_BPM4_xpos_actual" wire="analog_in_xpos_actual" units="mm" />
+          <channel name="r_BPM4_ypos_actual" wire="analog_in_ypos_actual" units="mm" />
+          <channel name="r_BPM4_width_actual" wire="analog_in_width_actual" units="mm" />
+          <channel name="r_BPM4_height_actual" wire="analog_in_height_actual" units="mm" />
+          <channel name="r_BPM4_xpos_target" wire="analog_in_xpos_target" units="mm" />
+          <channel name="r_BPM4_ypos_target" wire="analog_in_ypos_target" units="mm" />
+          <channel name="r_BPM4_width_target" wire="analog_in_width_target" units="mm" />
+          <channel name="r_BPM4_height_target" wire="analog_in_height_target" units="mm" />
+        </channels>
+      </detector>
+	  
+      <detector type="bpm" name="BPM5"
+          current="testi3200_in_current" limitA="testi3200_in_actuatorA" limitB="testi3200_in_actuatorB" biasrdbk="testi3200_in_bias"
+          biascmd="testi3200_out_bias" actuator="testi3200_out_actuator" initiate="testi3200_out_initiate" > 
+        <channels>
+          <channel name="c_BPM5_position" wire="digital_out_position" />
+          <channel name="c_BPM5_bias" wire="analog_out_bias" />
+          <channel name="r_BPM5_bias" wire="analog_in_bias" />
+          <channel name="r_BPM5_position" wire="int_in_position" />
+	  <channel name="r_BPM5_beam_current" wire="analog_in_beamcurrent" />
+	  <channel name="r_BPM5_x_current" wire="analog_in_xcurrent" />
+	  <channel name="r_BPM5_y_current" wire="analog_in_ycurrent" />
+          <channel name="r_BPM5_channels" wire="variant_in_channels" />
+          <channel name="r_BPM5_xpos_actual" wire="analog_in_xpos_actual" units="mm" />
+          <channel name="r_BPM5_ypos_actual" wire="analog_in_ypos_actual" units="mm" />
+          <channel name="r_BPM5_width_actual" wire="analog_in_width_actual" units="mm" />
+          <channel name="r_BPM5_height_actual" wire="analog_in_height_actual" units="mm" />
+          <channel name="r_BPM5_xpos_target" wire="analog_in_xpos_target" units="mm" />
+          <channel name="r_BPM5_ypos_target" wire="analog_in_ypos_target" units="mm" />
+          <channel name="r_BPM5_width_target" wire="analog_in_width_target" units="mm" />
+          <channel name="r_BPM5_height_target" wire="analog_in_height_target" units="mm" />
+        </channels>
+      </detector>
+
+      <detector type="bpm" name="BPM6"
+          current="testi3200_in_current" limitA="testi3200_in_actuatorA" limitB="testi3200_in_actuatorB" biasrdbk="testi3200_in_bias"
+          biascmd="testi3200_out_bias" actuator="testi3200_out_actuator" initiate="testi3200_out_initiate" > 
+        <channels>
+          <channel name="c_BPM6_position" wire="digital_out_position" />
+          <channel name="c_BPM6_bias" wire="analog_out_bias" />
+          <channel name="r_BPM6_bias" wire="analog_in_bias" />
+          <channel name="r_BPM6_position" wire="int_in_position" />
+	  <channel name="r_BPM6_beam_current" wire="analog_in_beamcurrent" />
+	  <channel name="r_BPM6_x_current" wire="analog_in_xcurrent" />
+	  <channel name="r_BPM6_y_current" wire="analog_in_ycurrent" />
+          <channel name="r_BPM6_channels" wire="variant_in_channels" />
+          <channel name="r_BPM6_xpos_actual" wire="analog_in_xpos_actual" units="mm" />
+          <channel name="r_BPM6_ypos_actual" wire="analog_in_ypos_actual" units="mm" />
+          <channel name="r_BPM6_width_actual" wire="analog_in_width_actual" units="mm" />
+          <channel name="r_BPM6_height_actual" wire="analog_in_height_actual" units="mm" />
+          <channel name="r_BPM6_xpos_target" wire="analog_in_xpos_target" units="mm" />
+          <channel name="r_BPM6_ypos_target" wire="analog_in_ypos_target" units="mm" />
+          <channel name="r_BPM6_width_target" wire="analog_in_width_target" units="mm" />
+          <channel name="r_BPM6_height_target" wire="analog_in_height_target" units="mm" />
+        </channels>
+      </detector>		  
+
+      <detector type="bpm" name="CPM1"
+          current="testi3200_in_current" limitA="testi3200_in_actuatorA" limitB="testi3200_in_actuatorB" biasrdbk="testi3200_in_bias"
+          biascmd="testi3200_out_bias" actuator="testi3200_out_actuator" initiate="testi3200_out_initiate" > 
+        <channels>
+          <channel name="c_CPM1_position" wire="digital_out_position" />
+          <channel name="c_CPM1_bias" wire="analog_out_bias" />
+          <channel name="r_CPM1_bias" wire="analog_in_bias" />
+          <channel name="r_CPM1_position" wire="int_in_position" />
+	  <channel name="r_CPM1_beam_current" wire="analog_in_beamcurrent" />
+	  <channel name="r_CPM1_x_current" wire="analog_in_xcurrent" />
+	  <channel name="r_CPM1_y_current" wire="analog_in_ycurrent" />
+          <channel name="r_CPM1_channels" wire="variant_in_channels" />
+          <channel name="r_CPM1_xpos_actual" wire="analog_in_xpos_actual" units="mm" />
+          <channel name="r_CPM1_ypos_actual" wire="analog_in_ypos_actual" units="mm" />
+          <channel name="r_CPM1_width_actual" wire="analog_in_width_actual" units="mm" />
+          <channel name="r_CPM1_height_actual" wire="analog_in_height_actual" units="mm" />
+          <channel name="r_CPM1_xpos_target" wire="analog_in_xpos_target" units="mm" />
+          <channel name="r_CPM1_ypos_target" wire="analog_in_ypos_target" units="mm" />
+          <channel name="r_CPM1_width_target" wire="analog_in_width_target" units="mm" />
+          <channel name="r_CPM1_height_target" wire="analog_in_height_target" units="mm" />
+        </channels>
+      </detector>
+
+      <detector type="bpm" name="CPM2"
+          current="testi3200_in_current" limitA="testi3200_in_actuatorA" limitB="testi3200_in_actuatorB" biasrdbk="testi3200_in_bias"
+          biascmd="testi3200_out_bias" actuator="testi3200_out_actuator" initiate="testi3200_out_initiate" > 
+        <channels>
+          <channel name="c_CPM2_position" wire="digital_out_position" />
+          <channel name="c_CPM2_bias" wire="analog_out_bias" />
+          <channel name="r_CPM2_bias" wire="analog_in_bias" />
+          <channel name="r_CPM2_position" wire="int_in_position" />
+	  <channel name="r_CPM2_beam_current" wire="analog_in_beamcurrent" />
+	  <channel name="r_CPM2_x_current" wire="analog_in_xcurrent" />
+	  <channel name="r_CPM2_y_current" wire="analog_in_ycurrent" />
+          <channel name="r_CPM2_channels" wire="variant_in_channels" />
+          <channel name="r_CPM2_xpos_actual" wire="analog_in_xpos_actual" units="mm" />
+          <channel name="r_CPM2_ypos_actual" wire="analog_in_ypos_actual" units="mm" />
+          <channel name="r_CPM2_width_actual" wire="analog_in_width_actual" units="mm" />
+          <channel name="r_CPM2_height_actual" wire="analog_in_height_actual" units="mm" />
+          <channel name="r_CPM2_xpos_target" wire="analog_in_xpos_target" units="mm" />
+          <channel name="r_CPM2_ypos_target" wire="analog_in_ypos_target" units="mm" />
+          <channel name="r_CPM2_width_target" wire="analog_in_width_target" units="mm" />
+          <channel name="r_CPM2_height_target" wire="analog_in_height_target" units="mm" />
+        </channels>
+      </detector>
+
+      <detector type="bpm" name="CPM3"
+          current="testi3200_in_current" limitA="testi3200_in_actuatorA" limitB="testi3200_in_actuatorB" biasrdbk="testi3200_in_bias"
+          biascmd="testi3200_out_bias" actuator="testi3200_out_actuator" initiate="testi3200_out_initiate" > 
+        <channels>
+          <channel name="c_CPM3_position" wire="digital_out_position" />
+          <channel name="c_CPM3_bias" wire="analog_out_bias" />
+          <channel name="r_CPM3_bias" wire="analog_in_bias" />
+          <channel name="r_CPM3_position" wire="int_in_position" />
+	  <channel name="r_CPM3_beam_current" wire="analog_in_beamcurrent" />
+	  <channel name="r_CPM3_x_current" wire="analog_in_xcurrent" />
+	  <channel name="r_CPM3_y_current" wire="analog_in_ycurrent" />
+          <channel name="r_CPM3_channels" wire="variant_in_channels" />
+          <channel name="r_CPM3_xpos_actual" wire="analog_in_xpos_actual" units="mm" />
+          <channel name="r_CPM3_ypos_actual" wire="analog_in_ypos_actual" units="mm" />
+          <channel name="r_CPM3_width_actual" wire="analog_in_width_actual" units="mm" />
+          <channel name="r_CPM3_height_actual" wire="analog_in_height_actual" units="mm" />
+          <channel name="r_CPM3_xpos_target" wire="analog_in_xpos_target" units="mm" />
+          <channel name="r_CPM3_ypos_target" wire="analog_in_ypos_target" units="mm" />
+          <channel name="r_CPM3_width_target" wire="analog_in_width_target" units="mm" />
+          <channel name="r_CPM3_height_target" wire="analog_in_height_target" units="mm" />
+        </channels>
+      </detector>
+
+      <detector type="bpm" name="CPM4"
+          current="testi3200_in_current" limitA="testi3200_in_actuatorA" limitB="testi3200_in_actuatorB" biasrdbk="testi3200_in_bias"
+          biascmd="testi3200_out_bias" actuator="testi3200_out_actuator" initiate="testi3200_out_initiate" > 
+        <channels>
+          <channel name="c_CPM4_position" wire="digital_out_position" />
+          <channel name="c_CPM4_bias" wire="analog_out_bias" />
+          <channel name="r_CPM4_bias" wire="analog_in_bias" />
+          <channel name="r_CPM4_position" wire="int_in_position" />
+	  <channel name="r_CPM4_beam_current" wire="analog_in_beamcurrent" />
+	  <channel name="r_CPM4_x_current" wire="analog_in_xcurrent" />
+	  <channel name="r_CPM4_y_current" wire="analog_in_ycurrent" />
+          <channel name="r_CPM4_channels" wire="variant_in_channels" />
+          <channel name="r_CPM4_xpos_actual" wire="analog_in_xpos_actual" units="mm" />
+          <channel name="r_CPM4_ypos_actual" wire="analog_in_ypos_actual" units="mm" />
+          <channel name="r_CPM4_width_actual" wire="analog_in_width_actual" units="mm" />
+          <channel name="r_CPM4_height_actual" wire="analog_in_height_actual" units="mm" />
+          <channel name="r_CPM4_xpos_target" wire="analog_in_xpos_target" units="mm" />
+          <channel name="r_CPM4_ypos_target" wire="analog_in_ypos_target" units="mm" />
+          <channel name="r_CPM4_width_target" wire="analog_in_width_target" units="mm" />
+          <channel name="r_CPM4_height_target" wire="analog_in_height_target" units="mm" />
+        </channels>
+      </detector>
+      
+      <supply type="matsusada" name="XQ1"
+            dac1="c_matsusada_current" adc1="r_matsusada_current" adc2="r_matsusada_voltage" digout2="c_matsusada_remote"
+            digout3="c_matsusada_reset"
+            digin1="r_matsusada_thermalok" digin2="r_matsusada_currentcontrol"
+            digin3="r_matsusada_supplyon"
+            digin4="r_matsusada_fault" >
+        <channels>
+          <!-- y = Bx + C, where y=user units, and x=device units -->
+          <channel name="c_XQ1_current" wire="analog_out_current" scaleB="1.35" limitLow="0" limitHigh="7" units="A" />
+          <channel name="c_XQ1_enable" wire="digital_out_enable" />
+          <channel name="r_XQ1_current" wire="analog_in_current" scaleB="1.35" units="A" />
+          <channel name="r_XQ1_voltage" wire="analog_in_voltage" scaleB="6" units="V" />
+          <channel name="r_XQ1_coiltemp" wire="digital_in_coiltemp" />
+          <channel name="r_XQ1_limit" wire="digital_in_limit" />
+          <channel name="r_XQ1_open" wire="digital_in_open" />
+          <channel name="r_XQ1_fault" wire="digital_in_fault" />
+          <channel name="r_XQ1_enabled" wire="int_in_enabled" />
+        </channels>
+      </supply>
+
+      <supply type="matsusada" name="XQ2"
+            dac1="c_matsusada_current" adc1="r_matsusada_current" adc2="r_matsusada_voltage" digout2="c_matsusada_remote"
+            digout3="c_matsusada_reset"
+            digin1="r_matsusada_thermalok" digin2="r_matsusada_currentcontrol"
+            digin3="r_matsusada_supplyon"
+            digin4="r_matsusada_fault" >
+        <channels>
+          <!-- y = Bx + C, where y=user units, and x=device units -->
+          <channel name="c_XQ2_current" wire="analog_out_current" scaleB="1.35" limitLow="0" limitHigh="7" units="A" />
+          <channel name="c_XQ2_enable" wire="digital_out_enable" />
+          <channel name="r_XQ2_current" wire="analog_in_current" scaleB="1.35" units="A" />
+          <channel name="r_XQ2_voltage" wire="analog_in_voltage" scaleB="6" units="V" />
+          <channel name="r_XQ2_coiltemp" wire="digital_in_coiltemp" />
+          <channel name="r_XQ2_limit" wire="digital_in_limit" />
+          <channel name="r_XQ2_open" wire="digital_in_open" />
+          <channel name="r_XQ2_fault" wire="digital_in_fault" />
+          <channel name="r_XQ2_enabled" wire="int_in_enabled" />
+        </channels>
+      </supply>
+
+      <supply type="matsusada" name="XQ3"
+            dac1="c_matsusada_current" adc1="r_matsusada_current" adc2="r_matsusada_voltage" digout2="c_matsusada_remote"
+            digout3="c_matsusada_reset"
+            digin1="r_matsusada_thermalok" digin2="r_matsusada_currentcontrol"
+            digin3="r_matsusada_supplyon"
+            digin4="r_matsusada_fault" >
+        <channels>
+          <!-- y = Bx + C, where y=user units, and x=device units -->
+          <channel name="c_XQ3_current" wire="analog_out_current" scaleB="1.35" limitLow="0" limitHigh="7" units="A" />
+          <channel name="c_XQ3_enable" wire="digital_out_enable" />
+          <channel name="r_XQ3_current" wire="analog_in_current" scaleB="1.35" units="A" />
+          <channel name="r_XQ3_voltage" wire="analog_in_voltage" scaleB="6" units="V" />
+          <channel name="r_XQ3_coiltemp" wire="digital_in_coiltemp" />
+          <channel name="r_XQ3_limit" wire="digital_in_limit" />
+          <channel name="r_XQ3_open" wire="digital_in_open" />
+          <channel name="r_XQ3_fault" wire="digital_in_fault" />
+          <channel name="r_XQ3_enabled" wire="int_in_enabled" />
+        </channels>
+      </supply>
+
+      <supply type="matsusada" name="XQ4"
+            dac1="c_matsusada_current" adc1="r_matsusada_current" adc2="r_matsusada_voltage" digout2="c_matsusada_remote"
+            digout3="c_matsusada_reset"
+            digin1="r_matsusada_thermalok" digin2="r_matsusada_currentcontrol"
+            digin3="r_matsusada_supplyon"
+            digin4="r_matsusada_fault" >
+        <channels>
+          <!-- y = Bx + C, where y=user units, and x=device units -->
+          <channel name="c_XQ4_current" wire="analog_out_current" scaleB="1.35" limitLow="0" limitHigh="7" units="A" />
+          <channel name="c_XQ4_enable" wire="digital_out_enable" />
+          <channel name="r_XQ4_current" wire="analog_in_current" scaleB="1.35" units="A" />
+          <channel name="r_XQ4_voltage" wire="analog_in_voltage" scaleB="6" units="V" />
+          <channel name="r_XQ4_coiltemp" wire="digital_in_coiltemp" />
+          <channel name="r_XQ4_limit" wire="digital_in_limit" />
+          <channel name="r_XQ4_open" wire="digital_in_open" />
+          <channel name="r_XQ4_fault" wire="digital_in_fault" />
+          <channel name="r_XQ4_enabled" wire="int_in_enabled" />
+        </channels>
+      </supply>
+
+      <supply type="matsusada" name="XQ5"
+            dac1="c_matsusada_current" adc1="r_matsusada_current" adc2="r_matsusada_voltage" digout2="c_matsusada_remote"
+            digout3="c_matsusada_reset"
+            digin1="r_matsusada_thermalok" digin2="r_matsusada_currentcontrol"
+            digin3="r_matsusada_supplyon"
+            digin4="r_matsusada_fault" >
+        <channels>
+          <!-- y = Bx + C, where y=user units, and x=device units -->
+          <channel name="c_XQ5_current" wire="analog_out_current" scaleB="1.35" limitLow="0" limitHigh="7" units="A" />
+          <channel name="c_XQ5_enable" wire="digital_out_enable" />
+          <channel name="r_XQ5_current" wire="analog_in_current" scaleB="1.35" units="A" />
+          <channel name="r_XQ5_voltage" wire="analog_in_voltage" scaleB="6" units="V" />
+          <channel name="r_XQ5_coiltemp" wire="digital_in_coiltemp" />
+          <channel name="r_XQ5_limit" wire="digital_in_limit" />
+          <channel name="r_XQ5_open" wire="digital_in_open" />
+          <channel name="r_XQ5_fault" wire="digital_in_fault" />
+          <channel name="r_XQ5_enabled" wire="int_in_enabled" />
+        </channels>
+      </supply>
+
+      <supply type="matsusada" name="XQ6"
+            dac1="c_matsusada_current" adc1="r_matsusada_current" adc2="r_matsusada_voltage" digout2="c_matsusada_remote"
+            digout3="c_matsusada_reset"
+            digin1="r_matsusada_thermalok" digin2="r_matsusada_currentcontrol"
+            digin3="r_matsusada_supplyon"
+            digin4="r_matsusada_fault" >
+        <channels>
+          <!-- y = Bx + C, where y=user units, and x=device units -->
+          <channel name="c_XQ6_current" wire="analog_out_current" scaleB="1.35" limitLow="0" limitHigh="7" units="A" />
+          <channel name="c_XQ6_enable" wire="digital_out_enable" />
+          <channel name="r_XQ6_current" wire="analog_in_current" scaleB="1.35" units="A" />
+          <channel name="r_XQ6_voltage" wire="analog_in_voltage" scaleB="6" units="V" />
+          <channel name="r_XQ6_coiltemp" wire="digital_in_coiltemp" />
+          <channel name="r_XQ6_limit" wire="digital_in_limit" />
+          <channel name="r_XQ6_open" wire="digital_in_open" />
+          <channel name="r_XQ6_fault" wire="digital_in_fault" />
+          <channel name="r_XQ6_enabled" wire="int_in_enabled" />
+        </channels>
+      </supply>
+
+      <supply type="matsusada" name="XQ7"
+            dac1="c_matsusada_current" adc1="r_matsusada_current" adc2="r_matsusada_voltage" digout2="c_matsusada_remote"
+            digout3="c_matsusada_reset"
+            digin1="r_matsusada_thermalok" digin2="r_matsusada_currentcontrol"
+            digin3="r_matsusada_supplyon"
+            digin4="r_matsusada_fault" >
+        <channels>
+          <!-- y = Bx + C, where y=user units, and x=device units -->
+          <channel name="c_XQ7_current" wire="analog_out_current" scaleB="1.35" limitLow="0" limitHigh="7" units="A" />
+          <channel name="c_XQ7_enable" wire="digital_out_enable" />
+          <channel name="r_XQ7_current" wire="analog_in_current" scaleB="1.35" units="A" />
+          <channel name="r_XQ7_voltage" wire="analog_in_voltage" scaleB="6" units="V" />
+          <channel name="r_XQ7_coiltemp" wire="digital_in_coiltemp" />
+          <channel name="r_XQ7_limit" wire="digital_in_limit" />
+          <channel name="r_XQ7_open" wire="digital_in_open" />
+          <channel name="r_XQ7_fault" wire="digital_in_fault" />
+          <channel name="r_XQ7_enabled" wire="int_in_enabled" />
+        </channels>
+      </supply>
+
+      <supply type="matsusada" name="XQ8"
+            dac1="c_matsusada_current" adc1="r_matsusada_current" adc2="r_matsusada_voltage" digout2="c_matsusada_remote"
+            digout3="c_matsusada_reset"
+            digin1="r_matsusada_thermalok" digin2="r_matsusada_currentcontrol"
+            digin3="r_matsusada_supplyon"
+            digin4="r_matsusada_fault" >
+        <channels>
+          <!-- y = Bx + C, where y=user units, and x=device units -->
+          <channel name="c_XQ8_current" wire="analog_out_current" scaleB="1.35" limitLow="0" limitHigh="7" units="A" />
+          <channel name="c_XQ8_enable" wire="digital_out_enable" />
+          <channel name="r_XQ8_current" wire="analog_in_current" scaleB="1.35" units="A" />
+          <channel name="r_XQ8_voltage" wire="analog_in_voltage" scaleB="6" units="V" />
+          <channel name="r_XQ8_coiltemp" wire="digital_in_coiltemp" />
+          <channel name="r_XQ8_limit" wire="digital_in_limit" />
+          <channel name="r_XQ8_open" wire="digital_in_open" />
+          <channel name="r_XQ8_fault" wire="digital_in_fault" />
+          <channel name="r_XQ8_enabled" wire="int_in_enabled" />
+        </channels>
+      </supply>
+
+      <supply type="matsusada" name="XQ9"
+            dac1="c_matsusada_current" adc1="r_matsusada_current" adc2="r_matsusada_voltage" digout2="c_matsusada_remote"
+            digout3="c_matsusada_reset"
+            digin1="r_matsusada_thermalok" digin2="r_matsusada_currentcontrol"
+            digin3="r_matsusada_supplyon"
+            digin4="r_matsusada_fault" >
+        <channels>
+          <!-- y = Bx + C, where y=user units, and x=device units -->
+          <channel name="c_XQ9_current" wire="analog_out_current" scaleB="1.35" limitLow="0" limitHigh="7" units="A" />
+          <channel name="c_XQ9_enable" wire="digital_out_enable" />
+          <channel name="r_XQ9_current" wire="analog_in_current" scaleB="1.35" units="A" />
+          <channel name="r_XQ9_voltage" wire="analog_in_voltage" scaleB="6" units="V" />
+          <channel name="r_XQ9_coiltemp" wire="digital_in_coiltemp" />
+          <channel name="r_XQ9_limit" wire="digital_in_limit" />
+          <channel name="r_XQ9_open" wire="digital_in_open" />
+          <channel name="r_XQ9_fault" wire="digital_in_fault" />
+          <channel name="r_XQ9_enabled" wire="int_in_enabled" />
+        </channels>
+      </supply>
+
+      <supply type="matsusada" name="XQ10"
+            dac1="c_matsusada_current" adc1="r_matsusada_current" adc2="r_matsusada_voltage" digout2="c_matsusada_remote"
+            digout3="c_matsusada_reset"
+            digin1="r_matsusada_thermalok" digin2="r_matsusada_currentcontrol"
+            digin3="r_matsusada_supplyon"
+            digin4="r_matsusada_fault" >
+        <channels>
+          <!-- y = Bx + C, where y=user units, and x=device units -->
+          <channel name="c_XQ10_current" wire="analog_out_current" scaleB="1.35" limitLow="0" limitHigh="7" units="A" />
+          <channel name="c_XQ10_enable" wire="digital_out_enable" />
+          <channel name="r_XQ10_current" wire="analog_in_current" scaleB="1.35" units="A" />
+          <channel name="r_XQ10_voltage" wire="analog_in_voltage" scaleB="6" units="V" />
+          <channel name="r_XQ10_coiltemp" wire="digital_in_coiltemp" />
+          <channel name="r_XQ10_limit" wire="digital_in_limit" />
+          <channel name="r_XQ10_open" wire="digital_in_open" />
+          <channel name="r_XQ10_fault" wire="digital_in_fault" />
+          <channel name="r_XQ10_enabled" wire="int_in_enabled" />
+        </channels>
+      </supply>
+
+      <supply type="matsusada" name="XQ11"
+            dac1="c_matsusada_current" adc1="r_matsusada_current" adc2="r_matsusada_voltage" digout2="c_matsusada_remote"
+            digout3="c_matsusada_reset"
+            digin1="r_matsusada_thermalok" digin2="r_matsusada_currentcontrol"
+            digin3="r_matsusada_supplyon"
+            digin4="r_matsusada_fault" >
+        <channels>
+          <!-- y = Bx + C, where y=user units, and x=device units -->
+          <channel name="c_XQ11_current" wire="analog_out_current" scaleB="1.35" limitLow="0" limitHigh="7" units="A" />
+          <channel name="c_XQ11_enable" wire="digital_out_enable" />
+          <channel name="r_XQ11_current" wire="analog_in_current" scaleB="1.35" units="A" />
+          <channel name="r_XQ11_voltage" wire="analog_in_voltage" scaleB="6" units="V" />
+          <channel name="r_XQ11_coiltemp" wire="digital_in_coiltemp" />
+          <channel name="r_XQ11_limit" wire="digital_in_limit" />
+          <channel name="r_XQ11_open" wire="digital_in_open" />
+          <channel name="r_XQ11_fault" wire="digital_in_fault" />
+          <channel name="r_XQ11_enabled" wire="int_in_enabled" />
+        </channels>
+      </supply>
+
+      <supply type="matsusada" name="XQ12"
+            dac1="c_matsusada_current" adc1="r_matsusada_current" adc2="r_matsusada_voltage" digout2="c_matsusada_remote"
+            digout3="c_matsusada_reset"
+            digin1="r_matsusada_thermalok" digin2="r_matsusada_currentcontrol"
+            digin3="r_matsusada_supplyon"
+            digin4="r_matsusada_fault" >
+        <channels>
+          <!-- y = Bx + C, where y=user units, and x=device units -->
+          <channel name="c_XQ12_current" wire="analog_out_current" scaleB="1.35" limitLow="0" limitHigh="7" units="A" />
+          <channel name="c_XQ12_enable" wire="digital_out_enable" />
+          <channel name="r_XQ12_current" wire="analog_in_current" scaleB="1.35" units="A" />
+          <channel name="r_XQ12_voltage" wire="analog_in_voltage" scaleB="6" units="V" />
+          <channel name="r_XQ12_coiltemp" wire="digital_in_coiltemp" />
+          <channel name="r_XQ12_limit" wire="digital_in_limit" />
+          <channel name="r_XQ12_open" wire="digital_in_open" />
+          <channel name="r_XQ12_fault" wire="digital_in_fault" />
+          <channel name="r_XQ12_enabled" wire="int_in_enabled" />
+        </channels>
+      </supply>
+
+      <supply type="matsusada" name="XQ13"
+            dac1="c_matsusada_current" adc1="r_matsusada_current" adc2="r_matsusada_voltage" digout2="c_matsusada_remote"
+            digout3="c_matsusada_reset"
+            digin1="r_matsusada_thermalok" digin2="r_matsusada_currentcontrol"
+            digin3="r_matsusada_supplyon"
+            digin4="r_matsusada_fault" >
+        <channels>
+          <!-- y = Bx + C, where y=user units, and x=device units -->
+          <channel name="c_XQ13_current" wire="analog_out_current" scaleB="1.35" limitLow="0" limitHigh="7" units="A" />
+          <channel name="c_XQ13_enable" wire="digital_out_enable" />
+          <channel name="r_XQ13_current" wire="analog_in_current" scaleB="1.35" units="A" />
+          <channel name="r_XQ13_voltage" wire="analog_in_voltage" scaleB="6" units="V" />
+          <channel name="r_XQ13_coiltemp" wire="digital_in_coiltemp" />
+          <channel name="r_XQ13_limit" wire="digital_in_limit" />
+          <channel name="r_XQ13_open" wire="digital_in_open" />
+          <channel name="r_XQ13_fault" wire="digital_in_fault" />
+          <channel name="r_XQ13_enabled" wire="int_in_enabled" />
+        </channels>
+      </supply>
+
+      <supply type="matsusada" name="XQ14"
+            dac1="c_matsusada_current" adc1="r_matsusada_current" adc2="r_matsusada_voltage" digout2="c_matsusada_remote"
+            digout3="c_matsusada_reset"
+            digin1="r_matsusada_thermalok" digin2="r_matsusada_currentcontrol"
+            digin3="r_matsusada_supplyon"
+            digin4="r_matsusada_fault" >
+        <channels>
+          <!-- y = Bx + C, where y=user units, and x=device units -->
+          <channel name="c_XQ14_current" wire="analog_out_current" scaleB="1.35" limitLow="0" limitHigh="7" units="A" />
+          <channel name="c_XQ14_enable" wire="digital_out_enable" />
+          <channel name="r_XQ14_current" wire="analog_in_current" scaleB="1.35" units="A" />
+          <channel name="r_XQ14_voltage" wire="analog_in_voltage" scaleB="6" units="V" />
+          <channel name="r_XQ14_coiltemp" wire="digital_in_coiltemp" />
+          <channel name="r_XQ14_limit" wire="digital_in_limit" />
+          <channel name="r_XQ14_open" wire="digital_in_open" />
+          <channel name="r_XQ14_fault" wire="digital_in_fault" />
+          <channel name="r_XQ14_enabled" wire="int_in_enabled" />
+        </channels>
+      </supply>      
+      
+      <supply type="matsusada" name="XQ15"
+            dac1="c_matsusada_current" adc1="r_matsusada_current" adc2="r_matsusada_voltage" digout2="c_matsusada_remote"
+            digout3="c_matsusada_reset"
+            digin1="r_matsusada_thermalok" digin2="r_matsusada_currentcontrol"
+            digin3="r_matsusada_supplyon"
+            digin4="r_matsusada_fault" >
+        <channels>
+          <!-- y = Bx + C, where y=user units, and x=device units -->
+          <channel name="c_XQ15_current" wire="analog_out_current" scaleB="1.35" limitLow="0" limitHigh="7" units="A" />
+          <channel name="c_XQ15_enable" wire="digital_out_enable" />
+          <channel name="r_XQ15_current" wire="analog_in_current" scaleB="1.35" units="A" />
+          <channel name="r_XQ15_voltage" wire="analog_in_voltage" scaleB="6" units="V" />
+          <channel name="r_XQ15_coiltemp" wire="digital_in_coiltemp" />
+          <channel name="r_XQ15_limit" wire="digital_in_limit" />
+          <channel name="r_XQ15_open" wire="digital_in_open" />
+          <channel name="r_XQ15_fault" wire="digital_in_fault" />
+          <channel name="r_XQ15_enabled" wire="int_in_enabled" />
+        </channels>
+      </supply>
+
+      <supply type="matsusada" name="AQ1"
+            dac1="c_matsusada_current" adc1="r_matsusada_current" adc2="r_matsusada_voltage" digout2="c_matsusada_remote"
+            digout3="c_matsusada_reset"
+            digin1="r_matsusada_thermalok" digin2="r_matsusada_currentcontrol"
+            digin3="r_matsusada_supplyon"
+            digin4="r_matsusada_fault" >
+        <channels>
+          <!-- y = Bx + C, where y=user units, and x=device units -->
+          <channel name="c_AQ1_current" wire="analog_out_current" scaleB="1.35" limitLow="0" limitHigh="7" units="A" />
+          <channel name="c_AQ1_enable" wire="digital_out_enable" />
+          <channel name="r_AQ1_current" wire="analog_in_current" scaleB="1.35" units="A" />
+          <channel name="r_AQ1_voltage" wire="analog_in_voltage" scaleB="6" units="V" />
+          <channel name="r_AQ1_coiltemp" wire="digital_in_coiltemp" />
+          <channel name="r_AQ1_limit" wire="digital_in_limit" />
+          <channel name="r_AQ1_open" wire="digital_in_open" />
+          <channel name="r_AQ1_fault" wire="digital_in_fault" />
+          <channel name="r_AQ1_enabled" wire="int_in_enabled" />
+        </channels>
+      </supply>
+
+      <supply type="matsusada" name="AQ2"
+            dac1="c_matsusada_current" adc1="r_matsusada_current" adc2="r_matsusada_voltage" digout2="c_matsusada_remote"
+            digout3="c_matsusada_reset"
+            digin1="r_matsusada_thermalok" digin2="r_matsusada_currentcontrol"
+            digin3="r_matsusada_supplyon"
+            digin4="r_matsusada_fault" >
+        <channels>
+          <!-- y = Bx + C, where y=user units, and x=device units -->
+          <channel name="c_AQ2_current" wire="analog_out_current" scaleB="1.35" limitLow="0" limitHigh="7" units="A" />
+          <channel name="c_AQ2_enable" wire="digital_out_enable" />
+          <channel name="r_AQ2_current" wire="analog_in_current" scaleB="1.35" units="A" />
+          <channel name="r_AQ2_voltage" wire="analog_in_voltage" scaleB="6" units="V" />
+          <channel name="r_AQ2_coiltemp" wire="digital_in_coiltemp" />
+          <channel name="r_AQ2_limit" wire="digital_in_limit" />
+          <channel name="r_AQ2_open" wire="digital_in_open" />
+          <channel name="r_AQ2_fault" wire="digital_in_fault" />
+          <channel name="r_AQ2_enabled" wire="int_in_enabled" />
+        </channels>
+      </supply>
+
+      <supply type="matsusada" name="AQ3"
+            dac1="c_matsusada_current" adc1="r_matsusada_current" adc2="r_matsusada_voltage" digout2="c_matsusada_remote"
+            digout3="c_matsusada_reset"
+            digin1="r_matsusada_thermalok" digin2="r_matsusada_currentcontrol"
+            digin3="r_matsusada_supplyon"
+            digin4="r_matsusada_fault" >
+        <channels>
+          <!-- y = Bx + C, where y=user units, and x=device units -->
+          <channel name="c_AQ3_current" wire="analog_out_current" scaleB="1" limitLow="0" limitHigh="7" units="A" />
+          <channel name="c_AQ3_enable" wire="digital_out_enable" />
+          <channel name="r_AQ3_current" wire="analog_in_current" scaleB="1.35" units="A" />
+          <channel name="r_AQ3_voltage" wire="analog_in_voltage" scaleB="6" units="V" />
+          <channel name="r_AQ3_coiltemp" wire="digital_in_coiltemp" />
+          <channel name="r_AQ3_limit" wire="digital_in_limit" />
+          <channel name="r_AQ3_open" wire="digital_in_open" />
+          <channel name="r_AQ3_fault" wire="digital_in_fault" />
+          <channel name="r_AQ3_enabled" wire="int_in_enabled" />
+        </channels>
+      </supply>
+
+      <supply type="matsusada" name="AQ4"
+            dac1="c_matsusada_current" adc1="r_matsusada_current" adc2="r_matsusada_voltage" digout2="c_matsusada_remote"
+            digout3="c_matsusada_reset"
+            digin1="r_matsusada_thermalok" digin2="r_matsusada_currentcontrol"
+            digin3="r_matsusada_supplyon"
+            digin4="r_matsusada_fault" >
+        <channels>
+          <!-- y = Bx + C, where y=user units, and x=device units -->
+          <channel name="c_AQ4_current" wire="analog_out_current" scaleB="1.35" limitLow="0" limitHigh="7" units="A" />
+          <channel name="c_AQ4_enable" wire="digital_out_enable" />
+          <channel name="r_AQ4_current" wire="analog_in_current" scaleB="1.35" units="A" />
+          <channel name="r_AQ4_voltage" wire="analog_in_voltage" scaleB="6" units="V" />
+          <channel name="r_AQ4_coiltemp" wire="digital_in_coiltemp" />
+          <channel name="r_AQ4_limit" wire="digital_in_limit" />
+          <channel name="r_AQ4_open" wire="digital_in_open" />
+          <channel name="r_AQ4_fault" wire="digital_in_fault" />
+          <channel name="r_AQ4_enabled" wire="int_in_enabled" />
+        </channels>
+      </supply>
+
+      <supply type="matsusada" name="AQ5"
+            dac1="c_matsusada_current" adc1="r_matsusada_current" adc2="r_matsusada_voltage" digout2="c_matsusada_remote"
+            digout3="c_matsusada_reset"
+            digin1="r_matsusada_thermalok" digin2="r_matsusada_currentcontrol"
+            digin3="r_matsusada_supplyon"
+            digin4="r_matsusada_fault" >
+        <channels>
+          <!-- y = Bx + C, where y=user units, and x=device units -->
+          <channel name="c_AQ5_current" wire="analog_out_current" scaleB="1.35" limitLow="0" limitHigh="7" units="A" />
+          <channel name="c_AQ5_enable" wire="digital_out_enable" />
+          <channel name="r_AQ5_current" wire="analog_in_current" scaleB="1.35" units="A" />
+          <channel name="r_AQ5_voltage" wire="analog_in_voltage" scaleB="6" units="V" />
+          <channel name="r_AQ5_coiltemp" wire="digital_in_coiltemp" />
+          <channel name="r_AQ5_limit" wire="digital_in_limit" />
+          <channel name="r_AQ5_open" wire="digital_in_open" />
+          <channel name="r_AQ5_fault" wire="digital_in_fault" />
+          <channel name="r_AQ5_enabled" wire="int_in_enabled" />
+        </channels>
+      </supply>
+
+      <supply type="matsusada" name="AQ6"
+            dac1="c_matsusada_current" adc1="r_matsusada_current" adc2="r_matsusada_voltage" digout2="c_matsusada_remote"
+            digout3="c_matsusada_reset"
+            digin1="r_matsusada_thermalok" digin2="r_matsusada_currentcontrol"
+            digin3="r_matsusada_supplyon"
+            digin4="r_matsusada_fault" >
+        <channels>
+          <!-- y = Bx + C, where y=user units, and x=device units -->
+          <channel name="c_AQ6_current" wire="analog_out_current" scaleB="1.35" limitLow="0" limitHigh="7" units="A" />
+          <channel name="c_AQ6_enable" wire="digital_out_enable" />
+          <channel name="r_AQ6_current" wire="analog_in_current" scaleB="1.35" units="A" />
+          <channel name="r_AQ6_voltage" wire="analog_in_voltage" scaleB="6" units="V" />
+          <channel name="r_AQ6_coiltemp" wire="digital_in_coiltemp" />
+          <channel name="r_AQ6_limit" wire="digital_in_limit" />
+          <channel name="r_AQ6_open" wire="digital_in_open" />
+          <channel name="r_AQ6_fault" wire="digital_in_fault" />
+          <channel name="r_AQ6_enabled" wire="int_in_enabled" />
+        </channels>
+      </supply>
+
+      <supply type="matsusada" name="AQ7"
+            dac1="c_matsusada_current" adc1="r_matsusada_current" adc2="r_matsusada_voltage" digout2="c_matsusada_remote"
+            digout3="c_matsusada_reset"
+            digin1="r_matsusada_thermalok" digin2="r_matsusada_currentcontrol"
+            digin3="r_matsusada_supplyon"
+            digin4="r_matsusada_fault" >
+        <channels>
+          <!-- y = Bx + C, where y=user units, and x=device units -->
+          <channel name="c_AQ7_current" wire="analog_out_current" scaleB="1.35" limitLow="0" limitHigh="7" units="A" />
+          <channel name="c_AQ7_enable" wire="digital_out_enable" />
+          <channel name="r_AQ7_current" wire="analog_in_current" scaleB="1.35" units="A" />
+          <channel name="r_AQ7_voltage" wire="analog_in_voltage" scaleB="6" units="V" />
+          <channel name="r_AQ7_coiltemp" wire="digital_in_coiltemp" />
+          <channel name="r_AQ7_limit" wire="digital_in_limit" />
+          <channel name="r_AQ7_open" wire="digital_in_open" />
+          <channel name="r_AQ7_fault" wire="digital_in_fault" />
+          <channel name="r_AQ7_enabled" wire="int_in_enabled" />
+        </channels>
+      </supply>
+
+      <supply type="matsusada" name="AQ8"
+            dac1="c_matsusada_current" adc1="r_matsusada_current" adc2="r_matsusada_voltage" digout2="c_matsusada_remote"
+            digout3="c_matsusada_reset"
+            digin1="r_matsusada_thermalok" digin2="r_matsusada_currentcontrol"
+            digin3="r_matsusada_supplyon"
+            digin4="r_matsusada_fault" >
+        <channels>
+          <!-- y = Bx + C, where y=user units, and x=device units -->
+          <channel name="c_AQ8_current" wire="analog_out_current" scaleB="1.35" limitLow="0" limitHigh="7" units="A" />
+          <channel name="c_AQ8_enable" wire="digital_out_enable" />
+          <channel name="r_AQ8_current" wire="analog_in_current" scaleB="1.35" units="A" />
+          <channel name="r_AQ8_voltage" wire="analog_in_voltage" scaleB="6" units="V" />
+          <channel name="r_AQ8_coiltemp" wire="digital_in_coiltemp" />
+          <channel name="r_AQ8_limit" wire="digital_in_limit" />
+          <channel name="r_AQ8_open" wire="digital_in_open" />
+          <channel name="r_AQ8_fault" wire="digital_in_fault" />
+          <channel name="r_AQ8_enabled" wire="int_in_enabled" />
+        </channels>
+      </supply>
+
+      <supply type="matsusada" name="AQ9"
+            dac1="c_matsusada_current" adc1="r_matsusada_current" adc2="r_matsusada_voltage" digout2="c_matsusada_remote"
+            digout3="c_matsusada_reset"
+            digin1="r_matsusada_thermalok" digin2="r_matsusada_currentcontrol"
+            digin3="r_matsusada_supplyon"
+            digin4="r_matsusada_fault" >
+        <channels>
+          <!-- y = Bx + C, where y=user units, and x=device units -->
+          <channel name="c_AQ9_current" wire="analog_out_current" scaleB="1.35" limitLow="0" limitHigh="7" units="A" />
+          <channel name="c_AQ9_enable" wire="digital_out_enable" />
+          <channel name="r_AQ9_current" wire="analog_in_current" scaleB="1.35" units="A" />
+          <channel name="r_AQ9_voltage" wire="analog_in_voltage" scaleB="6" units="V" />
+          <channel name="r_AQ9_coiltemp" wire="digital_in_coiltemp" />
+          <channel name="r_AQ9_limit" wire="digital_in_limit" />
+          <channel name="r_AQ9_open" wire="digital_in_open" />
+          <channel name="r_AQ9_fault" wire="digital_in_fault" />
+          <channel name="r_AQ9_enabled" wire="int_in_enabled" />
+        </channels>
+      </supply>
+
+      <supply type="matsusada" name="AQ10"
+            dac1="c_matsusada_current" adc1="r_matsusada_current" adc2="r_matsusada_voltage" digout2="c_matsusada_remote"
+            digout3="c_matsusada_reset"
+            digin1="r_matsusada_thermalok" digin2="r_matsusada_currentcontrol"
+            digin3="r_matsusada_supplyon"
+            digin4="r_matsusada_fault" >
+        <channels>
+          <!-- y = Bx + C, where y=user units, and x=device units -->
+          <channel name="c_AQ10_current" wire="analog_out_current" scaleB="1.35" limitLow="0" limitHigh="7" units="A" />
+          <channel name="c_AQ10_enable" wire="digital_out_enable" />
+          <channel name="r_AQ10_current" wire="analog_in_current" scaleB="1.35" units="A" />
+          <channel name="r_AQ10_voltage" wire="analog_in_voltage" scaleB="6" units="V" />
+          <channel name="r_AQ10_coiltemp" wire="digital_in_coiltemp" />
+          <channel name="r_AQ10_limit" wire="digital_in_limit" />
+          <channel name="r_AQ10_open" wire="digital_in_open" />
+          <channel name="r_AQ10_fault" wire="digital_in_fault" />
+          <channel name="r_AQ10_enabled" wire="int_in_enabled" />
+        </channels>
+      </supply>
+
+      <supply type="matsusada" name="AQ11"
+            dac1="c_matsusada_current" adc1="r_matsusada_current" adc2="r_matsusada_voltage" digout2="c_matsusada_remote"
+            digout3="c_matsusada_reset"
+            digin1="r_matsusada_thermalok" digin2="r_matsusada_currentcontrol"
+            digin3="r_matsusada_supplyon"
+            digin4="r_matsusada_fault" >
+        <channels>
+          <!-- y = Bx + C, where y=user units, and x=device units -->
+          <channel name="c_AQ11_current" wire="analog_out_current" scaleB="1.35" limitLow="0" limitHigh="7" units="A" />
+          <channel name="c_AQ11_enable" wire="digital_out_enable" />
+          <channel name="r_AQ11_current" wire="analog_in_current" scaleB="1.35" units="A" />
+          <channel name="r_AQ11_voltage" wire="analog_in_voltage" scaleB="6" units="V" />
+          <channel name="r_AQ11_coiltemp" wire="digital_in_coiltemp" />
+          <channel name="r_AQ11_limit" wire="digital_in_limit" />
+          <channel name="r_AQ11_open" wire="digital_in_open" />
+          <channel name="r_AQ11_fault" wire="digital_in_fault" />
+          <channel name="r_AQ11_enabled" wire="int_in_enabled" />
+        </channels>
+      </supply>
+
+      <supply type="matsusada" name="BQ1"
+            dac1="c_matsusada_current" adc1="r_matsusada_current" adc2="r_matsusada_voltage" digout2="c_matsusada_remote"
+            digout3="c_matsusada_reset"
+            digin1="r_matsusada_thermalok" digin2="r_matsusada_currentcontrol"
+            digin3="r_matsusada_supplyon"
+            digin4="r_matsusada_fault" >
+        <channels>
+          <!-- y = Bx + C, where y=user units, and x=device units -->
+          <channel name="c_BQ1_current" wire="analog_out_current" scaleB="1.35" limitLow="0" limitHigh="7" units="A" />
+          <channel name="c_BQ1_enable" wire="digital_out_enable" />
+          <channel name="r_BQ1_current" wire="analog_in_current" scaleB="1.35" units="A" />
+          <channel name="r_BQ1_voltage" wire="analog_in_voltage" scaleB="6" units="V" />
+          <channel name="r_BQ1_coiltemp" wire="digital_in_coiltemp" />
+          <channel name="r_BQ1_limit" wire="digital_in_limit" />
+          <channel name="r_BQ1_open" wire="digital_in_open" />
+          <channel name="r_BQ1_fault" wire="digital_in_fault" />
+          <channel name="r_BQ1_enabled" wire="int_in_enabled" />
+        </channels>
+      </supply>
+
+      <supply type="matsusada" name="BQ2"
+            dac1="c_matsusada_current" adc1="r_matsusada_current" adc2="r_matsusada_voltage" digout2="c_matsusada_remote"
+            digout3="c_matsusada_reset"
+            digin1="r_matsusada_thermalok" digin2="r_matsusada_currentcontrol"
+            digin3="r_matsusada_supplyon"
+            digin4="r_matsusada_fault" >
+        <channels>
+          <!-- y = Bx + C, where y=user units, and x=device units -->
+          <channel name="c_BQ2_current" wire="analog_out_current" scaleB="1.35" limitLow="0" limitHigh="7" units="A" />
+          <channel name="c_BQ2_enable" wire="digital_out_enable" />
+          <channel name="r_BQ2_current" wire="analog_in_current" scaleB="1.35" units="A" />
+          <channel name="r_BQ2_voltage" wire="analog_in_voltage" scaleB="6" units="V" />
+          <channel name="r_BQ2_coiltemp" wire="digital_in_coiltemp" />
+          <channel name="r_BQ2_limit" wire="digital_in_limit" />
+          <channel name="r_BQ2_open" wire="digital_in_open" />
+          <channel name="r_BQ2_fault" wire="digital_in_fault" />
+          <channel name="r_BQ2_enabled" wire="int_in_enabled" />
+        </channels>
+      </supply>
+
+      <supply type="matsusada" name="BQ3"
+            dac1="c_matsusada_current" adc1="r_matsusada_current" adc2="r_matsusada_voltage" digout2="c_matsusada_remote"
+            digout3="c_matsusada_reset"
+            digin1="r_matsusada_thermalok" digin2="r_matsusada_currentcontrol"
+            digin3="r_matsusada_supplyon"
+            digin4="r_matsusada_fault" >
+        <channels>
+          <!-- y = Bx + C, where y=user units, and x=device units -->
+          <channel name="c_BQ3_current" wire="analog_out_current" scaleB="1.35" limitLow="0" limitHigh="7" units="A" />
+          <channel name="c_BQ3_enable" wire="digital_out_enable" />
+          <channel name="r_BQ3_current" wire="analog_in_current" scaleB="1.35" units="A" />
+          <channel name="r_BQ3_voltage" wire="analog_in_voltage" scaleB="6" units="V" />
+          <channel name="r_BQ3_coiltemp" wire="digital_in_coiltemp" />
+          <channel name="r_BQ3_limit" wire="digital_in_limit" />
+          <channel name="r_BQ3_open" wire="digital_in_open" />
+          <channel name="r_BQ3_fault" wire="digital_in_fault" />
+          <channel name="r_BQ3_enabled" wire="int_in_enabled" />
+        </channels>
+      </supply>
+
+      <supply type="matsusada" name="BQ4"
+            dac1="c_matsusada_current" adc1="r_matsusada_current" adc2="r_matsusada_voltage" digout2="c_matsusada_remote"
+            digout3="c_matsusada_reset"
+            digin1="r_matsusada_thermalok" digin2="r_matsusada_currentcontrol"
+            digin3="r_matsusada_supplyon"
+            digin4="r_matsusada_fault" >
+        <channels>
+          <!-- y = Bx + C, where y=user units, and x=device units -->
+          <channel name="c_BQ4_current" wire="analog_out_current" scaleB="1.35" limitLow="0" limitHigh="7" units="A" />
+          <channel name="c_BQ4_enable" wire="digital_out_enable" />
+          <channel name="r_BQ4_current" wire="analog_in_current" scaleB="1.35" units="A" />
+          <channel name="r_BQ4_voltage" wire="analog_in_voltage" scaleB="6" units="V" />
+          <channel name="r_BQ4_coiltemp" wire="digital_in_coiltemp" />
+          <channel name="r_BQ4_limit" wire="digital_in_limit" />
+          <channel name="r_BQ4_open" wire="digital_in_open" />
+          <channel name="r_BQ4_fault" wire="digital_in_fault" />
+          <channel name="r_BQ4_enabled" wire="int_in_enabled" />
+        </channels>
+      </supply>
+
+      <supply type="matsusada" name="BQ5"
+            dac1="c_matsusada_current" adc1="r_matsusada_current" adc2="r_matsusada_voltage" digout2="c_matsusada_remote"
+            digout3="c_matsusada_reset"
+            digin1="r_matsusada_thermalok" digin2="r_matsusada_currentcontrol"
+            digin3="r_matsusada_supplyon"
+            digin4="r_matsusada_fault" >
+        <channels>
+          <!-- y = Bx + C, where y=user units, and x=device units -->
+          <channel name="c_BQ5_current" wire="analog_out_current" scaleB="1.35" limitLow="0" limitHigh="7" units="A" />
+          <channel name="c_BQ5_enable" wire="digital_out_enable" />
+          <channel name="r_BQ5_current" wire="analog_in_current" scaleB="1.35" units="A" />
+          <channel name="r_BQ5_voltage" wire="analog_in_voltage" scaleB="6" units="V" />
+          <channel name="r_BQ5_coiltemp" wire="digital_in_coiltemp" />
+          <channel name="r_BQ5_limit" wire="digital_in_limit" />
+          <channel name="r_BQ5_open" wire="digital_in_open" />
+          <channel name="r_BQ5_fault" wire="digital_in_fault" />
+          <channel name="r_BQ5_enabled" wire="int_in_enabled" />
+        </channels>
+      </supply>
+
+      <supply type="matsusada" name="BQ6"
+            dac1="c_matsusada_current" adc1="r_matsusada_current" adc2="r_matsusada_voltage" digout2="c_matsusada_remote"
+            digout3="c_matsusada_reset"
+            digin1="r_matsusada_thermalok" digin2="r_matsusada_currentcontrol"
+            digin3="r_matsusada_supplyon"
+            digin4="r_matsusada_fault" >
+        <channels>
+          <!-- y = Bx + C, where y=user units, and x=device units -->
+          <channel name="c_BQ6_current" wire="analog_out_current" scaleB="1.35" limitLow="0" limitHigh="7" units="A" />
+          <channel name="c_BQ6_enable" wire="digital_out_enable" />
+          <channel name="r_BQ6_current" wire="analog_in_current" scaleB="1.35" units="A" />
+          <channel name="r_BQ6_voltage" wire="analog_in_voltage" scaleB="6" units="V" />
+          <channel name="r_BQ6_coiltemp" wire="digital_in_coiltemp" />
+          <channel name="r_BQ6_limit" wire="digital_in_limit" />
+          <channel name="r_BQ6_open" wire="digital_in_open" />
+          <channel name="r_BQ6_fault" wire="digital_in_fault" />
+          <channel name="r_BQ6_enabled" wire="int_in_enabled" />
+        </channels>
+      </supply>
+
+      <supply type="matsusada" name="BQ7"
+            dac1="c_matsusada_current" adc1="r_matsusada_current" adc2="r_matsusada_voltage" digout2="c_matsusada_remote"
+            digout3="c_matsusada_reset"
+            digin1="r_matsusada_thermalok" digin2="r_matsusada_currentcontrol"
+            digin3="r_matsusada_supplyon"
+            digin4="r_matsusada_fault" >
+        <channels>
+          <!-- y = Bx + C, where y=user units, and x=device units -->
+          <channel name="c_BQ7_current" wire="analog_out_current" scaleB="1.35" limitLow="0" limitHigh="7" units="A" />
+          <channel name="c_BQ7_enable" wire="digital_out_enable" />
+          <channel name="r_BQ7_current" wire="analog_in_current" scaleB="1.35" units="A" />
+          <channel name="r_BQ7_voltage" wire="analog_in_voltage" scaleB="6" units="V" />
+          <channel name="r_BQ7_coiltemp" wire="digital_in_coiltemp" />
+          <channel name="r_BQ7_limit" wire="digital_in_limit" />
+          <channel name="r_BQ7_open" wire="digital_in_open" />
+          <channel name="r_BQ7_fault" wire="digital_in_fault" />
+          <channel name="r_BQ7_enabled" wire="int_in_enabled" />
+        </channels>
+      </supply>
+
+      <supply type="matsusada" name="BQ8"
+            dac1="c_matsusada_current" adc1="r_matsusada_current" adc2="r_matsusada_voltage" digout2="c_matsusada_remote"
+            digout3="c_matsusada_reset"
+            digin1="r_matsusada_thermalok" digin2="r_matsusada_currentcontrol"
+            digin3="r_matsusada_supplyon"
+            digin4="r_matsusada_fault" >
+        <channels>
+          <!-- y = Bx + C, where y=user units, and x=device units -->
+          <channel name="c_BQ8_current" wire="analog_out_current" scaleB="1.35" limitLow="0" limitHigh="7" units="A" />
+          <channel name="c_BQ8_enable" wire="digital_out_enable" />
+          <channel name="r_BQ8_current" wire="analog_in_current" scaleB="1.35" units="A" />
+          <channel name="r_BQ8_voltage" wire="analog_in_voltage" scaleB="6" units="V" />
+          <channel name="r_BQ8_coiltemp" wire="digital_in_coiltemp" />
+          <channel name="r_BQ8_limit" wire="digital_in_limit" />
+          <channel name="r_BQ8_open" wire="digital_in_open" />
+          <channel name="r_BQ8_fault" wire="digital_in_fault" />
+          <channel name="r_BQ8_enabled" wire="int_in_enabled" />
+        </channels>
+      </supply>
+
+      <supply type="matsusada" name="BQ9"
+            dac1="c_matsusada_current" adc1="r_matsusada_current" adc2="r_matsusada_voltage" digout2="c_matsusada_remote"
+            digout3="c_matsusada_reset"
+            digin1="r_matsusada_thermalok" digin2="r_matsusada_currentcontrol"
+            digin3="r_matsusada_supplyon"
+            digin4="r_matsusada_fault" >
+        <channels>
+          <!-- y = Bx + C, where y=user units, and x=device units -->
+          <channel name="c_BQ9_current" wire="analog_out_current" scaleB="1.35" limitLow="0" limitHigh="7" units="A" />
+          <channel name="c_BQ9_enable" wire="digital_out_enable" />
+          <channel name="r_BQ9_current" wire="analog_in_current" scaleB="1.35" units="A" />
+          <channel name="r_BQ9_voltage" wire="analog_in_voltage" scaleB="6" units="V" />
+          <channel name="r_BQ9_coiltemp" wire="digital_in_coiltemp" />
+          <channel name="r_BQ9_limit" wire="digital_in_limit" />
+          <channel name="r_BQ9_open" wire="digital_in_open" />
+          <channel name="r_BQ9_fault" wire="digital_in_fault" />
+          <channel name="r_BQ9_enabled" wire="int_in_enabled" />
+        </channels>
+      </supply>
+
+      <supply type="matsusada" name="BQ10"
+            dac1="c_matsusada_current" adc1="r_matsusada_current" adc2="r_matsusada_voltage" digout2="c_matsusada_remote"
+            digout3="c_matsusada_reset"
+            digin1="r_matsusada_thermalok" digin2="r_matsusada_currentcontrol"
+            digin3="r_matsusada_supplyon"
+            digin4="r_matsusada_fault" >
+        <channels>
+          <!-- y = Bx + C, where y=user units, and x=device units -->
+          <channel name="c_BQ10_current" wire="analog_out_current" scaleB="1.35" limitLow="0" limitHigh="7" units="A" />
+          <channel name="c_BQ10_enable" wire="digital_out_enable" />
+          <channel name="r_BQ10_current" wire="analog_in_current" scaleB="1.35" units="A" />
+          <channel name="r_BQ10_voltage" wire="analog_in_voltage" scaleB="6" units="V" />
+          <channel name="r_BQ10_coiltemp" wire="digital_in_coiltemp" />
+          <channel name="r_BQ10_limit" wire="digital_in_limit" />
+          <channel name="r_BQ10_open" wire="digital_in_open" />
+          <channel name="r_BQ10_fault" wire="digital_in_fault" />
+          <channel name="r_BQ10_enabled" wire="int_in_enabled" />
+        </channels>
+      </supply>
+
+      <supply type="matsusada" name="BQ10_1"
+            dac1="c_matsusada_current" adc1="r_matsusada_current" adc2="r_matsusada_voltage" digout2="c_matsusada_remote"
+            digout3="c_matsusada_reset"
+            digin1="r_matsusada_thermalok" digin2="r_matsusada_currentcontrol"
+            digin3="r_matsusada_supplyon"
+            digin4="r_matsusada_fault" >
+        <channels>
+          <!-- y = Bx + C, where y=user units, and x=device units -->
+          <channel name="c_BQ10_1_current" wire="analog_out_current" scaleB="1.35" limitLow="0" limitHigh="7" units="A" />
+          <channel name="c_BQ10_1_enable" wire="digital_out_enable" />
+          <channel name="r_BQ10_1_current" wire="analog_in_current" scaleB="1.35" units="A" />
+          <channel name="r_BQ10_1_voltage" wire="analog_in_voltage" scaleB="6" units="V" />
+          <channel name="r_BQ10_1_coiltemp" wire="digital_in_coiltemp" />
+          <channel name="r_BQ10_1_limit" wire="digital_in_limit" />
+          <channel name="r_BQ10_1_open" wire="digital_in_open" />
+          <channel name="r_BQ10_1_fault" wire="digital_in_fault" />
+          <channel name="r_BQ10_1_enabled" wire="int_in_enabled" />
+        </channels>
+      </supply>
+	  
+      <supply type="matsusada" name="BQ10_2"
+            dac1="c_matsusada_current" adc1="r_matsusada_current" adc2="r_matsusada_voltage" digout2="c_matsusada_remote"
+            digout3="c_matsusada_reset"
+            digin1="r_matsusada_thermalok" digin2="r_matsusada_currentcontrol"
+            digin3="r_matsusada_supplyon"
+            digin4="r_matsusada_fault" >
+        <channels>
+          <!-- y = Bx + C, where y=user units, and x=device units -->
+          <channel name="c_BQ10_2_current" wire="analog_out_current" scaleB="1.35" limitLow="0" limitHigh="7" units="A" />
+          <channel name="c_BQ10_2_enable" wire="digital_out_enable" />
+          <channel name="r_BQ10_2_current" wire="analog_in_current" scaleB="1.35" units="A" />
+          <channel name="r_BQ10_2_voltage" wire="analog_in_voltage" scaleB="6" units="V" />
+          <channel name="r_BQ10_2_coiltemp" wire="digital_in_coiltemp" />
+          <channel name="r_BQ10_2_limit" wire="digital_in_limit" />
+          <channel name="r_BQ10_2_open" wire="digital_in_open" />
+          <channel name="r_BQ10_2_fault" wire="digital_in_fault" />
+          <channel name="r_BQ10_2_enabled" wire="int_in_enabled" />
+        </channels>
+      </supply>	  
+	  
+      <supply type="matsusada" name="BQ10_3"
+            dac1="c_matsusada_current" adc1="r_matsusada_current" adc2="r_matsusada_voltage" digout2="c_matsusada_remote"
+            digout3="c_matsusada_reset"
+            digin1="r_matsusada_thermalok" digin2="r_matsusada_currentcontrol"
+            digin3="r_matsusada_supplyon"
+            digin4="r_matsusada_fault" >
+        <channels>
+          <!-- y = Bx + C, where y=user units, and x=device units -->
+          <channel name="c_BQ10_3_current" wire="analog_out_current" scaleB="1.35" limitLow="0" limitHigh="7" units="A" />
+          <channel name="c_BQ10_3_enable" wire="digital_out_enable" />
+          <channel name="r_BQ10_3_current" wire="analog_in_current" scaleB="1.35" units="A" />
+          <channel name="r_BQ10_3_voltage" wire="analog_in_voltage" scaleB="6" units="V" />
+          <channel name="r_BQ10_3_coiltemp" wire="digital_in_coiltemp" />
+          <channel name="r_BQ10_3_limit" wire="digital_in_limit" />
+          <channel name="r_BQ10_3_open" wire="digital_in_open" />
+          <channel name="r_BQ10_3_fault" wire="digital_in_fault" />
+          <channel name="r_BQ10_3_enabled" wire="int_in_enabled" />
+        </channels>
+      </supply>	  	
+
+      <supply type="matsusada" name="BQ10_4"
+            dac1="c_matsusada_current" adc1="r_matsusada_current" adc2="r_matsusada_voltage" digout2="c_matsusada_remote"
+            digout3="c_matsusada_reset"
+            digin1="r_matsusada_thermalok" digin2="r_matsusada_currentcontrol"
+            digin3="r_matsusada_supplyon"
+            digin4="r_matsusada_fault" >
+        <channels>
+          <!-- y = Bx + C, where y=user units, and x=device units -->
+          <channel name="c_BQ10_4_current" wire="analog_out_current" scaleB="1.35" limitLow="0" limitHigh="7" units="A" />
+          <channel name="c_BQ10_4_enable" wire="digital_out_enable" />
+          <channel name="r_BQ10_4_current" wire="analog_in_current" scaleB="1.35" units="A" />
+          <channel name="r_BQ10_4_voltage" wire="analog_in_voltage" scaleB="6" units="V" />
+          <channel name="r_BQ10_4_coiltemp" wire="digital_in_coiltemp" />
+          <channel name="r_BQ10_4_limit" wire="digital_in_limit" />
+          <channel name="r_BQ10_4_open" wire="digital_in_open" />
+          <channel name="r_BQ10_4_fault" wire="digital_in_fault" />
+          <channel name="r_BQ10_4_enabled" wire="int_in_enabled" />
+        </channels>
+      </supply>	  	  
+
+      <supply type="matsusada" name="BQ11"
+            dac1="c_matsusada_current" adc1="r_matsusada_current" adc2="r_matsusada_voltage" digout2="c_matsusada_remote"
+            digout3="c_matsusada_reset"
+            digin1="r_matsusada_thermalok" digin2="r_matsusada_currentcontrol"
+            digin3="r_matsusada_supplyon"
+            digin4="r_matsusada_fault" >
+        <channels>
+          <!-- y = Bx + C, where y=user units, and x=device units -->
+          <channel name="c_BQ11_current" wire="analog_out_current" scaleB="1.35" limitLow="0" limitHigh="7" units="A" />
+          <channel name="c_BQ11_enable" wire="digital_out_enable" />
+          <channel name="r_BQ11_current" wire="analog_in_current" scaleB="1.35" units="A" />
+          <channel name="r_BQ11_voltage" wire="analog_in_voltage" scaleB="6" units="V" />
+          <channel name="r_BQ11_coiltemp" wire="digital_in_coiltemp" />
+          <channel name="r_BQ11_limit" wire="digital_in_limit" />
+          <channel name="r_BQ11_open" wire="digital_in_open" />
+          <channel name="r_BQ11_fault" wire="digital_in_fault" />
+          <channel name="r_BQ11_enabled" wire="int_in_enabled" />
+        </channels>
+      </supply>	  
+	  
+      <supply type="matsusada" name="BQ11_1"
+            dac1="c_matsusada_current" adc1="r_matsusada_current" adc2="r_matsusada_voltage" digout2="c_matsusada_remote"
+            digout3="c_matsusada_reset"
+            digin1="r_matsusada_thermalok" digin2="r_matsusada_currentcontrol"
+            digin3="r_matsusada_supplyon"
+            digin4="r_matsusada_fault" >
+        <channels>
+          <!-- y = Bx + C, where y=user units, and x=device units -->
+          <channel name="c_BQ11_1_current" wire="analog_out_current" scaleB="1.35" limitLow="0" limitHigh="7" units="A" />
+          <channel name="c_BQ11_1_enable" wire="digital_out_enable" />
+          <channel name="r_BQ11_1_current" wire="analog_in_current" scaleB="1.35" units="A" />
+          <channel name="r_BQ11_1_voltage" wire="analog_in_voltage" scaleB="6" units="V" />
+          <channel name="r_BQ11_1_coiltemp" wire="digital_in_coiltemp" />
+          <channel name="r_BQ11_1_limit" wire="digital_in_limit" />
+          <channel name="r_BQ11_1_open" wire="digital_in_open" />
+          <channel name="r_BQ11_1_fault" wire="digital_in_fault" />
+          <channel name="r_BQ11_1_enabled" wire="int_in_enabled" />
+        </channels>
+      </supply>
+	  
+      <supply type="matsusada" name="BQ11_2"
+            dac1="c_matsusada_current" adc1="r_matsusada_current" adc2="r_matsusada_voltage" digout2="c_matsusada_remote"
+            digout3="c_matsusada_reset"
+            digin1="r_matsusada_thermalok" digin2="r_matsusada_currentcontrol"
+            digin3="r_matsusada_supplyon"
+            digin4="r_matsusada_fault" >
+        <channels>
+          <!-- y = Bx + C, where y=user units, and x=device units -->
+          <channel name="c_BQ11_2_current" wire="analog_out_current" scaleB="1.35" limitLow="0" limitHigh="7" units="A" />
+          <channel name="c_BQ11_2_enable" wire="digital_out_enable" />
+          <channel name="r_BQ11_2_current" wire="analog_in_current" scaleB="1.35" units="A" />
+          <channel name="r_BQ11_2_voltage" wire="analog_in_voltage" scaleB="6" units="V" />
+          <channel name="r_BQ11_2_coiltemp" wire="digital_in_coiltemp" />
+          <channel name="r_BQ11_2_limit" wire="digital_in_limit" />
+          <channel name="r_BQ11_2_open" wire="digital_in_open" />
+          <channel name="r_BQ11_2_fault" wire="digital_in_fault" />
+          <channel name="r_BQ11_2_enabled" wire="int_in_enabled" />
+        </channels>
+      </supply>	  
+	  
+      <supply type="matsusada" name="BQ11_3"
+            dac1="c_matsusada_current" adc1="r_matsusada_current" adc2="r_matsusada_voltage" digout2="c_matsusada_remote"
+            digout3="c_matsusada_reset"
+            digin1="r_matsusada_thermalok" digin2="r_matsusada_currentcontrol"
+            digin3="r_matsusada_supplyon"
+            digin4="r_matsusada_fault" >
+        <channels>
+          <!-- y = Bx + C, where y=user units, and x=device units -->
+          <channel name="c_BQ11_3_current" wire="analog_out_current" scaleB="1.35" limitLow="0" limitHigh="7" units="A" />
+          <channel name="c_BQ11_3_enable" wire="digital_out_enable" />
+          <channel name="r_BQ11_3_current" wire="analog_in_current" scaleB="1.35" units="A" />
+          <channel name="r_BQ11_3_voltage" wire="analog_in_voltage" scaleB="6" units="V" />
+          <channel name="r_BQ11_3_coiltemp" wire="digital_in_coiltemp" />
+          <channel name="r_BQ11_3_limit" wire="digital_in_limit" />
+          <channel name="r_BQ11_3_open" wire="digital_in_open" />
+          <channel name="r_BQ11_3_fault" wire="digital_in_fault" />
+          <channel name="r_BQ11_3_enabled" wire="int_in_enabled" />
+        </channels>
+      </supply>	  	
+
+      <supply type="matsusada" name="BQ11_4"
+            dac1="c_matsusada_current" adc1="r_matsusada_current" adc2="r_matsusada_voltage" digout2="c_matsusada_remote"
+            digout3="c_matsusada_reset"
+            digin1="r_matsusada_thermalok" digin2="r_matsusada_currentcontrol"
+            digin3="r_matsusada_supplyon"
+            digin4="r_matsusada_fault" >
+        <channels>
+          <!-- y = Bx + C, where y=user units, and x=device units -->
+          <channel name="c_BQ11_4_current" wire="analog_out_current" scaleB="1.35" limitLow="0" limitHigh="7" units="A" />
+          <channel name="c_BQ11_4_enable" wire="digital_out_enable" />
+          <channel name="r_BQ11_4_current" wire="analog_in_current" scaleB="1.35" units="A" />
+          <channel name="r_BQ11_4_voltage" wire="analog_in_voltage" scaleB="6" units="V" />
+          <channel name="r_BQ11_4_coiltemp" wire="digital_in_coiltemp" />
+          <channel name="r_BQ11_4_limit" wire="digital_in_limit" />
+          <channel name="r_BQ11_4_open" wire="digital_in_open" />
+          <channel name="r_BQ11_4_fault" wire="digital_in_fault" />
+          <channel name="r_BQ11_4_enabled" wire="int_in_enabled" />
+        </channels>
+      </supply>	 
+
+      <supply type="matsusada" name="CQ1"
+            dac1="c_matsusada_current" adc1="r_matsusada_current" adc2="r_matsusada_voltage" digout2="c_matsusada_remote"
+            digout3="c_matsusada_reset"
+            digin1="r_matsusada_thermalok" digin2="r_matsusada_currentcontrol"
+            digin3="r_matsusada_supplyon"
+            digin4="r_matsusada_fault" >
+        <channels>
+          <!-- y = Bx + C, where y=user units, and x=device units -->
+          <channel name="c_CQ1_current" wire="analog_out_current" scaleB="1.35" limitLow="0" limitHigh="7" units="A" />
+          <channel name="c_CQ1_enable" wire="digital_out_enable" />
+          <channel name="r_CQ1_current" wire="analog_in_current" scaleB="1.35" units="A" />
+          <channel name="r_CQ1_voltage" wire="analog_in_voltage" scaleB="6" units="V" />
+          <channel name="r_CQ1_coiltemp" wire="digital_in_coiltemp" />
+          <channel name="r_CQ1_limit" wire="digital_in_limit" />
+          <channel name="r_CQ1_open" wire="digital_in_open" />
+          <channel name="r_CQ1_fault" wire="digital_in_fault" />
+          <channel name="r_CQ1_enabled" wire="int_in_enabled" />
+        </channels>
+      </supply>
+
+      <supply type="matsusada" name="CQ2"
+            dac1="c_matsusada_current" adc1="r_matsusada_current" adc2="r_matsusada_voltage" digout2="c_matsusada_remote"
+            digout3="c_matsusada_reset"
+            digin1="r_matsusada_thermalok" digin2="r_matsusada_currentcontrol"
+            digin3="r_matsusada_supplyon"
+            digin4="r_matsusada_fault" >
+        <channels>
+          <!-- y = Bx + C, where y=user units, and x=device units -->
+          <channel name="c_CQ2_current" wire="analog_out_current" scaleB="1" limitLow="0" limitHigh="7" units="A" />
+          <channel name="c_CQ2_enable" wire="digital_out_enable" />
+          <channel name="r_CQ2_current" wire="analog_in_current" scaleB="1.35" units="A" />
+          <channel name="r_CQ2_voltage" wire="analog_in_voltage" scaleB="6" units="V" />
+          <channel name="r_CQ2_coiltemp" wire="digital_in_coiltemp" />
+          <channel name="r_CQ2_limit" wire="digital_in_limit" />
+          <channel name="r_CQ2_open" wire="digital_in_open" />
+          <channel name="r_CQ2_fault" wire="digital_in_fault" />
+          <channel name="r_CQ2_enabled" wire="int_in_enabled" />
+        </channels>
+      </supply>
+
+      <supply type="matsusada" name="CQ3"
+            dac1="c_matsusada_current" adc1="r_matsusada_current" adc2="r_matsusada_voltage" digout2="c_matsusada_remote"
+            digout3="c_matsusada_reset"
+            digin1="r_matsusada_thermalok" digin2="r_matsusada_currentcontrol"
+            digin3="r_matsusada_supplyon"
+            digin4="r_matsusada_fault" >
+        <channels>
+          <!-- y = Bx + C, where y=user units, and x=device units -->
+          <channel name="c_CQ3_current" wire="analog_out_current" scaleB="1.35" limitLow="0" limitHigh="7" units="A" />
+          <channel name="c_CQ3_enable" wire="digital_out_enable" />
+          <channel name="r_CQ3_current" wire="analog_in_current" scaleB="1.35" units="A" />
+          <channel name="r_CQ3_voltage" wire="analog_in_voltage" scaleB="6" units="V" />
+          <channel name="r_CQ3_coiltemp" wire="digital_in_coiltemp" />
+          <channel name="r_CQ3_limit" wire="digital_in_limit" />
+          <channel name="r_CQ3_open" wire="digital_in_open" />
+          <channel name="r_CQ3_fault" wire="digital_in_fault" />
+          <channel name="r_CQ3_enabled" wire="int_in_enabled" />
+        </channels>
+      </supply>
+
+      <supply type="matsusada" name="CQ4"
+            dac1="c_matsusada_current" adc1="r_matsusada_current" adc2="r_matsusada_voltage" digout2="c_matsusada_remote"
+            digout3="c_matsusada_reset"
+            digin1="r_matsusada_thermalok" digin2="r_matsusada_currentcontrol"
+            digin3="r_matsusada_supplyon"
+            digin4="r_matsusada_fault" >
+        <channels>
+          <!-- y = Bx + C, where y=user units, and x=device units -->
+          <channel name="c_CQ4_current" wire="analog_out_current" scaleB="1.35" limitLow="0" limitHigh="7" units="A" />
+          <channel name="c_CQ4_enable" wire="digital_out_enable" />
+          <channel name="r_CQ4_current" wire="analog_in_current" scaleB="1.35" units="A" />
+          <channel name="r_CQ4_voltage" wire="analog_in_voltage" scaleB="6" units="V" />
+          <channel name="r_CQ4_coiltemp" wire="digital_in_coiltemp" />
+          <channel name="r_CQ4_limit" wire="digital_in_limit" />
+          <channel name="r_CQ4_open" wire="digital_in_open" />
+          <channel name="r_CQ4_fault" wire="digital_in_fault" />
+          <channel name="r_CQ4_enabled" wire="int_in_enabled" />
+        </channels>
+      </supply>
+
+      <supply type="matsusada" name="CQ5"
+            dac1="c_matsusada_current" adc1="r_matsusada_current" adc2="r_matsusada_voltage" digout2="c_matsusada_remote"
+            digout3="c_matsusada_reset"
+            digin1="r_matsusada_thermalok" digin2="r_matsusada_currentcontrol"
+            digin3="r_matsusada_supplyon"
+            digin4="r_matsusada_fault" >
+        <channels>
+          <!-- y = Bx + C, where y=user units, and x=device units -->
+          <channel name="c_CQ5_current" wire="analog_out_current" scaleB="1.35" limitLow="0" limitHigh="7" units="A" />
+          <channel name="c_CQ5_enable" wire="digital_out_enable" />
+          <channel name="r_CQ5_current" wire="analog_in_current" scaleB="1.35" units="A" />
+          <channel name="r_CQ5_voltage" wire="analog_in_voltage" scaleB="6" units="V" />
+          <channel name="r_CQ5_coiltemp" wire="digital_in_coiltemp" />
+          <channel name="r_CQ5_limit" wire="digital_in_limit" />
+          <channel name="r_CQ5_open" wire="digital_in_open" />
+          <channel name="r_CQ5_fault" wire="digital_in_fault" />
+          <channel name="r_CQ5_enabled" wire="int_in_enabled" />
+        </channels>
+      </supply>
+
+      <supply type="matsusada" name="CQ6"
+            dac1="c_matsusada_current" adc1="r_matsusada_current" adc2="r_matsusada_voltage" digout2="c_matsusada_remote"
+            digout3="c_matsusada_reset"
+            digin1="r_matsusada_thermalok" digin2="r_matsusada_currentcontrol"
+            digin3="r_matsusada_supplyon"
+            digin4="r_matsusada_fault" >
+        <channels>
+          <!-- y = Bx + C, where y=user units, and x=device units -->
+          <channel name="c_CQ6_current" wire="analog_out_current" scaleB="1.35" limitLow="0" limitHigh="7" units="A" />
+          <channel name="c_CQ6_enable" wire="digital_out_enable" />
+          <channel name="r_CQ6_current" wire="analog_in_current" scaleB="1.35" units="A" />
+          <channel name="r_CQ6_voltage" wire="analog_in_voltage" scaleB="6" units="V" />
+          <channel name="r_CQ6_coiltemp" wire="digital_in_coiltemp" />
+          <channel name="r_CQ6_limit" wire="digital_in_limit" />
+          <channel name="r_CQ6_open" wire="digital_in_open" />
+          <channel name="r_CQ6_fault" wire="digital_in_fault" />
+          <channel name="r_CQ6_enabled" wire="int_in_enabled" />
+        </channels>
+      </supply>
+
+      <supply type="matsusada" name="CQ7"
+            dac1="c_matsusada_current" adc1="r_matsusada_current" adc2="r_matsusada_voltage" digout2="c_matsusada_remote"
+            digout3="c_matsusada_reset"
+            digin1="r_matsusada_thermalok" digin2="r_matsusada_currentcontrol"
+            digin3="r_matsusada_supplyon"
+            digin4="r_matsusada_fault" >
+        <channels>
+          <!-- y = Bx + C, where y=user units, and x=device units -->
+          <channel name="c_CQ7_current" wire="analog_out_current" scaleB="1.35" limitLow="0" limitHigh="7" units="A" />
+          <channel name="c_CQ7_enable" wire="digital_out_enable" />
+          <channel name="r_CQ7_current" wire="analog_in_current" scaleB="1.35" units="A" />
+          <channel name="r_CQ7_voltage" wire="analog_in_voltage" scaleB="6" units="V" />
+          <channel name="r_CQ7_coiltemp" wire="digital_in_coiltemp" />
+          <channel name="r_CQ7_limit" wire="digital_in_limit" />
+          <channel name="r_CQ7_open" wire="digital_in_open" />
+          <channel name="r_CQ7_fault" wire="digital_in_fault" />
+          <channel name="r_CQ7_enabled" wire="int_in_enabled" />
+        </channels>
+      </supply>
+
+      <supply type="matsusada" name="CQ8"
+            dac1="c_matsusada_current" adc1="r_matsusada_current" adc2="r_matsusada_voltage" digout2="c_matsusada_remote"
+            digout3="c_matsusada_reset"
+            digin1="r_matsusada_thermalok" digin2="r_matsusada_currentcontrol"
+            digin3="r_matsusada_supplyon"
+            digin4="r_matsusada_fault" >
+        <channels>
+          <!-- y = Bx + C, where y=user units, and x=device units -->
+          <channel name="c_CQ8_current" wire="analog_out_current" scaleB="1.35" limitLow="0" limitHigh="7" units="A" />
+          <channel name="c_CQ8_enable" wire="digital_out_enable" />
+          <channel name="r_CQ8_current" wire="analog_in_current" scaleB="1.35" units="A" />
+          <channel name="r_CQ8_voltage" wire="analog_in_voltage" scaleB="6" units="V" />
+          <channel name="r_CQ8_coiltemp" wire="digital_in_coiltemp" />
+          <channel name="r_CQ8_limit" wire="digital_in_limit" />
+          <channel name="r_CQ8_open" wire="digital_in_open" />
+          <channel name="r_CQ8_fault" wire="digital_in_fault" />
+          <channel name="r_CQ8_enabled" wire="int_in_enabled" />
+        </channels>
+      </supply>
+
+      <supply type="matsusada" name="CQ9"
+            dac1="c_matsusada_current" adc1="r_matsusada_current" adc2="r_matsusada_voltage" digout2="c_matsusada_remote"
+            digout3="c_matsusada_reset"
+            digin1="r_matsusada_thermalok" digin2="r_matsusada_currentcontrol"
+            digin3="r_matsusada_supplyon"
+            digin4="r_matsusada_fault" >
+        <channels>
+          <!-- y = Bx + C, where y=user units, and x=device units -->
+          <channel name="c_CQ9_current" wire="analog_out_current" scaleB="1.35" limitLow="0" limitHigh="7" units="A" />
+          <channel name="c_CQ9_enable" wire="digital_out_enable" />
+          <channel name="r_CQ9_current" wire="analog_in_current" scaleB="1.35" units="A" />
+          <channel name="r_CQ9_voltage" wire="analog_in_voltage" scaleB="6" units="V" />
+          <channel name="r_CQ9_coiltemp" wire="digital_in_coiltemp" />
+          <channel name="r_CQ9_limit" wire="digital_in_limit" />
+          <channel name="r_CQ9_open" wire="digital_in_open" />
+          <channel name="r_CQ9_fault" wire="digital_in_fault" />
+          <channel name="r_CQ9_enabled" wire="int_in_enabled" />
+        </channels>
+      </supply>
+
+      <supply type="matsusada" name="CQ10"
+            dac1="c_matsusada_current" adc1="r_matsusada_current" adc2="r_matsusada_voltage" digout2="c_matsusada_remote"
+            digout3="c_matsusada_reset"
+            digin1="r_matsusada_thermalok" digin2="r_matsusada_currentcontrol"
+            digin3="r_matsusada_supplyon"
+            digin4="r_matsusada_fault" >
+        <channels>
+          <!-- y = Bx + C, where y=user units, and x=device units -->
+          <channel name="c_CQ10_current" wire="analog_out_current" scaleB="1.35" limitLow="0" limitHigh="7" units="A" />
+          <channel name="c_CQ10_enable" wire="digital_out_enable" />
+          <channel name="r_CQ10_current" wire="analog_in_current" scaleB="1.35" units="A" />
+          <channel name="r_CQ10_voltage" wire="analog_in_voltage" scaleB="6" units="V" />
+          <channel name="r_CQ10_coiltemp" wire="digital_in_coiltemp" />
+          <channel name="r_CQ10_limit" wire="digital_in_limit" />
+          <channel name="r_CQ10_open" wire="digital_in_open" />
+          <channel name="r_CQ10_fault" wire="digital_in_fault" />
+          <channel name="r_CQ10_enabled" wire="int_in_enabled" />
+        </channels>
+      </supply>
+
+      <supply type="matsusada" name="CQ11"
+            dac1="c_matsusada_current" adc1="r_matsusada_current" adc2="r_matsusada_voltage" digout2="c_matsusada_remote"
+            digout3="c_matsusada_reset"
+            digin1="r_matsusada_thermalok" digin2="r_matsusada_currentcontrol"
+            digin3="r_matsusada_supplyon"
+            digin4="r_matsusada_fault" >
+        <channels>
+          <!-- y = Bx + C, where y=user units, and x=device units -->
+          <channel name="c_CQ11_current" wire="analog_out_current" scaleB="1.35" limitLow="0" limitHigh="7" units="A" />
+          <channel name="c_CQ11_enable" wire="digital_out_enable" />
+          <channel name="r_CQ11_current" wire="analog_in_current" scaleB="1.35" units="A" />
+          <channel name="r_CQ11_voltage" wire="analog_in_voltage" scaleB="6" units="V" />
+          <channel name="r_CQ11_coiltemp" wire="digital_in_coiltemp" />
+          <channel name="r_CQ11_limit" wire="digital_in_limit" />
+          <channel name="r_CQ11_open" wire="digital_in_open" />
+          <channel name="r_CQ11_fault" wire="digital_in_fault" />
+          <channel name="r_CQ11_enabled" wire="int_in_enabled" />
+        </channels>
+      </supply>
+
+    </devices>  
+  </interpreter>
+</system>

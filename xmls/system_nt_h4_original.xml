@@ -1,0 +1,1793 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<system
+  xmlns="http://www.ptcusa.com"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://www.ptcusa.com A510.xsd" type="pyramid" >
+  <hosts>
+    <!-- NOTE: the ip address does not matter for bcs, but may be required to be present -->
+    <host ip="192.168.100.135" name="wnett" localhost="true" />
+  </hosts>
+
+  <loopcontrollers>
+		<!-- A500 #5 Simulated devices.****************ip="192.168.9.52"****************************************************** -->
+		<!-- A500 #1 ******************************************************************************************************************* -->
+    <loopcontroller type="A560" name="A1" ip="192.168.9.51">
+      <loops>	
+			<!-- A1:LOOP1 ************************************************************************************************************** -->
+        <loop number="1" name="SourceBox">
+          <boards>
+            <board type="M40" name="Solenoids" address="1">
+              <channels>
+                <channel name="r_FrontSolenoidI" wire="analog_in_1" scaleB="14" units="A"/>
+                <channel name="r_FrontSolenoidV" wire="analog_in_2" scaleB="1.2" units="V"/>
+                <channel name="r_CenterSolenoidI" wire="analog_in_3" scaleB="14" units="A"/>
+                <channel name="r_CenterSolenoidV" wire="analog_in_4" scaleB="1.2" units="V"/>
+                <channel name="r_BackSolenoidI" wire="analog_in_5" scaleB="14" units="A"/>
+                <channel name="r_BackSolenoidV" wire="analog_in_6" scaleB="1.2" units="V"/>
+                <channel name="c_FrontSolenoidI" wire="analog_out_1" scaleB="14" units="A"/>
+                <channel name="c_CenterSolenoidI" wire="analog_out_2" scaleB="14" units="A"/>
+                <channel name="c_BackSolenoidI" wire="analog_out_3" scaleB="14" units="A"/>
+              </channels>
+            </board>
+            <board type="M40" name="MicrowaveGenerator" address="2">
+              <channels>
+                <channel name="r_AnodeI" wire="analog_in_1" scaleB="100" units="mA" />
+                <channel name="r_ForwardPowerMeter" wire="analog_in_2" scaleB="200" units="W"/>
+                <channel name="r_ReflectedPowerMeter" wire="analog_in_3" scaleB="200" units="W"/>
+                <channel name="c_MicrowavePower" wire="analog_out_1" scaleB="10" units="%"/>
+                <channel name="r_SystemReady" wire="digital_in_1" />
+                <channel name="r_MicrowaveEnabled" wire="digital_in_2" />
+              </channels>
+            </board>
+            <board type="M10" name="MFCandValveControl" address="3">
+              <channels>
+                <channel name="c_MassFlow" wire="analog_out_1" scaleB="1" units="sccm"/>
+                <channel name="r_MassFlow" wire="analog_in_1" scaleB="1" units="sccm"/>
+				<channel name="r_G4" wire="analog_in_2" range="10U" log="true" scaleB="1.5" scaleC="-12.125" units="torr"/>
+              </channels>
+            </board>
+            <board type="M10" name="SourcePDandVibration" address="4">
+              <channels>
+                <channel name="r_MuxInEndBrg_SrcGenBrg" wire="analog_in_1" scaleB="1" units="g"/>
+                <channel name="r_SourceAlternatorTemp" wire="analog_in_2" scaleB="1" units="V"/>
+                <channel name="r_MagnetPowerLED" wire="digital_in_1"/>
+                <channel name="c_MuxOutput1" wire="digital_out_1"/>
+                <channel name="c_MuxOutput2" wire="digital_out_2"/>
+                <channel name="c_MagnetPowerOn" wire="digital_out_3"/>
+                <channel name="c_MagnetPowerOff" wire="digital_out_4"/>
+              </channels>
+            </board>
+          </boards>
+        </loop> 
+		<loop number="2" name="ExtractionAndHV">
+          <boards>
+            <board type="M40" name="Extraction" address="1">
+              <channels>
+                <channel name="r_ExtractionI" wire="analog_in_1" scaleB="0.0100" units="A"/>
+                <channel name="r_ExtractionV" wire="analog_in_2" scaleB="10000" units="V"/>
+                <channel name="r_VibrationEXTInput" wire="analog_in_3" scaleB="10" units="g"/>
+                <channel name="r_ExtractionAltTemp" wire="analog_in_4" />
+                <channel name="c_ExtractionV" wire="analog_out_2" scaleB="10000" units="V"/>
+                <channel name="c_ExtractionI" wire="analog_out_3" scaleB="0.0100" units="A"/>
+                <channel name="r_ExtractionFault" wire="digital_in_1" />
+                <channel name="r_ExtractionArcMonitor" wire="digital_in_2" />
+                <channel name="r_ExtractionInterlockMonitor" wire="digital_in_3" />
+                <channel name="r_ExtractionMux0" wire="digital_in_5" />
+                <channel name="r_ExtractionMux1" wire="digital_in_6" />
+                <channel name="r_ExtractionMux2" wire="digital_in_7" />
+                <channel name="r_ExtractionMux3" wire="digital_in_8" />
+                <channel name="c_ExtractionEnable" wire="digital_out_1"/>
+                <channel name="c_ExtractionFastInterlockEnable" wire="digital_out_2" />
+                <channel name="c_ExtractionSendLastFault" wire="digital_out_3" />
+                <channel name="c_ExtractionACE_Disable" wire="digital_out_4" />
+              </channels>
+            </board>
+            <board type="M10" name="ExtractionSuppresion" address="2">
+              <channels>
+                <channel name="r_ExtractionSuppressionI" wire="analog_in_1" scaleB="0.002" units="A"/>
+                <channel name="r_ExtractionSuppressionV" wire="analog_in_2" scaleB="-1000" units="V"/>
+                <channel name="c_ExtractionSuppressionV" wire="analog_out_2" scaleB="500" units="V"/>
+                <channel name="c_ExtractionSuppressionEnable" wire="digital_out_1" />
+              </channels>
+            </board>
+            <board type="M40" name="Accel3" address="3">
+              <channels>
+                <channel name="r_Accel3I" wire="analog_in_1" scaleB="0.0100" units="A"/>
+                <channel name="r_Accel3V" wire="analog_in_2" scaleB="10000" units="V"/>
+                <channel name="r_VibrationAccel3Input" wire="analog_in_3" scaleB="10" units="g"/>
+                <channel name="r_Accel3AltTemp" wire="analog_in_4" />
+                <channel name="c_Accel3V" wire="analog_out_2" scaleB="10000" units="V" />
+                <channel name="c_Accel3I" wire="analog_out_3" scaleB="0.0100" units="A"/>
+                <channel name="r_Accel3Fault" wire="digital_in_1" />
+                <channel name="r_Accel3ArcMonitor" wire="digital_in_2" />
+                <channel name="r_Accel3InterlockMonitor" wire="digital_in_3" />
+                <channel name="r_Accel3Mux0" wire="digital_in_5" />
+                <channel name="r_Accel3Mux1" wire="digital_in_6" />
+                <channel name="r_Accel3Mux2" wire="digital_in_7" />
+                <channel name="r_Accel3Mux3" wire="digital_in_8" />
+                <channel name="c_Accel3Enable" wire="digital_out_1"/>
+                <channel name="c_Accel3FastInterlockEnable" wire="digital_out_2" />
+                <channel name="c_Accel3SendLastFault" wire="digital_out_3" />
+                <channel name="c_Accel3ACE_Disable" wire="digital_out_4" />
+              </channels>
+            </board>
+            <board type="M40" name="Accel6" address="4">
+              <channels>
+                <channel name="r_Accel6I" wire="analog_in_1" scaleB="0.0100" units="A"/>
+                <channel name="r_Accel6V" wire="analog_in_2" scaleB="10000" units="V"/>
+                <channel name="r_VibrationAccel6Input" wire="analog_in_3" scaleB="10" units="g"/>
+                <channel name="r_Accel6AltTemp" wire="analog_in_4" />
+                <channel name="c_Accel6V" wire="analog_out_2" scaleB="10000" units="V" />
+                <channel name="c_Accel6I" wire="analog_out_3" scaleB="0.0100" units="A"/>
+                <channel name="r_Accel6Fault" wire="digital_in_1" />
+                <channel name="r_Accel6ArcMonitor" wire="digital_in_2" />
+                <channel name="r_Accel6InterlockMonitor" wire="digital_in_3" />
+                <channel name="r_Accel6Mux0" wire="digital_in_5" />
+                <channel name="r_Accel6Mux1" wire="digital_in_6" />
+                <channel name="r_Accel6Mux2" wire="digital_in_7" />
+                <channel name="r_Accel6Mux3" wire="digital_in_8" />
+                <channel name="c_Accel6Enable" wire="digital_out_1"/>
+                <channel name="c_Accel6FastInterlockEnable" wire="digital_out_2" />
+                <channel name="c_Accel6SendLastFault" wire="digital_out_3" />
+                <channel name="c_Accel6ACE_Disable" wire="digital_out_4" />
+              </channels>
+            </board>
+            <board type="M40" name="Accel9" address="5">
+              <channels>
+                <channel name="r_Accel9I" wire="analog_in_1" scaleB="0.0100" units="A"/>
+                <channel name="r_Accel9V" wire="analog_in_2" scaleB="10000" units="V"/>
+                <channel name="r_VibrationAccel9Input" wire="analog_in_3" scaleB="10" units="g"/>
+                <channel name="r_Accel9AltTemp" wire="analog_in_4" />
+                <channel name="c_Accel9V" wire="analog_out_2" scaleB="10000" units="V" />
+                <channel name="c_Accel9I" wire="analog_out_3" scaleB="0.0100" units="A"/>
+                <channel name="r_Accel9Fault" wire="digital_in_1" />
+                <channel name="r_Accel9ArcMonitor" wire="digital_in_2" />
+                <channel name="r_Accel9InterlockMonitor" wire="digital_in_3" />
+                <channel name="r_Accel9Mux0" wire="digital_in_5" />
+                <channel name="r_Accel9Mux1" wire="digital_in_6" />
+                <channel name="r_Accel9Mux2" wire="digital_in_7" />
+                <channel name="r_Accel9Mux3" wire="digital_in_8" />
+                <channel name="c_Accel9Enable" wire="digital_out_1"/>
+                <channel name="c_Accel9FastInterlockEnable" wire="digital_out_2" />
+                <channel name="c_Accel9SendLastFault" wire="digital_out_3" />
+                <channel name="c_Accel9ACE_Disable" wire="digital_out_4" />
+              </channels>
+            </board>
+            <board type="M40" name="Accel12" address="6">
+              <channels>
+                <channel name="r_Accel12I" wire="analog_in_1" scaleB="0.0100" units="A"/>
+                <channel name="r_Accel12V" wire="analog_in_2" scaleB="10000" units="V"/>
+                <channel name="r_VibrationAccel12Input" wire="analog_in_3" scaleB="10" units="g"/>
+                <channel name="r_Accel12AltTemp" wire="analog_in_4" />
+                <channel name="c_Accel12V" wire="analog_out_2" scaleB="10000" units="V" />
+                <channel name="c_Accel12I" wire="analog_out_3" scaleB="0.0100" units="A"/>
+                <channel name="r_Accel12Fault" wire="digital_in_1" />
+                <channel name="r_Accel12ArcMonitor" wire="digital_in_2" />
+                <channel name="r_Accel12InterlockMonitor" wire="digital_in_3" />
+                <channel name="r_Accel12Mux0" wire="digital_in_5" />
+                <channel name="r_Accel12Mux1" wire="digital_in_6" />
+                <channel name="r_Accel12Mux2" wire="digital_in_7" />
+                <channel name="r_Accel12Mux3" wire="digital_in_8" />
+                <channel name="c_Accel12Enable" wire="digital_out_1"/>
+                <channel name="c_Accel12FastInterlockEnable" wire="digital_out_2" />
+                <channel name="c_Accel12SendLastFault" wire="digital_out_3" />
+                <channel name="c_Accel12ACE_Disable" wire="digital_out_4" />
+              </channels>
+            </board>
+            <board type="M40" name="Accel15" address="7">
+              <channels>
+                <channel name="r_Accel15I" wire="analog_in_1" scaleB="0.0100" units="A"/>
+                <channel name="r_Accel15V" wire="analog_in_2" scaleB="10000" units="V"/>
+                <channel name="r_VibrationAccel15Input" wire="analog_in_3" scaleB="10" units="g"/>
+                <channel name="r_Accel15AltTemp" wire="analog_in_4" />
+                <channel name="c_Accel15V" wire="analog_out_2" scaleB="10000" units="V" />
+                <channel name="c_Accel15I" wire="analog_out_3" scaleB="0.0100" units="A"/>
+                <channel name="r_Accel15Fault" wire="digital_in_1" />
+                <channel name="r_Accel15ArcMonitor" wire="digital_in_2" />
+                <channel name="r_Accel15InterlockMonitor" wire="digital_in_3" />
+                <channel name="r_Accel15Mux0" wire="digital_in_5" />
+                <channel name="r_Accel15Mux1" wire="digital_in_6" />
+                <channel name="r_Accel15Mux2" wire="digital_in_7" />
+                <channel name="r_Accel15Mux3" wire="digital_in_8" />
+                <channel name="c_Accel15Enable" wire="digital_out_1"/>
+                <channel name="c_Accel15FastInterlockEnable" wire="digital_out_2" />
+                <channel name="c_Accel15SendLastFault" wire="digital_out_3" />
+                <channel name="c_Accel15ACE_Disable" wire="digital_out_4" />
+              </channels>
+            </board>
+          </boards>
+        </loop>
+        <loop number="3" name="MG2Powers">
+          <boards>
+            <board type="M40" name="Accel2" address="1">
+              <channels>
+                <channel name="r_Accel2I" wire="analog_in_1" scaleB="0.0100" units="A"/>
+                <channel name="r_Accel2V" wire="analog_in_2" scaleB="10000" units="V"/>
+                <channel name="r_VibrationAccel2Input" wire="analog_in_3" scaleB="10" units="g"/>
+                <channel name="r_Accel2AltTemp" wire="analog_in_4" />
+                <channel name="c_Accel2V" wire="analog_out_2" scaleB="10000" units="V"  />
+                <channel name="c_Accel2I" wire="analog_out_3" scaleB="0.0100" units="A"/>
+                <channel name="r_Accel2Fault" wire="digital_in_1" />
+                <channel name="r_Accel2ArcMonitor" wire="digital_in_2" />
+                <channel name="r_Accel2InterlockMonitor" wire="digital_in_3" />
+                <channel name="r_Accel2Mux0" wire="digital_in_5" />
+                <channel name="r_Accel2Mux1" wire="digital_in_6" />
+                <channel name="r_Accel2Mux2" wire="digital_in_7" />
+                <channel name="r_Accel2Mux3" wire="digital_in_8" />
+                <channel name="c_Accel2Enable" wire="digital_out_1"/>
+                <channel name="c_Accel2FastInterlockEnable" wire="digital_out_2" />
+                <channel name="c_Accel2SendLastFault" wire="digital_out_3" />
+                <channel name="c_Accel2ACE_Disable" wire="digital_out_4" />
+              </channels>
+            </board>
+            <board type="M40" name="Accel5" address="2">
+              <channels>
+                <channel name="r_Accel5I" wire="analog_in_1" scaleB="0.0100" units="A"/>
+                <channel name="r_Accel5V" wire="analog_in_2" scaleB="10000" units="V"/>
+                <channel name="r_VibrationAccel5Input" wire="analog_in_3" scaleB="10" units="g"/>
+                <channel name="r_Accel5AltTemp" wire="analog_in_4" />
+                <channel name="c_Accel5V" wire="analog_out_2" scaleB="10000" units="V" />
+                <channel name="c_Accel5I" wire="analog_out_3" scaleB="0.0100" units="A"/>
+                <channel name="r_Accel5Fault" wire="digital_in_1" />
+                <channel name="r_Accel5ArcMonitor" wire="digital_in_2" />
+                <channel name="r_Accel5InterlockMonitor" wire="digital_in_3" />
+                <channel name="r_Accel5Mux0" wire="digital_in_5" />
+                <channel name="r_Accel5Mux1" wire="digital_in_6" />
+                <channel name="r_Accel5Mux2" wire="digital_in_7" />
+                <channel name="r_Accel5Mux3" wire="digital_in_8" />
+                <channel name="c_Accel5Enable" wire="digital_out_1"/>
+                <channel name="c_Accel5FastInterlockEnable" wire="digital_out_2" />
+                <channel name="c_Accel5SendLastFault" wire="digital_out_3" />
+                <channel name="c_Accel5ACE_Disable" wire="digital_out_4" />
+              </channels>
+            </board>
+            <board type="M40" name="Accel8" address="3">
+              <channels>
+                <channel name="r_Accel8I" wire="analog_in_1" scaleB="0.0100" units="A"/>
+                <channel name="r_Accel8V" wire="analog_in_2" scaleB="10000" units="V"/>
+                <channel name="r_VibrationAccel8Input" wire="analog_in_3" scaleB="10" units="g"/>
+                <channel name="r_Accel8AltTemp" wire="analog_in_4" />
+                <channel name="c_Accel8V" wire="analog_out_2" scaleB="10000" units="V" />
+                <channel name="c_Accel8I" wire="analog_out_3" scaleB="0.0100" units="A"/>
+                <channel name="r_Accel8Fault" wire="digital_in_1" />
+                <channel name="r_Accel8ArcMonitor" wire="digital_in_2" />
+                <channel name="r_Accel8InterlockMonitor" wire="digital_in_3" />
+                <channel name="r_Accel8Mux0" wire="digital_in_5" />
+                <channel name="r_Accel8Mux1" wire="digital_in_6" />
+                <channel name="r_Accel8Mux2" wire="digital_in_7" />
+                <channel name="r_Accel8Mux3" wire="digital_in_8" />
+                <channel name="c_Accel8Enable" wire="digital_out_1"/>
+                <channel name="c_Accel8FastInterlockEnable" wire="digital_out_2" />
+                <channel name="c_Accel8SendLastFault" wire="digital_out_3" />
+                <channel name="c_Accel8ACE_Disable" wire="digital_out_4" />
+              </channels>
+            </board>
+            <board type="M40" name="Accel11" address="4">
+              <channels>
+                <channel name="r_Accel11I" wire="analog_in_1" scaleB="0.0100" units="A"/>
+                <channel name="r_Accel11V" wire="analog_in_2" scaleB="10000" units="V"/>
+                <channel name="r_VibrationAccel11Input" wire="analog_in_3" scaleB="10" units="g"/>
+                <channel name="r_Accel11AltTemp" wire="analog_in_4" />
+                <channel name="c_Accel11V" wire="analog_out_2" scaleB="10000" units="V" />
+                <channel name="c_Accel11I" wire="analog_out_3" scaleB="0.0100" units="A"/>
+                <channel name="r_Accel11Fault" wire="digital_in_1" />
+                <channel name="r_Accel11ArcMonitor" wire="digital_in_2" />
+                <channel name="r_Accel11InterlockMonitor" wire="digital_in_3" />
+                <channel name="r_Accel11Mux0" wire="digital_in_5" />
+                <channel name="r_Accel11Mux1" wire="digital_in_6" />
+                <channel name="r_Accel11Mux2" wire="digital_in_7" />
+                <channel name="r_Accel11Mux3" wire="digital_in_8" />
+                <channel name="c_Accel11Enable" wire="digital_out_1"/>
+                <channel name="c_Accel11FastInterlockEnable" wire="digital_out_2" />
+                <channel name="c_Accel11SendLastFault" wire="digital_out_3" />
+                <channel name="c_Accel11ACE_Disable" wire="digital_out_4" />
+              </channels>
+            </board>
+            <board type="M40" name="Accel14" address="5">
+              <channels>
+                <channel name="r_Accel14I" wire="analog_in_1" scaleB="0.0100" units="A"/>
+                <channel name="r_Accel14V" wire="analog_in_2" scaleB="10000" units="V"/>
+                <channel name="r_VibrationAccel14Input" wire="analog_in_3" scaleB="10" units="g"/>
+                <channel name="r_Accel14AltTemp" wire="analog_in_4" />
+                <channel name="c_Accel14V" wire="analog_out_2" scaleB="10000" units="V" />
+                <channel name="c_Accel14I" wire="analog_out_3" scaleB="0.0100" units="A"/>
+                <channel name="r_Accel14Fault" wire="digital_in_1" />
+                <channel name="r_Accel14ArcMonitor" wire="digital_in_2" />
+                <channel name="r_Accel14InterlockMonitor" wire="digital_in_3" />
+                <channel name="r_Accel14Mux0" wire="digital_in_5" />
+                <channel name="r_Accel14Mux1" wire="digital_in_6" />
+                <channel name="r_Accel14Mux2" wire="digital_in_7" />
+                <channel name="r_Accel14Mux3" wire="digital_in_8" />
+                <channel name="c_Accel14Enable" wire="digital_out_1"/>
+                <channel name="c_Accel14FastInterlockEnable" wire="digital_out_2" />
+                <channel name="c_Accel14SendLastFault" wire="digital_out_3" />
+                <channel name="c_Accel14ACE_Disable" wire="digital_out_4" />
+              </channels>
+            </board>
+            <board type="M40" name="Accel17" address="6">
+              <channels>
+                <channel name="r_Accel17I" wire="analog_in_1" scaleB="0.0100" units="A"/>
+                <channel name="r_Accel17V" wire="analog_in_2" scaleB="10000" units="V"/>
+                <channel name="r_VibrationAccel17Input" wire="analog_in_3" scaleB="10" units="g"/>
+                <channel name="r_Accel17AltTemp" wire="analog_in_4" />
+                <channel name="c_Accel17V" wire="analog_out_2" scaleB="10000" units="V" />
+                <channel name="c_Accel17I" wire="analog_out_3" scaleB="0.0100" units="A"/>
+                <channel name="r_Accel17Fault" wire="digital_in_1" />
+                <channel name="r_Accel17ArcMonitor" wire="digital_in_2" />
+                <channel name="r_Accel17InterlockMonitor" wire="digital_in_3" />
+                <channel name="r_Accel17Mux0" wire="digital_in_5" />
+                <channel name="r_Accel17Mux1" wire="digital_in_6" />
+                <channel name="r_Accel17Mux2" wire="digital_in_7" />
+                <channel name="r_Accel17Mux3" wire="digital_in_8" />
+                <channel name="c_Accel17Enable" wire="digital_out_1"/>
+                <channel name="c_Accel17FastInterlockEnable" wire="digital_out_2" />
+                <channel name="c_Accel17SendLastFault" wire="digital_out_3" />
+                <channel name="c_Accel17ACE_Disable" wire="digital_out_4" />
+              </channels>
+            </board>
+            <board type="M10" name="AccelSuppression" address="10">
+              <channels>
+                <channel name="r_AccelSuppressionI" wire="analog_in_1" scaleB="0.002" units="A"/>
+                <channel name="r_AccelSuppressionV" wire="analog_in_2" scaleB="-1000" units="V"/>
+                <channel name="c_AccelSuppressionV" wire="analog_out_2" scaleB="500" units="V"/>
+                <channel name="c_AccelSuppressionEnable" wire="digital_out_1" />
+              </channels>
+            </board>
+          </boards>
+        </loop>
+        <loop number="4" name="MG1Powers">
+          <boards>
+            <board type="M40" name="Accel1" address="1">
+              <channels>
+                <channel name="r_Accel1I" wire="analog_in_1" scaleB="0.0100" units="A"/>
+                <channel name="r_Accel1V" wire="analog_in_2" scaleB="10000" units="V"/>
+                <channel name="r_VibrationAccel1Input" wire="analog_in_3" scaleB="10" units="g"/>
+                <channel name="r_Accel1AltTemp" wire="analog_in_4" />
+                <channel name="c_Accel1V" wire="analog_out_2" scaleB="10000" units="V" />
+                <channel name="c_Accel1I" wire="analog_out_3" scaleB="0.0100" units="A"/>
+                <channel name="r_Accel1Fault" wire="digital_in_1" />
+                <channel name="r_Accel1ArcMonitor" wire="digital_in_2" />
+                <channel name="r_Accel1InterlockMonitor" wire="digital_in_3" />
+                <channel name="r_Accel1Mux0" wire="digital_in_5" />
+                <channel name="r_Accel1Mux1" wire="digital_in_6" />
+                <channel name="r_Accel1Mux2" wire="digital_in_7" />
+                <channel name="r_Accel1Mux3" wire="digital_in_8" />
+                <channel name="c_Accel1Enable" wire="digital_out_1"/>
+                <channel name="c_Accel1FastInterlockEnable" wire="digital_out_2" />
+                <channel name="c_Accel1SendLastFault" wire="digital_out_3" />
+                <channel name="c_Accel1ACE_Disable" wire="digital_out_4" />
+              </channels>
+            </board>
+            <board type="M40" name="Accel4" address="2">
+              <channels>
+                <channel name="r_Accel4I" wire="analog_in_1" scaleB="0.0100" units="A"/>
+                <channel name="r_Accel4V" wire="analog_in_2" scaleB="10000" units="V"/>
+                <channel name="r_VibrationAccel4Input" wire="analog_in_3" scaleB="10" units="g"/>
+                <channel name="r_Accel4AltTemp" wire="analog_in_4" />
+                <channel name="c_Accel4V" wire="analog_out_2" scaleB="10000" units="V" />
+                <channel name="c_Accel4I" wire="analog_out_3" scaleB="0.0100" units="A"/>
+                <channel name="r_Accel4Fault" wire="digital_in_1" />
+                <channel name="r_Accel4ArcMonitor" wire="digital_in_2" />
+                <channel name="r_Accel4InterlockMonitor" wire="digital_in_3" />
+                <channel name="r_Accel4Mux0" wire="digital_in_5" />
+                <channel name="r_Accel4Mux1" wire="digital_in_6" />
+                <channel name="r_Accel4Mux2" wire="digital_in_7" />
+                <channel name="r_Accel4Mux3" wire="digital_in_8" />
+                <channel name="c_Accel4Enable" wire="digital_out_1"/>
+                <channel name="c_Accel4FastInterlockEnable" wire="digital_out_2" />
+                <channel name="c_Accel4SendLastFault" wire="digital_out_3" />
+                <channel name="c_Accel4ACE_Disable" wire="digital_out_4" />
+              </channels>
+            </board>
+            <board type="M40" name="Accel7" address="3">
+              <channels>
+                <channel name="r_Accel7I" wire="analog_in_1" scaleB="0.0100" units="A"/>
+                <channel name="r_Accel7V" wire="analog_in_2" scaleB="10000" units="V"/>
+                <channel name="r_VibrationAccel7Input" wire="analog_in_3" scaleB="10" units="g"/>
+                <channel name="r_Accel7AltTemp" wire="analog_in_4" />
+                <channel name="c_Accel7V" wire="analog_out_2" scaleB="10000" units="V" />
+                <channel name="c_Accel7I" wire="analog_out_3" scaleB="0.0100" units="A"/>
+                <channel name="r_Accel7Fault" wire="digital_in_1" />
+                <channel name="r_Accel7ArcMonitor" wire="digital_in_2" />
+                <channel name="r_Accel7InterlockMonitor" wire="digital_in_3" />
+                <channel name="r_Accel7Mux0" wire="digital_in_5" />
+                <channel name="r_Accel7Mux1" wire="digital_in_6" />
+                <channel name="r_Accel7Mux2" wire="digital_in_7" />
+                <channel name="r_Accel7Mux3" wire="digital_in_8" />
+                <channel name="c_Accel7Enable" wire="digital_out_1"/>
+                <channel name="c_Accel7FastInterlockEnable" wire="digital_out_2" />
+                <channel name="c_Accel7SendLastFault" wire="digital_out_3" />
+                <channel name="c_Accel7ACE_Disable" wire="digital_out_4" />
+              </channels>
+            </board>
+            <board type="M40" name="Accel10" address="4">
+              <channels>
+                <channel name="r_Accel10I" wire="analog_in_1" scaleB="0.0100" units="A"/>
+                <channel name="r_Accel10V" wire="analog_in_2" scaleB="10000" units="V"/>
+                <channel name="r_VibrationAccel10Input" wire="analog_in_3" scaleB="10" units="g"/>
+                <channel name="r_Accel10AltTemp" wire="analog_in_4" />
+                <channel name="c_Accel10V" wire="analog_out_2" scaleB="10000" units="V" />
+                <channel name="c_Accel10I" wire="analog_out_3" scaleB="0.0100" units="A"/>
+                <channel name="r_Accel10Fault" wire="digital_in_1" />
+                <channel name="r_Accel10ArcMonitor" wire="digital_in_2" />
+                <channel name="r_Accel10InterlockMonitor" wire="digital_in_3" />
+                <channel name="r_Accel10Mux0" wire="digital_in_5" />
+                <channel name="r_Accel10Mux1" wire="digital_in_6" />
+                <channel name="r_Accel10Mux2" wire="digital_in_7" />
+                <channel name="r_Accel10Mux3" wire="digital_in_8" />
+                <channel name="c_Accel10Enable" wire="digital_out_1"/>
+                <channel name="c_Accel10FastInterlockEnable" wire="digital_out_2" />
+                <channel name="c_Accel10SendLastFault" wire="digital_out_3" />
+                <channel name="c_Accel10ACE_Disable" wire="digital_out_4" />
+              </channels>
+            </board>
+            <board type="M40" name="Accel13" address="5">
+              <channels>
+                <channel name="r_Accel13I" wire="analog_in_1" scaleB="0.0100" units="A"/>
+                <channel name="r_Accel13V" wire="analog_in_2" scaleB="10000" units="V"/>
+                <channel name="r_VibrationAccel13Input" wire="analog_in_3" scaleB="10" units="g"/>
+                <channel name="r_Accel13AltTemp" wire="analog_in_4" />
+                <channel name="c_Accel13V" wire="analog_out_2" scaleB="10000" units="V" />
+                <channel name="c_Accel13I" wire="analog_out_3" scaleB="0.0100" units="A"/>
+                <channel name="r_Accel13Fault" wire="digital_in_1" />
+                <channel name="r_Accel13ArcMonitor" wire="digital_in_2" />
+                <channel name="r_Accel13InterlockMonitor" wire="digital_in_3" />
+                <channel name="r_Accel13Mux0" wire="digital_in_5" />
+                <channel name="r_Accel13Mux1" wire="digital_in_6" />
+                <channel name="r_Accel13Mux2" wire="digital_in_7" />
+                <channel name="r_Accel13Mux3" wire="digital_in_8" />
+                <channel name="c_Accel13Enable" wire="digital_out_1"/>
+                <channel name="c_Accel13FastInterlockEnable" wire="digital_out_2" />
+                <channel name="c_Accel13SendLastFault" wire="digital_out_3" />
+                <channel name="c_Accel13ACE_Disable" wire="digital_out_4" />
+              </channels>
+            </board>
+            <board type="M40" name="Accel16" address="6">
+              <channels>
+                <channel name="r_Accel16I" wire="analog_in_1" scaleB="0.0100" units="A"/>
+                <channel name="r_Accel16V" wire="analog_in_2" scaleB="10000" units="V"/>
+                <channel name="r_VibrationAccel16Input" wire="analog_in_3" scaleB="10" units="g"/>
+                <channel name="r_Accel16AltTemp" wire="analog_in_4" />
+                <channel name="c_Accel16V" wire="analog_out_2" scaleB="10000" units="V" />
+                <channel name="c_Accel16I" wire="analog_out_3" scaleB="0.0100" units="A"/>
+                <channel name="r_Accel16Fault" wire="digital_in_1" />
+                <channel name="r_Accel16ArcMonitor" wire="digital_in_2" />
+                <channel name="r_Accel16InterlockMonitor" wire="digital_in_3" />
+                <channel name="r_Accel16Mux0" wire="digital_in_5" />
+                <channel name="r_Accel16Mux1" wire="digital_in_6" />
+                <channel name="r_Accel16Mux2" wire="digital_in_7" />
+                <channel name="r_Accel16Mux3" wire="digital_in_8" />
+                <channel name="c_Accel16Enable" wire="digital_out_1"/>
+                <channel name="c_Accel16FastInterlockEnable" wire="digital_out_2" />
+                <channel name="c_Accel16SendLastFault" wire="digital_out_3" />
+                <channel name="c_Accel16ACE_Disable" wire="digital_out_4" />
+              </channels>
+            </board>
+          </boards>
+        </loop>				
+      </loops>		
+		</loopcontroller>  	
+			<!-- A500 #2 ******************************************************************************************************************* -->
+			<loopcontroller type="A560" name="A2" ip="192.168.9.53" >
+				<loops>
+			<!-- A2:LOOP1 ************************************************************************************************************** -->
+				<loop number="1" name="A2_loop1">
+						<boards>
+							<board type="M40" name="AmagAndTripletA" address="1">
+								<channels>
+									<channel name="r_AnalyzerMagnetI" wire="analog_in_1" scaleB="18" units="A"/>
+									<channel name="r_AnalyzerMagnetV" wire="analog_in_2" scaleB="3" units="V"/>
+									<channel name="r_DoubletAI" wire="analog_in_3" scaleB="22.7" units="A"/>
+									<channel name="r_DoubletAV" wire="analog_in_4" scaleB="1.5" units="V"/>
+									<channel name="r_SingletMasterAI" wire="analog_in_5" scaleB="22.7" units="A"/>
+									<channel name="r_SingletMasterAV" wire="analog_in_6" scaleB="1.5" units="V"/>
+									<channel name="r_SingletSlaveAI" wire="analog_in_7" scaleB="22.7" units="A"/>
+									<channel name="r_SingletSlaveAV" wire="analog_in_8" scaleB="1.5" units="V"/>
+									<channel name="c_AnalyzerMagnetI" wire="analog_out_1" scaleB="18" units="A"/>
+									<channel name="c_DoubletAI" wire="analog_out_2" scaleB="22.7" units="A"/>
+									<channel name="c_SingletMasterAI" wire="analog_out_3" scaleB="22.7" units="A"/>
+									<channel name="c_SingletSlaveAI" wire="analog_out_4" scaleB="22.7" units="A"/>
+								</channels>
+							</board>
+							<board type="M40" name="TripletB" address="2">
+								<channels>
+									<channel name="r_DoubletBI" wire="analog_in_1" scaleB="22.7" units="A"/>
+									<channel name="r_DoubletBV" wire="analog_in_2" scaleB="1.5" units="V"/>
+									<channel name="r_SingletMasterBI" wire="analog_in_3" scaleB="22.7" units="A"/>
+									<channel name="r_SingletMasterBV" wire="analog_in_4" scaleB="1.5" units="V"/>
+									<channel name="r_SingletSlaveBI" wire="analog_in_5" scaleB="22.7" units="A"/>
+									<channel name="r_SingletSlaveBV" wire="analog_in_6" scaleB="1.5" units="V"/>
+									<channel name="c_DoubletBI" wire="analog_out_1" scaleB="22.7" units="A"/>
+									<channel name="c_SingletMasterBI" wire="analog_out_2" scaleB="22.7" units="A"/>
+									<channel name="c_SingletSlaveBI" wire="analog_out_3" scaleB="22.7" units="A"/>
+								</channels>
+							</board>
+							<board type="M40" name="X-YScanMagnet" address="3">
+								<channels>
+									<channel name="r_X_AxisMonitorMaster" wire="analog_in_1" scaleB="1.0" units="A"/>
+									<channel name="r_X_AxisMonitorSlave" wire="analog_in_2" scaleB="1.0" units="V"/>
+									<channel name="r_X_AxisMonitorMasterReference" wire="analog_in_3" scaleB="1.0" units="A"/>
+									<channel name="r_X_AxisMonitorSlaveReference" wire="analog_in_4" scaleB="1.0" units="V"/>
+									<channel name="r_Y_AxisMonitorMaster" wire="analog_in_5" scaleB="1.0" units="A"/>
+									<channel name="r_Y_AxisMonitorSlave" wire="analog_in_6" scaleB="1.0" units="V"/>
+									<channel name="r_Y_AxisMonitorMasterReference" wire="analog_in_7" scaleB="1.0" units="A"/>
+									<channel name="r_Y_AxisMonitorSlaveReference" wire="analog_in_8" scaleB="1.0" units="V"/>
+									<channel name="r_X_AxisAmplifierStatusOK" wire="digital_in_1" />
+									<channel name="r_X_AxisPSMonitor1" wire="digital_in_2" />
+									<channel name="r_X_AxisPSMonitor2" wire="digital_in_3" />
+									<channel name="r_Y_AxisAmplifierStatusOK" wire="digital_in_4" />
+									<channel name="r_Y_AxisPSMonitor1" wire="digital_in_5" />
+									<channel name="r_Y_AxisPSMonitor2" wire="digital_in_6" />
+									<channel name="c_X_AxisAmpEnable" wire="digital_out_1" />
+									<channel name="c_X_AxisAmpReset" wire="digital_out_2" />
+									<channel name="c_X_AxisPSOnOff" wire="digital_out_3" />
+									<channel name="c_Y_AxisAmpEnable" wire="digital_out_4" />
+									<channel name="c_Y_AxisAmpReset" wire="digital_out_5" />
+									<channel name="c_Y_AxisPSOnOff" wire="digital_out_6" />
+									<channel name="c_X_AxisPSReset" wire="digital_out_7" />
+									<channel name="c_Y_AxisPSReset" wire="digital_out_8" />
+								</channels>
+							</board>
+							<board type="B10" name="MagnetPowerControl" address="4">
+								<channels>
+									<channel name="r_AnalyzerMagnetPowerStatus" wire="digital_in_1" />
+									<channel name="r_Doublet_A_PowerStatus" wire="digital_in_2" />
+									<channel name="r_SingletMaster_A_PowerStatus" wire="digital_in_3" />
+									<channel name="r_SingletSlave_A_PowerStatus" wire="digital_in_4" />
+									<channel name="r_Doublet_B_PowerStatus" wire="digital_in_5" />
+									<channel name="r_SingletMaster_B_PowerStatus" wire="digital_in_6" />
+									<channel name="r_SingletSlave_B_PowerStatus" wire="digital_in_7" />
+									<channel name="c_AnalyzerMagnetPowerOn" wire="digital_out_1"/>
+									<channel name="c_Doublet_A_PowerOn" wire="digital_out_2" />
+									<channel name="c_SingletMaster_A_PowerOn" wire="digital_out_3" />
+									<channel name="c_SingletSlave_A_PowerOn" wire="digital_out_4"/>
+									<channel name="c_Doublet_B_PowerOn" wire="digital_out_5" />
+									<channel name="c_SingletMaster_B_PowerOn" wire="digital_out_6" />
+									<channel name="c_SingletSlave_B_PowerOn" wire="digital_out_7"/>
+								</channels>
+							</board>   
+						</boards>
+					</loop>	
+					<!-- A2:LOOP2 ************************************************************************************************************** -->
+			<loop number="2" name="A2_loop2">
+						<boards>
+							<board type="M10" name="TurboPump1And2" address="1">
+								<channels>
+									<channel name="r_TMP1Frequency" wire="analog_in_1" scaleB="100" units="Hz"/>
+									<channel name="r_TMP2Frequency" wire="analog_in_2" scaleB="100" units="Hz"/>
+									<channel name="r_TMP1Fault" wire="digital_in_1" />
+									<channel name="r_TMP1Normal" wire="digital_in_2" />
+									<channel name="r_TMP2Fault" wire="digital_in_3" />
+									<channel name="r_TMP2Normal" wire="digital_in_4" />
+									<channel name="c_TMP1On" wire="digital_out_1" />
+									<channel name="c_TMP1PurgeOff" wire="digital_out_2" />
+									<channel name="c_TMP2On" wire="digital_out_3" />
+									<channel name="c_TMP2PurgeOff" wire="digital_out_4" />
+								</channels>
+							</board>
+							<board type="M10" name="TurboPump3And4" address="2">
+								<channels>
+									<channel name="r_TMP3Frequency" wire="analog_in_1" scaleB="100" units="Hz"/>
+									<channel name="r_TMP4Frequency" wire="analog_in_2" scaleB="100" units="Hz"/>
+									<channel name="r_TMP3Fault" wire="digital_in_1" />
+									<channel name="r_TMP3Normal" wire="digital_in_2" />
+									<channel name="r_TMP4Fault" wire="digital_in_3" />
+									<channel name="r_TMP4Normal" wire="digital_in_4" />
+									<channel name="c_TMP3On" wire="digital_out_1" />
+									<channel name="c_TMP3PurgeOff" wire="digital_out_2" />
+									<channel name="c_TMP4On" wire="digital_out_3" />
+									<channel name="c_TMP4PurgeOff" wire="digital_out_4" />
+								</channels>
+							</board>
+							<board type="M10" name="VacuumAndGauge1" address="3">
+								<channels>
+									<channel name="r_G2" wire="analog_in_1" range="10U" log="true" scaleB="1" scaleC="-6.125" units="torr"/>    <!--PIR -->
+									<channel name="r_G5" wire="analog_in_2" range="10U" log="true" scaleB="1.5" scaleC="-12.125" units="torr"/> <!--Wide Range -->
+									<channel name="r_V5Open" wire="digital_in_1"/>
+									<channel name="r_V5Closed" wire="digital_in_2"/>
+									<channel name="r_V6Open" wire="digital_in_3"/>
+									<channel name="r_V6Closed" wire="digital_in_4"/>
+									<channel name="c_V5Open" wire="digital_out_1"/>
+									<channel name="c_V6" wire="digital_out_2"/>
+									<channel name="c_V5Close" wire="digital_out_3" />
+									<channel name="c_V3" wire="digital_out_4" />
+								</channels>
+							</board>
+							<board type="M10" name="VacuumAndGauge2" address="4">
+								<channels>
+									<channel name="r_G3" wire="analog_in_1" range="10B" scaleB="15.257" scaleC="-43.413" units="psi"/>
+									<channel name="r_G7" wire="analog_in_2" range="10U" log="true" scaleB="1" scaleC="-6.125" units="torr"/>
+									<channel name="r_V11Open" wire="digital_in_1"/>
+									<channel name="r_V11Closed" wire="digital_in_2" />
+									<channel name="r_PS1Atm" wire="digital_in_3" />
+									<channel name="r_PS1Vacuum" wire="digital_in_4" />
+									<channel name="c_V11" wire="digital_out_1"/>
+									<channel name="c_V2" wire="digital_out_2"/>
+									<channel name="c_V4" wire="digital_out_3"/>
+									<channel name="c_V1" wire="digital_out_4"/>
+								</channels>
+							</board>
+				<board type="M10" name="LoadLockVacControl" address="5">
+								<channels>
+									<channel name="r_G11" wire="analog_in_1" range="10U" log="true" scaleB="1" scaleC="-6.125" units="torr"/>
+									<channel name="r_G12" wire="analog_in_2" range="10U" log="true" scaleB="1" scaleC="-6.125" units="torr"/>
+									<channel name="r_V14Open" wire="digital_in_1"/>
+									<channel name="r_V14Closed" wire="digital_in_2" />                
+									<channel name="r_V17Open" wire="digital_in_3" />
+									<channel name="r_V17Closed" wire="digital_in_4" />               
+									<channel name="c_V14Open" wire="digital_out_1" />
+									<channel name="c_V14Close" wire="digital_out_2" />
+									<channel name="c_V17" wire="digital_out_3" />
+									<channel name="c_V20" wire="digital_out_4" />
+								</channels>
+							</board>
+							<board type="M10" name="VacuumAndGauge3" address="6">
+								<channels>
+									<channel name="r_G8" wire="analog_in_1" range="10U" log="true" scaleB="1.5" scaleC="-12.125" units="torr"/> <!--Wide Range -->
+									<channel name="r_G10" wire="analog_in_2" range="10U" log="true" scaleB="1" scaleC="-6.125" units="torr"/>
+									<channel name="r_V16Open" wire="digital_in_1" />
+									<channel name="r_V16Closed" wire="digital_in_2" />
+									<channel name="r_PS3Vacuum" wire="digital_in_3"/>
+									<channel name="r_PS3Atm" wire="digital_in_4" />
+									<channel name="c_V16" wire="digital_out_1" />
+								</channels>
+							</board>
+							<board type="B10" name="FlowSwitch1" address="7" >
+								<channels>
+									<channel name="r_XScanMagnetPSUCoolingFlow" wire="digital_in_1" />
+									<channel name="r_YScanMagnetPSUCoolingFlow" wire="digital_in_2" />
+									<channel name="r_XScanMagnetCoolingFlow" wire="digital_in_3" />
+									<channel name="r_YScanMagnetCoolingFlow" wire="digital_in_4" />
+									<channel name="r_AnalyzerMagnetCoolingFlow" wire="digital_in_5" />
+									<channel name="r_DoubletACoolingFlow" wire="digital_in_6" />
+									<channel name="r_SingletACoolingFlow" wire="digital_in_7" />
+									<channel name="r_TMPCoolingFlow" wire="digital_in_8" />
+								</channels>
+							</board>
+				<board type="B10" name="FlowSwitch2" address="8">
+								<channels>
+									<channel name="r_DoubletBCoolingFlow" wire="digital_in_1" />
+									<channel name="r_SingletBCoolingFlow" wire="digital_in_2" />
+									<channel name="r_RoughingPumpCoolingFlow" wire="digital_in_3" />
+									<channel name="r_BeamDumpFlow" wire="digital_in_4" />
+								</channels>
+							</board>
+				<board type="B10" name="RoughPumpControl" address="9">
+								<channels>
+									<channel name="r_RP1Running" wire="digital_in_1" />
+									<channel name="r_RP1NoFault" wire="digital_in_2" />
+									<channel name="r_RP2Running" wire="digital_in_3" />
+									<channel name="r_RP2NoFault" wire="digital_in_4" />
+									<channel name="r_RP3Running" wire="digital_in_5" />
+									<channel name="r_RP3NoFault" wire="digital_in_6" />
+									<channel name="r_PS4Atm" wire="digital_in_7" />
+									<channel name="r_PS4Vacuum" wire="digital_in_8" />
+									<channel name="c_RP1OnOff" wire="digital_out_1" />
+									<channel name="c_RP2OnOff" wire="digital_out_2" />
+									<channel name="c_RP3OnOff" wire="digital_out_3" />
+								</channels>
+							</board>
+							<board type="M40" name="G1-TripletAndAmagPickups" address="10">
+								<channels>
+									<channel name="r_G1" wire="analog_in_1" range="10B" scaleB="15.257" scaleC="-43.413" units="psi"/>
+									<channel name="r_TripletA1Pickup" wire="analog_in_2" scaleB="0.0005" units="A"/>
+									<channel name="r_TripletB1Pickup" wire="analog_in_3" scaleB="0.0005" units="A"/>
+									<channel name="r_TripletB2Pickup" wire="analog_in_4" scaleB="0.0005" units="A"/>
+									<channel name="r_TripletB3Pickup" wire="analog_in_5" scaleB="0.0005" units="A"/>
+									<channel name="r_AmagEntrancePickup" wire="analog_in_6" scaleB="0.0005" units="A"/>
+									<channel name="r_TripletA2Pickup" wire="analog_in_7" scaleB="0.0005" units="A"/>
+									<channel name="r_TripletA3Pickup" wire="analog_in_8" scaleB="0.0005" units="A"/>
+								</channels>
+							</board>
+							<board type="M40" name="DriftTubePickups" address="11">
+								<channels>
+									<channel name="r_DriftTube1Pickup" wire="analog_in_1" scaleB="0.0005" units="A"/>
+									<channel name="r_DriftTube2Pickup" wire="analog_in_2" scaleB="0.0005" units="A"/>
+									<channel name="r_DriftTube3Pickup" wire="analog_in_3" scaleB="0.0005" units="A"/>
+									<channel name="r_DriftTube4Pickup" wire="analog_in_4" scaleB="0.0005" units="A"/>
+								</channels>
+							</board>
+						</boards>
+					</loop>
+			<!-- A2:LOOP3 ************************************************************************************************************** -->
+			<loop number="3" name="A2_loop3">
+						<boards>
+				<board type="M10" name="DIFlowandResistivity" address="1">
+								<channels>
+									<channel name="r_DIResistivity" wire="analog_in_1" range="10U" scaleB="13.73" scaleC="-26.413" />  
+									<channel name="r_DI_AlternatorAndPSUFlow" wire="digital_in_1" />
+									<channel name="r_DI_TerminalFlow" wire="digital_in_2" />
+									<channel name="r_DI_EndstationFlow" wire="digital_in_3" />
+									<channel name="r_PlasmaFloodFlow" wire="digital_in_4" />
+									<channel name="c_CameraShutter1" wire="digital_out_3" />
+									<channel name="c_CameraShutter2" wire="digital_out_4" />
+								</channels>
+							</board>
+							<board type="B10" name="DIFlow2"  address="2" >
+								<channels>   
+									<channel name="r_DI_DriftTubeLinerFlow" wire="digital_in_1"/>
+									<channel name="r_TargetBoxEnclosureFlow" wire="digital_in_2" />
+									<channel name="r_DI_LoadLockFlow1" wire="digital_in_3"/>
+									<channel name="r_DI_LoadLockFlow2" wire="digital_in_4"/>
+									<channel name="r_DI_LoadLockFlow3" wire="digital_in_5"/>
+									<channel name="r_DI_LoadLockFlow4" wire="digital_in_6"/>
+									<channel name="r_DI_LoadLockFlow5" wire="digital_in_7"/>
+									<channel name="r_DI_LoadLockFlow6" wire="digital_in_8"/>
+									<channel name="c_PlasmaFloodPowerOff" wire="digital_out_1"/>
+									<channel name="c_PlasmaFloodPowerOn" wire="digital_out_2"/>
+								</channels>
+							</board>
+							<board type="B10" name="DoorStatusAndSignalTower" address="3">
+								<channels>
+									<channel name="r_PlasmaFloodPowerStatus" wire="digital_in_1"/>  
+									<channel name="c_RedLight" wire="digital_out_1"/>
+									<channel name="c_RedLightFlash" wire="digital_out_2"/>
+									<channel name="c_YellowLight" wire="digital_out_3" />
+									<channel name="c_YellowLightFlash" wire="digital_out_4" />
+									<channel name="c_GreenLight" wire="digital_out_5"/>
+									<channel name="c_GreenLightFlash" wire="digital_out_6"/>
+									<channel name="c_BlueLight" wire="digital_out_7" />
+									<channel name="c_BlueLightFlash" wire="digital_out_8"/>
+								</channels>
+							</board>
+							<board type="B10" name="LoadLockLinearStageControl"  address="4" >
+								<channels>
+									<channel name="r_LinearStageAmpFault" wire="digital_in_1"/>
+					<channel name="r_LinearStageInLoadPOS" wire="digital_in_2"/>
+					<channel name="r_LinearStageImplantPOS" wire="digital_in_3"/>
+					<channel name="r_LinearStageAmpPowerStatus" wire="digital_in_4"/>
+						<channel name="r_LLDoorClosed" wire="digital_in_5" />
+					<channel name="c_LinearStageDriveEnable" wire="digital_out_1"/>
+					<channel name="c_LinearStageMotionAbort" wire="digital_out_2"/>
+					<channel name="c_LinearStageMotionTaskBit0" wire="digital_out_3"/>
+					<channel name="c_LinearStageMotionTaskBit1" wire="digital_out_4"/>
+					<channel name="c_LinearStageAmpPowerOn" wire="digital_out_6"/>
+					<channel name="c_LinearStageMotionStartCMD" wire="digital_out_7"/>
+								</channels>
+							</board>
+							<board type="B10" name="BeamInterlockControl"  address="5" >
+								<channels>
+									<channel name="r_MWHardwareEnabled" wire="digital_in_1"/>
+									<channel name="r_HVHardwareEnabled" wire="digital_in_2"/>
+									<channel name="r_BeamHardwareEnabled" wire="digital_in_3"/>
+									<channel name="r_BeamHardwareOK" wire="digital_in_4"/>
+									<channel name="r_SystemReadyforBeam" wire="digital_in_5"/>
+									<channel name="r_EndStationReadyforBeam" wire="digital_in_6"/>
+									<channel name="c_MW_PSU_Enable" wire="digital_out_1"/>
+									<channel name="c_MWHardwareEnable" wire="digital_out_6"/>
+									<channel name="c_HVHardwareEnable" wire="digital_out_7"/>
+									<channel name="c_HardwareBeamEnable" wire="digital_out_8"/>
+								</channels>
+							</board>
+				</boards>
+					</loop>
+					<!-- A2:LOOP4 ************************************************************************************************************** -->
+					<loop number="4"  name="MotorGenerator">
+					<boards>
+							<board type="B10" name="MotorGeneratorControl1" address="1">
+								<channels>             
+									<channel name="r_MG1NoFault" wire="digital_in_1" />
+									<channel name="r_MG2NoFault" wire="digital_in_2" />
+									<channel name="r_MG3NoFault" wire="digital_in_3"/>
+									<channel name="r_AccelEnabled" wire="digital_in_4" />
+									<channel name="r_MG3OnStatus" wire="digital_in_5" />
+									<channel name="r_MG2OnStatus" wire="digital_in_6" />
+									<channel name="r_MG1OnStatus" wire="digital_in_7" />
+									<channel name="r_AccelGndRefPwrOnStatus" wire="digital_in_8"/>
+									<channel name="c_MG1On"  wire="digital_out_1" />
+									<channel name="c_MG1Off" wire="digital_out_2" />
+									<channel name="c_MG2On" wire="digital_out_3" />
+									<channel name="c_MG2Off" wire="digital_out_4" />
+									<channel name="c_MG3On" wire="digital_out_5" />
+									<channel name="c_MG3Off" wire="digital_out_6" />
+									<channel name="c_XYScanMagnetPowerOn" wire="digital_out_7" />
+									<channel name="c_XYScanMagnetPowerOff" wire="digital_out_8" />
+								</channels>
+							</board>
+							<board type="B10" name="MainPD1" address="2">
+								<channels>
+									<channel name="r_XYScanMagnetPowerStatus" wire="digital_in_1" />
+									<channel name="r_PressureInterlockBypass" wire="digital_in_2" />
+									<channel name="r_SF6_PS2" wire="digital_in_3" />
+									<channel name="r_SF6GasTempOK" wire="digital_in_4" />
+									<channel name="r_TankPosition" wire="digital_in_5" /> 
+									<channel name="r_SF6GasFlowOK" wire="digital_in_6" />
+									<channel name="r_AccelInhibitSW" wire="digital_in_7" />
+									<channel name="r_AccelInterlockOK" wire="digital_in_8"/>
+									<channel name="c_MG1FaultReset" wire="digital_out_1" />
+									<channel name="c_MG2FaultReset" wire="digital_out_2" />
+									<channel name="c_MG3FaultReset" wire="digital_out_3" />
+									<channel name="c_AccelOff" wire="digital_out_4" />
+									<channel name="c_HardwareInterlockReset" wire="digital_out_5" />
+									<channel name="c_AccelEnable" wire="digital_out_6" />
+									<channel name="c_BeamDumpDriveFaultReset" wire="digital_out_7" />
+								</channels>
+							</board>
+							<board type="B10" name="MainPD2" address="3">
+								<channels>
+									<channel name="r_BeamDumpMotorAtSpeed" wire="digital_in_1" />
+									<channel name="r_BeamDumpDriveNoFault" wire="digital_in_2"/>
+									<channel name="r_BeamDumpDrivePwrStatus" wire="digital_in_3"/>
+									<channel name="r_SF6RecirculatingPumpStatus" wire="digital_in_5" />
+									<channel name="r_BoosterPumpOnStatus" wire="digital_in_6" />
+									<channel name="r_VibrationWarning" wire="digital_in_7" />
+									<channel name="r_VibrationAlarm" wire="digital_in_8" />
+									<channel name="c_BeamDumpDrivePwrOn" wire="digital_out_1" />
+									<channel name="c_BeamDumpDrivePwrOff" wire="digital_out_2" />
+									<channel name="c_BeamDumpStart" wire="digital_out_3" />
+									<channel name="c_BeamDumpStop" wire="digital_out_4" />
+									<channel name="c_SF6RecirculatingPumpOn" wire="digital_out_5" />
+									<channel name="c_SF6RecirculatingPumpOff" wire="digital_out_6" />
+									<channel name="c_BoosterPumpOn" wire="digital_out_7" />
+									<channel name="c_BoosterPumpOff" wire="digital_out_8" />
+								</channels>
+							</board>
+							<board type="M10" name="BeamDumpSpeedControl"  address="4" >
+								<channels>
+									<channel name="r_BeamDumpSpeedFeedback" wire="analog_in_1" scaleB="60" units="RPM"/>
+									<channel name="r_G6" wire="analog_in_2" scaleB="30" units="PSI"/>
+									<channel name="c_BeamDumpSpeedControl" wire="analog_out_1" scaleB="60" units="RPM"/>
+								</channels>
+							</board>
+						</boards>
+					</loop>
+			<!-- A2:LOOP5 Total Beam Current************************************************************************************************************** -->
+			<loop number="5" name="A2_loop5">
+						<boards>
+				<board type="M10" name="BSGVControl" address="7">
+					<channels>
+					<channel name="r_BSGFlow" wire="analog_in_2" scaleB="2" units="sccm"/>
+					<channel name="r_BSGPressure" wire="analog_in_1" scaleB="2" units="torr"/>
+					<channel name="c_BSGPressure" wire="analog_out_1" scaleB="2" units="torr" />
+					<channel name="c_BSGV1" wire="digital_out_1" />
+					<channel name="c_BSGV2" wire="digital_out_2" />
+					<channel name="c_BSGV3" wire="digital_out_3" />
+					</channels>
+				</board>
+				<board type="M40" name="ScannerPickups" address="11">
+					<channels>
+					<channel name="r_ScanIn1Pickup" wire="analog_in_1" scaleB="0.0005" units="A"/>
+					<channel name="r_ScanIn2Pickup" wire="analog_in_2" scaleB="0.0005" units="A"/>
+					<channel name="r_ScanIn3Pickup" wire="analog_in_3" scaleB="0.0005" units="A"/>
+					<channel name="r_ScanIn4Pickup" wire="analog_in_4" scaleB="0.0005" units="A"/>
+					<channel name="r_ScanOut1Pickup" wire="analog_in_5" scaleB="0.0005" units="A"/>
+					<channel name="r_ScanOut2Pickup" wire="analog_in_6" scaleB="0.0005" units="A"/>
+					<channel name="r_ScanOut3Pickup" wire="analog_in_7" scaleB="0.0005" units="A"/>
+					<channel name="r_ScanOut4Pickup" wire="analog_in_8" scaleB="0.0005" units="A"/>
+					</channels>
+				</board>
+				<board type="M40" name="SpareM40" address="12">
+				<channels>
+					<channel name="c_SpareM40_AO1" wire="analog_out_1" scaleB="11" units="A" />  
+					<channel name="c_SpareM40_AO2" wire="analog_out_2" scaleB="11" units="A" />  
+					<channel name="c_SpareM40_AO3" wire="analog_out_3" scaleB="1" units="V" />  
+					<channel name="c_SpareM40_AO4" wire="analog_out_4" scaleB="1" units="V" />  
+					<channel name="c_SpareM40_AO5" wire="analog_out_5" scaleB="1" units="V" />  
+					<channel name="c_SpareM40_AO6" wire="analog_out_6" scaleB="1" units="V" />  
+					<channel name="c_SpareM40_AO7" wire="analog_out_7" scaleB="65" units="V" />  
+					<channel name="c_SpareM40_AO8" wire="analog_out_8" scaleB="1" units="V" />  
+					<channel name="r_SpareM40_AI1" wire="analog_in_1" scaleB="11" units="A" />  
+					<channel name="r_SpareM40_AI2" wire="analog_in_2" scaleB="0.6" units="V" />  
+					<channel name="r_SpareM40_AI3" wire="analog_in_3" scaleB="11" units="A" />  
+					<channel name="r_SpareM40_AI4" wire="analog_in_4" scaleB="0.6" units="V" />  
+					<channel name="r_SpareM40_AI5" wire="analog_in_5" scaleB="0.01" units="mA" />  
+					<channel name="r_SpareM40_AI6" wire="analog_in_6" scaleB="250" units="mA" />  
+					<channel name="r_SpareM40_AI7" wire="analog_in_7" scaleB="65" units="V" />  
+					<channel name="r_SpareM40_AI8" wire="analog_in_8" scaleB="1" units="V" />  
+					<channel name="c_SpareM40_DO1" wire="digital_out_1" />
+					<channel name="c_SpareM40_DO2" wire="digital_out_2" />
+					<channel name="c_SpareM40_DO3" wire="digital_out_3" />
+					<channel name="c_SpareM40_DO4" wire="digital_out_4" />
+					<channel name="c_SpareM40_DO5" wire="digital_out_5" />
+					<channel name="c_SpareM40_DO6" wire="digital_out_6" />
+					<channel name="c_SpareM40_DO7" wire="digital_out_7" />
+					<channel name="c_SpareM40_DO8" wire="digital_out_8" />
+					<channel name="r_SpareM40_DI1" wire="digital_in_1" />
+					<channel name="r_SpareM40_DI2" wire="digital_in_2" />
+					<channel name="r_SpareM40_DI3" wire="digital_in_3" />
+					<channel name="r_SpareM40_DI4" wire="digital_in_4" />
+					<channel name="r_SpareM40_DI5" wire="digital_in_5" />
+					<channel name="r_SpareM40_DI6" wire="digital_in_6" />
+					<channel name="r_SpareM40_DI7" wire="digital_in_7" />
+					<channel name="r_SpareM40_DI8" wire="digital_in_8" />
+				</channels>
+				</board>
+			</boards>
+					</loop>			
+		</loops>
+    </loopcontroller>  
+  </loopcontrollers>
+
+  <interpreter>
+    <devices>
+		
+		<epicscas type="epicscas" name="epicsserver" />
+
+		<!-- PERMITS ******************************************************************************************************* -->
+		<permit name="Permit_Beam" type="beam" channelEnable="c_MW_PSU_Enable" 
+			channelUnlatched1="r_AccelGlobalInterlockState" 
+			channelLatched1="r_AccelSuppressionInterlock" 
+			channelLatched2="r_ExtractionSuppressionInterlock" 
+			channelLatched3="r_TripletA1InterlockState" 
+			channelLatched4="r_TripletA2InterlockState" 
+			channelLatched5="r_TripletA3InterlockState" 
+			channelLatched6="r_TripletB1InterlockState" 
+			channelLatched7="r_TripletB2InterlockState" 
+			channelLatched8="r_TripletB3InterlockState" 
+			channelLatched9="r_AmagEntranceInterlockState" 
+			channelLatched10="r_AmagExitInterlockState" 
+			channelLatched11="r_DriftTube4InterlockState" 
+			channelLatched12="r_DriftTube4InterlockState" 
+			channelLatched13="r_DriftTube4InterlockState" 
+			channelLatched14="r_DriftTube4InterlockState" 
+			channelLatched15="r_ScanIn1InterlockState" 
+			channelLatched16="r_ScanIn2InterlockState" 
+			channelLatched17="r_ScanIn3InterlockState" 
+			channelLatched18="r_ScanIn4InterlockState" 
+			channelLatched19="r_ScanOut1InterlockState" 
+			channelLatched20="r_ScanOut2InterlockState" 
+			channelLatched21="r_ScanOut3InterlockState" 
+			channelLatched22="r_ScanOut4InterlockState" 
+		>
+		  <channels>
+			<channel name="c_BeamPermit" wire="digital_out_enable" />
+			<channel name="r_BeamPermit" wire="digital_in_state" />
+		  </channels>
+		</permit>
+		
+		<!-- INTERLOCKS ******************************************************************************************************* -->
+		<!--- Magnets -->
+		<interlock name="Interlock_FrontSolenoid" type="tolerance" channelInput="r_FrontSolenoidI" channelOutput="c_FrontSolenoidI" channelPercent="c_SourceInterlockPercent" channelTimeout="c_SourceInterlockTimeout" >
+		  <channels>
+			<channel name="c_FrontSolenoidInterlockEnable" wire="digital_out_interlock_enable" />
+			<channel name="r_FrontSolenoidInterlock" wire="digital_in_interlock_state" />
+		  </channels>
+		</interlock>
+		<interlock name="Interlock_CenterSolenoid" type="tolerance" channelInput="r_CenterSolenoidI" channelOutput="c_CenterSolenoidI" channelPercent="c_SourceInterlockPercent" channelTimeout="c_SourceInterlockTimeout" >
+		  <channels>
+			<channel name="c_CenterSolenoidInterlockEnable" wire="digital_out_interlock_enable" />
+			<channel name="r_CenterSolenoidInterlock" wire="digital_in_interlock_state" />
+		  </channels>
+		</interlock>
+		<interlock name="Interlock_BackSolenoid" type="tolerance" channelInput="r_BackSolenoidI" channelOutput="c_BackSolenoidI" channelPercent="c_SourceInterlockPercent" channelTimeout="c_SourceInterlockTimeout" >
+		  <channels>
+			<channel name="c_BackSolenoidInterlockEnable" wire="digital_out_interlock_enable" />
+			<channel name="r_BackSolenoidInterlock" wire="digital_in_interlock_state" />
+		  </channels>
+		</interlock>
+		<interlock name="Interlock_SingletMasterA" type="tolerance" channelInput="r_SingletMasterAI" channelOutput="c_SingletMasterAI" channelPercent="c_QuadInterlockPercent" channelTimeout="c_QuadInterlockTimeout" >
+		  <channels>
+			<channel name="c_SingletMasterAInterlockEnable" wire="digital_out_interlock_enable" />
+			<channel name="r_SingletMasterAInterlock" wire="digital_in_interlock_state" />
+		  </channels>
+		</interlock>
+		<interlock name="Interlock_SingletSlaveA" type="tolerance" channelInput="r_SingletSlaveAI" channelOutput="c_SingletSlaveAI" channelPercent="c_QuadInterlockPercent" channelTimeout="c_QuadInterlockTimeout" >
+		  <channels>
+			<channel name="c_SingletSlaveAInterlockEnable" wire="digital_out_interlock_enable" />
+			<channel name="r_SingletSlaveAInterlock" wire="digital_in_interlock_state" />
+		  </channels>
+		</interlock>
+		<interlock name="Interlock_SingletMasterB" type="tolerance" channelInput="r_SingletMasterBI" channelOutput="c_SingletMasterBI" channelPercent="c_QuadInterlockPercent" channelTimeout="c_QuadInterlockTimeout" >
+		  <channels>
+			<channel name="c_SingletMasterBInterlockEnable" wire="digital_out_interlock_enable" />
+			<channel name="r_SingletMasterBInterlock" wire="digital_in_interlock_state" />
+		  </channels>
+		</interlock>
+		<interlock name="Interlock_SingletSlaveB" type="tolerance" channelInput="r_SingletSlaveBI" channelOutput="c_SingletSlaveBI" channelPercent="c_QuadInterlockPercent" channelTimeout="c_QuadInterlockTimeout" >
+		  <channels>
+			<channel name="c_SingletSlaveBInterlockEnable" wire="digital_out_interlock_enable" />
+			<channel name="r_SingletSlaveBInterlock" wire="digital_in_interlock_state" />
+		  </channels>
+		</interlock>
+		<interlock name="Interlock_Amag" type="tolerance" channelInput="r_AnalyzerMagnetI" channelOutput="c_AnalyzerMagnetI" channelPercent="c_AmagInterlockPercent" channelTimeout="c_AmagInterlockTimeout" >
+		  <channels>
+			<channel name="c_AmagInterlockEnable" wire="digital_out_interlock_enable" />
+			<channel name="r_AmagInterlock" wire="digital_in_interlock_state" />
+		  </channels>
+		</interlock>
+		<!--- Suppression -->
+		<interlock name="Interlock_AccelSuppression" type="threshold" channelInput="r_AccelSuppressionV" channelEnableNeeded="c_AccelSuppressionEnable" channelThreshold="c_AccelSuppressionInterlockThreshold" channelTimeout="c_AccelSuppressionInterlockTimeout" >
+		  <channels>
+			<channel name="c_AccelSuppressionInterlockEnable" wire="digital_out_interlock_enable" />
+			<channel name="r_AccelSuppressionInterlock" wire="digital_in_interlock_state" />
+		  </channels>
+		</interlock>
+		<interlock name="Interlock_ExtractionSuppression" type="threshold" channelInput="r_ExtractionSuppressionV" channelEnableNeeded="c_ExtractionSuppressionEnable" channelThreshold="c_ExtractionSuppressionInterlockThreshold" channelTimeout= "c_ExtractionSuppressionInterlockTimeout" >
+		  <channels>
+			<channel name="c_ExtractionSuppressionInterlockEnable" wire="digital_out_interlock_enable" />
+			<channel name="r_ExtractionSuppressionInterlock" wire="digital_in_interlock_state" />
+		  </channels>
+		</interlock>
+		<!--- Pickup plates -->
+		<interlock name="Interlock_TripletA1" type="threshold" channelInput="r_TripletA1Pickup" channelThreshold="c_PickupPlateInterlockThreshold" channelTimeout="c_PickupPlateInterlockTimeout" >
+		  <channels>
+			<channel name="c_TripletA1InterlockEnable" wire="digital_out_interlock_enable" />
+			<channel name="r_TripletA1InterlockState" wire="digital_in_interlock_state" />
+		  </channels>
+		</interlock>
+		<interlock name="Interlock_TripletA2" type="threshold" channelInput="r_TripletA2Pickup" channelThreshold="c_PickupPlateInterlockThreshold" channelTimeout="c_PickupPlateInterlockTimeout" >
+		  <channels>
+			<channel name="c_TripletA2InterlockEnable" wire="digital_out_interlock_enable" />
+			<channel name="r_TripletA2InterlockState" wire="digital_in_interlock_state" />
+		  </channels>
+		</interlock>
+		<interlock name="Interlock_TripletA3" type="threshold" channelInput="r_TripletA3Pickup" channelThreshold="c_PickupPlateInterlockThreshold" channelTimeout="c_PickupPlateInterlockTimeout" >
+		  <channels>
+			<channel name="c_TripletA3InterlockEnable" wire="digital_out_interlock_enable" />
+			<channel name="r_TripletA3InterlockState" wire="digital_in_interlock_state" />
+		  </channels>
+		</interlock>
+		<interlock name="Interlock_TripletB1" type="threshold" channelInput="r_TripletB1Pickup" channelThreshold="c_PickupPlateInterlockThreshold" channelTimeout="c_PickupPlateInterlockTimeout" >
+		  <channels>
+			<channel name="c_TripletB1InterlockEnable" wire="digital_out_interlock_enable" />
+			<channel name="r_TripletB1InterlockState" wire="digital_in_interlock_state" />
+		  </channels>
+		</interlock>
+		<interlock name="Interlock_TripletB2" type="threshold" channelInput="r_TripletB2Pickup" channelThreshold="c_PickupPlateInterlockThreshold" channelTimeout="c_PickupPlateInterlockTimeout" >
+		  <channels>
+			<channel name="c_TripletB2InterlockEnable" wire="digital_out_interlock_enable" />
+			<channel name="r_TripletB2InterlockState" wire="digital_in_interlock_state" />
+		  </channels>
+		</interlock>
+		<interlock name="Interlock_TripletB3" type="threshold" channelInput="r_TripletB3Pickup" channelThreshold="c_PickupPlateInterlockThreshold" channelTimeout="c_PickupPlateInterlockTimeout" >
+		  <channels>
+			<channel name="c_TripletB3InterlockEnable" wire="digital_out_interlock_enable" />
+			<channel name="r_TripletB3InterlockState" wire="digital_in_interlock_state" />
+		  </channels>
+		</interlock>
+		<interlock name="Interlock_AmagEntrance" type="threshold" channelInput="r_AmagEntrancePickup" channelThreshold="c_PickupPlateInterlockThreshold" channelTimeout="c_PickupPlateInterlockTimeout" >
+		  <channels>
+			<channel name="c_AmagEntranceInterlockEnable" wire="digital_out_interlock_enable" />
+			<channel name="r_AmagEntranceInterlockState" wire="digital_in_interlock_state" />
+		  </channels>
+		</interlock>
+		<interlock name="Interlock_AmagExit" type="threshold" channelInput="r_AmagExitPickup" channelThreshold="c_PickupPlateInterlockThreshold" channelTimeout="c_PickupPlateInterlockTimeout" >
+		  <channels>
+			<channel name="c_AmagExitInterlockEnable" wire="digital_out_interlock_enable" />
+			<channel name="r_AmagExitInterlockState" wire="digital_in_interlock_state" />
+		  </channels>
+		</interlock>
+		<interlock name="Interlock_DriftTube1" type="threshold" channelInput="r_DriftTube1Pickup" channelThreshold="c_PickupPlateInterlockThreshold" channelTimeout="c_PickupPlateInterlockTimeout" >
+		  <channels>
+			<channel name="c_DriftTube1InterlockEnable" wire="digital_out_interlock_enable" />
+			<channel name="r_DriftTube1InterlockState" wire="digital_in_interlock_state" />
+		  </channels>
+		</interlock>
+		<interlock name="Interlock_DriftTube2" type="threshold" channelInput="r_DriftTube2Pickup" channelThreshold="c_PickupPlateInterlockThreshold" channelTimeout="c_PickupPlateInterlockTimeout" >
+		  <channels>
+			<channel name="c_DriftTube2InterlockEnable" wire="digital_out_interlock_enable" />
+			<channel name="r_DriftTube2InterlockState" wire="digital_in_interlock_state" />
+		  </channels>
+		</interlock>
+		<interlock name="Interlock_DriftTube3" type="threshold" channelInput="r_DriftTube3Pickup" channelThreshold="c_PickupPlateInterlockThreshold" channelTimeout="c_PickupPlateInterlockTimeout" >
+		  <channels>
+			<channel name="c_DriftTube3InterlockEnable" wire="digital_out_interlock_enable" />
+			<channel name="r_DriftTube3InterlockState" wire="digital_in_interlock_state" />
+		  </channels>
+		</interlock>
+		<interlock name="Interlock_DriftTube4" type="threshold" channelInput="r_DriftTube4Pickup" channelThreshold="c_PickupPlateInterlockThreshold" channelTimeout="c_PickupPlateInterlockTimeout" >
+		  <channels>
+			<channel name="c_DriftTube4InterlockEnable" wire="digital_out_interlock_enable" />
+			<channel name="r_DriftTube4InterlockState" wire="digital_in_interlock_state" />
+		  </channels>
+		</interlock>
+		<interlock name="Interlock_ScanIn1" type="threshold" channelInput="r_ScanIn1Pickup" channelThreshold="c_PickupPlateInterlockThreshold" channelTimeout="c_PickupPlateInterlockTimeout" >
+		  <channels>
+			<channel name="c_ScanIn1InterlockEnable" wire="digital_out_interlock_enable" />
+			<channel name="r_ScanIn1InterlockState" wire="digital_in_interlock_state" />
+		  </channels>
+		</interlock>
+		<interlock name="Interlock_ScanIn2" type="threshold" channelInput="r_ScanIn2Pickup" channelThreshold="c_PickupPlateInterlockThreshold" channelTimeout="c_PickupPlateInterlockTimeout" >
+		  <channels>
+			<channel name="c_ScanIn2InterlockEnable" wire="digital_out_interlock_enable" />
+			<channel name="r_ScanIn2InterlockState" wire="digital_in_interlock_state" />
+		  </channels>
+		</interlock>
+		<interlock name="Interlock_ScanIn3" type="threshold" channelInput="r_ScanIn3Pickup" channelThreshold="c_PickupPlateInterlockThreshold" channelTimeout="c_PickupPlateInterlockTimeout" >
+		  <channels>
+			<channel name="c_ScanIn3InterlockEnable" wire="digital_out_interlock_enable" />
+			<channel name="r_ScanIn3InterlockState" wire="digital_in_interlock_state" />
+		  </channels>
+		</interlock>
+		<interlock name="Interlock_ScanIn4" type="threshold" channelInput="r_ScanIn4Pickup" channelThreshold="c_PickupPlateInterlockThreshold" channelTimeout="c_PickupPlateInterlockTimeout" >
+		  <channels>
+			<channel name="c_ScanIn4InterlockEnable" wire="digital_out_interlock_enable" />
+			<channel name="r_ScanIn4InterlockState" wire="digital_in_interlock_state" />
+		  </channels>
+		</interlock>
+		<interlock name="Interlock_ScanOut1" type="threshold" channelInput="r_ScanOut1Pickup" channelThreshold="c_PickupPlateInterlockThreshold" channelTimeout="c_PickupPlateInterlockTimeout" >
+		  <channels>
+			<channel name="c_ScanOut1InterlockEnable" wire="digital_out_interlock_enable" />
+			<channel name="r_ScanOut1InterlockState" wire="digital_in_interlock_state" />
+		  </channels>
+		</interlock>
+		<interlock name="Interlock_ScanOut2" type="threshold" channelInput="r_ScanOut2Pickup" channelThreshold="c_PickupPlateInterlockThreshold" channelTimeout="c_PickupPlateInterlockTimeout" >
+		  <channels>
+			<channel name="c_ScanOut2InterlockEnable" wire="digital_out_interlock_enable" />
+			<channel name="r_ScanOut2InterlockState" wire="digital_in_interlock_state" />
+		  </channels>
+		</interlock>
+		<interlock name="Interlock_ScanOut3" type="threshold" channelInput="r_ScanOut3Pickup" channelThreshold="c_PickupPlateInterlockThreshold" channelTimeout="c_PickupPlateInterlockTimeout" >
+		  <channels>
+			<channel name="c_ScanOut3InterlockEnable" wire="digital_out_interlock_enable" />
+			<channel name="r_ScanOut3InterlockState" wire="digital_in_interlock_state" />
+		  </channels>
+		</interlock>
+		<interlock name="Interlock_ScanOut4" type="threshold" channelInput="r_ScanOut4Pickup" channelThreshold="c_PickupPlateInterlockThreshold" channelTimeout="c_PickupPlateInterlockTimeout" >
+		  <channels>
+			<channel name="c_ScanOut4InterlockEnable" wire="digital_out_interlock_enable" />
+			<channel name="r_ScanOut4InterlockState" wire="digital_in_interlock_state" />
+		  </channels>
+		</interlock>
+
+		<!-- SEQUENCES ******************************************************************************************************* -->
+
+		<!-- Motor generator -->
+		<sequence name="MotorGenerator" type="motorgen" timeSwitch="250" timeSettle="3000" channelGndRefStatus="r_AccelGndRefPwrOnStatus" channelOn1="c_MG1On" channelOff1="c_MG1Off" channelOnStatus1="r_MG1OnStatus"	channelOn2="c_MG2On" channelOff2="c_MG2Off" channelOnStatus2="r_MG2OnStatus" channelOn3="c_MG3On" channelOff3="c_MG3Off" channelOnStatus3="r_MG3OnStatus" >
+		  <channels>
+			<channel name="c_MotorGeneratorSequence" wire="int_out_sequence_number"/>
+			<channel name="c_MotorGeneratorPause" wire="digital_out_pause"/>
+			<channel name="c_MotorGeneratorResume" wire="digital_out_resume"/>
+			<channel name="r_MotorGeneratorFunctionalState" wire="int_in_functional_state"/>
+			<channel name="r_MotorGeneratorOperationalState" wire="int_in_operational_state"/>
+		  </channels>
+		</sequence>
+		<!-- Endstation -->
+		<sequence name="EndStation" type="endstation" timeSwitch="250" channelTaskStart="c_LinearStageMotionStartCMD" channelTaskAbort="c_LinearStageMotionAbort" channelTaskBit0="c_LinearStageMotionTaskBit0" channelTaskBit1="c_LinearStageMotionTaskBit1" >
+		  <channels>
+			<channel name="c_EndStationSequence" wire="int_out_sequence_number"/>
+			<channel name="c_EndStationPause" wire="digital_out_pause"/>
+			<channel name="c_EndStationResume" wire="digital_out_resume"/>
+			<channel name="r_EndStationFunctionalState" wire="int_in_functional_state"/>
+			<channel name="r_EndStationOperationalState" wire="int_in_operational_state"/>
+			<channel name="c_EndStationMoveToHome" wire="digital_out_move_to_home"/>
+			<channel name="c_EndStationMoveToLoad" wire="digital_out_move_to_load"/>
+			<channel name="c_EndStationMoveToImplant" wire="digital_out_move_to_implant"/>
+			<channel name="c_EndStationMoveToScan" wire="digital_out_move_to_scan"/>
+			<channel name="c_EndStationMoveToAbort" wire="digital_out_move_to_abort"/>
+		  </channels>
+		</sequence>
+		
+		<!-- MICROWAVE DUTY CYCLE ******************************************************************************************************* -->
+		<control name="MicrowaveDutyCycle" type="mwduty" channelEnable="c_MWHardwareEnable" channelPower="c_MicrowavePower" >
+		  <channels>
+			<channel name="c_MicrowaveDutyCycle" wire="analog_out_microwave_duty_cycle"/>
+			<channel name="c_MicrowaveMode" wire="analog_out_microwave_mode"/>
+			<channel name="c_MicrowaveMinOnTime1" wire="analog_out_microwave_min_on_time_1"/>
+			<channel name="c_MicrowavePeriod1" wire="analog_out_microwave_period_1"/>
+			<channel name="c_MicrowaveMinOnTime2" wire="analog_out_microwave_min_on_time_2"/>
+			<channel name="c_MicrowavePeriod2" wire="analog_out_microwave_period_2"/>
+		  </channels>
+		</control>
+		
+		<!-- PULSE ******************************************************************************************************* -->
+		<control name="MagnetPulse" type="pulse" channel1="c_FrontSolenoidI" channel2="c_CenterSolenoidI" channel3="c_BackSolenoidI" >
+		  <channels>
+			<channel name="c_SolenoidPulse" wire="digital_out_state"/>
+		  </channels>
+		</control>
+
+		<!-- CONTROL ******************************************************************************************************* -->
+		<control name="F3200EControl" type="f3200e" channelData="r_f3200_data" channelInitiate="c_f3200_initiate" xCup="8" yCup="24" doseAveragingMethod="NONE" innerCup="11" outerCup="12" dumpApertureDiameter="3.0" normalScalar="59.25925926" 
+			gain1="0.9820" gain2="0.9878" gain3="0.9818" gain4="0.9904" gain5="0.9933" gain6="0.9902" gain7="0.9955" gain8="0.9968" gain9="0.9953" gain10="0.9878" gain11="0.9934" gain12="0.9969" gain13="0.9999" gain14="0.9966" gain15="0.9931" gain16="0.9876" gain17="0.9954" gain18="0.9967" gain19="0.9952" gain20="0.9903" gain21="0.9932" gain22="0.9901" gain23="0.9819" gain24="0.9876" gain25="0.9817" 
+			correctionInner1="1" correctionInner2="1" correctionInner3="1.0" correctionInner4="1.0" correctionInner5="1.0" correctionInner6="1.0" correctionInner7="1" correctionInner8="1.0" correctionInner9="1.0" correctionInner10="1.0" correctionInner11="1.0" correctionInner12="1.0" correctionInner13="1.0" correctionInner14="1.0" correctionInner15="1.0" correctionInner16="1.0" correctionInner17="1.0" correctionInner18="1.0" correctionInner19="1.0" correctionInner20="1.0" correctionInner21="1.0" correctionInner22="1.0" correctionInner23="1.0" correctionInner24="1.0" correctionInner25="1.0" correctionInner26="1.0" correctionInner27="1.0" correctionInner28="1.0" correctionInner29="1.0" correctionInner30="1.0" 
+			correctionOuter1="1.0" correctionOuter2="1.0" correctionOuter3="1.0" correctionOuter4="1.0" correctionOuter5="1.0" correctionOuter6="1.0" correctionOuter7="1.0" correctionOuter8="1.0" correctionOuter9="1.0" correctionOuter10="1.0" correctionOuter11="1.0" correctionOuter12="1.0" correctionOuter13="1.0" correctionOuter14="1.0" correctionOuter15="1.0" correctionOuter16="1.0" correctionOuter17="1.0" correctionOuter18="1.0" correctionOuter19="1.0" correctionOuter20="1.0" correctionOuter21="1.0" correctionOuter22="1.0" correctionOuter23="1.0" correctionOuter24="1.0" correctionOuter25="1.0" correctionOuter26="1.0" correctionOuter27="1.0" correctionOuter28="1.0" correctionOuter29="1.0" correctionOuter30="1.0" 
+			scaleInner1="0.08" scaleInner2="0.08" scaleInner3="0.08" scaleInner4="0.08" scaleInner5="0.08" scaleInner6="0.08" scaleInner7="0.08" scaleInner8="0.08" scaleInner9="0.08" scaleInner10="0.08" scaleInner11="0.08" scaleInner12="0.08" scaleInner13="0.08" scaleInner14="0.08" scaleInner15="0.08" scaleInner16="0.08" scaleInner17="0.08" scaleInner18="0.08" scaleInner19="0.08" scaleInner20="0.08" scaleInner21="0.08" scaleInner22="0.08" scaleInner23="0.08" scaleInner24="0.08" scaleInner25="0.08" scaleInner26="0.08" scaleInner27="0.08" scaleInner28="0.08" scaleInner29="0.08" scaleInner30="0.08" 
+			scaleOuter1="0.08" scaleOuter2="0.08" scaleOuter3="0.08" scaleOuter4="0.08" scaleOuter5="0.08" scaleOuter6="0.08" scaleOuter7="0.08" scaleOuter8="0.08" scaleOuter9="0.08" scaleOuter10="0.08" scaleOuter11="0.08" scaleOuter12="0.08" scaleOuter13="0.08" scaleOuter14="0.08" scaleOuter15="0.08" scaleOuter16="0.08" scaleOuter17="0.08" scaleOuter18="0.08" scaleOuter19="0.08" scaleOuter20="0.08" scaleOuter21="0.08" scaleOuter22="0.08" scaleOuter23="0.08" scaleOuter24="0.08" scaleOuter25="0.08" scaleOuter26="0.08" scaleOuter27="0.08" scaleOuter28="0.08" scaleOuter29="0.08" scaleOuter30="0.08" 
+		>
+		  <channels>
+			<!-- Mode -->
+			<channel name="c_F3200EAction" wire="int_out_action" />
+			<channel name="r_F3200EMode" wire="int_in_mode" />
+			<!-- Dosimetry -->
+			<channel name="c_TargetDose" wire="analog_out_target_dose"/>
+			<channel name="r_ImplantInProgress" wire="digital_in_implant_in_progress"/>
+			<channel name="c_MinDoseCurrentThreshold" wire="analog_out_min_dose_current_threshold"/>
+			<channel name="c_DoseCupGateRadius" wire="analog_out_dose_cup_radius"/>
+			<channel name="c_DosimetryAveragingTime" wire="analog_out_dosimetry_averaging_time" />
+			<channel name="c_ApertureArea" wire="analog_out_aperture_area" />
+			<channel name="r_TotalCurrent" wire="analog_in_total_current" />
+			<channel name="r_SelectedCurrent" wire="analog_in_selected_current" />
+			<channel name="r_AverageCurrent" wire="analog_in_average_current" />
+			<channel name="r_MinimumCurrent" wire="analog_in_minimum_current" />
+			<channel name="r_MaximumCurrent" wire="analog_in_maximum_current" />
+			<channel name="r_TotalDose" wire="analog_in_total_dose" />
+			<channel name="r_SelectedDose" wire="analog_in_selected_dose" />
+			<channel name="r_MinimumDose" wire="analog_in_minimum_dose" />
+			<channel name="r_MaximumDose" wire="analog_in_maximum_dose" />
+			<channel name="r_Uniformity" wire="analog_in_uniformity" />
+			<channel name="r_BeamCurrentDensity" wire="analog_in_beam_current_density" />
+			<channel name="r_DoseRate" wire="analog_in_dose_rate" />
+			<channel name="r_DoseCupsCurrent" wire="variant_in_current" />
+			<channel name="r_DoseCupsDose" wire="variant_in_dose" />
+			<!-- Image -->
+			<channel name="c_BeamImageCup" wire="analog_out_beam_image_cup"/>
+			<channel name="c_BeamImageSamples" wire="analog_out_beam_image_samples"/>
+			<channel name="c_BeamImageAveraging" wire="analog_out_beam_image_lambda"/>
+			<channel name="c_BeamImageMagnification" wire="analog_out_beam_image_magnification"/>
+			<channel name="c_BeamImageDirection" wire="int_out_beam_image_direction"/>
+			<channel name="c_ImageScaleX" wire="analog_out_image_scale_x"/>
+			<channel name="c_ImageScaleY" wire="analog_out_image_scale_y"/>
+			<channel name="c_ImageUseCupOffsets" wire="digital_out_image_use_cup_offsets"/>
+			<channel name="c_ImageWidthFull" wire="analog_out_image_width_full"/>
+			<channel name="c_ImageWidthHalf" wire="analog_out_image_width_half"/>
+			<channel name="r_ImageCurrent" wire="analog_in_image_current" />
+			<channel name="r_ImageCurrentDensity" wire="analog_in_image_current_density" />
+			<channel name="r_ImageFullSizeX" wire="analog_in_image_full_size_x" />
+			<channel name="r_ImageFullSizeY" wire="analog_in_image_full_size_y" />
+			<channel name="r_ImageHalfSizeX" wire="analog_in_image_half_size_x" />
+			<channel name="r_ImageHalfSizeY" wire="analog_in_image_half_size_y" />
+			<channel name="r_ImageProjectionX" wire="variant_in_image_projection_x" />
+			<channel name="r_ImageProjectionY" wire="variant_in_image_projection_y" />
+			<channel name="r_ImageData" wire="variant_in_image_data" />
+			<channel name="r_ImageTag" wire="int_in_image_tag" />
+			<channel name="c_UseCupOffsets" wire="digital_out_image_use_cup_offsets" />
+			<!-- Dump -->
+			<channel name="c_EncoderOffset" wire="analog_out_encoder_offset"/>
+			<channel name="c_EncoderPerHole" wire="analog_out_encoder_per_hole"/>
+			<channel name="r_DumpInnerEncoder" wire="variant_in_dump_inner_encoder" />
+			<channel name="r_DumpOuterEncoder" wire="variant_in_dump_outer_encoder" />
+			<channel name="r_DumpInnerData" wire="variant_in_dump_inner_data" />
+			<channel name="r_DumpOuterData" wire="variant_in_dump_outer_data" />
+			<channel name="r_DumpInnerCurrent" wire="analog_in_dump_inner_current" />
+			<channel name="r_DumpOuterCurrent" wire="analog_in_dump_outer_current" />
+			<channel name="r_DumpH2Current" wire="analog_in_dump_h2_current" />
+			<channel name="r_DumpHPCurrent" wire="analog_in_dump_hp_current" />
+			<channel name="r_DumpHPTotalRatio" wire="analog_in_dump_hp_total_ratio" />
+			<channel name="r_DumpHPOuterRatio" wire="analog_in_dump_hp_outer_ratio" />
+		  </channels>
+		</control>
+
+		<!-- QUAD CONTROL ******************************************************************************************************* -->
+		<control name="QuadAControl" type="quads" channelMaster="c_SingletMasterAI" channelSlave="c_SingletSlaveAI" channelDoublet="c_DoubletAI" 
+			channelMasterI="r_SingletMasterAI" channelSlaveI="r_SingletSlaveAI" channelMasterV="r_SingletMasterAV" channelSlaveV="r_SingletSlaveAV" >
+		  <channels>
+			<channel name="c_TripletA_LockRatio" wire="digital_out_lock_ratio" />
+			<channel name="c_tripletA_Q1Q3" wire="analog_out_Q1Q3" limitHigh="222.7" />
+			<channel name="c_tripletA_Q2" wire="analog_out_Q2" limitHigh="441.4" />
+			<channel name="r_tripletA_Q2A" wire="analog_in_Q1Q3" />
+			<channel name="r_tripletA_Q2V" wire="analog_in_Q2" />
+		  </channels>
+		</control>
+		<control name="QuadBControl" type="quads" channelMaster="c_SingletMasterBI" channelSlave="c_SingletSlaveBI" channelDoublet="c_DoubletBI" 
+			channelMasterI="r_SingletMasterBI" channelSlaveI="r_SingletSlaveBI" channelMasterV="r_SingletMasterBV" channelSlaveV="r_SingletSlaveBV" >
+		  <channels>
+			<channel name="c_TripletB_LockRatio" wire="digital_out_lock_ratio" />
+			<channel name="c_tripletB_Q1Q3" wire="analog_out_Q1Q3" />
+			<channel name="c_tripletB_Q2" wire="analog_out_Q2" />
+			<channel name="r_tripletB_Q2A" wire="analog_in_Q1Q3" />
+			<channel name="r_tripletB_Q2V" wire="analog_in_Q2" />
+		  </channels>
+		</control>
+
+		<!-- TOWER ******************************************************************************************************* -->
+		<control name="Tower" type="tower" channelImplanting="r_ImplantInProgress" channelRed="c_RedLight" channelRedFlash="c_RedLightFlash" channelYellow="c_YellowLight" channelYellowFlash="c_YellowLightFlash" channelGreen="c_GreenLight" channelGreenFlash="c_GreenLightFlash" channelBlue="c_BlueLight" channelBlueFlash="c_BlueLightFlash" channelOnStatus1="r_MG1OnStatus" channelOnStatus2="r_MG2OnStatus" channelOnStatus3="r_MG3OnStatus" >
+		</control>
+
+		<!-- ACCEL SUPPLIES ******************************************************************************************************* -->
+		<control name="Accel_Total" type="accel" supplytype="total" channelControlV="c_AccelTotalV" channelControlI="c_AccelTotalI" channelReadbackI="r_AccelTotalI" channelReadbackV="r_AccelTotalV" channelEnable="c_AccelTotalEnable" channelFastInterlcokEnable="c_AccelTotalFastInterlockEnable" channelSendLastFault="c_AccelTotalSendLastFault" channelFault="r_AccelTotalFault" channelArcMonitor="r_AccelTotalArcMonitor"  channelAceDisable="c_AccelTotalAceDisable" channelBeamIsOn="r_BeamIsEnabled" channelTolerancePct="c_TotalTolerancePct" 	channelToleranceTime="c_TotalToleranceTime"	channelEnableTime="c_TotalEnableTime" channelMwEnableTime="c_TotalMwEnableTime" channelDiResistivity="r_DIResistivity" 			>
+		  <channels>
+			<!--- Standard channels -->
+			<channel name="c_AccelGlobalInterlockEnable" wire="digital_out_global_interlock_enable" />
+			<channel name="c_AccelTotalInterlockEnable" wire="digital_out_interlock_enable" />
+			<channel name="r_AccelTotalInterlockState" wire="digital_in_interlock_state" />
+			<channel name="r_AccelGlobalInterlockState" wire="digital_in_global_interlock_state" />
+			<channel name="c_AccelTotalAutomation" wire="digital_out_accel_split_mode"/>
+			<channel name="c_AccelTotalEnable" wire="digital_out_enable" />
+			<channel name="c_AccelTotalFastInterlockEnable" wire="digital_out_fast_interlock_enable" />
+			<channel name="c_AccelTotalAceDisable" wire="digital_out_ace_disable" />
+			<channel name="c_AccelTotalSendLastFault" wire="digital_out_send_last_fault" />
+			<channel name="r_AccelTotalFault" wire="digital_in_fault" />
+			<channel name="r_AccelTotalArcMonitor" wire="digital_in_arc_monitor" />
+			<channel name="c_AccelTotalV" wire="analog_out_voltage" />
+			<channel name="c_AccelTotalI" wire="analog_out_current" />
+			<channel name="r_AccelTotalV" wire="analog_in_voltage" />
+			<channel name="r_AccelTotalI" wire="analog_in_current" />
+			<channel name="c_LensRatio" wire="analog_out_lensratio" />
+			<channel name="r_LensV" wire="analog_in_lensV" units="A"/>
+			<channel name="r_AverageAccelCurrent" wire="analog_in_average_accel_current" />
+			<!--- Total tolerances -->
+			<channel name="c_TotalTolerancePct" wire="analog_out_total_tolerance_pct" />
+			<channel name="c_TotalToleranceTime" wire="analog_out_total_tolerance_time" />
+			<channel name="c_TotalEnableTime" wire="analog_out_total_enable_time" />
+			<channel name="c_TotalMwEnableTime" wire="analog_out_total_mw_enable_time" />
+			<channel name="c_TotalTripTime" wire="analog_out_total_trip_time" />
+			<channel name="c_TotalTripCount" wire="analog_out_total_trip_count" />
+			<!--- Extractionl tolerances -->
+			<channel name="c_ExtractionTolerancePct" wire="analog_out_extraction_tolerance_pct" />
+			<channel name="c_ExtractionToleranceTime" wire="analog_out_extraction_tolerance_time" />
+			<channel name="c_ExtractionEnableTime" wire="analog_out_extraction_enable_time" />
+			<channel name="c_ExtractionMwEnableTime" wire="analog_out_extraction_mw_enable_time" />
+			<!--- Accel tolerances -->
+			<channel name="c_AccelTolerancePct" wire="analog_out_accel_tolerance_pct" />
+			<channel name="c_AccelToleranceTime" wire="analog_out_accel_tolerance_time" />
+			<channel name="c_AccelEnableTime" wire="analog_out_accel_enable_time" />
+			<channel name="c_AccelMwEnableTime" wire="analog_out_accel_mw_enable_time" />
+		  </channels>
+		</control>
+		<!-- Extraction 1 -->
+		<control name="Accel_Extraction" type="accel" supplytype="extraction" channelControlV="c_ExtractionV" channelControlI="c_ExtractionI" channelReadbackI="r_ExtractionI" channelReadbackV="r_ExtractionV"	channelEnable="c_ExtractionEnable" channelFastInterlcokEnable="c_ExtractionFastInterlockEnable" channelSendLastFault="c_ExtractionSendLastFault" channelFault="r_ExtractionFault" channelArcMonitor="r_ExtractionArcMonitor" channelAceDisable="c_ExtractionACE_Disable" 
+			channelBeamIsOn="r_BeamIsEnabled" channelTolerancePct="c_ExtractionTolerancePct" channelToleranceTime="c_ExtractionToleranceTime" channelEnableTime="c_ExtractionEnableTime" channelMwEnableTime="c_ExtractionMwEnableTime" >
+		  <channels>
+			<channel name="c_ExtractionInterlockEnable" wire="digital_out_interlock_enable" />
+			<channel name="r_ExtractionInterlockState" wire="digital_in_interlock_state" />
+		  </channels>
+		</control>
+		<!-- Lens 1 -->
+		<control name="Accel_1" type="accel" supplytype="lens" channelControlV="c_Accel1V" channelControlI="c_Accel1I" channelReadbackI="r_Accel1I" channelReadbackV="r_Accel1V" channelEnable="c_Accel1Enable" channelFastInterlcokEnable="c_Accel1FastInterlockEnable" channelSendLastFault="c_Accel1SendLastFault" channelFault="r_Accel1Fault" channelArcMonitor="r_Accel1ArcMonitor"  channelAceDisable="c_Accel1ACE_Disable" channelBeamIsOn="r_BeamIsEnabled" channelTolerancePct="c_AccelTolerancePct" channelToleranceTime="c_AccelToleranceTime" channelEnableTime="c_AccelEnableTime" channelMwEnableTime="c_AccelMwEnableTime" >
+		  <channels>
+			<channel name="c_Accel1Active" wire="digital_out_active" />
+			<channel name="c_Accel1InterlockEnable" wire="digital_out_interlock_enable" />
+			<channel name="r_Accel1InterlockState" wire="digital_in_interlock_state" />
+		  </channels>
+		</control>
+		<!-- Lens 2 -->
+		<control name="Accel_2" type="accel" supplytype="lens" channelControlV="c_Accel2V" channelControlI="c_Accel2I" channelReadbackI="r_Accel2I" channelReadbackV="r_Accel2V" channelEnable="c_Accel2Enable" channelFastInterlcokEnable="c_Accel2FastInterlockEnable" channelSendLastFault="c_Accel2SendLastFault" channelFault="r_Accel2Fault" channelArcMonitor="r_Accel2ArcMonitor" channelAceDisable="c_Accel2ACE_Disable" channelBeamIsOn="r_BeamIsEnabled" channelTolerancePct="c_AccelTolerancePct" channelToleranceTime="c_AccelToleranceTime" channelEnableTime="c_AccelEnableTime" channelMwEnableTime="c_AccelMwEnableTime" >
+		  <channels>
+			<channel name="c_Accel2Active" wire="digital_out_active" />
+			<channel name="c_Accel2InterlockEnable" wire="digital_out_interlock_enable" />
+			<channel name="r_Accel2InterlockState" wire="digital_in_interlock_state" />
+		  </channels>
+		</control>
+		<!-- Lens 3 -->
+		<control name="Accel_3" type="accel" supplytype="lens" channelControlV="c_Accel3V" channelControlI="c_Accel3I" channelReadbackI="r_Accel3I" channelReadbackV="r_Accel3V" channelEnable="c_Accel3Enable" channelFastInterlcokEnable="c_Accel3FastInterlockEnable" channelSendLastFault="c_Accel3SendLastFault" channelFault="r_Accel3Fault" channelArcMonitor="r_Accel3ArcMonitor" channelAceDisable="c_Accel3ACE_Disable" channelBeamIsOn="r_BeamIsEnabled" channelTolerancePct="c_AccelTolerancePct" channelToleranceTime="c_AccelToleranceTime" channelEnableTime="c_AccelEnableTime" channelMwEnableTime="c_AccelMwEnableTime" >
+		  <channels>
+			<channel name="c_Accel3Active" wire="digital_out_active" />
+			<channel name="c_Accel3InterlockEnable" wire="digital_out_interlock_enable" />
+			<channel name="r_Accel3InterlockState" wire="digital_in_interlock_state" />
+		  </channels>
+		</control>
+		<!-- Accel 4 -->
+		<control name="Accel_4" type="accel" supplytype="accel" channelControlV="c_Accel4V" channelControlI="c_Accel4I" channelReadbackI="r_Accel4I" channelReadbackV="r_Accel4V" channelEnable="c_Accel4Enable" channelFastInterlcokEnable="c_Accel4FastInterlockEnable" channelSendLastFault="c_Accel4SendLastFault" channelFault="r_Accel4Fault" channelArcMonitor="r_Accel4ArcMonitor" channelAceDisable="c_Accel4ACE_Disable" channelBeamIsOn="r_BeamIsEnabled" channelTolerancePct="c_AccelTolerancePct" channelToleranceTime="c_AccelToleranceTime" channelEnableTime="c_AccelEnableTime" channelMwEnableTime="c_AccelMwEnableTime" >
+		  <channels>
+			<channel name="c_Accel4Active" wire="digital_out_active" />
+			<channel name="c_Accel4InterlockEnable" wire="digital_out_interlock_enable" />
+			<channel name="r_Accel4InterlockState" wire="digital_in_interlock_state" />
+		  </channels>
+		</control>
+		<!-- Accel 5 -->
+		<control name="Accel_5" type="accel" supplytype="accel" channelControlV="c_Accel5V" channelControlI="c_Accel5I" channelReadbackI="r_Accel5I" channelReadbackV="r_Accel5V" channelEnable="c_Accel5Enable" channelFastInterlcokEnable="c_Accel5FastInterlockEnable" channelSendLastFault="c_Accel5SendLastFault" channelFault="r_Accel5Fault" channelArcMonitor="r_Accel5ArcMonitor" channelAceDisable="c_Accel5ACE_Disable" channelBeamIsOn="r_BeamIsEnabled" channelTolerancePct="c_AccelTolerancePct" channelToleranceTime="c_AccelToleranceTime" channelEnableTime="c_AccelEnableTime" channelMwEnableTime="c_AccelMwEnableTime" >
+		  <channels>
+			<channel name="c_Accel5Active" wire="digital_out_active" />
+			<channel name="c_Accel5InterlockEnable" wire="digital_out_interlock_enable" />
+			<channel name="r_Accel5InterlockState" wire="digital_in_interlock_state" />
+		  </channels>
+		</control>
+		<!-- Accel 6 -->
+		<control name="Accel_6" type="accel" supplytype="accel" channelControlV="c_Accel6V" channelControlI="c_Accel6I" channelReadbackI="r_Accel6I" channelReadbackV="r_Accel6V" channelEnable="c_Accel6Enable" channelFastInterlcokEnable="c_Accel6FastInterlockEnable" channelSendLastFault="c_Accel6SendLastFault" channelFault="r_Accel6Fault" channelArcMonitor="r_Accel6ArcMonitor" channelAceDisable="c_Accel6ACE_Disable" channelBeamIsOn="r_BeamIsEnabled" channelTolerancePct="c_AccelTolerancePct" channelToleranceTime="c_AccelToleranceTime" channelEnableTime="c_AccelEnableTime" channelMwEnableTime="c_AccelMwEnableTime" >
+		  <channels>
+			<channel name="c_Accel6Active" wire="digital_out_active" />
+			<channel name="c_Accel6InterlockEnable" wire="digital_out_interlock_enable" />
+			<channel name="r_Accel6InterlockState" wire="digital_in_interlock_state" />
+		  </channels>
+		</control>
+		<!-- Accel 7 -->
+		<control name="Accel_7" type="accel" supplytype="accel" channelControlV="c_Accel7V" channelControlI="c_Accel7I" channelReadbackI="r_Accel7I" channelReadbackV="r_Accel7V" channelEnable="c_Accel7Enable" channelFastInterlcokEnable="c_Accel7FastInterlockEnable" channelSendLastFault="c_Accel7SendLastFault" channelFault="r_Accel7Fault" channelArcMonitor="r_Accel7ArcMonitor" channelAceDisable="c_Accel7ACE_Disable" channelBeamIsOn="r_BeamIsEnabled" channelTolerancePct="c_AccelTolerancePct" channelToleranceTime="c_AccelToleranceTime" channelEnableTime="c_AccelEnableTime" channelMwEnableTime="c_AccelMwEnableTime" >
+		  <channels>
+			<channel name="c_Accel7Active" wire="digital_out_active" />
+			<channel name="c_Accel7InterlockEnable" wire="digital_out_interlock_enable" />
+			<channel name="r_Accel7InterlockState" wire="digital_in_interlock_state" />
+		  </channels>
+		</control>
+		<!-- Accel 8 -->
+		<control name="Accel_8" type="accel" supplytype="accel" channelControlV="c_Accel8V" channelControlI="c_Accel8I" channelReadbackI="r_Accel8I" channelReadbackV="r_Accel8V" channelEnable="c_Accel8Enable" channelFastInterlcokEnable="c_Accel8FastInterlockEnable" channelSendLastFault="c_Accel8SendLastFault" channelFault="r_Accel8Fault" channelArcMonitor="r_Accel8ArcMonitor" channelAceDisable="c_Accel8ACE_Disable" channelBeamIsOn="r_BeamIsEnabled" channelTolerancePct="c_AccelTolerancePct" channelToleranceTime="c_AccelToleranceTime"	channelEnableTime="c_AccelEnableTime" channelMwEnableTime="c_AccelMwEnableTime" >
+		  <channels>
+			<channel name="c_Accel8Active" wire="digital_out_active" />
+			<channel name="c_Accel8InterlockEnable" wire="digital_out_interlock_enable" />
+			<channel name="r_Accel8InterlockState" wire="digital_in_interlock_state" />
+		  </channels>
+		</control>
+		<!-- Accel 9 -->
+		<control name="Accel_9" type="accel" supplytype="accel" channelControlV="c_Accel9V" channelControlI="c_Accel9I" channelReadbackI="r_Accel9I" channelReadbackV="r_Accel9V" channelEnable="c_Accel9Enable" channelFastInterlcokEnable="c_Accel9FastInterlockEnable" channelSendLastFault="c_Accel9SendLastFault" channelFault="r_Accel9Fault" channelArcMonitor="r_Accel9ArcMonitor" channelAceDisable="c_Accel9ACE_Disable" channelBeamIsOn="r_BeamIsEnabled" channelTolerancePct="c_AccelTolerancePct" channelToleranceTime="c_AccelToleranceTime" channelEnableTime="c_AccelEnableTime" channelMwEnableTime="c_AccelMwEnableTime" >
+		  <channels>
+			<channel name="c_Accel9Active" wire="digital_out_active" />
+			<channel name="c_Accel9InterlockEnable" wire="digital_out_interlock_enable" />
+			<channel name="r_Accel9InterlockState" wire="digital_in_interlock_state" />
+		  </channels>
+		</control>
+		<!-- Accel 10 -->
+		<control name="Accel_10" type="accel" supplytype="accel" channelControlV="c_Accel10V" channelControlI="c_Accel10I" channelReadbackI="r_Accel10I" channelReadbackV="r_Accel10V" channelEnable="c_Accel10Enable" channelFastInterlcokEnable="c_Accel10FastInterlockEnable" channelSendLastFault="c_Accel10SendLastFault" channelFault="r_Accel10Fault" channelArcMonitor="r_Accel10ArcMonitor" channelAceDisable="c_Accel10ACE_Disable" channelBeamIsOn="r_BeamIsEnabled" channelTolerancePct="c_AccelTolerancePct" channelToleranceTime="c_AccelToleranceTime" channelEnableTime="c_AccelEnableTime" channelMwEnableTime="c_AccelMwEnableTime" >
+		  <channels>
+			<channel name="c_Accel10Active" wire="digital_out_active" />
+			<channel name="c_Accel10InterlockEnable" wire="digital_out_interlock_enable" />
+			<channel name="r_Accel10InterlockState" wire="digital_in_interlock_state" />
+		  </channels>
+		</control>
+		<!-- Accel 11 -->
+		<control name="Accel_11" type="accel" supplytype="accel" channelControlV="c_Accel11V" channelControlI="c_Accel11I" channelReadbackI="r_Accel11I" channelReadbackV="r_Accel11V" channelEnable="c_Accel11Enable" channelFastInterlcokEnable="c_Accel11FastInterlockEnable" channelSendLastFault="c_Accel11SendLastFault" channelFault="r_Accel11Fault" channelArcMonitor="r_Accel11ArcMonitor" channelAceDisable="c_Accel11ACE_Disable" channelBeamIsOn="r_BeamIsEnabled" channelTolerancePct="c_AccelTolerancePct" channelToleranceTime="c_AccelToleranceTime" channelEnableTime="c_AccelEnableTime" channelMwEnableTime="c_AccelMwEnableTime" >
+		  <channels>
+			<channel name="c_Accel11Active" wire="digital_out_active" />
+			<channel name="c_Accel11InterlockEnable" wire="digital_out_interlock_enable" />
+			<channel name="r_Accel11InterlockState" wire="digital_in_interlock_state" />
+		  </channels>
+		</control>
+		<!-- Accel 12 -->
+		<control name="Accel_12" type="accel" supplytype="accel" channelControlV="c_Accel12V" channelControlI="c_Accel12I" channelReadbackI="r_Accel12I" channelReadbackV="r_Accel12V" channelEnable="c_Accel12Enable" channelFastInterlcokEnable="c_Accel12FastInterlockEnable" channelSendLastFault="c_Accel12SendLastFault" channelFault="r_Accel12Fault" channelArcMonitor="r_Accel12ArcMonitor" channelAceDisable="c_Accel12ACE_Disable" channelBeamIsOn="r_BeamIsEnabled" channelTolerancePct="c_AccelTolerancePct" channelToleranceTime="c_AccelToleranceTime" channelEnableTime="c_AccelEnableTime" channelMwEnableTime="c_AccelMwEnableTime" >
+		  <channels>
+			<channel name="c_Accel12Active" wire="digital_out_active" />
+			<channel name="c_Accel12InterlockEnable" wire="digital_out_interlock_enable" />
+			<channel name="r_Accel12InterlockState" wire="digital_in_interlock_state" />
+		  </channels>
+		</control>
+		<!-- Accel 13 -->
+		<control name="Accel_13" type="accel" supplytype="accel" channelControlV="c_Accel13V" channelControlI="c_Accel13I" channelReadbackI="r_Accel13I" channelReadbackV="r_Accel13V" channelEnable="c_Accel13Enable" channelFastInterlcokEnable="c_Accel13FastInterlockEnable" channelSendLastFault="c_Accel13SendLastFault" channelFault="r_Accel13Fault" channelArcMonitor="r_Accel13ArcMonitor" channelAceDisable="c_Accel13ACE_Disable" channelBeamIsOn="r_BeamIsEnabled" channelTolerancePct="c_AccelTolerancePct" channelToleranceTime="c_AccelToleranceTime" channelEnableTime="c_AccelEnableTime" channelMwEnableTime="c_AccelMwEnableTime" >
+		  <channels>
+			<channel name="c_Accel13Active" wire="digital_out_active" />
+			<channel name="c_Accel13InterlockEnable" wire="digital_out_interlock_enable" />
+			<channel name="r_Accel13InterlockState" wire="digital_in_interlock_state" />
+		  </channels>
+		</control>
+		<!-- Accel 14-->
+		<control name="Accel_14" type="accel" supplytype="accel" channelControlV="c_Accel14V" channelControlI="c_Accel14I" channelReadbackI="r_Accel14I" channelReadbackV="r_Accel14V" channelEnable="c_Accel14Enable" channelFastInterlcokEnable="c_Accel14FastInterlockEnable" channelSendLastFault="c_Accel14SendLastFault" channelFault="r_Accel14Fault" channelArcMonitor="r_Accel14ArcMonitor" channelAceDisable="c_Accel14ACE_Disable" channelBeamIsOn="r_BeamIsEnabled" channelTolerancePct="c_AccelTolerancePct" channelToleranceTime="c_AccelToleranceTime" channelEnableTime="c_AccelEnableTime" channelMwEnableTime="c_AccelMwEnableTime" >
+		  <channels>
+			<channel name="c_Accel14Active" wire="digital_out_active" />
+			<channel name="c_Accel14InterlockEnable" wire="digital_out_interlock_enable" />
+			<channel name="r_Accel14InterlockState" wire="digital_in_interlock_state" />
+		  </channels>
+		</control>
+		<!-- Accel 15-->
+		<control name="Accel_15" type="accel" supplytype="accel" channelControlV="c_Accel15V" channelControlI="c_Accel15I" channelReadbackI="r_Accel15I" channelReadbackV="r_Accel15V" channelEnable="c_Accel15Enable" channelFastInterlcokEnable="c_Accel15FastInterlockEnable" channelSendLastFault="c_Accel15SendLastFault" channelFault="r_Accel15Fault" channelArcMonitor="r_Accel15ArcMonitor" channelAceDisable="c_Accel15ACE_Disable" channelBeamIsOn="r_BeamIsEnabled" channelTolerancePct="c_AccelTolerancePct" channelToleranceTime="c_AccelToleranceTime" channelEnableTime="c_AccelEnableTime" channelMwEnableTime="c_AccelMwEnableTime" >
+		  <channels>
+			<channel name="c_Accel15Active" wire="digital_out_active" />
+			<channel name="c_Accel15InterlockEnable" wire="digital_out_interlock_enable" />
+			<channel name="r_Accel15InterlockState" wire="digital_in_interlock_state" />
+		  </channels>
+		</control>
+		<!-- Accel 16-->
+		<control name="Accel_16" type="accel" supplytype="accel" channelControlV="c_Accel16V" channelReadbackI="r_Accel16I" channelReadbackV="r_Accel16V" channelControlI="c_Accel15I" channelEnable="c_Accel16Enable" channelFastInterlcokEnable="c_Accel16FastInterlockEnable" channelSendLastFault="c_Accel16SendLastFault" channelFault="r_Accel16Fault" channelArcMonitor="r_Accel16ArcMonitor" channelAceDisable="c_Accel6ACE_Disable" channelBeamIsOn="r_BeamIsEnabled" channelTolerancePct="c_AccelTolerancePct" channelToleranceTime="c_AccelToleranceTime" channelEnableTime="c_AccelEnableTime" channelMwEnableTime="c_AccelMwEnableTime" >
+		  <channels>
+			<channel name="c_Accel16Active" wire="digital_out_active" />
+			<channel name="c_Accel16InterlockEnable" wire="digital_out_interlock_enable" />
+			<channel name="r_Accel16InterlockState" wire="digital_in_interlock_state" />
+		  </channels>
+		</control>
+		<!-- Accel 17-->
+		<control name="Accel_17" type="accel" supplytype="accel" channelControlV="c_Accel17V" channelReadbackI="r_Accel17I" channelReadbackV="r_Accel17V" channelControlI="c_Accel17I" channelEnable="c_Accel17Enable" channelFastInterlcokEnable="c_Accel17FastInterlockEnable" channelSendLastFault="c_Accel17SendLastFault" channelFault="r_Accel17Fault" channelArcMonitor="r_Accel17ArcMonitor" channelAceDisable="c_Accel17ACE_Disable" channelBeamIsOn="r_BeamIsEnabled" channelTolerancePct="c_AccelTolerancePct" channelToleranceTime="c_AccelToleranceTime" channelEnableTime="c_AccelEnableTime" channelMwEnableTime="c_AccelMwEnableTime" >
+		  <channels>
+			<channel name="c_Accel17Active" wire="digital_out_active" />
+			<channel name="c_Accel17InterlockEnable" wire="digital_out_interlock_enable" />
+			<channel name="r_Accel17InterlockState" wire="digital_in_interlock_state" />
+		  </channels>
+		</control>
+		<!-- Accel 18-->
+		<control name="Accel_18" type="accel" supplytype="accel" channelControlV="c_Accel18V" channelReadbackI="r_Accel18I" channelReadbackV="r_Accel18V" channelControlI="c_Accel18I" channelEnable="c_Accel18Enable" channelFastInterlcokEnable="c_Accel18FastInterlockEnable" channelSendLastFault="c_Accel18SendLastFault" channelFault="r_Accel18Fault" channelArcMonitor="r_Accel18ArcMonitor" channelAceDisable="c_Accel18ACE_Disable" channelBeamIsOn="r_BeamIsEnabled" channelTolerancePct="c_AccelTolerancePct" channelToleranceTime="c_AccelToleranceTime" channelEnableTime="c_AccelEnableTime" channelMwEnableTime="c_AccelMwEnableTime" >
+		  <channels>
+			<channel name="c_Accel18Active" wire="digital_out_active" />
+			<channel name="c_Accel18InterlockEnable" wire="digital_out_interlock_enable" />
+			<channel name="r_Accel18InterlockState" wire="digital_in_interlock_state" />
+		  </channels>
+		</control>
+		<!-- Accel 19-->
+		<control name="Accel_19" type="accel" supplytype="accel" channelControlV="c_Accel19V" channelReadbackI="r_Accel19I" channelReadbackV="r_Accel19V" channelControlI="c_Accel19I" 	channelEnable="c_Accel19Enable" channelFastInterlcokEnable="c_Accel19FastInterlockEnable" channelSendLastFault="c_Accel15SendLastFault"	channelFault="r_Accel19Fault" channelArcMonitor="r_Accel19ArcMonitor" channelAceDisable="c_Accel19ACE_Disable" channelBeamIsOn="r_BeamIsEnabled" channelTolerancePct="c_AccelTolerancePct" channelToleranceTime="c_AccelToleranceTime" channelEnableTime="c_AccelEnableTime" channelMwEnableTime="c_AccelMwEnableTime" >
+		  <channels>
+			<channel name="c_Accel19Active" wire="digital_out_active" />
+			<channel name="c_Accel19InterlockEnable" wire="digital_out_interlock_enable" />
+			<channel name="r_Accel19InterlockState" wire="digital_in_interlock_state" />
+		  </channels>
+		</control>
+		<!-- Accel 20-->
+		<control name="Accel_20" type="accel" supplytype="accel" channelControlV="c_Accel20V" channelReadbackI="r_Accel20I" channelReadbackV="r_Accel20V" channelControlI="c_Accel20I" channelEnable="c_Accel20Enable" channelFastInterlcokEnable="c_Accel20FastInterlockEnable" channelSendLastFault="c_Accel20SendLastFault" channelFault="r_Accel20Fault" channelArcMonitor="r_Accel20ArcMonitor" channelAceDisable="c_Accel20ACE_Disable" channelBeamIsOn="r_BeamIsEnabled" channelTolerancePct="c_AccelTolerancePct" channelToleranceTime="c_AccelToleranceTime" channelEnableTime="c_AccelEnableTime" channelMwEnableTime="c_AccelMwEnableTime" >
+		  <channels>
+			<channel name="c_Accel20Active" wire="digital_out_active" />
+			<channel name="c_Accel20InterlockEnable" wire="digital_out_interlock_enable" />
+			<channel name="r_Accel20InterlockState" wire="digital_in_interlock_state" />
+		  </channels>
+		</control>
+		<!-- Accel 21-->
+		<control name="Accel_21" type="accel" supplytype="accel" channelControlV="c_Accel21V" channelReadbackI="r_Accel21I" channelReadbackV="r_Accel21V" channelControlI="c_Accel21I" channelEnable="c_Accel21Enable" channelFastInterlcokEnable="c_Accel21FastInterlockEnable" channelSendLastFault="c_Accel21SendLastFault" channelFault="r_Accel21Fault" channelArcMonitor="r_Accel21ArcMonitor" channelAceDisable="c_Accel21ACE_Disable" channelBeamIsOn="r_BeamIsEnabled" channelTolerancePct="c_AccelTolerancePct" channelToleranceTime="c_AccelToleranceTime" channelEnableTime="c_AccelEnableTime" channelMwEnableTime="c_AccelMwEnableTime" >
+		  <channels>
+			<channel name="c_Accel21Active" wire="digital_out_active" />
+			<channel name="c_Accel21InterlockEnable" wire="digital_out_interlock_enable" />
+			<channel name="r_Accel21InterlockState" wire="digital_in_interlock_state" />
+		  </channels>
+		</control>
+		<!-- Accel 22-->
+		<control name="Accel_22" type="accel" supplytype="accel" channelControlV="c_Accel22V" channelReadbackI="r_Accel22I" channelReadbackV="r_Accel22V" channelControlI="c_Accel22I" channelEnable="c_Accel22Enable" channelFastInterlcokEnable="c_Accel22FastInterlockEnable" channelSendLastFault="c_Accel22SendLastFault" channelFault="r_Accel22Fault" channelArcMonitor="r_Accel22ArcMonitor" channelAceDisable="c_Accel22ACE_Disable" channelBeamIsOn="r_BeamIsEnabled" channelTolerancePct="c_AccelTolerancePct" channelToleranceTime="c_AccelToleranceTime" channelEnableTime="c_AccelEnableTime" channelMwEnableTime="c_AccelMwEnableTime" >
+		  <channels>
+			<channel name="c_Accel22Active" wire="digital_out_active" />
+			<channel name="c_Accel22InterlockEnable" wire="digital_out_interlock_enable" />
+			<channel name="r_Accel22InterlockState" wire="digital_in_interlock_state" />
+		  </channels>
+		</control>
+		<!-- Accel 23-->
+		<control name="Accel_23" type="accel" supplytype="accel" channelControlV="c_Accel23V" channelReadbackI="r_Accel23I" channelReadbackV="r_Accel23V" channelControlI="c_Accel23I" channelEnable="c_Accel23Enable" channelFastInterlcokEnable="c_Accel23FastInterlockEnable" channelSendLastFault="c_Accel23SendLastFault" channelFault="r_Accel23Fault" channelArcMonitor="r_Accel23ArcMonitor" channelAceDisable="c_Accel23ACE_Disable" channelBeamIsOn="r_BeamIsEnabled" channelTolerancePct="c_AccelTolerancePct" channelToleranceTime="c_AccelToleranceTime" channelEnableTime="c_AccelEnableTime" channelMwEnableTime="c_AccelMwEnableTime" >
+		  <channels>
+			<channel name="c_Accel23Active" wire="digital_out_active" />
+			<channel name="c_Accel23InterlockEnable" wire="digital_out_interlock_enable" />
+			<channel name="r_Accel23InterlockState" wire="digital_in_interlock_state" />
+		  </channels>
+		</control>
+		<!-- Accel 24-->
+		<control name="Accel_24" type="accel" supplytype="accel" channelControlV="c_Accel24V" channelReadbackI="r_Accel24I" channelReadbackV="r_Accel24V" channelControlI="c_Accel24I" channelEnable="c_Accel24Enable" channelFastInterlcokEnable="c_Accel24FastInterlockEnable" channelSendLastFault="c_Accel24SendLastFault" channelFault="r_Accel24Fault" channelArcMonitor="r_Accel24ArcMonitor" channelAceDisable="c_Accel24ACE_Disable" channelBeamIsOn="r_BeamIsEnabled" channelTolerancePct="c_AccelTolerancePct" channelToleranceTime="c_AccelToleranceTime" channelEnableTime="c_AccelEnableTime" channelMwEnableTime="c_AccelMwEnableTime" >
+		  <channels>
+			<channel name="c_Accel24Active" wire="digital_out_active" />
+			<channel name="c_Accel24InterlockEnable" wire="digital_out_interlock_enable" />
+			<channel name="r_Accel24InterlockState" wire="digital_in_interlock_state" />
+		  </channels>
+		</control>
+		<!-- Accel 25-->
+		<control name="Accel_25" type="accel" supplytype="accel" channelControlV="c_Accel25V" channelReadbackI="r_Accel25I" channelReadbackV="r_Accel25V" channelControlI="c_Accel25I" channelEnable="c_Accel25Enable" channelFastInterlcokEnable="c_Accel25FastInterlockEnable" channelSendLastFault="c_Accel25SendLastFault" channelFault="r_Accel25Fault" channelArcMonitor="r_Accel25ArcMonitor" channelAceDisable="c_Accel25ACE_Disable" channelBeamIsOn="r_BeamIsEnabled" channelTolerancePct="c_AccelTolerancePct" channelToleranceTime="c_AccelToleranceTime" channelEnableTime="c_AccelEnableTime" channelMwEnableTime="c_AccelMwEnableTime" >
+		  <channels>
+			<channel name="c_Accel25Active" wire="digital_out_active" />
+			<channel name="c_Accel25InterlockEnable" wire="digital_out_interlock_enable" />
+			<channel name="r_Accel25InterlockState" wire="digital_in_interlock_state" />
+		  </channels>
+		</control>
+		<!-- Accel 26-->
+		<control name="Accel_26" type="accel" supplytype="accel" channelControlV="c_Accel26V" channelReadbackI="r_Accel26I" channelReadbackV="r_Accel26V" channelControlI="c_Accel26I" channelEnable="c_Accel26Enable" channelFastInterlcokEnable="c_Accel26FastInterlockEnable" channelSendLastFault="c_Accel26SendLastFault" channelFault="r_Accel26Fault" channelArcMonitor="r_Accel26ArcMonitor" channelAceDisable="c_Accel26ACE_Disable" channelBeamIsOn="r_BeamIsEnabled" channelTolerancePct="c_AccelTolerancePct" channelToleranceTime="c_AccelToleranceTime" channelEnableTime="c_AccelEnableTime" channelMwEnableTime="c_AccelMwEnableTime" >
+		  <channels>
+			<channel name="c_Accel26Active" wire="digital_out_active" />
+			<channel name="c_Accel26InterlockEnable" wire="digital_out_interlock_enable" />
+			<channel name="r_Accel26InterlockState" wire="digital_in_interlock_state" />
+		  </channels>
+		</control>
+
+		<!-- MATH ******************************************************************************************************************** -->
+		<maths name="SourceNetPower" type="sum" channel1="r_ForwardPowerMeter" channelM2="r_ReflectedPowerMeter" >
+		  <channels>
+			<channel name="r_SourceNetPower" wire="analog_in_state" />
+		  </channels>
+		</maths>
+		<maths name="PlasmaFloodNetPower" type="sum" channel1="r_PlasmaForwardPowerMeter" channelM2="r_PlasmaReflectedPowerMeter" >
+		  <channels>
+			<channel name="r_PlasmaFloodNetPower" wire="analog_in_state" />
+		  </channels>
+		</maths>
+		<maths name="AmagSum" type="sum" channel1="r_AmagEntrancePickup" channel2="r_AmagExitPickup" >
+		  <channels>
+			<channel name="r_AmagPickupSum" wire="analog_in_state" />
+		  </channels>
+		</maths>
+		<maths name="DriftTubeSum" type="sum" channel1="r_DriftTube1Pickup" channel2="r_DriftTube2Pickup" channel3="r_DriftTube3Pickup" channel4="r_DriftTube4Pickup" >
+		  <channels>
+			<channel name="r_DriftTubePickupSum" wire="analog_in_state" />
+		  </channels>
+		</maths>
+		<maths name="TripletASum" type="sum" channel1="r_TripletA1Pickup" channel2="r_TripletA2Pickup" channel3="r_TripletA3Pickup" >
+		  <channels>
+			<channel name="r_TripletAPickupSum" wire="analog_in_state" />
+		  </channels>
+		</maths>
+		<maths name="TripletBSum" type="sum" channel1="r_TripletB1Pickup" channel2="r_TripletB2Pickup" 	channel3="r_TripletB3Pickup" >
+		  <channels>
+			<channel name="r_TripletBPickupSum" wire="analog_in_state" />
+		  </channels>
+		</maths>
+		<maths name="ScanEntranceSum" type="sum" channel1="r_ScanIn1Pickup" channel2="r_ScanIn2Pickup" channel3="r_ScanIn3Pickup" channel4="r_ScanIn4Pickup" >
+		  <channels>
+			<channel name="r_ScanEntrancePickupSum" wire="analog_in_state" />
+		  </channels>
+		</maths>
+		<maths name="ScanExitSum" type="sum" channel1="r_ScanOut1Pickup" channel2="r_ScanOut2Pickup" channel3="r_ScanOut3Pickup" channel4="r_ScanOut4Pickup" >
+		  <channels>
+			<channel name="r_ScanExitPickupSum" wire="analog_in_state" />
+		  </channels>
+		</maths>
+		<maths name="BeamIsEnabled" type="and" channel1="c_HardwareBeamEnable" channel2="c_HVHardwareEnable" channel3="c_MWHardwareEnable" >
+		  <channels>
+			<channel name="r_BeamIsEnabled" wire="digital_in_state" />
+		  </channels>
+		</maths>
+
+		<!-- ATMOSPHERE SWITCHES******************************************************************************************************** -->
+		<atmswitch name="PS1" type="atmswitch" channelReadback="r_PS1Atm"  >
+		</atmswitch>
+		<atmswitch name="PS3" type="atmswitch" channelReadback="r_PS3Atm"  >
+		</atmswitch>
+		<atmswitch name="PS4" type="atmswitch" channelReadback="r_PS4Atm"  >
+		</atmswitch>
+
+	    <!-- PUMPS *************************************************************************************************************** -->
+		<pump name="TMP1" type="turbo" channelCommandOnOff="c_TMP1On" channelReadbackNormal="r_TMP1Normal" channelReadbackFaulted="r_TMP1Fault" channelReadbackSpeed="r_TMP1Frequency" >
+		  <channels>
+			<channel name="c_TMP1_command" wire="digital_out_command" />
+			<channel name="r_TMP1_state" wire="analog_in_state" />
+		  </channels>
+		</pump>
+		<pump name="TMP2" type="turbo" channelCommandOnOff="c_TMP2On" channelReadbackNormal="r_TMP2Normal" channelReadbackFaulted="r_TMP2Fault" channelReadbackSpeed="r_TMP2Frequency" >
+		  <channels>
+			<channel name="c_TMP2_command" wire="digital_out_command" />
+			<channel name="r_TMP2_state" wire="analog_in_state" />
+		  </channels>
+		</pump>
+		<pump name="TMP3" type="turbo" channelCommandOnOff="c_TMP3On" channelReadbackNormal="r_TMP3Normal" channelReadbackFaulted="r_TMP3Fault" channelReadbackSpeed="r_TMP3Frequency" >
+		  <channels>
+			<channel name="c_TMP3_command" wire="digital_out_command" />
+			<channel name="r_TMP3_state" wire="analog_in_state" />
+		  </channels>
+		</pump>
+		<pump name="TMP4" type="turbo" channelCommandOnOff="c_TMP4On" channelReadbackNormal="r_TMP4Normal" channelReadbackFaulted="r_TMP4Fault" channelReadbackSpeed="r_TMP4Frequency" >
+		  <channels>
+			<channel name="c_TMP4_command" wire="digital_out_command" />
+			<channel name="r_TMP4_state" wire="analog_in_state" />
+		  </channels>
+		</pump>
+		<pump name="RP1" type="scroll" channelCommandOnOff="c_RP1OnOff" channelReadbackRunning="r_RP1Running" channelReadbackNoAlarm="r_RP1NoFault"  >
+		  <channels>
+			<channel name="c_RP1_command" wire="digital_out_command" />
+			<channel name="r_RP1_state" wire="analog_in_state" />
+		  </channels>
+		</pump>
+		<pump name="RP2" type="scroll" channelCommandOnOff="c_RP2OnOff" channelReadbackRunning="r_RP2Running" channelReadbackNoAlarm="r_RP2NoFault"  >
+		  <channels>
+			<channel name="c_RP2_command" wire="digital_out_command" />
+			<channel name="r_RP2_state" wire="analog_in_state" />
+		  </channels>
+		</pump>
+		<pump name="RP3" type="scroll" channelCommandOnOff="c_RP3OnOff" channelReadbackRunning="r_RP3Running" channelReadbackNoAlarm="r_RP3NoFault"  >
+		  <channels>
+			<channel name="c_RP3_command" wire="digital_out_command" />
+			<channel name="r_RP3_state" wire="analog_in_state" />
+		  </channels>
+		</pump>
+
+		<!-- GAUGES ******************************************************************************************************************** -->
+		<gauge name="G1" type="cluster" channelReadbackPressure="r_G1" >
+		  <channels>
+			<channel name="r_G1_state" wire="analog_in_state" />
+		  </channels>
+		</gauge>
+		<gauge name="G2" type="pirani" channelReadbackPressure="r_G2" >
+		  <channels>
+			<channel name="r_G2_state" wire="analog_in_state" />
+		  </channels>
+		</gauge>
+		<gauge name="G3" type="cluster" channelReadbackPressure="r_G3" >
+			<channels>
+			  <channel name="r_G3_state" wire="analog_in_state" />
+			</channels>
+		</gauge>
+		<gauge name="G4" type="wrg" channelReadbackPressure="r_G4" >
+		  <channels>
+			<channel name="r_G4_state" wire="analog_in_state" />
+		  </channels>
+		</gauge>
+		<gauge name="G5" type="wrg" channelReadbackPressure="r_G5" >
+		  <channels>
+			<channel name="r_G5_state" wire="analog_in_state" />
+		  </channels>
+		</gauge>     
+		<gauge name="G6" type="cluster" channelReadbackPressure="r_G6" >
+		  <channels>
+			<channel name="r_G6_state" wire="analog_in_state" />
+		  </channels>
+		</gauge>
+		<gauge name="G7" type="pirani" channelReadbackPressure="r_G7" >
+		  <channels>
+			<channel name="r_G7_state" wire="analog_in_state" />
+		  </channels>
+		</gauge>
+		<gauge name="G8" type="wrg" channelReadbackPressure="r_G8" >
+		  <channels>
+			<channel name="r_G8_state" wire="analog_in_state" />
+		  </channels>
+		</gauge>
+		<gauge name="G10" type="wrg" channelReadbackPressure="r_G10" >
+		  <channels>
+			<channel name="r_G10_state" wire="analog_in_state" />
+		  </channels>
+		</gauge>
+		<gauge name="G11" type="pirani" channelReadbackPressure="r_G11" >
+		  <channels>
+			<channel name="r_G11_state" wire="analog_in_state" />
+		  </channels>
+		</gauge>
+		<gauge name="G12" type="pirani" channelReadbackPressure="r_G12" >
+		  <channels>
+			<channel name="r_G12_state" wire="analog_in_state" />
+		  </channels>
+		</gauge>
+
+		<!-- VALVES ***************************************************************************************************************** -->
+		<valve name="V1" type="V1C" channelCommandOpen="c_V1" >
+		  <channels>
+			<channel name="c_V1_command" wire="digital_out_command" />
+			<channel name="r_V1_state" wire="analog_in_state" />
+		  </channels>
+		</valve>
+		<valve name="V2" type="V1C" channelCommandOpen="c_V2" >
+		  <channels>
+			<channel name="c_V2_command" wire="digital_out_command" />
+			<channel name="r_V2_state" wire="analog_in_state" />
+		  </channels>
+		</valve>
+		<valve name="V3" type="V1C" channelCommandOpen="c_V3" >
+		  <channels>
+			<channel name="c_V3_command" wire="digital_out_command" />
+			<channel name="r_V3_state" wire="analog_in_state" />
+		  </channels>
+		</valve>
+		<valve name="V4" type="V1C" channelCommandOpen="c_V4" >
+		  <channels>
+			<channel name="c_V4_command" wire="digital_out_command" />
+			<channel name="r_V4_state" wire="analog_in_state" />
+		  </channels>
+		</valve>
+		<valve name="V5" type="V2C2R" channelCommandOpen="c_V5Open" channelCommandClose="c_V5Close" channelReadbackOpen="r_V5Open" channelReadbackClosed="r_V5Closed" >
+		  <channels>
+			<channel name="c_V5_command" wire="digital_out_command" />
+			<channel name="r_V5_state" wire="analog_in_state" />
+		  </channels>
+		</valve>
+		<valve name="V6" type="V1C2R" channelCommandOpen="c_V6" channelReadbackOpen="r_V6Open" channelReadbackClosed="r_V6Closed" >
+		  <channels>
+			<channel name="c_V6_command" wire="digital_out_command" />
+			<channel name="r_V6_state" wire="analog_in_state" />
+		  </channels>
+		</valve>
+		<valve name="V11" type="V1C2R" channelCommandOpen="c_V11" channelReadbackOpen="r_V11Open" channelReadbackClosed="r_V11Closed" >
+		  <channels>
+			<channel name="c_V11_command" wire="digital_out_command" />
+			<channel name="r_V11_state" wire="analog_in_state" />
+		  </channels>
+		</valve>
+		<valve name="V14" type="V2C2R" channelCommandOpen="c_V14Open" channelCommandClose="c_V14Close" channelReadbackOpen="r_V14Open" channelReadbackClosed="r_V14Closed" >
+		  <channels>
+			<channel name="c_V14_command" wire="digital_out_command" />
+			<channel name="r_V14_state" wire="analog_in_state" />
+		  </channels>
+		</valve>
+		<valve name="V16" type="V1C" channelCommandOpen="c_V16" >
+		  <channels>
+			<channel name="c_V16_command" wire="digital_out_command" />
+			<channel name="r_V16_state" wire="analog_in_state" />
+		  </channels>
+		</valve>
+		<valve name="V17" type="V1C2R" channelCommandOpen="c_V17" channelReadbackOpen="r_V17Open" channelReadbackClosed="r_V17Closed" >
+		  <channels>
+			<channel name="c_V17_command" wire="digital_out_command" />
+			<channel name="r_V17_state" wire="analog_in_state" />
+		  </channels>
+		</valve>
+		<valve name="V20" type="V1C" channelCommandOpen="c_V20" >
+		  <channels>
+			<channel name="c_V20_command" wire="digital_out_command" />
+			<channel name="r_V20_state" wire="analog_in_state" />
+		  </channels>
+		</valve>
+		<valve name="BSGV1" type="V1C" channelCommandOpen="c_BSGV1" >
+		  <channels>
+			<channel name="c_BSGV1_command" wire="digital_out_command" />
+			<channel name="r_BSGV1_state" wire="analog_in_state" />
+		  </channels>
+		</valve>
+		<valve name="BSGV2" type="V1C" channelCommandOpen="c_BSGV2" >
+		  <channels>
+			<channel name="c_BSGV2_command" wire="digital_out_command" />
+			<channel name="r_BSGV2_state" wire="analog_in_state" />
+		  </channels>
+		</valve>
+		<valve name="BSGV3" type="V1C" channelCommandOpen="c_BSGV3" >
+		  <channels>
+			<channel name="c_BSGV3_command" wire="digital_out_command" />
+			<channel name="r_BSGV3_state" wire="analog_in_state" />
+		  </channels>
+		</valve>
+
+		<!-- MEMORY CHANNELS *************************************************************************************************************** -->
+		<memblock type="memblock" name="tcttest" size="20" >
+			<channels>
+				<!-- Interlocks  -->
+				<channel name="c_PickupPlateInterlockThreshold" wire="analog_out_1" />
+				<channel name="c_PickupPlateInterlockTimeout" wire="analog_out_2" />
+				<channel name="c_AccelSuppressionInterlockThreshold" wire="analog_out_3" />
+				<channel name="c_AccelSuppressionInterlockTimeout" wire="analog_out_4" />
+				<channel name="c_ExtractionSuppressionInterlockThreshold" wire="analog_out_5" />
+				<channel name="c_ExtractionSuppressionInterlockTimeout" wire="analog_out_6" />
+				<channel name="c_SourceInterlockPercent" wire="analog_out_7" />
+				<channel name="c_SourceInterlockTimeout" wire="analog_out_8" />
+				<channel name="c_QuadInterlockPercent" wire="analog_out_9" />
+				<channel name="c_QuadInterlockTimeout" wire="analog_out_10" />
+				<channel name="c_AmagInterlockPercent" wire="analog_out_11" />
+				<channel name="c_AmagInterlockTimeout" wire="analog_out_12" />
+				<channel name="c_DosimetryMode" wire="digital_out_13"/>
+				<channel name="r_F100Current" wire="analog_in_14" />
+				<channel name="c_nolog" wire="digital_out_15"/>
+				<channel name="r_DoseCurrent" wire="analog_in_16" />
+				<channel name="c_f3200_initiate" wire="digital_out_17" />
+			</channels>
+		</memblock>	  
+	</devices>
+  </interpreter>	
+  
+</system>

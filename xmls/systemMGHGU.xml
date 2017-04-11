@@ -1,0 +1,343 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<system
+  xmlns="http://www.ptcusa.com"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://www.ptcusa.com A510.xsd" type="pyramid" >
+  <hosts>
+    <!-- NOTE: the ip address does not matter for bcs, but may be required to be present -->
+    <host ip="192.168.100.131" name="jeremyiken" localhost="true" />
+  </hosts>
+  
+  <!--<loopcontroller type="I128" name="I128" ip="192.168.100.111" port="100" updatePort="55701" retry="2" timeout="500" updateRate="3">-->
+  
+  <loopcontrollers>
+  
+  
+  	<!-- I128 device****************************************************-->
+	<loopcontroller type="I128" name="I128_j" ip="192.168.100.111" >
+		<channels>
+			<channel name="i128_j_in_bias" wire="analog_in_bias" />
+			<channel name="i128_j_in_measuring" wire="digital_in_measuring" />
+			<channel name="i128_j_in_current" wire="analog[131]_in_current" />
+			<channel name="i128_j_out_bias" wire="analog_out_bias" />
+			<channel name="i128_j_out_initiate" wire="digital_out_initiate" />
+			<channel name="i128_j_out_hv" wire="analog_out_bias" />
+			<channel name="i128_j_integration" wire="analog_out_integration_time" />
+			<channel name="i128_j_converstions" wire="int_out_conversions_per_sample" />
+			<channel name="i128_j_range" wire="int_out_range_hcc" />
+			<channel name="i128_j_hcc" wire="analog_in_hcc" />
+			
+			
+			
+			<channel name="i128_j_ion_chamber_mode" wire="int_out_ion_chamber_mode" />
+			<channel name="i128_j_averaging_period" wire="analog_out_averaging_period" />
+			<channel name="i128_j_zero_offset" wire="digital_out_zero_offset" />
+			<channel name="i128_j_clear_offset_zero" wire="digital_out_clear_offset_zero" />
+			<channel name="i128_j_enable_external_bias" wire="digital_out_enable_external_bias" />
+			
+			<channel name="r_i128_j_firmware" wire="string_in_firmware" />
+			<channel name="r_i128_j_fpga" wire="string_in_fpga" />
+			<channel name="r_i128_j_hardware" wire="string_in_hardware_rev" />		
+			<channel name="r_i128_j_serial" wire="string_in_serial_num" />
+			<channel name="r_i128_j_software" wire="string_in_software_rev" />
+			<channel name="r_i128_j_secondary" wire="string_in_secondary_fpga" />
+			<channel name="r_i128_j_RTP" wire="string_in_rtp_rev" />
+			
+			<channel name="c_i128_j_filter" wire="int_out_filter" />
+			<channel name="c_i128_j_combine_channels" wire="digital_out_combine_channels" />
+			<channel name="c_i128_j_monitor_output" wire="analog_out_monitor_charge" />
+			<channel name="c_i128_j_align_channel_data" wire="digital_out_align_channel_data" />
+			
+			<channel name="c_i128_j_target_dose" wire="analog_out_target_dose" />
+			<channel name="c_i128_j_beam_enable" wire="digital_out_beam_enable" />
+			
+			<channel name="r_i128_j_hcc_data_unfiltered" wire="analog_in_hcc" />
+			<channel name="r_i128_j_hcc_data_filtered" wire="analog_in_hcc_processed" />
+			
+			<channel name="r_i128_j_beam_enabled" wire="digital_in_beam_enabled" />
+			<channel name="r_i128_j_target_reached" wire="digital_in_hcc_target_reached" />
+			<channel name="r_i128_j_dose_accumulated" wire="analog_in_hcc_dose" />
+			
+			<channel name="c_i128_j_start_trig" wire="int_out_start_trigger_source" />
+			<channel name="c_i128_j_pause_trig" wire="int_out_pause_trigger_source" />
+			<channel name="c_i128_j_stop_trig" wire="int_out_stop_trigger_source" />
+			<channel name="c_i128_j_bnc" wire="int_out_bnc_start_gate" />
+			<channel name="c_i128_j_burst" wire="int_out_burst_count" />
+			<channel name="c_i128_j_stop_count" wire="int_out_stop_count" />
+			
+			<channel name="c_i128_j_offset" wire="int_out_register_offset" />
+			<channel name="c_i128_j_contents" wire="int_out_register_contents" />
+			<channel name="c_i128_j_getorset" wire="digital_out_register_command" />
+			<channel name="c_i128_j_base_address" wire="int_out_base_address" />
+			
+			<channel name="c_i128_j_relay_enable" wire="digital_out_relay_enable" />
+			<channel name="c_i128_j_actuator_enable" wire="digital_out_actuator_enable" />
+			
+			<channel name="c_i128_j_test_ab" wire="digital_out_test_ab" />
+			<channel name="c_i128_j_interlock_enable" wire="digital_out_interlock_enable" />
+			
+			<channel name="r_i128_j_interlock_readbacks" wire="int_in_interlock_readbacks" />
+			
+			<channel name="r_i128_j_ic_temp" wire="analog_in_ic_temp" />
+			<channel name="r_i128_j_ic_pressure" wire="analog_in_ic_pressure" />
+			<channel name="r_i128_j_ic_humidity" wire="analog_in_ic_humidity" />
+			<channel name="r_i128_j_ic_reference" wire="analog_in_ic_reference" />
+			
+			<channel name="c_i128_j_dac_1" wire="analog_out_dac_1" />
+			<channel name="c_i128_j_dac_2" wire="analog_out_dac_2" />
+			<channel name="r_i128_j_dac_1" wire="analog_in_adc_1" />
+			<channel name="r_i128_j_dac_2" wire="analog_in_adc_2" />
+			
+			<channel name="r_i128_j_calibration_current" wire="digital_out_calibration_source" />
+			<channel name="r_i128_j_calibration_channel" wire="int_out_calibration_channel" />
+			
+			<channel name="c_i128_j_variant_calibration" wire="analog[260]_out_current_calibration" />
+			
+			<channel name="c_i128_j_buffered_acquisition" wire="digital_out_buffered_acquisition" />
+			
+			<channel name="c_i128_j_enable_RT" wire="digital_out_enable_RT_Processing" />
+
+			
+		</channels>
+		</loopcontroller>
+		
+		
+		<!--<loopcontroller type="F3200E" name="F3200E_1" ip="192.168.100.113" >
+			<channels>
+				<channel name="r_F3200E_1_data" wire="variant_in_data" />
+				<channel name="c_F3200E_1_initiate" wire="digital_out_initiate" />
+				<channel name="r_F3200E_1_var_range" wire="variant_in_range" />
+				<channel name="c_F3200E_1_var_range" wire="variant_out_range_set" />
+				<channel name="c_F3200E_1_digital_buff_acq" wire="digital_out_buffered_acquisition" />
+				<channel name="c_F3200E_1_acq_mode" wire="int_out_acquisition_mode" />
+				<channel name="c_F3200E_1_adc_rate" wire="int_out_adc_rate" />
+				<channel name="c_F3200E_1_conversions" wire="int_out_conversions_per_sample" />
+				<channel name="c_F3200E_1_start_trigger" wire="int_out_start_trigger_source" />
+				<channel name="c_F3200E_1_pause_trigger" wire="int_out_pause_trigger_source" />
+				<channel name="c_F3200E_1_stop_trigger" wire="int_out_stop_trigger_source" />
+				<channel name="c_F3200E_1_stop_count" wire="int_out_stop_count" />
+				<channel name="c_F3200E_1_register_offset" wire="int_out_register_offset" />
+				<channel name="c_F3200E_1_register_contents" wire="int_out_register_contents" />
+				<channel name="c_F3200E_1_base_address" wire="int_out_base_address" />	
+				<channel name="c_F3200E_1_register_command" wire="digital_out_register_command" />	
+				<channel name="c_F3200E_1_burst" wire="int_out_burst_count" />
+			</channels>	
+		</loopcontroller>-->
+		
+		<!--
+		<loops>
+			<loop number="1" name="Simulated">
+			
+				<boards>
+				
+				
+					<board type="M10" name="M10BoardJ" address="3">
+					  <channels>
+						<channel name="c_M10_stop_count_jer" wire="int_out_stop_count"/>
+						<channel name="c_M10_initiate_jer" wire="digital_out_initiate"/>
+					  </channels>
+					</board>
+					
+					<board type="H20" name="H20BoardJ" address="1">
+					  <channels>
+						<channel name="r_H20_serial_num_1_j" wire="int_in_serial_num_1"/>
+						<channel name="r_H20_serial_num_2_j" wire="int_in_serial_num_2"/>
+						<channel name="c_H20_proportional_1_j" wire="analog_out_proportional_kp_1"/>
+						<channel name="r_probe_field_1_j" wire="analog_in_probe_field_1"/>
+						<channel name="c_H20_mode_1_j" wire="int_out_mode_1"/>
+						<channel name="c_H20_initiate_j" wire="digital_out_initiate"/>
+						<channel name="c_H20_stop_count_j" wire="int_out_stop_count"/>
+					  </channels>
+					</board>
+					
+					<board type="M40" name="M40BoardJ" address="1">
+					  <channels>
+						<channel name="c_M40_initiate_j" wire="digital_out_initiate"/>
+						<channel name="c_M40_stop_count_j" wire="int_out_stop_count"/>
+					  </channels>
+					</board>
+				
+				
+				</boards>
+				
+
+					
+					
+			</loop>
+		</loops>-->
+	
+  
+  <!-- F460 ****************-->
+	<!--<loopcontroller type="F460" name="F460_1" ip="192.168.100.47" >
+			<channels>
+				<channel name="r_F460_1_data" wire="variant_in_data" />
+				<channel name="c_F460_1_initiate" wire="digital_out_initiate" />
+				<channel name="c_F460_1_analog_1" wire="analog_out_1" />
+				<channel name="c_F460_1_analog_2" wire="analog_out_2" />
+				<channel name="c_F460_1_analog_3" wire="analog_out_3" />
+				<channel name="c_F460_1_analog_4" wire="analog_out_4" />
+				<channel name="r_F460_1_analog_1" wire="analog_in_1" />
+				<channel name="r_F460_1_analog_2" wire="analog_in_2" />
+				<channel name="c_F460_1_avgTime" wire="analog_out_integration_time" />
+				<channel name="c_F460_1_chA_Range" wire="int_out_range_1" />
+				<channel name="c_F460_1_chB_Range" wire="int_out_range_2" />
+				<channel name="c_F460_1_chC_Range" wire="int_out_range_3" />
+				<channel name="c_F460_1_chD_Range" wire="int_out_range_4" />
+				<channel name="r_F460_1_chA_Curr" wire="analog_in_current_1" />
+				<channel name="r_F460_1_chB_Curr" wire="analog_in_current_2" />
+				<channel name="r_F460_1_chC_Curr" wire="analog_in_current_3" />
+				<channel name="r_F460_1_chD_Curr" wire="analog_in_current_4" />
+				<channel name="r_F460_1_channel_1" wire="analog_in_channel_1" />
+				<channel name="r_F460_1_channel_2" wire="analog_in_channel_2" />
+				<channel name="r_F460_1_channel_3" wire="analog_in_channel_3" />
+				<channel name="r_F460_1_channel_4" wire="analog_in_channel_4" />	
+				<channel name="r_F460_1_xPos" wire="analog_in_x_pos" />	
+				<channel name="r_F460_1_yPos" wire="analog_in_y_pos" />
+				<channel name="c_F460_1_monMode" wire="int_out_monitor" />	
+				<channel name="c_F460_1_bias" wire="analog_out_bias" />
+				<channel name="r_F460_1_bias" wire="analog_in_bias" />
+				<channel name="c_F460_1_servo_kp" wire="analog_out_kp" />
+				<channel name="c_F460_1_servo_ki" wire="analog_out_ki" />
+				<channel name="c_F460_1_servo_locurrlim" wire="analog_out_low_current_limit" />
+				<channel name="c_F460_1_servo_procctrllo" wire="analog_out_dac_low_limit" />
+				<channel name="c_F460_1_servo_procctrlhi" wire="analog_out_dac_high_limit" />
+				<channel name="c_F460_1_servo_per" wire="int_out_servo_period" />
+				<channel name="c_F460_1_servo_mode" wire="int_out_servo_mode" />
+				<channel name="c_F460_1_servo_enable" wire="digital_out_servo_enable" />
+				<channel name="r_F460_1_servo_pvalue" wire="analog_in_process_value" />
+				<channel name="r_F460_1_servo_ptarget" wire="analog_in_process_target" />
+			</channels>	
+		</loopcontroller>-->
+	<!--
+	<loopcontroller type="A360" name="A360_1" ip="192.168.100.118" >
+		<loops>
+			<loop number="1" name="Simulated">
+			  <boards>
+					<board type="H20" name="H20Board" address="1">
+					  <channels>
+						<channel name="r_H20_serial_num_1" wire="int_in_serial_num_1"/>
+						<channel name="r_H20_serial_num_2" wire="int_in_serial_num_2"/>
+						<channel name="c_H20_proportional_1" wire="analog_out_proportional_kp_1"/>
+						<channel name="r_probe_field_1" wire="analog_in_probe_field_1"/>
+						<channel name="c_H20_mode_1" wire="int_out_mode_1"/>
+						
+						<channel name="c_H20_dac_1" wire="analog_out_dac_1"/>
+						
+						
+						<channel name="c_H20_slew_limit_1" wire="analog_out_slew_limit_1"/>
+						
+						
+						
+					  </channels>
+					</board>
+				</boards>
+			</loop>
+		</loops>
+	</loopcontroller>-->
+	
+	<!-- F3200E ****************-->
+	<!--<loopcontroller type="F3200E" name="F3200E_1" ip="192.168.100.113" >
+		<loops>
+			<loop number="1" name="Simulated">
+			  <boards>
+					<board type="H20" name="H20Board" address="1">
+					  <channels>
+						<channel name="r_H20_serial_num_1" wire="int_in_serial_num_1"/>
+						<channel name="r_H20_serial_num_2" wire="int_in_serial_num_2"/>
+						<channel name="c_H20_proportional_1" wire="analog_out_proportional_kp_1"/>
+						<channel name="r_probe_field_1" wire="analog_in_probe_field_1"/>
+						<channel name="c_H20_mode_1" wire="int_out_mode_1"/>
+						
+						<channel name="c_H20_dac_1" wire="analog_out_dac_1"/>
+						
+						
+						<channel name="c_H20_slew_limit_1" wire="analog_out_slew_limit_1"/>
+						
+						<channel name="c_H20_monitor_gain_1" wire="analog_out_monitor_gain_1"/>
+												
+					  </channels>
+					</board>
+				</boards>
+			</loop>
+		</loops>
+		
+		<channels>
+			<channel name="c_f3200e_1_initiate" wire="digital_out_initiate" />
+			
+			<channel name="c_f3200e_1_adc_rate" wire="int_out_adc_rate" />
+			<channel name="c_f3200e_1_conversions" wire="int_out_conversions_per_sample" />
+			<channel name="c_f3200e_1_buff_acquisition" wire="digital_out_buffered_acquisition" />
+			<channel name="c_f3200e_1_acqisition_mode" wire="int_out_acquisition_mode" />
+			<channel name="c_f3200e_1_start_trigger" wire="int_out_start_trigger_source" />
+			<channel name="c_f3200e_1_stop_trigger" wire="int_out_stop_trigger_source" />
+			<channel name="c_f3200e_1_pause_trigger" wire="int_out_pause_trigger_source" />
+			<channel name="c_f3200e_1_stop_count" wire="int_out_stop_count" />
+			<channel name="c_f3200e_1_range_command" wire="variant_out_range_set" />
+			<channel name="r_f3200e_1_ranges" wire="variant_in_range" />
+			
+			<channel name="c_f3200e_1_offset" wire="int_out_register_offset" />
+			<channel name="c_f3200e_1_contents" wire="int_out_register_contents" />
+			<channel name="c_f3200e_1_reg_command" wire="digital_out_register_command" />
+			<channel name="c_f3200e_1_baseaddress" wire="int_out_base_address" />
+			
+			<channel name="r_f3200e_1_data" wire="variant_in_data" />		
+		</channels>
+	</loopcontroller>-->
+	
+	
+	<!-- A500 device**************************************************** --><!--
+	<loopcontroller type="A500" name="OldA500" ip="192.168.100.112" port="100" updatePort="55701" retry="2" timeout="500" updateRate="3">
+		<loops>
+			<loop number="6" name="Simulated">
+			  <boards>
+					<board type="H20" name="H20Board" address="1">
+					  <channels>
+						<channel name="r_H20_serial_num_1" wire="int_in_serial_num_1"/>
+						<channel name="r_H20_serial_num_2" wire="int_in_serial_num_2"/>
+						<channel name="c_H20_proportional_1" wire="analog_out_proportional_kp_1"/>
+						<channel name="r_probe_field_1" wire="analog_in_probe_field_1"/>
+						<channel name="c_H20_mode_1" wire="int_out_mode_1"/>
+					  </channels>
+					</board>
+				</boards>
+			</loop>
+		</loops>
+	</loopcontroller>-->
+	
+   </loopcontrollers>
+  
+  
+  <interpreter>
+	<devices>
+		<epicscas type="epicscas" name="epics_server" />
+		<!--<detector type="ionchamber" name="IC1"
+			hcc="i128_j_hcc" 
+			currentx="i128_j_in_current" currenty="i128_j_in_current" 
+			biasrdbkx="i128_j_in_bias" biascmdx="i128_j_out_bias" 
+			biasrdbky="i128_j_in_bias" biascmdy="i128_j_out_bias" 
+			initiatex="i128_j_out_initiate" initiatey="i128_j_out_initiate"  >
+				<channels>
+					<channel name="ic1_x_position" wire="analog_in_xpos_actual" />
+					<channel name="ic1_y_position" wire="analog_in_ypos_actual" />
+					<channel name="ic1_width" wire="analog_in_width_actual" />
+					<channel name="ic1_height" wire="analog_in_height_actual" />
+					<channel name="ic1_x_current" wire="analog_in_xcurrent" />
+					<channel name="ic1_y_current" wire="analog_in_ycurrent" />
+					<channel name="ic1_beamcurrent" wire="analog_in_beamcurrent" />
+					<channel name="ic1_x_channels" wire="variant_in_channelsx" />
+					<channel name="ic1_y_channels" wire="variant_in_channelsy" />
+					<channel name="ic1_initiate" wire="digital_out_initiate" />
+				</channels>
+		</detector>-->
+		<!--<memblock type="memblock" name="memorychannels" size="1" >
+			<channels>
+				<channel name="c_vartest" wire="variant_out_1" />
+				<channel name="r_connection" wire="digital_in_1" />
+			</channels>
+		</memblock>-->
+	</devices>
+  </interpreter>
+  
+ 
+</system>
+
