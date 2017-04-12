@@ -21,16 +21,18 @@ def ping():
     if pinger == 0:
         return True
     else:
-        print pinger.after
         return False
-
-while True:
+loop = True
+while loop:
     output = test()
     data.append(output)
     print data
-    print output
     time.sleep(1)
     file.write(str(output))
     file.write("\n")
+    if output == False:
+        print "ping failed, exiting"
+        break
+    print "sanity check"
     reset = pexpect.spawn('curl "http://admin:1234@192.168.100.36/outlet?1=OFF"')
     time.sleep(60)  
