@@ -11,7 +11,7 @@ file = open('log2.txt', 'w')
 def test():
 
     on = pexpect.spawn('curl "http://admin:1234@192.168.100.36/outlet?1=ON"')
-    time.sleep(20)
+    time.sleep(30)
     return ping()
 
  
@@ -33,6 +33,5 @@ while loop:
     if output == False:
         print "ping failed, exiting"
         break
-    print "sanity check"
     reset = pexpect.spawn('curl "http://admin:1234@192.168.100.36/outlet?1=OFF"')
     time.sleep(60)  

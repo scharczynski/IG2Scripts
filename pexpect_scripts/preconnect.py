@@ -14,6 +14,7 @@ def test(proc):
     else:
         print proc.after
         print proc.before
+        print "device appears to not be connected"
         return False
 
     output = proc.expect(['Announce: RPC: Timed out', 'Announce\(\) fail', 'Device.*in error', pexpect.TIMEOUT])
@@ -23,6 +24,7 @@ def test(proc):
     else:
         print proc.after
         print proc.before
+        print "device time out not detected"
         return False
     output = proc.expect([pexpect.TIMEOUT, pexpect.EOF, 'Announce\(\) success'], timeout=45)
 
@@ -31,4 +33,5 @@ def test(proc):
         return True
     else:
         print proc.before, proc.after
+        print "device did not reconnect"
         return False
