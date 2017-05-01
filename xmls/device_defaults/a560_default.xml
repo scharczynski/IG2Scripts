@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<system a500updaterate="50" xmlns="http://www.ptcusa.com" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.ptcusa.com A510.xsd"
+  type="pyramid">
+  <hosts>
+    <!-- NOTE: the ip address does not matter for bcs, but may be required to be present -->
+    <host ip="192.168.100.135" name="wnett" localhost="true" />
+  </hosts>
+  <loopcontrollers>
+    <loopcontroller type="A560" name="A1" ip="192.168.45.86">
+      <channels>
+        <channel name="device_state" wire="int_in_device_state" />
+        <channel name="interlock_command" wire="digital_out_interlock_command" />
+        <channel name="enabled_command" wire="digital_out_enabled_command" />
+        <channel name="interlocks" wire="int_in_interlocks" />
+        <channel name="clear_errors" wire="digital_out_clear_errors" />
+        <channel name="timeslice_data" wire="analog[256]_in_timeslice_data" />
+      </channels>
+    </loopcontroller>
+  </loopcontrollers>
+  <interpreter>
+    <devices>
+      <epicscas type="epicscas" name="epicsserver" />
+    </devices>
+  </interpreter>
+</system>
