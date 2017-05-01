@@ -7,7 +7,8 @@ import time
 
 def test(proc):
     proc.expect([pexpect.TIMEOUT, pexpect.EOF], timeout=3)
-
+    #print proc.before
+    #print proc.after
     di1 = caget('digitalIn1')
     di2 = caget('digitalIn2')
     di3 = caget('digitalIn3')

@@ -11,7 +11,8 @@ import pexpect
 
 
 def initialize(config):
-    proc = pexpect.spawn("/home/steve/workspace/ig2_medical/ig2-2.6.7 config/" + config)
+    proc = pexpect.spawn("/home/steve/workspace/ig2_medical/ig2-2.6.7 /home/steve/workspace/ig2_medical/" + config)
+    on = pexpect.spawn('curl "http://admin:1234@192.168.100.36/script?run005=run"')
     return proc
 
 def kill_ig2(proc):
@@ -35,7 +36,7 @@ def main(name):
     #kill_ig2(proc)
     return outcome
 
-print main('reconnect')
+#print main('stopcount')
     ###########TESTS##############
 def test_base():
     assert main('base') == (1.0, 45.0)
@@ -62,7 +63,8 @@ def test_m10():
     assert main('m10test') == (1,1,1,1, 5.0, 9.0)
 
 def test_stopcount():
-    assert main('stopcount') == (99,99)
+    result = main("stopcount")
+    assert result[0] > 990 and result[1] > 990
 
 def test_reconnect():
     assert main('reconnect') == True
@@ -70,5 +72,5 @@ def test_reconnect():
 def test_reconnect_loop():
     assert main('reconnect_loop') == True
 
-def test_reconnect_slave():
-    assert main('reconnect_slave') == True
+#def test_reconnect_slave():
+#    assert main('reconnect_slave') == True

@@ -10,11 +10,11 @@ def test(proc):
     for x in devices.keys():
         proc.expect('Error: could not connect to.*')
         last = proc.after.rsplit(None, 1)[-1]
-        print last
+        #print last
         if last in devices.keys():
             devices[last] = 1
 
-    print devices
+    $print devices
     return devices
     #while True:
     #    line = proc.stdout.readline()
