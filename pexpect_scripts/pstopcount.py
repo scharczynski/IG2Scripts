@@ -9,17 +9,17 @@ import pexpect
 def test(proc):
 
 
-	ccl1 = pexpect.spawn('curl "http://admin:1234@192.168.100.36/outlet?1=CCL"')
+	#ccl1 = pexpect.spawn('curl "http://admin:1234@192.168.100.36/outlet?1=CCL"')
 	time.sleep(2)
 	proc.expect([pexpect.TIMEOUT, pexpect.EOF, 'Announce\(\) success'], timeout=30)
-	#print proc.after
+	print proc.after
 	#time.sleep(10)
 	
 	while caget('status') != 0:
 		time.sleep(0.1)
-		#print "device not ready"
+		print "device not ready"
 	
-	stop = 1000
+	stop = 1001
 	data1 = []
 	data2 = []
 	
@@ -58,6 +58,8 @@ def test(proc):
 	analog1.add_callback(getData1)
 	analog2.add_callback(getData2)
 
+	init.put(1, use_complete=True	)
+
 	def onPutComplete(pvname=None, **kws):
 		return True
     	#print 'Put done for %s' % pvname
@@ -77,6 +79,7 @@ def test(proc):
 		if stop_count.put(stop, callback=onPutComplete):
 			epics.poll(evt=1.e-5, iot=0.01)
 		else:
+			print 'pass'
 			pass
 			#print "waiting for count to set"
 	

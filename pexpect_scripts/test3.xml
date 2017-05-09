@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?><testsuite errors="0" failures="1" name="pytest" skips="0" tests="11" time="171.596"><testcase classname="pexpectrunner" file="pexpectrunner.py" line="40" name="test_base" time="0.82021689415"><system-out>c_test1 2017-04-26 16:34:28.86628 1.0000
+c_test2 2017-04-26 16:34:29.13051 45.0000
+</system-out><system-err>**** The executable &quot;caRepeater&quot; couldn&apos;t be located
+**** because of errno = &quot;No such file or directory&quot;.
+**** You may need to modify your PATH environment variable.
+**** Unable to start &quot;CA Repeater&quot; process.
+CA.Client.Exception...............................................
+    Warning: &quot;Virtual circuit disconnect&quot;
+    Context: &quot;192.168.100.138:5064&quot;
+    Source File: ../cac.cpp line 1215
+    Current Time: Wed Apr 26 2017 16:34:29.391049637
+..................................................................
+</system-err></testcase><testcase classname="pexpectrunner" file="pexpectrunner.py" line="43" name="test_samename" time="0.217424869537"></testcase><testcase classname="pexpectrunner" file="pexpectrunner.py" line="46" name="test_samewire" time="1.51133489609"><failure message="assert (65.0, 0.0) == (65.0, 65.0)
+  At index 1 diff: 0.0 != 65.0
+  Full diff:
+  - (65.0, 0.0)
+  ?        ^
+  + (65.0, 65.0)
+  ?        ^^">def test_samewire():
+&gt;       assert main(&apos;samewire&apos;) == (65.0, 65.0)
+E       assert (65.0, 0.0) == (65.0, 65.0)
+E         At index 1 diff: 0.0 != 65.0
+E         Full diff:
+E         - (65.0, 0.0)
+E         ?        ^
+E         + (65.0, 65.0)
+E         ?        ^^
+
+pexpectrunner.py:48: AssertionError</failure><system-out>wire1 2017-04-26 16:34:30.11171 65.0000
+</system-out><system-err>CA.Client.Exception...............................................
+    Warning: &quot;Virtual circuit disconnect&quot;
+    Context: &quot;192.168.100.138:5064&quot;
+    Source File: ../cac.cpp line 1215
+    Current Time: Wed Apr 26 2017 16:34:31.117689464
+..................................................................
+</system-err></testcase><testcase classname="pexpectrunner" file="pexpectrunner.py" line="49" name="test_broken" time="0.215878009796"></testcase><testcase classname="pexpectrunner" file="pexpectrunner.py" line="52" name="test_disconnected" time="12.3481371403"><system-out>{&apos;test1&apos;: 1, &apos;test2&apos;: 1}
+</system-out></testcase><testcase classname="pexpectrunner" file="pexpectrunner.py" line="55" name="test_defaults" time="3.29500865936"><system-err>CA.Client.Exception...............................................
+    Warning: &quot;Virtual circuit disconnect&quot;
+    Context: &quot;192.168.100.138:5064&quot;
+    Source File: ../cac.cpp line 1215
+    Current Time: Wed Apr 26 2017 16:34:47.022102221
+..................................................................
+</system-err></testcase><testcase classname="pexpectrunner" file="pexpectrunner.py" line="58" name="test_badDefault" time="0.21591591835"></testcase><testcase classname="pexpectrunner" file="pexpectrunner.py" line="61" name="test_m10" time="5.54910898209"><system-err>CA.Client.Exception...............................................
+    Warning: &quot;Virtual circuit disconnect&quot;
+    Context: &quot;192.168.100.138:5064&quot;
+    Source File: ../cac.cpp line 1215
+    Current Time: Wed Apr 26 2017 16:34:52.789556098
+..................................................................
+</system-err></testcase><testcase classname="pexpectrunner" file="pexpectrunner.py" line="64" name="test_stopcount" time="75.5053539276"><system-err>CA client library is unable to contact CA repeater after 50 tries.
+Silence this message by starting a CA repeater daemon
+or by calling ca_pend_event() and or ca_poll() more often.
+CA.Client.Exception...............................................
+    Warning: &quot;Virtual circuit disconnect&quot;
+    Context: &quot;192.168.100.138:5064&quot;
+    Source File: ../cac.cpp line 1215
+    Current Time: Wed Apr 26 2017 16:36:08.298415733
+..................................................................
+</system-err></testcase><testcase classname="pexpectrunner" file="pexpectrunner.py" line="68" name="test_reconnect" time="36.2701470852"><system-err>CA.Client.Exception...............................................
+    Warning: &quot;Virtual circuit disconnect&quot;
+    Context: &quot;192.168.100.138:5064&quot;
+    Source File: ../cac.cpp line 1215
+    Current Time: Wed Apr 26 2017 16:36:44.568833624
+..................................................................
+</system-err></testcase><testcase classname="pexpectrunner" file="pexpectrunner.py" line="71" name="test_reconnect_loop" time="35.5209767818"><system-err>CA.Client.Exception...............................................
+    Warning: &quot;Virtual circuit disconnect&quot;
+    Context: &quot;192.168.100.138:5064&quot;
+    Source File: ../cac.cpp line 1215
+    Current Time: Wed Apr 26 2017 16:37:20.091043095
+..................................................................
+</system-err></testcase></testsuite>

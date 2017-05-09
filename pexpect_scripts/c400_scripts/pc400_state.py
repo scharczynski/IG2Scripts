@@ -7,12 +7,16 @@ import time
 
 def test(proc):
 
-    proc.expect([pexpect.TIMEOUT, pexpect.EOF, 'Announce\(\) success'], timeout=3)
+    connect = proc.expect([pexpect.TIMEOUT, pexpect.EOF, 'Announce\(\) success'], timeout=5)
 
-    running_state = caget('running_state')
-    paused_state = caget('paused_state')
-    stopped_state = caget('stopped_state')
+    if connect == 2:
 
-    print running_state, paused_state, stopped_state
+    	caput('trig_buffer', 0)
 
-    return (do1, do2, do3, do4, ao1, ao2)
+    	running_state = PV('running_state')
+   		paused_state = PV('paused_state')
+    	stopped_state = PV('stopped_state')
+
+    print running_state.get == 1
+
+    return -1

@@ -14,7 +14,7 @@ def test(proc):
         if last in devices.keys():
             devices[last] = 1
 
-    $print devices
+    
     return devices
     #while True:
     #    line = proc.stdout.readline()

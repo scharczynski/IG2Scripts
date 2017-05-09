@@ -36,7 +36,9 @@ def main(name):
     #kill_ig2(proc)
     return outcome
 
-#print main('stopcount')
+
+#print main('c400_limits')
+#print main('c400_state')
     ###########TESTS##############
 def test_base():
     assert main('base') == (1.0, 45.0)
@@ -63,8 +65,8 @@ def test_m10():
     assert main('m10test') == (1,1,1,1, 5.0, 9.0)
 
 def test_stopcount():
-    result = main("stopcount")
-    assert result[0] > 990 and result[1] > 990
+    results = main("stopcount")
+    assert results[0] > 980 and results[1] > 980
 
 def test_reconnect():
     assert main('reconnect') == True
@@ -74,3 +76,39 @@ def test_reconnect_loop():
 
 #def test_reconnect_slave():
 #    assert main('reconnect_slave') == True
+
+def test_memblock_types():
+    assert main('memblock_types') == True
+
+def test_channel_buffering():
+    results = main('buffering_test')
+    assert results[0] == 1000 and results[1] < 1000
+
+def test_monitor_only_change():
+    results = main('monitor_only')
+    assert results[0] < 1000 and results[1] == 1000
+
+def test_channel_limits():
+    assert main('channel_limits') == [1,1,3]
+    
+def test_c400_init():
+    results = main('c400_init')
+    assert results[0] != 0 and results[1] == 1 and results[2] == 0
+
+def test_c400_accum():
+    results = main('c400_accum')
+    assert results[0]+results[2] < results[1]
+
+def test_c400_polarity():
+    assert main('c400_polarity') == 4
+
+def test_c400_limits():
+    results = main('c400_limits')
+    assert main[1] == 0.0, main[0] > 0.0
+
+def test_c400_integration():
+    results = main('c400_integration')
+    assert results[0] >= 100 or results[1] >= 100
+
+def test_c400_state():
+    assert main('c400_state') == True
