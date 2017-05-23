@@ -3,16 +3,19 @@ import subprocess
 import pexpect
 import re
 
-devices = {'test1': 0, 'test2':0}
-names = ('test1', 'test2')
+devices = {'loop1': 0, 'loop2':0}
+#names = ('test1', 'test2')
 
 def test(proc):
     for x in devices.keys():
-        proc.expect('Error: could not connect to.*')
-        last = proc.after.rsplit(None, 1)[-1]
-        #print last
-        if last in devices.keys():
-            devices[last] = 1
+        connect = proc.expect(['Error: could not connect to.*', pexpect.TIMEOUT, pexpect.EOF], timeout=10)
+        print proc.after
+        print proc.before
+        if connect == 0:
+            last = proc.after.rsplit(None, 1)[-1]
+            #print last
+            if last in devices.keys():
+                devices[last] = 1
 
     
     return devices

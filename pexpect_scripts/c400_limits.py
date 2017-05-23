@@ -9,16 +9,23 @@ def test(proc):
     
     #caput('low_limit_3', 1.0)
     #caput('low_limit_4', 1.0)
+    caput('digital_out_polarity_3', 1)
+    caput('digital_out_polarity_4', 1)
     caput('trig_buffer', 100)
     caput('analog_out_period', 10e-4)
 
     count3 = PV('in_counts_3')
     count4 = PV('in_counts_4')
-    limit3 = PV('low_limit_3')
-    limit4 = PV('low_limit_4')
+    low_limit3 = PV('low_limit_3')
+    low_limit4 = PV('low_limit_4')
+    high_limit3 = PV('high_limit_3')
+    high_limit4 = PV('high_limit_4')
 
-    limit3.put(1.0)
-    limit4.put(1.0)
+
+    low_limit3.put(1.0)
+    low_limit4.put(1.0)
+    high_limit3.put(5.0)
+    high_limit4.put(5.0)
 
     setting = proc.expect([pexpect.TIMEOUT, 'Error setting C400'])
     if setting == 1:
@@ -29,8 +36,11 @@ def test(proc):
     data = []
     data2 = []
 
-    while limit3.value == 0.0 or limit4.value == 0.0:
-        print "waiting for limits"
+    t0 = time.time()
+    while low_limit3.value != 1.0 or low_limit4.value != 1.0:
+        if time.time() - t0 > 30:
+            print "limits wont set"
+            break   
         
 
     caput('initiate', 1)

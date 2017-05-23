@@ -21,9 +21,15 @@ def test(proc):
 	logged = log.get()
 	both = both_scaled.get()
 
-	print base, lin, logged, both
 
-	print base, ((lin-1000)/200), logged ** 10, ((both ** 10) - 1000)/200
+	return (check(lin, base*2 + 10, 0.01) and check(logged, 10**base, 0.01) and check(both, 10 ** (base*2 +10), 0.01))
 
-	print base, base*200 + 1000, math.log(base,10), math.log((base*200+1000), 10)
 
+
+
+
+def check(value1, value2, tolerance):
+	mod_plus = value1 + value1*tolerance
+	mod_minus = value1 - value1*tolerance
+
+	return (mod_plus >= value2 or mod_minus <= value2)

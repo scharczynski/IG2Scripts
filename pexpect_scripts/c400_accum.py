@@ -29,19 +29,33 @@ def test(proc):
 		
 		caput('accum_mode', mode)
 		time.sleep(1)
+
+		t0 = time.time()
+		while caget('accum_mode') != mode or caget('low_limit_3') != 0.0:
+			if time.time() - t0 > 20:
+				print "accum mode or low limit not being set"
+				break
+
 		caput('initiate', 1)
 		time.sleep(5)
-
 		caput('initiate', 0)
 
-		
+	
 
 	run(0)
-	non_accum = data[-1] - data[-6]
+	if len(data) > 10:
+		non_accum = data[-1] - data[-6]
+	else:
+		return "didnt get data"
 	run(1)
-	accum = data[-1] - data[-6]
+	if len(data) > 10:
+		accum = data[-1] - data[-6]
+	else:
+		return "didnt get data "
 
-	caput('accum_mode', 0)
+	#teardown
+	while caget('accum_mode') != 0:
+		caput('accum_mode', 0)
 	return non_accum, accum, data[0]
 
 

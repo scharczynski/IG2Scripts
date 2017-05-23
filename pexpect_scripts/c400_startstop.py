@@ -24,7 +24,7 @@ def test(proc):
 	time.sleep(1)
 
 	t0 = time.time()
-	while time.time() - t0 < 30 and len(data) < 3000:
+	while time.time() - t0 < 30 and len(data) < 500:
 		pass
 	
 	caput('initiate', 0)

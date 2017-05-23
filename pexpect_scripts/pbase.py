@@ -1,10 +1,5 @@
-import re
-import epics
-import os
-import signal
 import time
 import importlib
-import pytest
 from epics import caput, caget, PV, ca, pv, camonitor
 import pexpect
 
