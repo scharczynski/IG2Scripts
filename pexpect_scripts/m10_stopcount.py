@@ -38,10 +38,11 @@ def test(proc):
     analog1.add_callback(getData1)
     
 
-    init.put(1)
+    
 
     
     if util.put_check('outStopCount', stop):
+        init.put(1)
         t0 = time.time()
         while time.time() -t0 < 30:           
             poll(evt=1.e-5, iot=0.01)
@@ -54,6 +55,7 @@ def test(proc):
 
     time.sleep(2)
     if util.put_check('outStopCount', -1):
+        init.put(1)
         t0 = time.time()
         while time.time() -t0 < 30:           
             poll(evt=1.e-5, iot=0.01)

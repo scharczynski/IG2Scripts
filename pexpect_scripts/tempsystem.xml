@@ -3,11 +3,9 @@
   type="pyramid">
   <hosts>
     <!-- NOTE: the ip address does not matter for bcs, but may be required to be present -->
-    <host ip="192.168.100.138" name="wnett" localhost="true" />
+    <host ip="192.168.100.135" name="wnett" localhost="true" />
   </hosts>
   <loopcontrollers>
-    <loopcontroller type="C400" name="C1" ip="192.168.100.129">   
-    </loopcontroller>
   </loopcontrollers>
 </system>
 

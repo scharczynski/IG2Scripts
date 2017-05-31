@@ -15,7 +15,7 @@ def test(proc):
     #while caget('status') != 0:
     #   time.sleep(0.1)
     #   print "device not ready"
-    util.pv_check('status', 0)
+    #util.pv_check('status', 0)
 
     
     stop = 1001
@@ -41,20 +41,36 @@ def test(proc):
     stop_count.wait_for_connection()
 
     analog1.add_callback(getData1)
-    analog2.add_callback(getData2)
 
-    init.put(1)
+   
 
     #def onPutComplete(pvname=None, **kws):
     #   return True
 
-    t0 = time.time()
-    while time.time() -t0 < 50:
-        
-        #if stop_count.put(stop, callback=onPutComplete):
-        if util.put_check('outStopCount', stop):
-            poll(evt=1.e-5, iot=0.01)
-        else:
-            print 'pass'
+   
 
-    return (len(data1), len(data2))
+    if util.put_check('outStopCount', stop):
+        init.put(1)
+        t0 = time.time()
+        while time.time() -t0 < 30:           
+            poll(evt=1.e-5, iot=0.01)
+    else:
+        print "Stopcount not set"
+        return False
+
+    buffered_run = len(data1)
+    analog2.add_callback(getData2)
+
+    time.sleep(2)
+    if util.put_check('outStopCount', -1):
+        init.put(1)
+        t0 = time.time()
+        while time.time() -t0 < 30:           
+            poll(evt=1.e-5, iot=0.01)
+    else:
+        print "Stopcount not set 2nd time"
+        return False
+
+    unbuffered_run = len(data2)
+
+    return buffered_run, unbuffered_run

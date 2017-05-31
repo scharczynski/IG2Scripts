@@ -18,7 +18,7 @@ def test(proc):
         d_o.append(util.put_check('digitalOut' + str(i+1), 1))
         a_o.append(util.put_check('analogOut' + str(i+1), i))
         d_i.append(util.pv_check('digitalIn'+ str(i+1), 1))
-        a_i.append(util.pv_check('analogIn'+ str(i+1), 0.0))
+        a_i.append(caget('analogIn'+ str(i+1)) != 0.0)
         
 
     return [x for sublist in [d_i, a_i, d_o, a_o] for x in sublist]
