@@ -4,4 +4,4 @@ install: True
 
 os: linux
 
-script: pytest --junitxml=/./results.xml pexpect_scripts/new_runner.py 
+script: pytest --junitxml=results.xml pexpect_scripts/new_runner.py 
