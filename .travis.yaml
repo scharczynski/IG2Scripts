@@ -1,0 +1,5 @@
+language: python
+
+install: True
+
+script: pytest --junitxml=/./results.xml pexpect_scripts/new_runner.py 

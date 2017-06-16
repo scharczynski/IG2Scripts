@@ -11,11 +11,11 @@
         <!-- A1:LOOP1 ************************************************************************************************************** -->
         <loop number="1" name="SourceBox">
           <boards>
-            <board type="M40" name="SourcePDandVibration" address="2">
+            <board type="M40" name="testm40" address="1">
               <channels>
                 <channel name="initiate" wire="digital_out_initiate" />
                 <channel name="outStopCount" wire="int_out_stop_count" />
-                <channel name="analogIn1" wire="analog_in_1">
+                <channel name="analogIn1" wire="analog_in_1"/>
                 <channel name="analogIn2" wire="analog_in_2"/>
                 <channel name="analogIn3" wire="analog_in_3"/>
                 <channel name="analogIn4" wire="analog_in_4"/>

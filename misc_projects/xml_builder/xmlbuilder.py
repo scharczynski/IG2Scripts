@@ -10,13 +10,33 @@ loopcontrollers = ET.SubElement(root, 'loopcontrollers')
 interpreter = ET.SubElement(root, 'interpreter')
 devices = ET.SubElement(interpreter, 'devices')
 epicscas = ET.SubElement(devices, 'epicscas', {'type':'epicscas', 'name':'epicsserver'})
-memblock = ET.SubElement(devices, 'memblock', {'type':'memblock', 'name':'tcttest', 'size':'1000'})
+memblock = ET.SubElement(devices, 'memblock', {'type':'memblock', 'name':'tcttest', 'size':'512'})
 channels = ET.SubElement(memblock, 'channels')
 
-for x in range(0,512):
+for x in range(1,512):
     #print x
-    channel = ET.SubElement(channels, 'channel', {'name':'test_' + str(x), 'wire':'analog_out_' + str(x)})
-
+    channel = ET.SubElement(channels, 'channel', {'name':'analog_out_' + str(x), 'wire':'analog_out_' + str(x)})
+for x in range(1,512):
+    #print x
+    channel = ET.SubElement(channels, 'channel', {'name':'digital_out_' + str(x), 'wire':'digital_out_' + str(x)})
+for x in range(1,512):
+    #print x
+    channel = ET.SubElement(channels, 'channel', {'name':'int_out_' + str(x), 'wire':'int_out_' + str(x)})
+for x in range(1,512):
+    #print x
+    channel = ET.SubElement(channels, 'channel', {'name':'string_out_' + str(x), 'wire':'string_out_' + str(x)})
+for x in range(1,512):
+    #print x
+    channel = ET.SubElement(channels, 'channel', {'name':'analog_in_' + str(x), 'wire':'analog_in_' + str(x)})
+for x in range(1,512):
+    #print x
+    channel = ET.SubElement(channels, 'channel', {'name':'digital_in_' + str(x), 'wire':'digital_in_' + str(x)})
+for x in range(1,512):
+    #print x
+    channel = ET.SubElement(channels, 'channel', {'name':'int_in_' + str(x), 'wire':'int_in_' + str(x)})
+for x in range(1,512):
+    #print x
+    channel = ET.SubElement(channels, 'channel', {'name':'string_in_' + str(x), 'wire':'string_in_' + str(x)})
 rough = ET.tostring(root)
 parsed = minidom.parseString(rough)
 

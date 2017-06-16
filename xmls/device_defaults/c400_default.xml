@@ -3,18 +3,19 @@
   type="pyramid">
   <hosts>
     <!-- NOTE: the ip address does not matter for bcs, but may be required to be present -->
-    <host ip="192.168.100.135" name="wnett" localhost="true" />
+    <host ip="192.168.100.138" name="wnett" localhost="true" />
   </hosts>
   <loopcontrollers>
-    <loopcontroller type="C400" name="C1" ip="192.168.100.132">   
+    <loopcontroller type="C400" name="C1" ip="192.168.100.129">   
       <channels>
         <channel name="initiate" wire="digital_out_initiate" />
         <channel name="running_state" wire="digital_in_running" />
-        <channel name="pause_state" wire="digital_in_paused" />
-        <channel name="stop_state" wire="digital_in_stopped" />
+        <channel name="paused_state" wire="digital_in_paused" />
+        <channel name="stopped_state" wire="digital_in_stopped" />
         <channel name="in_counts_1" wire="int_in_counts_1" />
         <channel name="in_counts_2" wire="int_in_counts_2" />
-        <channel name="in_counts_3" wire="int_in_counts_3" />
+        <channel name="in_counts_3" wire="int_in_counts_3" aMax="50000"/>
+     <!--   <channel name="in_3_unbuff" wire="int_in_counts_3" aMax="25"/> -->
         <channel name="in_counts_4" wire="int_in_counts_4" />
         <channel name="analog_in_rate_1" wire="analog_in_rate_1" />
         <channel name="analog_in_rate_2" wire="analog_in_rate_2" />
