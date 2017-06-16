@@ -1,6 +1,6 @@
 language: python
 
-install: True
+install: "pip install pytest pyepics pytest-jira pexpect"
 
 os: linux
 
