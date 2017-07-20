@@ -55,9 +55,35 @@ class Memblock_Tester(Tester):
             test.append(util.pv_check(s_i[x], ''))
 
         if all(x == True for x in test):
+            
             return True
         else:
             return False
 
 
-        
+    def set_analog_outs(self):
+
+        a1 = PV('analog_out_1')
+        a2 = PV('analog_out_2')
+        d = []
+        j = []
+        #print a1.get(), a2.get()
+        a2.connect()
+        #poll(evt=1.0, iot=0.01)
+        a1.connect()
+        poll(evt=1.0, iot=0.01)
+        print a2.info
+        for i in range(10):
+            if i % 2 == 1:
+                util.put_check(a2, 0.45)
+                #util.put_check(a1, float(i))
+            else:
+                util.put_check(a2, 0.5)
+                #util.put_check(a1, float(i))
+            #j.append(a1.get())
+            d.append(a2.get())
+        print a1.status
+        #util.put_check(a2, value2)
+        print d
+        print j
+        return d

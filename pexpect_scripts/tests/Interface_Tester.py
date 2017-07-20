@@ -27,13 +27,13 @@ class Interface_Tester(Tester):
         devices = {'loop1': 0, 'loop2': 0, 'loop3': 0, 'loop4': 0}
         for x in devices.keys():
             connect = self.proc.expect(
-                ['Error: could not connect to.*', pexpect.TIMEOUT, pexpect.EOF], timeout=10)
-            #print self.proc.before
-            #print self.proc.after
+                ['Error: could not connect to.*', pexpect.TIMEOUT, pexpect.EOF], timeout=15)
+            print self.proc.before
+            print self.proc.after
                 
             if connect == 0:
                 last = self.proc.after.rsplit(None, 1)[-1]
-                # print last
+                print last
                 if last in devices.keys():
                     devices[last] = 1
 

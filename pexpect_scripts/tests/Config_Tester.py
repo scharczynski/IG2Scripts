@@ -14,10 +14,8 @@ class Config_Tester(Tester):
         print self.path
         self.proc = pexpect.spawn(self.path)
 
-       
-
     def bad_defaults(self):
-        
+
         self.proc.expect(['\[EXCEPTION[^:]*string', pexpect.EOF], timeout=5)
         error = self.proc.after
         return error
@@ -29,7 +27,7 @@ class Config_Tester(Tester):
 
     def buffering_low(self):
         status = PV('status')
-        if not util.check_device('C1', self.proc) and status.get() in range(0,3):
+        if not util.check_device('C1', self.proc) and status.get() in range(0, 3):
             print "device not connected"
             return False
 
@@ -63,7 +61,7 @@ class Config_Tester(Tester):
 
     def buffering(self):
         status = PV('status')
-        if not util.check_device('C1', self.proc) and status.get() in range(0,3):
+        if not util.check_device('C1', self.proc) and status.get() in range(0, 3):
             print "device not connected"
             return False
         count3 = PV('in_counts_3')
@@ -89,13 +87,6 @@ class Config_Tester(Tester):
             return False, False
 
         t0 = time.time()
-        # while caget('trig_buffer')!=1000 and caget('trig_mode')!=1:
-        #    if time.time() - t0 > 20:
-        #        return "buffer or mode never set"
-        #    else:
-        #        pass
-
-        #util.put_check('initiate', 1)
         time.sleep(1)
         count3.add_callback(getCount3)
         count4.add_callback(getCount4)
@@ -105,74 +96,54 @@ class Config_Tester(Tester):
 
             poll(evt=1.e-5, iot=0.01)
 
-        # time.sleep(2)
         end = self.proc.expect(
             ['Announce\(\) success', pexpect.TIMEOUT, pexpect.EOF], timeout=3)
-        #print proc.before
-
         return len(data3), len(data4)
 
-
-    def channel_limits(self):
+    def channel_limits(self, value):
         self.proc.expect([pexpect.TIMEOUT, pexpect.EOF], timeout=3)
 
-        data1 = []
-        data2 = []
-        data3 = []
 
         test1 = PV('test1')
         test2 = PV('test2')
         test3 = PV('test3')
         poll(evt=1.e-5, iot=0.01)
-        test1.put('-1')
         time.sleep(0.1)
-        data1.append(self.proc.expect(['Limit violation', pexpect.TIMEOUT, pexpect.EOF], timeout=1))
 
-        test1.put('6')
-        time.sleep(0.1)
-        data1.append(self.proc.expect(['Limit violation', pexpect.TIMEOUT, pexpect.EOF], timeout=1))
-
-        test1.put('5')
-        time.sleep(0.1)
-        data1.append(self.proc.expect(['Limit violation', pexpect.TIMEOUT, pexpect.EOF], timeout=1))
-
-        test2.put('-11')
-        time.sleep(0.1)
-        data2.append(self.proc.expect(['Limit violation', pexpect.TIMEOUT, pexpect.EOF], timeout=1))
-
-        test2.put('-1')
-        time.sleep(0.1)
-        data2.append(self.proc.expect(['Limit violation', pexpect.TIMEOUT, pexpect.EOF], timeout=1))
-
-        test2.put('-3')
-        time.sleep(0.1)
-        data2.append(self.proc.expect(['Limit violation', pexpect.TIMEOUT, pexpect.EOF], timeout=1))
-
-        test3.put('10')
-        time.sleep(0.1)
-        data3.append(self.proc.expect(['Limit violation', pexpect.TIMEOUT, pexpect.EOF], timeout=1))
-
-        test3.put('-10')
-        time.sleep(0.1)
-        data3.append(self.proc.expect(['Limit violation', pexpect.TIMEOUT, pexpect.EOF], timeout=1))
-
-        test3.put('0')
-        time.sleep(0.1)
-        data3.append(self.proc.expect(['Limit violation', pexpect.TIMEOUT, pexpect.EOF], timeout=5))
+        test1.put(value)
+        c1 = self.proc.expect(['Limit violation', pexpect.TIMEOUT, pexpect.EOF], timeout=1)
+        test2.put(value)
+        c2 = self.proc.expect(['Limit violation', pexpect.TIMEOUT, pexpect.EOF], timeout=1)
+        test3.put(value)
+        c3 = self.proc.expect(['Limit violation', pexpect.TIMEOUT, pexpect.EOF], timeout=1)
 
 
-        return [x+y+z for x,y,z in zip(data1, data2, data3)]
+        checks = (c1, c2, c3)
+        rules = self.check_limits(value)
+        return checks == rules
+
+    def check_limits(self, value):
+        t3 = 1
+        if value <= 300 and value >= 1:
+            t1 = 1
+            t2 = 0
+        elif value >= -300 and value <= -1:
+            t1 = 0
+            t2 = 1
+        else:
+            t1 = 0
+            t2 = 0
+        return t1, t2, t3
 
     def check(self, value1, value2, tolerance):
-        mod_plus = value1 + value1*tolerance
-        mod_minus = value1 - value1*tolerance
+        mod_plus = value1 + value1 * tolerance
+        mod_minus = value1 - value1 * tolerance
 
         return (mod_plus >= value2 or mod_minus <= value2)
 
-    
-    def channel_scaling(self):  
+    def channel_scaling(self):
         status = PV('status')
-        if not util.check_device('A1', self.proc) and status.get() in range(0,3):
+        if not util.check_device('A1', self.proc) and status.get() in range(0, 3):
             print "device not connected"
             print status.get()
             print util.check_device('A1', self.proc)
@@ -195,18 +166,16 @@ class Config_Tester(Tester):
 
         print base, lin, logged, both
 
-        return (self.check( lin, base*2 + 10, 0.01) and self.check( logged, 10**base, 0.01) and self.check(both, 10 ** (base*2 +10), 0.01))
-
-
+        return (self.check(lin, base * 2 + 10, 0.01) and self.check(logged, 10**base, 0.01) and self.check(both, 10 ** (base * 2 + 10), 0.01))
 
     def defaults(self):
         self.proc.expect([pexpect.TIMEOUT, pexpect.EOF], timeout=3)
-        a,b,c = caget('testA'), caget('testB'), caget('testC')
-        return (a,b,c)
+        a, b, c = caget('testA'), caget('testB'), caget('testC')
+        return (a, b, c)
 
     def monitor_only(self):
         status = PV('status')
-        if not util.check_device('C1', self.proc) and status.get() in range(0,3):
+        if not util.check_device('C1', self.proc) and status.get() in range(0, 3):
             print "device not connected"
             return False
 
@@ -246,8 +215,8 @@ class Config_Tester(Tester):
 
         error = self.proc.after
         before = self.proc.before
-    
-        #print " after "+ error
+
+        # print " after "+ error
 
         expr = re.compile('\d{2}.\d{2}.\d{4} \d{2}:\d{2}:\d{2}:\d{3}')
         clean = re.sub(expr, '', error).lstrip()
@@ -264,6 +233,5 @@ class Config_Tester(Tester):
 
         t1.put(65, wait=True)
         time.sleep(1)
-
 
         return(caget('wire1'), caget('wire2'))

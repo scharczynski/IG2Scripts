@@ -19,15 +19,30 @@ class F460_Tester(Tester):
             self.connected = True
         else:
             t0 = time.time()
-            while self.status not in (0, 3):
+            while self.status not in range(0, 4):
                 poll(evt=1.e-5, iot=0.01)
                 if time.time() - t0 > 10:
                     print "status bad " + str(self.status.get())
                     break
             self.connected = util.check_device(
-                'F1', self.proc) and self.status.get() in (0, 3)
+                'F1', self.proc) and self.status.get() in range(0, 4)
 
-    
+    def stress_test(self):
+        if not self.connected:
+            print "Device not connected"
+            return False
+        trig_stop = PV('stop_trigger_source')
+
+        for i in range(0, 10):
+            trig_stop.put(i % 2)
+            trig_stop.get()
+            poll(evt=0.01, iot=0.01)
+            expect = self.proc.expect([pexpect.TIMEOUT, pexpect.EOF, 'Announce\(\) success', 'fail', 'memory'], timeout=0.1)
+            print self.proc.after
+            print i%2
+            if expect in (3,4):
+                return self.proc.after, self.proc.before
+        return "passed all"
 
     def buffer_mode(self):
         data = []
@@ -179,12 +194,6 @@ class F460_Tester(Tester):
         if not self.connected:
             print "Device not connected"
             return False
-        status = PV('status')
-        print status.get()
-        if status.get() not in range(0,3):
-            print "status"
-            return False
-        print caget('status')
         #time.sleep(5)
         data = []
         stop_trig = PV('stop_trigger_source')
@@ -232,11 +241,6 @@ class F460_Tester(Tester):
         if not self.connected:
             print "Device not connected"
             return False
-        status = PV('status')
-        print status.get()
-        if status.get() not in range(0,3):
-            print "status"
-            return False
         data = []
         start_trig = PV('start_trigger_source')
         acquisition_mode = PV('acquisition_mode')
@@ -267,11 +271,6 @@ class F460_Tester(Tester):
     def trigger_pause(self):
         if not self.connected:
             print "Device not connected"
-            return False
-        status = PV('status')
-        print status.get()
-        if status.get() not in range(0,3):
-            print "status"
             return False
         data = []
         pause_trig = PV('pause_trigger_source')
@@ -533,42 +532,26 @@ class F460_Tester(Tester):
             print self.status
             return False
 
-        # epics._CACHE_.clear()
-        # epics._MONITORS_.clear()
-        # ca._cache.clear()
-        # ca._put_done.clear()
-        # epics.ca.finalize_libca(maxtime=10.0)
-        # epics.ca.destroy_context()
-        # epics.ca.create_context()
         stopcount = PV('stop_count')
         acquisition_mode = PV('acquisition_mode')
         buffered_mode = PV('buffered_acquisition')
         current1 = PV('current_in_1')
         init = PV('initiate')
         poll(evt=1.e-5, iot=0.01)
-        print current1.info
-       # stopcount.connect()
-       # print pv._PVcache_
-        #acquisition_mode.put(1)
         util.put_check(acquisition_mode, 1)
         poll(evt=1.e-5, iot=0.01)
-        #util.put_check(acquisition_mode, 1)
+
         util.put_check(buffered_mode, 1)
-        #buffered_mode.put(1)
+
         poll(evt=1.e-5, iot=0.01)
-        #stopcount.put(10000)
+
         util.put_check(stopcount, 10000)
-        # stopcount.put(10000)
-        #util.put_check('range_1', 0)
+
         poll(evt=1.e-5, iot=0.01)
 
         def getCount(pvname, value, **kw):
             #print value
             data.append(value)
-
-        print buffered_mode.get()
-        print stopcount.get()
-
         current1.add_callback(getCount)
         poll(evt=1.e-5, iot=0.01)
         init.put(0)
@@ -580,11 +563,9 @@ class F460_Tester(Tester):
         while time.time() - t0 < 15 and len(data) < 1000:
             #print current1.get(use_monitor=True)
             poll(evt=1.e-5, iot=0.01)
-        print current1.info
         init.put(0)
         poll(evt=1.e-5, iot=0.01)
         time.sleep(5)
-        # print data
-        print len(data)
+        # print data    
 
         return len(data)

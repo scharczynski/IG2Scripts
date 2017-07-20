@@ -1,7 +1,9 @@
 import pytest
 import pexpect
 import epics
-import pytest_jira
+import hypos
+import time
+from hypothesis import given
 from tests.Tester import Tester as tester
 from tests.M10_Tester import M10_Tester
 from tests.M40_Tester import M40_Tester
@@ -11,7 +13,12 @@ from tests.F460_Tester import F460_Tester
 from tests.Interface_Tester import Interface_Tester
 from tests.Memblock_Tester import Memblock_Tester
 from tests.PSU_Tester import PSU_Tester
+from tests.Valve_Tester import Valve_Tester
+from tests.Gauge_Tester import Gauge_Tester
+from tests.Pump_Tester import Pump_Tester
 from util import epics_util as util
+import numpy as np
+
 
 
 ig2_version = 'ig2-2.6.7'   
@@ -45,31 +52,120 @@ def use_server():
 
 class Test_M10(object):
 
-    @pytest.mark.jira("NT-37")
-    def test_io(self):
-        tester =  M10_Tester(path, "m10_io.xml")
-        results = tester.io()
+    @given(value=hypos.valid_digital_outs(4))
+    def test_set_digital_outs(self, value):
+        tester = M10_Tester(path, "m10_io.xml")
+        results = tester.set_digital_outs(value)
+        tester.kill_pexpect()
+        assert results == value
+
+    @given(value=hypos.valid_analog_outs(2))
+    def test_set_analog_outs(self, value):
+        tester = M10_Tester(path, "m10_io.xml")
+        results = tester.set_analog_outs(value)
+        tester.kill_pexpect()
+        #assert results == [pytest.approx(value1), pytest.approx(value2)] 
+        np.testing.assert_almost_equal(results, value, decimal=3)
+
+    #N/A
+    def test_get_digital_ins(self):
+        tester = M10_Tester(path, "m10_io.xml")
+        results = tester.get_digital_ins()
         tester.kill_pexpect()
         assert all(x==True for x in results) == True
-    def test_stopcount(self):
+    
+    #N/A
+    def test_get_analog_ins(self):
+        tester = M10_Tester(path, "m10_io.xml")
+        results = tester.get_analog_ins()
+        tester.kill_pexpect()
+        assert all(x==True for x in results) == True
+
+    #N/A
+    def test_enable_stopcount(self):
         tester = M10_Tester(path, "m10_stopcount.xml")
         results2 = tester.stopcount()
         tester.kill_pexpect()
-        assert results2[0] >= 980 and results2[1] < results2[0]
+        print results2
+        assert results2[0] == 99 and results2[1] > results2[0]
+
+    @given(value=hypos.valid_stopcount())
+    def test_set_stopcount(self, value):
+        tester = M10_Tester(path, "m10_stopcount.xml")
+        results = tester.stopcount_value(value)
+        tester.kill_pexpect()
+        assert results + 1 == value
+    
+    #N/A
+    def test_init(self):
+        tester = M10_Tester(path, "m10_stopcount.xml")
+        results = tester.init()
+        tester.kill_pexpect()
+        assert results[0] == 0 and results[1] != 0
+    
+    def test_abort(self):
+        tester = M10_Tester(path, "m10_stopcount.xml")
+        results = tester.abort()
+        tester.kill_pexpect()
+        assert results == 50
 
 class Test_M40(object):
     
-    def test_io(self):
+    # def test_io(self):
+    #     tester = M40_Tester(path, "m40_io.xml")
+    #     results = tester.io()
+    #     tester.kill_pexpect()
+    #     assert all(x==True for x in results) == True
+    @given(values=hypos.valid_analog_outs(8))
+    def test_set_analog_outs(self, values):
         tester = M40_Tester(path, "m40_io.xml")
-        results = tester.io()
+        results = tester.set_analog_outs(values)
+        tester.kill_pexpect()
+        np.testing.assert_almost_equal(results, values, decimal=3)
+
+    @given(values=hypos.valid_digital_outs(8))
+    def test_set_digital_outs(self, values):
+        tester = M40_Tester(path, "m40_io.xml")
+        results = tester.set_digital_outs(values)
+        tester.kill_pexpect()
+        assert results == values
+
+    def test_get_analog_ins(self):
+        tester = M40_Tester(path, "m40_io.xml")
+        results = tester.get_analog_ins()
         tester.kill_pexpect()
         assert all(x==True for x in results) == True
-    
-    def test_stopcount(self):
-        tester = M40_Tester(path, "m40_stopcount.xml")
-        results2 = tester.stopcount()
+
+    def test_get_digital_ins(self):
+        tester = M40_Tester(path, "m40_io.xml")
+        results = tester.get_digital_ins()
         tester.kill_pexpect()
-        assert results2[0] >= 980 and results2[1] < results2[0]
+        assert all(x==True for x in results) == True
+
+    def test_enable_stopcount(self):
+        tester = M40_Tester(path, "m40_stopcount.xml")
+        results = tester.enable_stopcount()
+        tester.kill_pexpect()
+        assert results[0] == 99 and results[1] > results[0]
+
+    @given(value=hypos.valid_stopcount())
+    def test_set_stopcount(self, value):
+        tester = M40_Tester(path, "m40_stopcount.xml")
+        results = tester.stopcount_value(value)
+        tester.kill_pexpect()
+        assert results + 1 == value
+    
+    def test_init(self):
+        tester = M40_Tester(path, "m40_stopcount.xml")
+        results = tester.init()
+        tester.kill_pexpect()
+        assert results[0] == 0 and results[1] != 0
+
+    def test_abort(self):
+        tester = M40_Tester(path, "m40_stopcount.xml")
+        results = tester.abort()
+        tester.kill_pexpect()
+        assert results == 50
 
 class Test_Config(object):
     
@@ -94,11 +190,12 @@ class Test_Config(object):
         testerB.kill_pexpect()
         assert resultsA[0] == 1000 and resultsA[1] < 1000 and resultsB > resultsA[1]
 
-    def test_channel_limits(self):
+    @given(value=hypos.valid_memblock_a_o())
+    def test_channel_limits(self, value):
         tester = Config_Tester(path, "config_channel_limits.xml")
-        results = tester.channel_limits()
+        results = tester.channel_limits(value)
         tester.kill_pexpect()
-        assert results == [1, 1, 3]
+        assert results == True
 
     def test_channel_scaling(self):
         tester = Config_Tester(path, "config_channel_scaling.xml")
@@ -142,6 +239,7 @@ class Test_C400(object):
         tester = C400_Tester(path, "c400_buffering.xml")
         results = tester.buffering()
         tester.kill_pexpect()
+        print results
         assert results[0] == 1000 and results[1] == 500
     
     def test_burst_size(self):
@@ -276,6 +374,21 @@ class Test_F460(object):
         results = tester.input_range()
         tester.kill_pexpect()
         assert all(x == True for x in results) == True
+    
+    # def test_stress(self):
+    #     tester = F460_Tester(path, "f460_input.xml")
+    #     results = tester.stress_test()
+    #     tester.kill_pexpect()
+    #     assert results == "passed all"
+
+    # def test_stress_xmls(self):
+    #     results = []
+    #     for i in range(0,100):
+    #         tester = F460_Tester(path, "f460_input.xml")
+    #         results.append(tester.stress_test())
+    #         tester.kill_pexpect
+    #     print results
+    #     assert results == "passed all"
 
     # def test_trigger_server(self, use_server):
     #     tester1 = F460_Tester(use_server, 'epics')
@@ -322,9 +435,19 @@ class Test_Memblock(object):
         tester.kill_pexpect()
         assert results == True
 
+    # @given(value1=hypos.valid_analog_outs(), value2=hypos.valid_analog_outs())
+    # def test_set_analog_out(self, value1, value2):
+    #     tester = Memblock_Tester(path, "memblock_types.xml")
+    #     results = tester.set_analog_outs(value1, value2)
+    #     tester.kill_pexpect()
+    #     np.testing.assert_almost_equal(results, [value1, value2], decimal=3)
+
+    # def test_set_a_noh(self):
+    #     tester = Memblock_Tester(path, "memblock_types.xml")
+    #     results = tester.set_analog_outs()
+    #     tester.kill_pexpect()
+    #     assert results == 15
 class Test_PSU(object):
-    
-    
     # ig2_version = 'ig2-2.6.7'   
     # ig2_path = "/home/steve/workspace/nt_ig2/"
     # path = ig2_path + ig2_version + " " + ig2_path
@@ -334,7 +457,7 @@ class Test_PSU(object):
         results = tester.set_command_voltage()
         tester.kill_pexpect()
         print results
-        assert results[1] == pytest.approx(results[0], rel=1.0)        
+        assert results[1] == pytest.approx(results[0], rel=0.01)        
 
     def test_set_current(self, set_params):
         tester = PSU_Tester(set_params, "powersupply.xml")
@@ -342,17 +465,100 @@ class Test_PSU(object):
         tester.kill_pexpect()
         assert results[1] == pytest.approx(results[0], rel=0.01)
 
-    def test_get_readbacks(self, set_params):
+    def test_get_current(self, set_params):
         tester = PSU_Tester(set_params, "powersupply.xml")
-        results = tester.get_readbacks()
+        results = tester.get_current_readback()
         tester.kill_pexpect()
-        assert all(x != 0.0 for x in results) == True
+        assert results[0] == pytest.approx(results[1], rel=0.01)
 
-    
-    
+    def test_get_voltage(self, set_params):
+        tester = PSU_Tester(set_params, "powersupply.xml")
+        results = tester.get_voltage_readback()
+        tester.kill_pexpect()
+        assert results == pytest.approx(400, rel=0.01)
 
+    def test_enable(self, set_params):
+        tester = PSU_Tester(set_params, "powersupply.xml")
+        results = tester.enable()
+        tester.kill_pexpect()
+        assert results[0] == 0 and results[1] == 1
+
+    def test_disable(self, set_params):
+        tester = PSU_Tester(set_params, "powersupply.xml")
+        results = tester.disable()
+        tester.kill_pexpect()
+        assert results[0] == 1 and results[1] == 0
+
+    def test_get_hv_readbacks(self, set_params):
+        tester = PSU_Tester(set_params, "powersupply.xml")
+        results = tester.get_high_voltage_readbacks()
+        tester.kill_pexpect()
+        assert all(x==True for x in results) == True        
+    
+    def test_fault_messages(self, set_params):
+        tester = PSU_Tester(set_params, "powersupply.xml")
+        results = tester.fault_codes()
+        tester.kill_pexpect()
+        print results
+        assert all(isinstance(x, str) for x in results) == True
+
+    def test_clear_error(self, set_params):
+        tester = PSU_Tester(set_params, "powersupply.xml")
+        results = tester.clear_error()
+        tester.kill_pexpect()
+        assert results[1] != '' and results[0] == ''
         
+class Test_Valves(object):
+
+    def test_open(self):
+        tester = Valve_Tester(path, "valve.xml")
+        results = tester.open_valve()
+        tester.kill_pexpect()
+        assert results == 1
+
+    def test_close(self):
+        tester = Valve_Tester(path, "valve.xml")
+        results = tester.close_valve()
+        tester.kill_pexpect()
+        assert results == 0
+
+    def test_readback(self):
+        tester = Valve_Tester(path, "valve.xml")
+        results = tester.get_state()
+        tester.kill_pexpect()
+        assert results[0] == results[1]
+   
+   
+class Test_Gauges(object):
+    
+    def test_get_state(self):
+        tester = Gauge_Tester(path, "gauges.xml")
+        results = tester.get_state()
+        tester.kill_pexpect()
+        assert results == 0.0
+
+class Test_Pumps(object):
+    
+    def test_turn_on(self):
+        tester = Pump_Tester(path, "pumps.xml")
+        results = tester.turn_on()
+        tester.kill_pexpect()
+        assert results == 2.0
+
+    def test_turn_off(self):
+        tester = Pump_Tester(path, "pumps.xml")
+        results = tester.turn_off()
+        tester.kill_pexpect()
+        assert results == 0.0
+
+    def test_get_state(self):
+        tester = Pump_Tester(path, "pumps.xml")
+        results = tester.state()
+        tester.kill_pexpect()
+        assert results == 3.0
     ###########TESTS##############
+
+
 # def test_base():
 #     assert main('base') == (1.0, 45.0)
 

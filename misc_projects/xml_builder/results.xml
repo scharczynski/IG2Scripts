@@ -1,0 +1,4989 @@
+<?xml version="1.0" encoding="utf-8"?><testsuite errors="0" failures="1" name="pytest" skips="0" tests="42" time="754.792"><testcase classname="new_runner.Test_M10" file="new_runner.py" line="46" name="test_io" time="3.31761097908"><failure message="assert True == False
+ +  where True = all(&lt;generator object &lt;genexpr&gt; at 0x7ff29daac280&gt;)">self = &lt;new_runner.Test_M10 object at 0x7ff29da7c4d0&gt;
+
+    def test_io(self):
+        tester =  M10_Tester(path, &quot;m10_io.xml&quot;)
+        results = tester.io()
+        tester.kill_pexpect()
+&gt;       assert all(x==True for x in results) == False #change
+E       assert True == False
+E        +  where True = all(&lt;generator object &lt;genexpr&gt; at 0x7ff29daac280&gt;)
+
+new_runner.py:51: AssertionError</failure><system-out>/home/steve/workspace/nt_ig2/ig2-2.6.7 /home/steve/workspace/nt_ig2/m10_io.xml
+value is 1
+value is 1
+value is correct: 1
+value is correct: 1
+value is correct: 1
+value is correct: 1
+value is correct: 1
+value is correct: 1
+value is correct: 0.0
+value is 1.0
+[True, True, True, True]
+</system-out><system-err>**** The executable &quot;caRepeater&quot; couldn&apos;t be located
+**** because of errno = &quot;No such file or directory&quot;.
+**** You may need to modify your PATH environment variable.
+**** Unable to start &quot;CA Repeater&quot; process.
+CA.Client.Exception...............................................
+    Warning: &quot;Virtual circuit disconnect&quot;
+    Context: &quot;steve-VirtualBox:5064&quot;
+    Source File: ../cac.cpp line 1215
+    Current Time: Fri Jun 23 2017 11:42:03.715652359
+..................................................................
+</system-err></testcase><testcase classname="new_runner.Test_M10" file="new_runner.py" line="52" name="test_stopcount" time="64.4432871342"><system-out>/home/steve/workspace/nt_ig2/ig2-2.6.7 /home/steve/workspace/nt_ig2/m10_stopcount.xml
+value is 1001
+value is -1
+451 1012
+(1012, 451)
+</system-out><system-err>**** The executable &quot;caRepeater&quot; couldn&apos;t be located
+**** because of errno = &quot;No such file or directory&quot;.
+**** You may need to modify your PATH environment variable.
+**** Unable to start &quot;CA Repeater&quot; process.
+CA client library is unable to contact CA repeater after 50 tries.
+Silence this message by starting a CA repeater daemon
+or by calling ca_pend_event() and or ca_poll() more often.
+CA.Client.Exception...............................................
+    Warning: &quot;Virtual circuit disconnect&quot;
+    Context: &quot;steve-VirtualBox:5064&quot;
+    Source File: ../cac.cpp line 1215
+    Current Time: Fri Jun 23 2017 11:43:08.227991465
+..................................................................
+</system-err></testcase><testcase classname="new_runner.Test_M40" file="new_runner.py" line="61" name="test_io" time="2.30665421486"><system-out>value is correct: 1
+value is correct: 0.0
+value is correct: 1
+value is correct: 1
+value is correct: 1.0
+value is correct: 1
+value is correct: 1
+value is correct: 2.0
+value is correct: 1
+value is correct: 1
+value is correct: 3.0
+value is correct: 1
+value is correct: 1
+value is correct: 4.0
+value is correct: 1
+value is correct: 1
+value is correct: 5.0
+value is correct: 1
+value is correct: 1
+value is correct: 6.0
+value is correct: 1
+value is correct: 1
+value is correct: 7.0
+value is correct: 1
+</system-out><system-err>**** The executable &quot;caRepeater&quot; couldn&apos;t be located
+**** because of errno = &quot;No such file or directory&quot;.
+**** You may need to modify your PATH environment variable.
+**** Unable to start &quot;CA Repeater&quot; process.
+CA.Client.Exception...............................................
+    Warning: &quot;Virtual circuit disconnect&quot;
+    Context: &quot;steve-VirtualBox:5064&quot;
+    Source File: ../cac.cpp line 1215
+    Current Time: Fri Jun 23 2017 11:43:10.518477422
+..................................................................
+</system-err></testcase><testcase classname="new_runner.Test_M40" file="new_runner.py" line="67" name="test_stopcount" time="64.3029470444"><system-out>value is 1001
+value is -1
+</system-out><system-err>**** The executable &quot;caRepeater&quot; couldn&apos;t be located
+**** because of errno = &quot;No such file or directory&quot;.
+**** You may need to modify your PATH environment variable.
+**** Unable to start &quot;CA Repeater&quot; process.
+CA client library is unable to contact CA repeater after 50 tries.
+Silence this message by starting a CA repeater daemon
+or by calling ca_pend_event() and or ca_poll() more often.
+CA.Client.Exception...............................................
+    Warning: &quot;Virtual circuit disconnect&quot;
+    Context: &quot;steve-VirtualBox:5064&quot;
+    Source File: ../cac.cpp line 1215
+    Current Time: Fri Jun 23 2017 11:44:14.840841541
+..................................................................
+</system-err></testcase><testcase classname="new_runner.Test_Config" file="new_runner.py" line="75" name="test_bad_defaults" time="0.217932701111"><system-out>/home/steve/workspace/nt_ig2/ig2-2.6.7 /home/steve/workspace/nt_ig2/config_bad_defaults.xml
+</system-out></testcase><testcase classname="new_runner.Test_Config" file="new_runner.py" line="81" name="test_broken_xml" time="0.236398220062"><system-out>/home/steve/workspace/nt_ig2/ig2-2.6.7 /home/steve/workspace/nt_ig2/config_broken_xml.xml
+</system-out></testcase><testcase classname="new_runner.Test_Config" file="new_runner.py" line="87" name="test_config_buffering" time="15.483536005"><system-out>/home/steve/workspace/nt_ig2/ig2-2.6.7 /home/steve/workspace/nt_ig2/config_buffering.xml
+value is correct: 0.0
+value is correct: 0.0
+value is 1000
+/home/steve/workspace/nt_ig2/ig2-2.6.7 /home/steve/workspace/nt_ig2/config_buffering_low.xml
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 1000
+</system-out><system-err>**** The executable &quot;caRepeater&quot; couldn&apos;t be located
+**** because of errno = &quot;No such file or directory&quot;.
+**** You may need to modify your PATH environment variable.
+**** Unable to start &quot;CA Repeater&quot; process.
+CA.Client.Exception...............................................
+    Warning: &quot;Virtual circuit disconnect&quot;
+    Context: &quot;steve-VirtualBox:5064&quot;
+    Source File: ../cac.cpp line 1215
+    Current Time: Fri Jun 23 2017 11:44:23.542538132
+..................................................................
+**** The executable &quot;caRepeater&quot; couldn&apos;t be located
+**** because of errno = &quot;No such file or directory&quot;.
+**** You may need to modify your PATH environment variable.
+**** Unable to start &quot;CA Repeater&quot; process.
+CA.Client.Exception...............................................
+    Warning: &quot;Virtual circuit disconnect&quot;
+    Context: &quot;steve-VirtualBox:5064&quot;
+    Source File: ../cac.cpp line 1215
+    Current Time: Fri Jun 23 2017 11:44:30.790620200
+..................................................................
+</system-err></testcase><testcase classname="new_runner.Test_Config" file="new_runner.py" line="96" name="test_channel_limits" time="13.2133595943"><system-out>/home/steve/workspace/nt_ig2/ig2-2.6.7 /home/steve/workspace/nt_ig2/config_channel_limits.xml
+</system-out><system-err>**** The executable &quot;caRepeater&quot; couldn&apos;t be located
+**** because of errno = &quot;No such file or directory&quot;.
+**** You may need to modify your PATH environment variable.
+**** Unable to start &quot;CA Repeater&quot; process.
+CA.Client.Exception...............................................
+    Warning: &quot;Virtual circuit disconnect&quot;
+    Context: &quot;steve-VirtualBox:5064&quot;
+    Source File: ../cac.cpp line 1215
+    Current Time: Fri Jun 23 2017 11:44:43.998678320
+..................................................................
+</system-err></testcase><testcase classname="new_runner.Test_Config" file="new_runner.py" line="102" name="test_channel_scaling" time="4.24089217186"><system-out>/home/steve/workspace/nt_ig2/ig2-2.6.7 /home/steve/workspace/nt_ig2/config_channel_scaling.xml
+6.33145682514e-05 10.0001268387 1.00014579296 10002921472.0
+</system-out><system-err>**** The executable &quot;caRepeater&quot; couldn&apos;t be located
+**** because of errno = &quot;No such file or directory&quot;.
+**** You may need to modify your PATH environment variable.
+**** Unable to start &quot;CA Repeater&quot; process.
+CA.Client.Exception...............................................
+    Warning: &quot;Virtual circuit disconnect&quot;
+    Context: &quot;steve-VirtualBox:5064&quot;
+    Source File: ../cac.cpp line 1215
+    Current Time: Fri Jun 23 2017 11:44:48.253494466
+..................................................................
+</system-err></testcase><testcase classname="new_runner.Test_Config" file="new_runner.py" line="108" name="test_defaults" time="3.32194781303"><system-out>/home/steve/workspace/nt_ig2/ig2-2.6.7 /home/steve/workspace/nt_ig2/config_defaults.xml
+</system-out><system-err>**** The executable &quot;caRepeater&quot; couldn&apos;t be located
+**** because of errno = &quot;No such file or directory&quot;.
+**** You may need to modify your PATH environment variable.
+**** Unable to start &quot;CA Repeater&quot; process.
+CA.Client.Exception...............................................
+    Warning: &quot;Virtual circuit disconnect&quot;
+    Context: &quot;steve-VirtualBox:5064&quot;
+    Source File: ../cac.cpp line 1215
+    Current Time: Fri Jun 23 2017 11:44:51.574618057
+..................................................................
+</system-err></testcase><testcase classname="new_runner.Test_Config" file="new_runner.py" line="114" name="test_monitor_only_change" time="25.2464003563"><system-out>/home/steve/workspace/nt_ig2/ig2-2.6.7 /home/steve/workspace/nt_ig2/config_monitor_only.xml
+setting trig_mode timed out, set value was 1 actual value was: 0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 1000
+cannot connect to analog_out_period
+cannot connect to analog_out_period
+</system-out><system-err>**** The executable &quot;caRepeater&quot; couldn&apos;t be located
+**** because of errno = &quot;No such file or directory&quot;.
+**** You may need to modify your PATH environment variable.
+**** Unable to start &quot;CA Repeater&quot; process.
+CA.Client.Exception...............................................
+    Warning: &quot;Virtual circuit disconnect&quot;
+    Context: &quot;steve-VirtualBox:5064&quot;
+    Source File: ../cac.cpp line 1215
+    Current Time: Fri Jun 23 2017 11:45:16.806189055
+..................................................................
+</system-err></testcase><testcase classname="new_runner.Test_Config" file="new_runner.py" line="120" name="test_same_name" time="0.22193813324"><system-out>/home/steve/workspace/nt_ig2/ig2-2.6.7 /home/steve/workspace/nt_ig2/config_samename.xml
+</system-out></testcase><testcase classname="new_runner.Test_Config" file="new_runner.py" line="126" name="test_same_wire" time="1.55250167847"><system-out>/home/steve/workspace/nt_ig2/ig2-2.6.7 /home/steve/workspace/nt_ig2/config_samewire.xml
+wire2 2017-06-23 11:45:17.59202 65.0000
+wire1 2017-06-23 11:45:17.59249 65.0000
+</system-out><system-err>**** The executable &quot;caRepeater&quot; couldn&apos;t be located
+**** because of errno = &quot;No such file or directory&quot;.
+**** You may need to modify your PATH environment variable.
+**** Unable to start &quot;CA Repeater&quot; process.
+CA.Client.Exception...............................................
+    Warning: &quot;Virtual circuit disconnect&quot;
+    Context: &quot;steve-VirtualBox:5064&quot;
+    Source File: ../cac.cpp line 1215
+    Current Time: Fri Jun 23 2017 11:45:18.599653096
+..................................................................
+</system-err></testcase><testcase classname="new_runner.Test_C400" file="new_runner.py" line="134" name="test_accumulate_mode" time="23.2209129333"><system-out>value is correct: 0.0
+value is 1000
+value is correct: 0
+value is 1
+value is 0
+[292, 291, 292, 291, 291, 292, 291, 291, 292, 291, 292, 292, 291, 292, 292, 291, 292, 292, 291, 292, 292, 291, 292, 292, 291, 292, 292, 291, 292, 292, 291, 292, 292, 291, 292, 292, 291, 292, 292, 291, 292, 292, 291, 292, 292, 291, 292, 292, 291, 292, 292, 291, 292, 292, 291, 292, 292, 291, 292, 292, 291, 292, 292, 291, 292, 292, 291, 292, 292, 291, 292, 292, 291, 292, 292, 291, 292, 292, 291, 292, 292, 291, 292, 292, 291, 292, 292, 291, 292, 292, 291, 292, 292, 291, 292, 292, 291, 292, 292, 291, 292, 292, 291, 292, 292, 291, 292, 292, 291, 292, 292, 291, 292, 292, 291, 292, 292, 291, 292, 292, 291, 292, 292, 291, 292, 292, 291, 292, 295, 291, 292, 292, 291, 292, 291, 291, 292, 291, 291, 292, 291, 292, 292, 291, 292, 292, 291, 292, 292, 291, 292, 292, 291, 292, 292, 291, 292, 292, 291, 292, 292, 291, 292, 292, 291, 292, 292, 291, 292, 292, 291, 292, 292, 291, 292, 292, 291, 292, 292, 291, 292, 292, 291, 292, 292, 291, 292, 292, 291, 292, 292, 291, 292, 292, 291, 292, 292, 291, 292, 295, 291, 292, 291, 291, 292, 291, 292, 292, 291, 292, 292, 291, 292, 292, 291, 292, 292, 291, 292, 292, 291, 292, 292, 291, 292, 292, 291, 292, 292, 291, 292, 292, 291, 292, 292, 291, 292, 292, 291, 292, 292, 291, 292, 292, 291, 292, 292, 291, 292, 292, 291, 292, 292, 291, 292, 292, 291, 292, 292, 291, 292, 292, 291, 292, 292, 291, 292, 292, 291, 292, 292, 291, 292, 292, 291, 292, 292, 291, 292, 292, 291, 292, 292, 291, 292, 292, 291, 292, 292, 291, 292, 292, 291, 292, 292, 291, 292, 292, 291, 292, 292, 291, 292, 292, 291, 292, 292, 291, 292, 292, 291, 292, 292, 291, 292, 292, 291, 292, 292, 291, 292, 292, 291, 292, 292, 291, 292, 292, 291, 292, 292, 291, 292, 292, 291, 292, 292, 291, 292, 292, 291, 292, 295, 291, 292, 291, 291, 292, 291, 292, 292, 291, 292, 292, 291, 292, 292, 291, 292, 292, 291, 292, 292, 291, 292, 292, 291, 292, 292, 291, 292, 292, 291, 292, 292, 291, 292, 292, 291, 292, 292, 291, 292, 292, 291, 292, 292, 291, 292, 292, 291, 292, 292, 291, 292, 292, 291, 292, 292, 291, 292, 292, 291, 292, 292, 291, 292, 292, 291, 292, 292, 291, 292, 292, 291, 292, 292, 291, 292, 292, 291, 292, 291, 291, 292, 291, 292, 292, 291, 292, 292, 291, 292, 292, 291, 292, 292, 291, 292, 292, 291, 292, 292, 291, 292, 292, 291, 292, 292, 291, 292, 292, 291, 292, 292, 291, 292, 292, 291, 292, 292, 291, 292, 292, 291, 292, 292, 291, 292, 292, 291, 292, 292, 291, 292, 292, 291, 292, 292, 291, 292, 292, 291, 292, 292, 291, 292, 292, 291, 292, 292, 291, 292, 292, 291, 292, 292, 291, 292, 292, 291, 292, 292, 291, 292, 292, 291, 292, 292, 291, 292, 292, 291, 292, 292, 291, 292, 292, 291, 292, 292, 291, 292, 292, 291, 292, 291, 291, 292, 291, 291, 292, 291, 292, 292, 291, 292, 292, 291, 292, 292, 291, 292, 292, 291, 292, 292, 291, 292, 292, 291, 292, 292, 291, 292, 292, 291, 292, 292, 291, 292, 292, 291, 292, 292, 291, 292, 292, 291, 292, 292, 291, 292, 292, 291, 292, 292, 291, 292, 292, 291, 292, 292, 291, 292, 292, 291, 292, 292, 291, 292, 292, 291, 292, 292, 291, 292, 292, 291, 292, 292, 291, 292, 292, 291, 292, 292, 291, 292, 292, 291, 292, 292, 291, 292, 292, 291, 292, 292, 291, 292, 292, 291, 292, 292, 291, 292, 295, 291, 292, 291, 291, 292, 291, 292, 292, 291, 292, 292, 291, 292, 292, 291, 292, 292, 291, 292, 292, 291, 292, 292, 291, 292, 292, 291, 292, 292, 291, 292, 292, 291, 292, 292, 291, 292, 292, 291, 292, 292, 291, 292, 292, 291, 292, 292, 291, 292, 292, 291, 292, 292, 291, 292, 292, 291, 292, 292, 291, 292, 292, 291, 292, 292, 291, 292, 292, 291, 292, 292, 291, 292, 292, 291, 292, 292, 291, 292, 292, 291, 292, 295, 291, 292, 291, 291, 292, 291, 292, 292, 291, 292, 292, 291, 292, 292, 291, 292, 292, 291, 292, 292, 291, 292, 292, 291, 292, 292, 291, 292, 292, 291, 292, 292, 291, 292, 292, 291, 292, 292, 291, 292, 292, 291, 292, 292, 291, 292, 292, 291, 292, 292, 291, 292, 292, 291, 292, 292, 291, 292, 292, 291, 292, 292, 291, 292, 292, 291, 292, 292, 291, 292, 292, 291, 292, 292, 291, 292, 292, 291, 292, 292, 291, 292, 292, 291, 292, 292, 291, 292, 292, 291, 292, 292, 291, 292, 292, 291, 292, 292, 291, 292, 292, 291, 292, 292, 291, 292, 292, 291, 292, 292, 291, 292, 292, 291, 292, 292, 291, 292, 292, 291, 292, 292, 291, 292, 292, 291, 292, 292, 291, 292, 295, 291, 292, 291, 291, 292, 291, 292, 292, 291, 292, 292, 291, 292, 292, 291, 292, 292, 291, 292, 292, 291, 292, 292, 291, 292, 292, 291, 292, 292, 291, 292, 292, 291, 292, 292, 291, 292, 292, 291, 292, 292, 291, 292, 292, 291, 292, 292, 291, 292, 292, 291, 292, 292, 291, 292, 292, 291, 292, 292, 291, 292, 292, 291, 292, 291, 291, 292, 291, 291, 292, 291, 292, 292, 291, 292, 292, 291, 292, 292, 291, 292, 292, 291, 292, 292, 291, 292, 292, 291, 292, 292, 291, 292, 292, 291, 292, 292, 291, 292, 292, 291, 292, 292, 291, 292, 292, 291, 292, 292, 291, 292, 292, 291, 292, 292, 291, 292, 292, 291, 292, 292, 291, 292, 292, 291, 292, 292, 291, 292, 292, 291, 292, 292, 291, 292, 292, 291, 292, 292, 291, 292, 292, 291, 292, 292, 291, 292, 292, 291, 292, 292, 291, 292, 292, 291, 292, 292, 291, 291, 583, 875, 1166, 1458, 1750, 2041, 2333, 2625, 2916, 3208, 3500, 3791, 4083, 4375, 4666, 4958, 5250, 5541, 5833, 6125, 6416, 6708, 7000, 7291, 7583, 7875, 8166, 8458, 8750, 9041, 9333, 9625, 9916, 10208, 10500, 10791, 11083, 11375, 11666, 11958, 12250, 12541, 12833, 13128, 13416, 13708, 13999, 14291, 14583, 14874, 15166, 15458, 15749, 16041, 16333, 16624, 16916, 17208, 17499, 17791, 18083, 18374, 18666, 18958, 19249, 19541, 19833, 20124, 20416, 20708, 20999, 21291, 21583, 21874, 22166, 22458, 22749, 23041, 23333, 23624, 23916, 24208, 24499, 24791, 25083, 25374, 25666, 25958, 26249, 26541, 26833, 27124, 27416, 27708, 27999, 28291, 28583, 28874, 29166, 29458, 29749, 30041, 30333, 30624, 30916, 31208, 31499, 31791, 32083, 32374, 32666, 32957, 33249, 33541, 33836, 34124, 34416, 34707, 34999, 35291, 35582, 35874, 36166, 36457, 36749, 37041, 37332, 37624, 37916, 38207, 38499, 38791, 39082, 39374, 39666, 39957, 40249, 40541, 40832, 41124, 41416, 41707, 41999, 42291, 42582, 42874, 43166, 43457, 43749, 44041, 44332, 44624, 44916, 45207, 45499, 45791, 46082, 46374, 46666, 46957, 47249, 47541, 47832, 48124, 48416, 48707, 48999, 49291, 49582, 49874, 50166, 50457, 50749, 51041, 51332, 51624, 51916, 52207, 52499, 52791, 53082, 53374, 53666, 53957, 54249, 54541, 54832, 55124, 55416, 55707, 55999, 56291, 56582, 56874, 57165, 57457, 57749, 58044, 58332, 58624, 58915, 59207, 59499, 59790, 60082, 60374, 60665, 60957, 61249, 61540, 61832, 62124, 62415, 62707, 62999, 63290, 63582, 63874, 64165, 64457, 64749, 65040, 65332, 65624, 65915, 66207, 66499, 66790, 67082, 67374, 67665, 67957, 68249, 68540, 68832, 69124, 69415, 69707, 69999, 70290, 70582, 70874, 71165, 71457, 71749, 72040, 72332, 72624, 72915, 73207, 73499, 73790, 74082, 74374, 74665, 74957, 75249, 75540, 75832, 76124, 76415, 76707, 76999, 77290, 77582, 77874, 78165, 78457, 78749, 79040, 79332, 79624, 79915, 80207, 80498, 80790, 81082, 81373, 81665, 81957, 82248, 82540, 82832, 83123, 83415, 83707, 83998, 84290, 84582, 84873, 85165, 85457, 85748, 86040, 86332, 86623, 86915, 87207, 87498, 87790, 88082, 88373, 88665, 88957, 89248, 89540, 89832, 90123, 90415, 90707, 90998, 91290, 91582, 91873, 92165, 92457, 92748, 93040, 93332, 93623, 93915, 94207, 94498, 94790, 95082, 95373, 95665, 95957, 96248, 96540, 96832, 97123, 97415, 97707, 97998, 98290, 98582, 98873, 99165, 99460, 99748, 100040, 100331, 100623, 100915, 101206, 101498, 101790, 102081, 102373, 102665, 102956, 103248, 103540, 103831, 104123, 104415, 104706, 104998, 105290, 105581, 105873, 106165, 106456, 106748, 107040, 107331, 107623, 107915, 108206, 108498, 108790, 109081, 109373, 109665, 109956, 110248, 110540, 110831, 111123, 111415, 111706, 111998, 112290, 112581, 112873, 113165, 113456, 113748, 114040, 114331, 114623, 114915, 115206, 115498, 115790, 116081, 116373, 116665, 116956, 117248, 117540, 117831, 118123, 118415, 118706, 118998, 119290, 119581, 119873, 120165, 120456, 120748, 121040, 121331, 121623, 121915, 122206, 122498, 122790, 123081, 123373, 123665, 123956, 124248, 124540, 124831, 125123, 125415, 125706, 125998, 126290, 126581, 126873, 127165, 127456, 127748, 128040, 128331, 128623, 128914, 129206, 129498, 129789, 130081, 130373, 130668, 130956, 131248, 131539, 131831, 132123, 132414, 132706, 132998, 133289, 133581, 133873, 134164, 134456, 134748, 135039, 135331, 135623, 135914, 136206, 136498, 136789, 137081, 137373, 137664, 137956, 138248, 138539, 138831, 139123, 139414, 139706, 139998, 140289, 140581, 140873, 141164, 141456, 141748, 142039, 142331, 142622, 142914, 143206, 143497, 143789, 144081, 144372, 144664, 144956, 145247, 145539, 145831, 146122, 146414, 146706, 146997, 147289, 147581, 147872, 148164, 148456, 148747, 149039, 149331, 149622, 149914, 150206, 150497, 150789, 151081, 151372, 151664, 151956, 152247, 152539, 152831, 153122, 153414, 153706, 153997, 154289, 154581, 154872, 155164, 155456, 155747, 156039, 156331, 156622, 156914, 157206, 157497, 157789, 158081, 158372, 158664, 158956, 159247, 159539, 159831, 160122, 160414, 160706, 160997, 161289, 161581, 161872, 162164, 162456, 162747, 163039, 163331, 163622, 163914, 164206, 164497, 164789, 165081, 165372, 165664, 165956, 166247, 166539, 166831, 167122, 167414, 167706, 167997, 168289, 168581, 168872, 169164, 169456, 169747, 170039, 170331, 170622, 170914, 171206, 171497, 171789, 172081, 172372, 172664, 172956, 173247, 173539, 173830, 174122, 174414, 174705, 174997, 175289, 175580, 175872, 176164, 176455, 176747, 177039, 177330, 177622, 177914, 178205, 178497, 178789, 179080, 179372, 179664, 179955, 180247, 180539, 180830, 181122, 181414, 181705, 181997, 182289, 182580, 182872, 183164, 183455, 183747, 184039, 184330, 184622, 184914, 185205, 185497, 185789, 186080, 186372, 186664, 186955, 187247, 187539, 187830, 188122, 188414, 188705, 188997, 189289, 189580, 189872, 190164, 190455, 190747, 191039, 191330, 191622, 191914, 192205, 192497, 192792, 193080, 193372, 193663, 193955, 194247, 194538, 194830, 195122, 195413, 195705, 195997, 196288, 196580, 196872, 197163, 197455, 197747, 198038, 198330, 198622, 198913, 199205, 199497, 199788, 200080, 200372, 200663, 200955, 201247, 201538, 201830, 202122, 202413, 202705, 202997, 203288, 203580, 203872, 204163, 204455, 204747, 205038, 205330, 205622, 205913, 206205, 206497, 206788, 207080, 207372, 207663, 207955, 208247, 208538, 208830, 209122, 209413, 209705, 209997, 210288, 210580, 210872, 211163, 211455, 211747, 212038, 212330, 212622, 212913, 213205, 213497, 213788, 214080, 214372, 214663, 214955, 215247, 215538, 215830, 216122, 216413, 216705, 217000, 217288, 217580, 217871, 218163, 218455, 218746, 219038, 219330, 219621, 219913, 220205, 220496, 220788, 221080, 221371, 221663, 221955, 222246, 222538, 222830, 223121, 223413, 223705, 223996, 224288, 224580, 224871, 225163, 225455, 225746, 226038, 226330, 226621, 226913, 227205, 227496, 227788, 228080, 228371, 228663, 228955, 229246, 229538, 229830, 230121, 230413, 230705, 230996, 231288, 231580, 231871, 232163, 232455, 232746, 233038, 233330, 233621, 233913, 234205, 234496, 234788, 235080, 235371, 235663, 235955, 236246, 236538, 236830, 237121, 237413, 237705, 237996, 238288, 238579, 238871, 239163, 239454, 239746, 240038, 240329, 240621, 240913, 241204, 241496, 241788, 242079, 242371, 242663, 242954, 243246, 243538, 243829, 244121, 244413, 244704, 244996, 245288, 245579, 245871, 246163, 246454, 246746, 247038, 247329, 247621, 247913, 248204, 248496, 248788, 249079, 249371, 249663, 249954, 250246, 250538, 250829, 251121, 251413, 251704, 251996, 252288, 252579, 252871, 253163, 253454, 253746, 254038, 254329, 254621, 254913, 255204, 255496, 255788, 256079, 256371, 256662, 256954, 257246, 257537, 257829, 258121, 258412, 258704, 258996, 259287, 259579, 259871, 260162, 260454, 260746, 261037, 261329, 261621, 261912, 262204, 262496, 262787, 263079, 263371, 263662, 263954, 264246, 264537, 264829, 265121, 265412, 265704, 265996, 266287, 266579, 266871, 267162, 267454, 267746, 268037, 268329, 268621, 268912, 269204, 269496, 269787, 270079, 270371, 270662, 270954, 271246, 271537, 271829, 272121, 272412, 272704, 272996, 273287, 273579, 273871, 274162, 274454, 274746, 275037, 275329, 275621, 275912, 276204, 276496, 276787, 277079, 277371, 277662, 277954, 278246, 278537, 278829, 279121, 279412, 279704, 279996, 280287, 280579, 280871, 281162, 281454, 281746, 282037, 282329, 282621, 282912, 283204, 283496, 283787, 284079, 284371, 284662, 284954, 285246, 285537, 285829, 286124, 286412, 286704, 286995, 287287, 287579, 287870, 288162, 288454, 288745, 289037, 289329, 289620, 289912, 290204, 290495, 290787, 291079, 291370, 291662]
+</system-out><system-err>**** The executable &quot;caRepeater&quot; couldn&apos;t be located
+**** because of errno = &quot;No such file or directory&quot;.
+**** You may need to modify your PATH environment variable.
+**** Unable to start &quot;CA Repeater&quot; process.
+CA.Client.Exception...............................................
+    Warning: &quot;Virtual circuit disconnect&quot;
+    Context: &quot;steve-VirtualBox:5064&quot;
+    Source File: ../cac.cpp line 1215
+    Current Time: Fri Jun 23 2017 11:45:41.809351705
+..................................................................
+</system-err></testcase><testcase classname="new_runner.Test_C400" file="new_runner.py" line="140" name="test_buffer_size" time="27.181666851"><system-out>value is correct: 0.0
+value is 0.0
+value is correct: 1000
+cannot connect to analog_out_period
+cannot connect to analog_out_period
+value is 500
+(1000, 500)
+</system-out><system-err>**** The executable &quot;caRepeater&quot; couldn&apos;t be located
+**** because of errno = &quot;No such file or directory&quot;.
+**** You may need to modify your PATH environment variable.
+**** Unable to start &quot;CA Repeater&quot; process.
+CA.Client.Exception...............................................
+    Warning: &quot;Virtual circuit disconnect&quot;
+    Context: &quot;steve-VirtualBox:5064&quot;
+    Source File: ../cac.cpp line 1215
+    Current Time: Fri Jun 23 2017 11:46:09.016023431
+..................................................................
+</system-err></testcase><testcase classname="new_runner.Test_C400" file="new_runner.py" line="147" name="test_burst_size" time="10.3296720982"><system-out>value is 0
+value is 0
+value is 1000
+value is 10000
+value is 0
+</system-out><system-err>**** The executable &quot;caRepeater&quot; couldn&apos;t be located
+**** because of errno = &quot;No such file or directory&quot;.
+**** You may need to modify your PATH environment variable.
+**** Unable to start &quot;CA Repeater&quot; process.
+CA.Client.Exception...............................................
+    Warning: &quot;Virtual circuit disconnect&quot;
+    Context: &quot;steve-VirtualBox:5064&quot;
+    Source File: ../cac.cpp line 1215
+    Current Time: Fri Jun 23 2017 11:46:19.350341023
+..................................................................
+</system-err></testcase><testcase classname="new_runner.Test_C400" file="new_runner.py" line="153" name="test_io" time="17.2616472244"><system-out>[0, 0, 2917, 396] [0.0, 0.0, 2916999.75, 395999.96875] [False, False, False, False]
+True
+</system-out><system-err>**** The executable &quot;caRepeater&quot; couldn&apos;t be located
+**** because of errno = &quot;No such file or directory&quot;.
+**** You may need to modify your PATH environment variable.
+**** Unable to start &quot;CA Repeater&quot; process.
+CA.Client.Exception...............................................
+    Warning: &quot;Virtual circuit disconnect&quot;
+    Context: &quot;steve-VirtualBox:5064&quot;
+    Source File: ../cac.cpp line 1215
+    Current Time: Fri Jun 23 2017 11:46:36.615187070
+..................................................................
+</system-err></testcase><testcase classname="new_runner.Test_C400" file="new_runner.py" line="160" name="test_integration_set" time="17.1942667961"><system-out>value is 1000
+1 0.0 0.0 1000 0.0010000000475
+0
+0
+292
+292
+29166 292
+</system-out><system-err>**** The executable &quot;caRepeater&quot; couldn&apos;t be located
+**** because of errno = &quot;No such file or directory&quot;.
+**** You may need to modify your PATH environment variable.
+**** Unable to start &quot;CA Repeater&quot; process.
+CA.Client.Exception...............................................
+    Warning: &quot;Virtual circuit disconnect&quot;
+    Context: &quot;steve-VirtualBox:5064&quot;
+    Source File: ../cac.cpp line 1215
+    Current Time: Fri Jun 23 2017 11:46:53.808222645
+..................................................................
+</system-err></testcase><testcase classname="new_runner.Test_C400" file="new_runner.py" line="166" name="test_discriminator_limits" time="17.2520310879"><system-out>value is correct: 1000
+value is 1.0
+value is 1.0
+value is correct: 1
+value is correct: 1
+value is correct: 5.0
+value is correct: 5.0
+value is 0.0
+(2916606, 0)
+</system-out><system-err>**** The executable &quot;caRepeater&quot; couldn&apos;t be located
+**** because of errno = &quot;No such file or directory&quot;.
+**** You may need to modify your PATH environment variable.
+**** Unable to start &quot;CA Repeater&quot; process.
+CA.Client.Exception...............................................
+    Warning: &quot;Virtual circuit disconnect&quot;
+    Context: &quot;steve-VirtualBox:5064&quot;
+    Source File: ../cac.cpp line 1215
+    Current Time: Fri Jun 23 2017 11:47:11.038118299
+..................................................................
+</system-err></testcase><testcase classname="new_runner.Test_C400" file="new_runner.py" line="173" name="test_polarity_set" time="50.2379190922"><system-out>setting low_limit_1 timed out, set value was 0.05 actual value was: 0.0500000007451
+setting low_limit_2 timed out, set value was 0.05 actual value was: 0.0500000007451
+setting low_limit_3 timed out, set value was 0.05 actual value was: 0.0500000007451
+setting low_limit_4 timed out, set value was 0.05 actual value was: 0.0500000007451
+value is correct: 1
+value is correct: 1
+value is correct: 1
+value is correct: 1
+value is 0
+value is 0
+value is 0
+value is 0
+value is 1
+value is 1
+value is 1
+value is 1
+</system-out><system-err>**** The executable &quot;caRepeater&quot; couldn&apos;t be located
+**** because of errno = &quot;No such file or directory&quot;.
+**** You may need to modify your PATH environment variable.
+**** Unable to start &quot;CA Repeater&quot; process.
+CA.Client.Exception...............................................
+    Warning: &quot;Virtual circuit disconnect&quot;
+    Context: &quot;steve-VirtualBox:5064&quot;
+    Source File: ../cac.cpp line 1215
+    Current Time: Fri Jun 23 2017 11:48:01.304797867
+..................................................................
+</system-err></testcase><testcase classname="new_runner.Test_C400" file="new_runner.py" line="179" name="test_pulse" time="10.2173030376"><system-out>value is 10000
+value is 100
+value is 1
+value is 1
+value is 1
+value is 1
+value is 100
+value is 1
+value is 0
+value is 0
+value is 0
+value is 0
+</system-out><system-err>**** The executable &quot;caRepeater&quot; couldn&apos;t be located
+**** because of errno = &quot;No such file or directory&quot;.
+**** You may need to modify your PATH environment variable.
+**** Unable to start &quot;CA Repeater&quot; process.
+CA.Client.Exception...............................................
+    Warning: &quot;Virtual circuit disconnect&quot;
+    Context: &quot;steve-VirtualBox:5064&quot;
+    Source File: ../cac.cpp line 1215
+    Current Time: Fri Jun 23 2017 11:48:11.529621601
+..................................................................
+</system-err></testcase><testcase classname="new_runner.Test_C400" file="new_runner.py" line="185" name="test_init_abort" time="14.2343580723"><system-out>value is correct: 1
+value is 0.0
+value is 0
+(501, 1, 0)
+</system-out><system-err>**** The executable &quot;caRepeater&quot; couldn&apos;t be located
+**** because of errno = &quot;No such file or directory&quot;.
+**** You may need to modify your PATH environment variable.
+**** Unable to start &quot;CA Repeater&quot; process.
+CA.Client.Exception...............................................
+    Warning: &quot;Virtual circuit disconnect&quot;
+    Context: &quot;steve-VirtualBox:5064&quot;
+    Source File: ../cac.cpp line 1215
+    Current Time: Fri Jun 23 2017 11:48:25.768265180
+..................................................................
+</system-err></testcase><testcase classname="new_runner.Test_C400" file="new_runner.py" line="192" name="test_state" time="10.1597309113"><system-err>**** The executable &quot;caRepeater&quot; couldn&apos;t be located
+**** because of errno = &quot;No such file or directory&quot;.
+**** You may need to modify your PATH environment variable.
+**** Unable to start &quot;CA Repeater&quot; process.
+CA.Client.Exception...............................................
+    Warning: &quot;Virtual circuit disconnect&quot;
+    Context: &quot;steve-VirtualBox:5064&quot;
+    Source File: ../cac.cpp line 1215
+    Current Time: Fri Jun 23 2017 11:48:35.932477519
+..................................................................
+</system-err></testcase><testcase classname="new_runner.Test_C400" file="new_runner.py" line="198" name="test_trigger_modes" time="138.472038031"><system-out>value is correct: 0
+value is correct: 0
+value is correct: 0
+value is 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is 1
+value is 2
+value is 3
+value is 0
+value is 1
+value is correct: 0
+setting trig_source_stop timed out, set value was 1 actual value was: 0
+value is 2
+value is 3
+value is 0
+value is 2
+value is correct: 0
+value is 1
+setting trig_source_stop timed out, set value was 2 actual value was: 1
+value is 3
+value is 0
+value is 3
+value is correct: 0
+value is 1
+value is 2
+setting trig_source_stop timed out, set value was 3 actual value was: 2
+value is 0
+value is 1
+value is 0
+value is correct: 0
+value is 1
+value is 2
+value is 3
+value is 0
+value is 1
+value is correct: 0
+setting trig_source_stop timed out, set value was 1 actual value was: 0
+value is 2
+value is 3
+value is 0
+value is 2
+value is correct: 0
+value is 1
+setting trig_source_stop timed out, set value was 2 actual value was: 1
+value is 3
+value is 0
+value is 3
+value is correct: 0
+value is 1
+value is 2
+setting trig_source_stop timed out, set value was 3 actual value was: 2
+value is 0
+value is 2
+value is 0
+value is correct: 0
+value is 1
+value is 2
+value is 3
+value is 0
+value is 1
+value is correct: 0
+setting trig_source_stop timed out, set value was 1 actual value was: 0
+value is 2
+value is 3
+value is 0
+value is 2
+value is correct: 0
+value is 1
+setting trig_source_stop timed out, set value was 2 actual value was: 1
+value is 3
+value is 0
+value is 3
+value is correct: 0
+value is 1
+value is 2
+setting trig_source_stop timed out, set value was 3 actual value was: 2
+value is 0
+value is 3
+value is 0
+value is correct: 0
+value is 1
+value is 2
+value is 3
+value is 0
+value is 1
+value is correct: 0
+setting trig_source_stop timed out, set value was 1 actual value was: 0
+value is 2
+value is 3
+value is 0
+value is 2
+value is correct: 0
+value is 1
+setting trig_source_stop timed out, set value was 2 actual value was: 1
+value is 3
+value is 0
+value is 3
+value is correct: 0
+value is 1
+value is 2
+setting trig_source_stop timed out, set value was 3 actual value was: 2
+value is 0
+value is correct: 0
+value is 1
+value is 2
+value is 3
+value is 4
+value is 5
+value is 6
+value is 1
+value is 0
+[True, True, True, True, True, True, True, True, True, True, True, True, True, True, True, True, True, True, True, True, True, True, True, True, True, True, True, True, True, True, True, True, True, True, True, True, True, True, True, True, True, True, True, True, True, True, True, True, True, True, True, True, True, True, True, True, True, True, True, True, True, True, True, True, True, True, True, True, True, True, True]
+</system-out><system-err>**** The executable &quot;caRepeater&quot; couldn&apos;t be located
+**** because of errno = &quot;No such file or directory&quot;.
+**** You may need to modify your PATH environment variable.
+**** Unable to start &quot;CA Repeater&quot; process.
+CA client library is unable to contact CA repeater after 50 tries.
+Silence this message by starting a CA repeater daemon
+or by calling ca_pend_event() and or ca_poll() more often.
+CA.Client.Exception...............................................
+    Warning: &quot;Virtual circuit disconnect&quot;
+    Context: &quot;steve-VirtualBox:5064&quot;
+    Source File: ../cac.cpp line 1215
+    Current Time: Fri Jun 23 2017 11:50:54.407806337
+..................................................................
+</system-err></testcase><testcase classname="new_runner.Test_F460" file="new_runner.py" line="207" name="test_buffer_mode" time="26.6228239536"><system-out>status bad 0
+1
+500
+1
+</system-out><system-err>**** The executable &quot;caRepeater&quot; couldn&apos;t be located
+**** because of errno = &quot;No such file or directory&quot;.
+**** You may need to modify your PATH environment variable.
+**** Unable to start &quot;CA Repeater&quot; process.
+Unexpected problem with CA circuit to server &quot;steve-VirtualBox:5064&quot; was &quot;Connection reset by peer&quot; - disconnecting
+CA.Client.Exception...............................................
+    Warning: &quot;Virtual circuit disconnect&quot;
+    Context: &quot;steve-VirtualBox:5064&quot;
+    Source File: ../cac.cpp line 1215
+    Current Time: Fri Jun 23 2017 11:51:21.020899645
+..................................................................
+</system-err></testcase><testcase classname="new_runner.Test_F460" file="new_runner.py" line="216" name="test_burst_size" time="12.2199361324"><system-out>status bad 0
+
+23.06.2017 11:51:23:358    ConfigureXMLFile() not needed, F1 has no slaves
+23.06.2017 11:51:23:370    AddHostToUpdateList() success: F1
+Could not allocate data buffer on EP.23.06.2017 11:51:31:231    Error setting F460 configuration
+
+&lt;class &apos;pexpect.exceptions.TIMEOUT&apos;&gt;
+1.01569199562
+</system-out><system-err>**** The executable &quot;caRepeater&quot; couldn&apos;t be located
+**** because of errno = &quot;No such file or directory&quot;.
+**** You may need to modify your PATH environment variable.
+**** Unable to start &quot;CA Repeater&quot; process.
+CA.Client.Exception...............................................
+    Warning: &quot;Virtual circuit disconnect&quot;
+    Context: &quot;steve-VirtualBox:5064&quot;
+    Source File: ../cac.cpp line 1215
+    Current Time: Fri Jun 23 2017 11:51:33.246002149
+..................................................................
+</system-err></testcase><testcase classname="new_runner.Test_F460" file="new_runner.py" line="222" name="test_io" time="11.1662650108"><system-out>status bad 0
+</system-out><system-err>**** The executable &quot;caRepeater&quot; couldn&apos;t be located
+**** because of errno = &quot;No such file or directory&quot;.
+**** You may need to modify your PATH environment variable.
+**** Unable to start &quot;CA Repeater&quot; process.
+CA.Client.Exception...............................................
+    Warning: &quot;Virtual circuit disconnect&quot;
+    Context: &quot;steve-VirtualBox:5064&quot;
+    Source File: ../cac.cpp line 1215
+    Current Time: Fri Jun 23 2017 11:51:44.430379811
+..................................................................
+</system-err></testcase><testcase classname="new_runner.Test_F460" file="new_runner.py" line="229" name="test_initiate_abort" time="17.2156479359"><system-out>status bad 0
+== current_in_1  (time_float) ==
+   value      = -2.31846e-09
+   char_value = &apos;-2.318e-09&apos;
+   count      = 1
+   nelm       = 1
+   type       = time_float
+   units      = furlong
+   precision  = 4
+   host       = steve-VirtualBox:5064
+   access     = read/write
+   status     = 0
+   severity   = 0
+   timestamp  = 1498233114.601 (2017-06-23 11:51:54.60134)
+   upper_ctrl_limit    = 10.0
+   lower_ctrl_limit    = -10.0
+   upper_disp_limit    = 10.0
+   lower_disp_limit    = -10.0
+   upper_alarm_limit   = 10.0
+   lower_alarm_limit   = -10.0
+   upper_warning_limit = 10.0
+   lower_warning_limit = -10.0
+   PV is internally monitored, with 0 user-defined callbacks:
+=============================
+value is correct: 1
+value is 1
+value is 10000
+1
+10000
+== current_in_1  (time_float) ==
+   value      = 1.36047e-10
+   char_value = &apos;1.36e-10&apos;
+   count      = 1
+   nelm       = 1
+   type       = time_float
+   units      = furlong
+   precision  = 4
+   host       = steve-VirtualBox:5064
+   access     = read/write
+   status     = 0
+   severity   = 0
+   timestamp  = 1498233116.642 (2017-06-23 11:51:56.64165)
+   upper_ctrl_limit    = 10.0
+   lower_ctrl_limit    = -10.0
+   upper_disp_limit    = 10.0
+   lower_disp_limit    = -10.0
+   upper_alarm_limit   = 10.0
+   lower_alarm_limit   = -10.0
+   upper_warning_limit = 10.0
+   lower_warning_limit = -10.0
+   PV is internally monitored, with 1 user-defined callbacks:
+      getCount in file /home/steve/workspace/IG2Scripts/pexpect_scripts/tests/F460_Tester.py
+=============================
+1037
+</system-out><system-err>**** The executable &quot;caRepeater&quot; couldn&apos;t be located
+**** because of errno = &quot;No such file or directory&quot;.
+**** You may need to modify your PATH environment variable.
+**** Unable to start &quot;CA Repeater&quot; process.
+CA.Client.Exception...............................................
+    Warning: &quot;Virtual circuit disconnect&quot;
+    Context: &quot;steve-VirtualBox:5064&quot;
+    Source File: ../cac.cpp line 1215
+    Current Time: Fri Jun 23 2017 11:52:01.651282038
+..................................................................
+</system-err></testcase><testcase classname="new_runner.Test_F460" file="new_runner.py" line="235" name="test_version_numbers" time="10.3501548767"><system-out>status bad 0
+</system-out><system-err>**** The executable &quot;caRepeater&quot; couldn&apos;t be located
+**** because of errno = &quot;No such file or directory&quot;.
+**** You may need to modify your PATH environment variable.
+**** Unable to start &quot;CA Repeater&quot; process.
+CA.Client.Exception...............................................
+    Warning: &quot;Virtual circuit disconnect&quot;
+    Context: &quot;steve-VirtualBox:5064&quot;
+    Source File: ../cac.cpp line 1215
+    Current Time: Fri Jun 23 2017 11:52:11.986622716
+..................................................................
+</system-err></testcase><testcase classname="new_runner.Test_F460" file="new_runner.py" line="241" name="test_set_start_trig" time="18.4103820324"><system-out>status bad 0
+0
+starting setup is, acquisition: 1 stoptrig: 0
+value is 1
+trig1: 1
+trig2: 1
+trig3: 1
+value is 0
+trig4: 0
+[True, True]
+</system-out><system-err>**** The executable &quot;caRepeater&quot; couldn&apos;t be located
+**** because of errno = &quot;No such file or directory&quot;.
+**** You may need to modify your PATH environment variable.
+**** Unable to start &quot;CA Repeater&quot; process.
+CA.Client.Exception...............................................
+    Warning: &quot;Virtual circuit disconnect&quot;
+    Context: &quot;steve-VirtualBox:5064&quot;
+    Source File: ../cac.cpp line 1215
+    Current Time: Fri Jun 23 2017 11:52:30.415601840
+..................................................................
+</system-err></testcase><testcase classname="new_runner.Test_F460" file="new_runner.py" line="248" name="test_set_pause_trig" time="18.436811924"><system-out>status bad 0
+0
+starting setup is, acquisition: 0 stoptrig: 0
+value is 1
+trig1: 1
+trig2: 1
+trig3: 1
+value is 0
+trig4: 0
+[True, True]
+</system-out><system-err>**** The executable &quot;caRepeater&quot; couldn&apos;t be located
+**** because of errno = &quot;No such file or directory&quot;.
+**** You may need to modify your PATH environment variable.
+**** Unable to start &quot;CA Repeater&quot; process.
+CA.Client.Exception...............................................
+    Warning: &quot;Virtual circuit disconnect&quot;
+    Context: &quot;steve-VirtualBox:5064&quot;
+    Source File: ../cac.cpp line 1215
+    Current Time: Fri Jun 23 2017 11:52:48.846625014
+..................................................................
+</system-err></testcase><testcase classname="new_runner.Test_F460" file="new_runner.py" line="255" name="test_set_stop_trig" time="23.3946008682"><system-out>status bad 0
+0
+cannot connect to status
+None
+starting setup is, acquisition: 0 stoptrig: 0
+value is 1
+trig1: 1
+trig2: 1
+trig3: 1
+value is 0
+trig4: 0
+[True, True]
+</system-out><system-err>**** The executable &quot;caRepeater&quot; couldn&apos;t be located
+**** because of errno = &quot;No such file or directory&quot;.
+**** You may need to modify your PATH environment variable.
+**** Unable to start &quot;CA Repeater&quot; process.
+CA.Client.Exception...............................................
+    Warning: &quot;Virtual circuit disconnect&quot;
+    Context: &quot;steve-VirtualBox:5064&quot;
+    Source File: ../cac.cpp line 1215
+    Current Time: Fri Jun 23 2017 11:53:12.259500832
+..................................................................
+</system-err></testcase><testcase classname="new_runner.Test_F460" file="new_runner.py" line="262" name="test_set_acquisition_modes" time="12.5254867077"><system-out>status bad 0
+0
+value is correct: 0
+0
+value is 1
+1
+value is 2
+2
+value is 3
+3
+value is 4
+4
+value is 5
+value is 0
+5
+[True, True, True, True, True, True]
+5
+value is 0
+0
+</system-out><system-err>**** The executable &quot;caRepeater&quot; couldn&apos;t be located
+**** because of errno = &quot;No such file or directory&quot;.
+**** You may need to modify your PATH environment variable.
+**** Unable to start &quot;CA Repeater&quot; process.
+CA.Client.Exception...............................................
+    Warning: &quot;Virtual circuit disconnect&quot;
+    Context: &quot;steve-VirtualBox:5064&quot;
+    Source File: ../cac.cpp line 1215
+    Current Time: Fri Jun 23 2017 11:53:24.787274028
+..................................................................
+</system-err></testcase><testcase classname="new_runner.Test_F460" file="new_runner.py" line="268" name="test_set_gate_polarity" time="10.4473490715"><system-out>status bad 0
+1
+[True, True]
+0
+</system-out><system-err>**** The executable &quot;caRepeater&quot; couldn&apos;t be located
+**** because of errno = &quot;No such file or directory&quot;.
+**** You may need to modify your PATH environment variable.
+**** Unable to start &quot;CA Repeater&quot; process.
+CA.Client.Exception...............................................
+    Warning: &quot;Virtual circuit disconnect&quot;
+    Context: &quot;steve-VirtualBox:5064&quot;
+    Source File: ../cac.cpp line 1215
+    Current Time: Fri Jun 23 2017 11:53:35.239072876
+..................................................................
+</system-err></testcase><testcase classname="new_runner.Test_F460" file="new_runner.py" line="274" name="test_set_input_range" time="14.6730656624"><system-out>status bad 0
+</system-out><system-err>**** The executable &quot;caRepeater&quot; couldn&apos;t be located
+**** because of errno = &quot;No such file or directory&quot;.
+**** You may need to modify your PATH environment variable.
+**** Unable to start &quot;CA Repeater&quot; process.
+CA.Client.Exception...............................................
+    Warning: &quot;Virtual circuit disconnect&quot;
+    Context: &quot;steve-VirtualBox:5064&quot;
+    Source File: ../cac.cpp line 1215
+    Current Time: Fri Jun 23 2017 11:53:49.917602176
+..................................................................
+</system-err></testcase><testcase classname="new_runner.Test_Interface" file="new_runner.py" line="314" name="test_epics_supported" time="0.14798283577"></testcase><testcase classname="new_runner.Test_Interface" file="new_runner.py" line="320" name="test_disconnected_device_messages" time="28.5832769871"><system-out>23.06.2017 11:53:50:213    interpreter_G2 logging system configured
+23.06.2017 11:53:50:214    [main] IG2 service started
+23.06.2017 11:53:50:214    engineG2::initialize called: config file: /home/steve/workspace/nt_ig2/interface_disconnected_device.xml
+23.06.2017 11:53:50:218    try to open /home/steve/workspace/nt_ig2/interface_disconnected_device.xml and tempsystem.xml
+23.06.2017 11:53:50:224    Pyramid system successfully initialized
+23.06.2017 11:53:50:224    ***EPICS ENVIRONMENT 2_6_7 ENABLED***
+RPC Service: using socket send buffer size: 65536
+RPC Service: using socket rcv buffer size: 65536
+RPC Service: using socket send buffer size: 65536
+RPC Service: using socket rcv buffer size: 65536
+23.06.2017 11:53:50:634    Pyramid system successfully started
+23.06.2017 11:53:54:329    
+Error: could not connect to A500: loop1
+loop1
+
+23.06.2017 11:54:02:445    
+Error: could not connect to A500: loop2
+loop2
+
+23.06.2017 11:54:10:552    
+Error: could not connect to A500: loop3
+loop3
+
+23.06.2017 11:54:18:667    
+Error: could not connect to A500: loop4
+
+loop4
+</system-out></testcase><testcase classname="new_runner.Test_Interface" file="new_runner.py" line="326" name="test_channel_name_propagation" time="0.168804883957"><system-err>**** The executable &quot;caRepeater&quot; couldn&apos;t be located
+**** because of errno = &quot;No such file or directory&quot;.
+**** You may need to modify your PATH environment variable.
+**** Unable to start &quot;CA Repeater&quot; process.
+CA.Client.Exception...............................................
+    Warning: &quot;Virtual circuit disconnect&quot;
+    Context: &quot;steve-VirtualBox:5064&quot;
+    Source File: ../cac.cpp line 1215
+    Current Time: Fri Jun 23 2017 11:54:18.828360142
+..................................................................
+</system-err></testcase><testcase classname="new_runner.Test_Memblock" file="new_runner.py" line="334" name="test_memblock_types" time="11.5551958084"><system-out>value is 1.0
+value is 2.0
+value is 3.0
+value is 4.0
+value is 5.0
+value is 6.0
+value is 7.0
+value is 8.0
+value is 9.0
+value is 10.0
+value is 11.0
+value is 12.0
+value is 13.0
+value is 14.0
+value is 15.0
+value is 16.0
+value is 17.0
+value is 18.0
+value is 19.0
+value is 20.0
+value is 21.0
+value is 22.0
+value is 23.0
+value is 24.0
+value is 25.0
+value is 26.0
+value is 27.0
+value is 28.0
+value is 29.0
+value is 30.0
+value is 31.0
+value is 32.0
+value is 33.0
+value is 34.0
+value is 35.0
+value is 36.0
+value is 37.0
+value is 38.0
+value is 39.0
+value is 40.0
+value is 41.0
+value is 42.0
+value is 43.0
+value is 44.0
+value is 45.0
+value is 46.0
+value is 47.0
+value is 48.0
+value is 49.0
+value is 50.0
+value is 51.0
+value is 52.0
+value is 53.0
+value is 54.0
+value is 55.0
+value is 56.0
+value is 57.0
+value is 58.0
+value is 59.0
+value is 60.0
+value is 61.0
+value is 62.0
+value is 63.0
+value is 64.0
+value is 65.0
+value is 66.0
+value is 67.0
+value is 68.0
+value is 69.0
+value is 70.0
+value is 71.0
+value is 72.0
+value is 73.0
+value is 74.0
+value is 75.0
+value is 76.0
+value is 77.0
+value is 78.0
+value is 79.0
+value is 80.0
+value is 81.0
+value is 82.0
+value is 83.0
+value is 84.0
+value is 85.0
+value is 86.0
+value is 87.0
+value is 88.0
+value is 89.0
+value is 90.0
+value is 91.0
+value is 92.0
+value is 93.0
+value is 94.0
+value is 95.0
+value is 96.0
+value is 97.0
+value is 98.0
+value is 99.0
+value is 100.0
+value is 101.0
+value is 102.0
+value is 103.0
+value is 104.0
+value is 105.0
+value is 106.0
+value is 107.0
+value is 108.0
+value is 109.0
+value is 110.0
+value is 111.0
+value is 112.0
+value is 113.0
+value is 114.0
+value is 115.0
+value is 116.0
+value is 117.0
+value is 118.0
+value is 119.0
+value is 120.0
+value is 121.0
+value is 122.0
+value is 123.0
+value is 124.0
+value is 125.0
+value is 126.0
+value is 127.0
+value is 128.0
+value is 129.0
+value is 130.0
+value is 131.0
+value is 132.0
+value is 133.0
+value is 134.0
+value is 135.0
+value is 136.0
+value is 137.0
+value is 138.0
+value is 139.0
+value is 140.0
+value is 141.0
+value is 142.0
+value is 143.0
+value is 144.0
+value is 145.0
+value is 146.0
+value is 147.0
+value is 148.0
+value is 149.0
+value is 150.0
+value is 151.0
+value is 152.0
+value is 153.0
+value is 154.0
+value is 155.0
+value is 156.0
+value is 157.0
+value is 158.0
+value is 159.0
+value is 160.0
+value is 161.0
+value is 162.0
+value is 163.0
+value is 164.0
+value is 165.0
+value is 166.0
+value is 167.0
+value is 168.0
+value is 169.0
+value is 170.0
+value is 171.0
+value is 172.0
+value is 173.0
+value is 174.0
+value is 175.0
+value is 176.0
+value is 177.0
+value is 178.0
+value is 179.0
+value is 180.0
+value is 181.0
+value is 182.0
+value is 183.0
+value is 184.0
+value is 185.0
+value is 186.0
+value is 187.0
+value is 188.0
+value is 189.0
+value is 190.0
+value is 191.0
+value is 192.0
+value is 193.0
+value is 194.0
+value is 195.0
+value is 196.0
+value is 197.0
+value is 198.0
+value is 199.0
+value is 200.0
+value is 201.0
+value is 202.0
+value is 203.0
+value is 204.0
+value is 205.0
+value is 206.0
+value is 207.0
+value is 208.0
+value is 209.0
+value is 210.0
+value is 211.0
+value is 212.0
+value is 213.0
+value is 214.0
+value is 215.0
+value is 216.0
+value is 217.0
+value is 218.0
+value is 219.0
+value is 220.0
+value is 221.0
+value is 222.0
+value is 223.0
+value is 224.0
+value is 225.0
+value is 226.0
+value is 227.0
+value is 228.0
+value is 229.0
+value is 230.0
+value is 231.0
+value is 232.0
+value is 233.0
+value is 234.0
+value is 235.0
+value is 236.0
+value is 237.0
+value is 238.0
+value is 239.0
+value is 240.0
+value is 241.0
+value is 242.0
+value is 243.0
+value is 244.0
+value is 245.0
+value is 246.0
+value is 247.0
+value is 248.0
+value is 249.0
+value is 250.0
+value is 251.0
+value is 252.0
+value is 253.0
+value is 254.0
+value is 255.0
+value is 256.0
+value is 257.0
+value is 258.0
+value is 259.0
+value is 260.0
+value is 261.0
+value is 262.0
+value is 263.0
+value is 264.0
+value is 265.0
+value is 266.0
+value is 267.0
+value is 268.0
+value is 269.0
+value is 270.0
+value is 271.0
+value is 272.0
+value is 273.0
+value is 274.0
+value is 275.0
+value is 276.0
+value is 277.0
+value is 278.0
+value is 279.0
+value is 280.0
+value is 281.0
+value is 282.0
+value is 283.0
+value is 284.0
+value is 285.0
+value is 286.0
+value is 287.0
+value is 288.0
+value is 289.0
+value is 290.0
+value is 291.0
+value is 292.0
+value is 293.0
+value is 294.0
+value is 295.0
+value is 296.0
+value is 297.0
+value is 298.0
+value is 299.0
+value is 300.0
+value is 301.0
+value is 302.0
+value is 303.0
+value is 304.0
+value is 305.0
+value is 306.0
+value is 307.0
+value is 308.0
+value is 309.0
+value is 310.0
+value is 311.0
+value is 312.0
+value is 313.0
+value is 314.0
+value is 315.0
+value is 316.0
+value is 317.0
+value is 318.0
+value is 319.0
+value is 320.0
+value is 321.0
+value is 322.0
+value is 323.0
+value is 324.0
+value is 325.0
+value is 326.0
+value is 327.0
+value is 328.0
+value is 329.0
+value is 330.0
+value is 331.0
+value is 332.0
+value is 333.0
+value is 334.0
+value is 335.0
+value is 336.0
+value is 337.0
+value is 338.0
+value is 339.0
+value is 340.0
+value is 341.0
+value is 342.0
+value is 343.0
+value is 344.0
+value is 345.0
+value is 346.0
+value is 347.0
+value is 348.0
+value is 349.0
+value is 350.0
+value is 351.0
+value is 352.0
+value is 353.0
+value is 354.0
+value is 355.0
+value is 356.0
+value is 357.0
+value is 358.0
+value is 359.0
+value is 360.0
+value is 361.0
+value is 362.0
+value is 363.0
+value is 364.0
+value is 365.0
+value is 366.0
+value is 367.0
+value is 368.0
+value is 369.0
+value is 370.0
+value is 371.0
+value is 372.0
+value is 373.0
+value is 374.0
+value is 375.0
+value is 376.0
+value is 377.0
+value is 378.0
+value is 379.0
+value is 380.0
+value is 381.0
+value is 382.0
+value is 383.0
+value is 384.0
+value is 385.0
+value is 386.0
+value is 387.0
+value is 388.0
+value is 389.0
+value is 390.0
+value is 391.0
+value is 392.0
+value is 393.0
+value is 394.0
+value is 395.0
+value is 396.0
+value is 397.0
+value is 398.0
+value is 399.0
+value is 400.0
+value is 401.0
+value is 402.0
+value is 403.0
+value is 404.0
+value is 405.0
+value is 406.0
+value is 407.0
+value is 408.0
+value is 409.0
+value is 410.0
+value is 411.0
+value is 412.0
+value is 413.0
+value is 414.0
+value is 415.0
+value is 416.0
+value is 417.0
+value is 418.0
+value is 419.0
+value is 420.0
+value is 421.0
+value is 422.0
+value is 423.0
+value is 424.0
+value is 425.0
+value is 426.0
+value is 427.0
+value is 428.0
+value is 429.0
+value is 430.0
+value is 431.0
+value is 432.0
+value is 433.0
+value is 434.0
+value is 435.0
+value is 436.0
+value is 437.0
+value is 438.0
+value is 439.0
+value is 440.0
+value is 441.0
+value is 442.0
+value is 443.0
+value is 444.0
+value is 445.0
+value is 446.0
+value is 447.0
+value is 448.0
+value is 449.0
+value is 450.0
+value is 451.0
+value is 452.0
+value is 453.0
+value is 454.0
+value is 455.0
+value is 456.0
+value is 457.0
+value is 458.0
+value is 459.0
+value is 460.0
+value is 461.0
+value is 462.0
+value is 463.0
+value is 464.0
+value is 465.0
+value is 466.0
+value is 467.0
+value is 468.0
+value is 469.0
+value is 470.0
+value is 471.0
+value is 472.0
+value is 473.0
+value is 474.0
+value is 475.0
+value is 476.0
+value is 477.0
+value is 478.0
+value is 479.0
+value is 480.0
+value is 481.0
+value is 482.0
+value is 483.0
+value is 484.0
+value is 485.0
+value is 486.0
+value is 487.0
+value is 488.0
+value is 489.0
+value is 490.0
+value is 491.0
+value is 492.0
+value is 493.0
+value is 494.0
+value is 495.0
+value is 496.0
+value is 497.0
+value is 498.0
+value is 499.0
+value is 500.0
+value is 501.0
+value is 502.0
+value is 503.0
+value is 504.0
+value is 505.0
+value is 506.0
+value is 507.0
+value is 508.0
+value is 509.0
+value is 510.0
+value is 511.0
+value is 512.0
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 1
+value is 2
+value is 3
+value is 4
+value is 5
+value is 6
+value is 7
+value is 8
+value is 9
+value is 10
+value is 11
+value is 12
+value is 13
+value is 14
+value is 15
+value is 16
+value is 17
+value is 18
+value is 19
+value is 20
+value is 21
+value is 22
+value is 23
+value is 24
+value is 25
+value is 26
+value is 27
+value is 28
+value is 29
+value is 30
+value is 31
+value is 32
+value is 33
+value is 34
+value is 35
+value is 36
+value is 37
+value is 38
+value is 39
+value is 40
+value is 41
+value is 42
+value is 43
+value is 44
+value is 45
+value is 46
+value is 47
+value is 48
+value is 49
+value is 50
+value is 51
+value is 52
+value is 53
+value is 54
+value is 55
+value is 56
+value is 57
+value is 58
+value is 59
+value is 60
+value is 61
+value is 62
+value is 63
+value is 64
+value is 65
+value is 66
+value is 67
+value is 68
+value is 69
+value is 70
+value is 71
+value is 72
+value is 73
+value is 74
+value is 75
+value is 76
+value is 77
+value is 78
+value is 79
+value is 80
+value is 81
+value is 82
+value is 83
+value is 84
+value is 85
+value is 86
+value is 87
+value is 88
+value is 89
+value is 90
+value is 91
+value is 92
+value is 93
+value is 94
+value is 95
+value is 96
+value is 97
+value is 98
+value is 99
+value is 100
+value is 101
+value is 102
+value is 103
+value is 104
+value is 105
+value is 106
+value is 107
+value is 108
+value is 109
+value is 110
+value is 111
+value is 112
+value is 113
+value is 114
+value is 115
+value is 116
+value is 117
+value is 118
+value is 119
+value is 120
+value is 121
+value is 122
+value is 123
+value is 124
+value is 125
+value is 126
+value is 127
+value is 128
+value is 129
+value is 130
+value is 131
+value is 132
+value is 133
+value is 134
+value is 135
+value is 136
+value is 137
+value is 138
+value is 139
+value is 140
+value is 141
+value is 142
+value is 143
+value is 144
+value is 145
+value is 146
+value is 147
+value is 148
+value is 149
+value is 150
+value is 151
+value is 152
+value is 153
+value is 154
+value is 155
+value is 156
+value is 157
+value is 158
+value is 159
+value is 160
+value is 161
+value is 162
+value is 163
+value is 164
+value is 165
+value is 166
+value is 167
+value is 168
+value is 169
+value is 170
+value is 171
+value is 172
+value is 173
+value is 174
+value is 175
+value is 176
+value is 177
+value is 178
+value is 179
+value is 180
+value is 181
+value is 182
+value is 183
+value is 184
+value is 185
+value is 186
+value is 187
+value is 188
+value is 189
+value is 190
+value is 191
+value is 192
+value is 193
+value is 194
+value is 195
+value is 196
+value is 197
+value is 198
+value is 199
+value is 200
+value is 201
+value is 202
+value is 203
+value is 204
+value is 205
+value is 206
+value is 207
+value is 208
+value is 209
+value is 210
+value is 211
+value is 212
+value is 213
+value is 214
+value is 215
+value is 216
+value is 217
+value is 218
+value is 219
+value is 220
+value is 221
+value is 222
+value is 223
+value is 224
+value is 225
+value is 226
+value is 227
+value is 228
+value is 229
+value is 230
+value is 231
+value is 232
+value is 233
+value is 234
+value is 235
+value is 236
+value is 237
+value is 238
+value is 239
+value is 240
+value is 241
+value is 242
+value is 243
+value is 244
+value is 245
+value is 246
+value is 247
+value is 248
+value is 249
+value is 250
+value is 251
+value is 252
+value is 253
+value is 254
+value is 255
+value is 256
+value is 257
+value is 258
+value is 259
+value is 260
+value is 261
+value is 262
+value is 263
+value is 264
+value is 265
+value is 266
+value is 267
+value is 268
+value is 269
+value is 270
+value is 271
+value is 272
+value is 273
+value is 274
+value is 275
+value is 276
+value is 277
+value is 278
+value is 279
+value is 280
+value is 281
+value is 282
+value is 283
+value is 284
+value is 285
+value is 286
+value is 287
+value is 288
+value is 289
+value is 290
+value is 291
+value is 292
+value is 293
+value is 294
+value is 295
+value is 296
+value is 297
+value is 298
+value is 299
+value is 300
+value is 301
+value is 302
+value is 303
+value is 304
+value is 305
+value is 306
+value is 307
+value is 308
+value is 309
+value is 310
+value is 311
+value is 312
+value is 313
+value is 314
+value is 315
+value is 316
+value is 317
+value is 318
+value is 319
+value is 320
+value is 321
+value is 322
+value is 323
+value is 324
+value is 325
+value is 326
+value is 327
+value is 328
+value is 329
+value is 330
+value is 331
+value is 332
+value is 333
+value is 334
+value is 335
+value is 336
+value is 337
+value is 338
+value is 339
+value is 340
+value is 341
+value is 342
+value is 343
+value is 344
+value is 345
+value is 346
+value is 347
+value is 348
+value is 349
+value is 350
+value is 351
+value is 352
+value is 353
+value is 354
+value is 355
+value is 356
+value is 357
+value is 358
+value is 359
+value is 360
+value is 361
+value is 362
+value is 363
+value is 364
+value is 365
+value is 366
+value is 367
+value is 368
+value is 369
+value is 370
+value is 371
+value is 372
+value is 373
+value is 374
+value is 375
+value is 376
+value is 377
+value is 378
+value is 379
+value is 380
+value is 381
+value is 382
+value is 383
+value is 384
+value is 385
+value is 386
+value is 387
+value is 388
+value is 389
+value is 390
+value is 391
+value is 392
+value is 393
+value is 394
+value is 395
+value is 396
+value is 397
+value is 398
+value is 399
+value is 400
+value is 401
+value is 402
+value is 403
+value is 404
+value is 405
+value is 406
+value is 407
+value is 408
+value is 409
+value is 410
+value is 411
+value is 412
+value is 413
+value is 414
+value is 415
+value is 416
+value is 417
+value is 418
+value is 419
+value is 420
+value is 421
+value is 422
+value is 423
+value is 424
+value is 425
+value is 426
+value is 427
+value is 428
+value is 429
+value is 430
+value is 431
+value is 432
+value is 433
+value is 434
+value is 435
+value is 436
+value is 437
+value is 438
+value is 439
+value is 440
+value is 441
+value is 442
+value is 443
+value is 444
+value is 445
+value is 446
+value is 447
+value is 448
+value is 449
+value is 450
+value is 451
+value is 452
+value is 453
+value is 454
+value is 455
+value is 456
+value is 457
+value is 458
+value is 459
+value is 460
+value is 461
+value is 462
+value is 463
+value is 464
+value is 465
+value is 466
+value is 467
+value is 468
+value is 469
+value is 470
+value is 471
+value is 472
+value is 473
+value is 474
+value is 475
+value is 476
+value is 477
+value is 478
+value is 479
+value is 480
+value is 481
+value is 482
+value is 483
+value is 484
+value is 485
+value is 486
+value is 487
+value is 488
+value is 489
+value is 490
+value is 491
+value is 492
+value is 493
+value is 494
+value is 495
+value is 496
+value is 497
+value is 498
+value is 499
+value is 500
+value is 501
+value is 502
+value is 503
+value is 504
+value is 505
+value is 506
+value is 507
+value is 508
+value is 509
+value is 510
+value is 511
+value is 512
+value is 1
+value is 2
+value is 3
+value is 4
+value is 5
+value is 6
+value is 7
+value is 8
+value is 9
+value is 10
+value is 11
+value is 12
+value is 13
+value is 14
+value is 15
+value is 16
+value is 17
+value is 18
+value is 19
+value is 20
+value is 21
+value is 22
+value is 23
+value is 24
+value is 25
+value is 26
+value is 27
+value is 28
+value is 29
+value is 30
+value is 31
+value is 32
+value is 33
+value is 34
+value is 35
+value is 36
+value is 37
+value is 38
+value is 39
+value is 40
+value is 41
+value is 42
+value is 43
+value is 44
+value is 45
+value is 46
+value is 47
+value is 48
+value is 49
+value is 50
+value is 51
+value is 52
+value is 53
+value is 54
+value is 55
+value is 56
+value is 57
+value is 58
+value is 59
+value is 60
+value is 61
+value is 62
+value is 63
+value is 64
+value is 65
+value is 66
+value is 67
+value is 68
+value is 69
+value is 70
+value is 71
+value is 72
+value is 73
+value is 74
+value is 75
+value is 76
+value is 77
+value is 78
+value is 79
+value is 80
+value is 81
+value is 82
+value is 83
+value is 84
+value is 85
+value is 86
+value is 87
+value is 88
+value is 89
+value is 90
+value is 91
+value is 92
+value is 93
+value is 94
+value is 95
+value is 96
+value is 97
+value is 98
+value is 99
+value is 100
+value is 101
+value is 102
+value is 103
+value is 104
+value is 105
+value is 106
+value is 107
+value is 108
+value is 109
+value is 110
+value is 111
+value is 112
+value is 113
+value is 114
+value is 115
+value is 116
+value is 117
+value is 118
+value is 119
+value is 120
+value is 121
+value is 122
+value is 123
+value is 124
+value is 125
+value is 126
+value is 127
+value is 128
+value is 129
+value is 130
+value is 131
+value is 132
+value is 133
+value is 134
+value is 135
+value is 136
+value is 137
+value is 138
+value is 139
+value is 140
+value is 141
+value is 142
+value is 143
+value is 144
+value is 145
+value is 146
+value is 147
+value is 148
+value is 149
+value is 150
+value is 151
+value is 152
+value is 153
+value is 154
+value is 155
+value is 156
+value is 157
+value is 158
+value is 159
+value is 160
+value is 161
+value is 162
+value is 163
+value is 164
+value is 165
+value is 166
+value is 167
+value is 168
+value is 169
+value is 170
+value is 171
+value is 172
+value is 173
+value is 174
+value is 175
+value is 176
+value is 177
+value is 178
+value is 179
+value is 180
+value is 181
+value is 182
+value is 183
+value is 184
+value is 185
+value is 186
+value is 187
+value is 188
+value is 189
+value is 190
+value is 191
+value is 192
+value is 193
+value is 194
+value is 195
+value is 196
+value is 197
+value is 198
+value is 199
+value is 200
+value is 201
+value is 202
+value is 203
+value is 204
+value is 205
+value is 206
+value is 207
+value is 208
+value is 209
+value is 210
+value is 211
+value is 212
+value is 213
+value is 214
+value is 215
+value is 216
+value is 217
+value is 218
+value is 219
+value is 220
+value is 221
+value is 222
+value is 223
+value is 224
+value is 225
+value is 226
+value is 227
+value is 228
+value is 229
+value is 230
+value is 231
+value is 232
+value is 233
+value is 234
+value is 235
+value is 236
+value is 237
+value is 238
+value is 239
+value is 240
+value is 241
+value is 242
+value is 243
+value is 244
+value is 245
+value is 246
+value is 247
+value is 248
+value is 249
+value is 250
+value is 251
+value is 252
+value is 253
+value is 254
+value is 255
+value is 256
+value is 257
+value is 258
+value is 259
+value is 260
+value is 261
+value is 262
+value is 263
+value is 264
+value is 265
+value is 266
+value is 267
+value is 268
+value is 269
+value is 270
+value is 271
+value is 272
+value is 273
+value is 274
+value is 275
+value is 276
+value is 277
+value is 278
+value is 279
+value is 280
+value is 281
+value is 282
+value is 283
+value is 284
+value is 285
+value is 286
+value is 287
+value is 288
+value is 289
+value is 290
+value is 291
+value is 292
+value is 293
+value is 294
+value is 295
+value is 296
+value is 297
+value is 298
+value is 299
+value is 300
+value is 301
+value is 302
+value is 303
+value is 304
+value is 305
+value is 306
+value is 307
+value is 308
+value is 309
+value is 310
+value is 311
+value is 312
+value is 313
+value is 314
+value is 315
+value is 316
+value is 317
+value is 318
+value is 319
+value is 320
+value is 321
+value is 322
+value is 323
+value is 324
+value is 325
+value is 326
+value is 327
+value is 328
+value is 329
+value is 330
+value is 331
+value is 332
+value is 333
+value is 334
+value is 335
+value is 336
+value is 337
+value is 338
+value is 339
+value is 340
+value is 341
+value is 342
+value is 343
+value is 344
+value is 345
+value is 346
+value is 347
+value is 348
+value is 349
+value is 350
+value is 351
+value is 352
+value is 353
+value is 354
+value is 355
+value is 356
+value is 357
+value is 358
+value is 359
+value is 360
+value is 361
+value is 362
+value is 363
+value is 364
+value is 365
+value is 366
+value is 367
+value is 368
+value is 369
+value is 370
+value is 371
+value is 372
+value is 373
+value is 374
+value is 375
+value is 376
+value is 377
+value is 378
+value is 379
+value is 380
+value is 381
+value is 382
+value is 383
+value is 384
+value is 385
+value is 386
+value is 387
+value is 388
+value is 389
+value is 390
+value is 391
+value is 392
+value is 393
+value is 394
+value is 395
+value is 396
+value is 397
+value is 398
+value is 399
+value is 400
+value is 401
+value is 402
+value is 403
+value is 404
+value is 405
+value is 406
+value is 407
+value is 408
+value is 409
+value is 410
+value is 411
+value is 412
+value is 413
+value is 414
+value is 415
+value is 416
+value is 417
+value is 418
+value is 419
+value is 420
+value is 421
+value is 422
+value is 423
+value is 424
+value is 425
+value is 426
+value is 427
+value is 428
+value is 429
+value is 430
+value is 431
+value is 432
+value is 433
+value is 434
+value is 435
+value is 436
+value is 437
+value is 438
+value is 439
+value is 440
+value is 441
+value is 442
+value is 443
+value is 444
+value is 445
+value is 446
+value is 447
+value is 448
+value is 449
+value is 450
+value is 451
+value is 452
+value is 453
+value is 454
+value is 455
+value is 456
+value is 457
+value is 458
+value is 459
+value is 460
+value is 461
+value is 462
+value is 463
+value is 464
+value is 465
+value is 466
+value is 467
+value is 468
+value is 469
+value is 470
+value is 471
+value is 472
+value is 473
+value is 474
+value is 475
+value is 476
+value is 477
+value is 478
+value is 479
+value is 480
+value is 481
+value is 482
+value is 483
+value is 484
+value is 485
+value is 486
+value is 487
+value is 488
+value is 489
+value is 490
+value is 491
+value is 492
+value is 493
+value is 494
+value is 495
+value is 496
+value is 497
+value is 498
+value is 499
+value is 500
+value is 501
+value is 502
+value is 503
+value is 504
+value is 505
+value is 506
+value is 507
+value is 508
+value is 509
+value is 510
+value is 511
+value is 512
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0.0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 0
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+value is correct: 
+</system-out><system-err>**** The executable &quot;caRepeater&quot; couldn&apos;t be located
+**** because of errno = &quot;No such file or directory&quot;.
+**** You may need to modify your PATH environment variable.
+**** Unable to start &quot;CA Repeater&quot; process.
+CA.Client.Exception...............................................
+    Warning: &quot;Virtual circuit disconnect&quot;
+    Context: &quot;steve-VirtualBox:5064&quot;
+    Source File: ../cac.cpp line 1215
+    Current Time: Fri Jun 23 2017 11:54:26.733863466
+..................................................................
+</system-err></testcase><testcase classname="new_runner.Test_PSU" file="new_runner.py" line="347" name="test_set_voltage" time="1.19718527794"><system-out>/home/steve/workspace/nt_ig2/ig2-2.6.7 /home/steve/workspace/nt_ig2/powersupply.xml
+success
+23.06.2017 11:54:30:508    interpreter_G2 logging system configured
+23.06.2017 11:54:30:508    [main] IG2 service started
+23.06.2017 11:54:30:508    engineG2::initialize called: config file: /home/steve/workspace/nt_ig2/powersupply.xml
+23.06.2017 11:54:30:514    try to open /home/steve/workspace/nt_ig2/powersupply.xml and tempsystem.xml
+23.06.2017 11:54:30:529    Pyramid system 
+== c_psu_control_voltage  (time_float) ==
+   value      = 867.359
+   char_value = &apos;867.3592&apos;
+   count      = 1
+   nelm       = 1
+   type       = time_float
+   units      = furlong
+   precision  = 4
+   host       = steve-VirtualBox:5064
+   access     = read/write
+   status     = 0
+   severity   = 0
+   timestamp  = 1498233270.568 (2017-06-23 11:54:30.56816)
+   upper_ctrl_limit    = 10.0
+   lower_ctrl_limit    = -10.0
+   upper_disp_limit    = 10.0
+   lower_disp_limit    = -10.0
+   upper_alarm_limit   = 10.0
+   lower_alarm_limit   = -10.0
+   upper_warning_limit = 10.0
+   lower_warning_limit = -10.0
+   PV is internally monitored, with 0 user-defined callbacks:
+=============================
+867.359191895
+867.359191895
+(867.3591918945312, 867.3592095186167)
+</system-out><system-err>**** The executable &quot;caRepeater&quot; couldn&apos;t be located
+**** because of errno = &quot;No such file or directory&quot;.
+**** You may need to modify your PATH environment variable.
+**** Unable to start &quot;CA Repeater&quot; process.
+CA.Client.Exception...............................................
+    Warning: &quot;Virtual circuit disconnect&quot;
+    Context: &quot;steve-VirtualBox:5064&quot;
+    Source File: ../cac.cpp line 1215
+    Current Time: Fri Jun 23 2017 11:54:31.581349424
+..................................................................
+</system-err></testcase><testcase classname="new_runner.Test_PSU" file="new_runner.py" line="354" name="test_set_current" time="1.1697769165"><system-out>/home/steve/workspace/nt_ig2/ig2-2.6.7 /home/steve/workspace/nt_ig2/powersupply.xml
+</system-out><system-err>**** The executable &quot;caRepeater&quot; couldn&apos;t be located
+**** because of errno = &quot;No such file or directory&quot;.
+**** You may need to modify your PATH environment variable.
+**** Unable to start &quot;CA Repeater&quot; process.
+CA.Client.Exception...............................................
+    Warning: &quot;Virtual circuit disconnect&quot;
+    Context: &quot;steve-VirtualBox:5064&quot;
+    Source File: ../cac.cpp line 1215
+    Current Time: Fri Jun 23 2017 11:54:32.754912371
+..................................................................
+</system-err></testcase><testcase classname="new_runner.Test_PSU" file="new_runner.py" line="360" name="test_get_readbacks" time="2.15681505203"><system-out>/home/steve/workspace/nt_ig2/ig2-2.6.7 /home/steve/workspace/nt_ig2/powersupply.xml
+fully initialized
+23.06.2017 11:54:32:884    ***EPICS ENVIRONMENT 2_6_7 ENABLED***
+RPC Service: using socket send buffer size: 65536
+RPC Service: using socket rcv buffer size: 65536
+RPC Service: using socket send buffer size: 65536
+RPC Service: using socket rcv buffer size: 65536
+23.06.2017 11:54:32:893    Pyramid system 
+success
+== c_psu_control_voltage  (time_float) ==
+   value      = 400
+   char_value = &apos;400.0000&apos;
+   count      = 1
+   nelm       = 1
+   type       = time_float
+   units      = furlong
+   precision  = 4
+   host       = steve-VirtualBox:5064
+   access     = read/write
+   status     = 0
+   severity   = 0
+   timestamp  = 1498233273.904 (2017-06-23 11:54:33.90440)
+   upper_ctrl_limit    = 10.0
+   lower_ctrl_limit    = -10.0
+   upper_disp_limit    = 10.0
+   lower_disp_limit    = -10.0
+   upper_alarm_limit   = 10.0
+   lower_alarm_limit   = -10.0
+   upper_warning_limit = 10.0
+   lower_warning_limit = -10.0
+   PV is internally monitored, with 0 user-defined callbacks:
+=============================
+== c_psu_resistance  (time_float) ==
+   value      = 1000
+   char_value = &apos;1000.0000&apos;
+   count      = 1
+   nelm       = 1
+   type       = time_float
+   units      = furlong
+   precision  = 4
+   host       = steve-VirtualBox:5064
+   access     = read/write
+   status     = 0
+   severity   = 0
+   timestamp  = 1498233272.885 (2017-06-23 11:54:32.88537)
+   upper_ctrl_limit    = 10.0
+   lower_ctrl_limit    = -10.0
+   upper_disp_limit    = 10.0
+   lower_disp_limit    = -10.0
+   upper_alarm_limit   = 10.0
+   lower_alarm_limit   = -10.0
+   upper_warning_limit = 10.0
+   lower_warning_limit = -10.0
+   PV is internally monitored, with 0 user-defined callbacks:
+=============================
+400.0
+</system-out><system-err>**** The executable &quot;caRepeater&quot; couldn&apos;t be located
+**** because of errno = &quot;No such file or directory&quot;.
+**** You may need to modify your PATH environment variable.
+**** Unable to start &quot;CA Repeater&quot; process.
+CA.Client.Exception...............................................
+    Warning: &quot;Virtual circuit disconnect&quot;
+    Context: &quot;steve-VirtualBox:5064&quot;
+    Source File: ../cac.cpp line 1215
+    Current Time: Fri Jun 23 2017 11:54:34.911415438
+..................................................................
+</system-err></testcase></testsuite>

@@ -5,28 +5,25 @@ import pexpect
 
 def pv_check(pv, value):
     poll(evt=1.e-5, iot=0.01)
-    # if pvname.get() is None:
-    #     pv = PV(pvname)
-    # else:
-    #     pv = pvname
-    if pv.get() == value:
-        print "value is correct: " + str(pv.get())
+  
+    if isclose(pv.get(), value):
+    #if pv.get() == value:
+        #print "value is correct: " + str(pv.get())
         return True
     else:
         t0 = time.time()
-        pv.put(value)
+        #pv.put(value)
         poll(evt=1.e-5, iot=0.01)
-        while pv.get() != value:
-
+        while not isclose(pv.get(), value):
+        #while pv.get() != value:
+            #pv.put(value)
             poll(evt=1.e-5, iot=0.01)
-            current = pv.get()
             if time.time() - t0 > 10:
-                #raise ValueError("setting " + pvname + " timed out, set value was " + str(value) + " actual value was: " + str(caget(pvname)))
+                current = pv.get()
                 print ("setting " + pv.pvname + " timed out, set value was " + str(value) + " actual value was: " + str(current))
                 return False
             else:
                 pass
-        print "value is " + str(pv.get())
         return True
 
 def caput_check(name, value):
@@ -41,12 +38,9 @@ def caput_check(name, value):
     return True
 
 def put_check(pv, value):
-    # if pvname.get() is None:
-    #     pv = PV(pvname)
-    # else:
-    #     pv = pvname
 
     pv.put(value)
+    #poll(evt=0.5, iot=0.25)
     poll(evt=1.e-5, iot=0.01)
     return pv_check(pv, value)
 
@@ -90,5 +84,11 @@ def blowout_pvs():
     #     pvs.append(x)
     # for pv in pvs:
     #     ca._cache[ctx].pop(pv)
+    # print ctx
 
 
+def isclose(a, b, rel_tol=0.01, abs_tol=0.0002):
+    if type(a) == str or type(b) ==  str:
+        return a == b 
+    return abs(a-b) <= max(rel_tol * max(abs(a), abs(b)), abs_tol)
+    #return a == b 
