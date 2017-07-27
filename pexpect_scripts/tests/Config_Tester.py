@@ -222,16 +222,14 @@ class Config_Tester(Tester):
         clean = re.sub(expr, '', error).lstrip()
         return clean
 
-    def same_wire(self):
+    def same_wire(self, value):
         self.proc.expect([pexpect.TIMEOUT, pexpect.EOF], timeout=0.25)
 
         t1 = PV('wire1')
         t2 = PV('wire2')
+        poll(evt=1.0, iot=0.01)
 
-        camonitor('wire1')
-        camonitor('wire2')
-
-        t1.put(65, wait=True)
+        t1.put(value, wait=True)
         time.sleep(1)
 
-        return(caget('wire1'), caget('wire2'))
+        return(t1.get(), t2.get())

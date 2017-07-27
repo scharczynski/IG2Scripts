@@ -6,6 +6,8 @@
     <host ip="192.168.100.135" name="wnett" localhost="true" />
   </hosts>
   <loopcontrollers>
+    <loopcontroller type="F460" name="F1" ip="192.168.55.55">
+    </loopcontroller>
   </loopcontrollers>
 </system>
 

@@ -18,7 +18,7 @@ class C400_Tester(Tester):
             self.connected = True
         else:
             t0 = time.time()
-            while self.status not in (0, 3):
+            while self.status.get()not in (0, 3):
                 poll(evt=1.e-5, iot=0.01)
                 if time.time() - t0 > 10:
                     break
@@ -29,6 +29,7 @@ class C400_Tester(Tester):
         data = []
         if not self.connected:
             print "Device not connected"
+            print self.status.get()
             return False
         count = PV('in_counts_3')
         low_3 = PV('low_limit_3')
@@ -39,7 +40,7 @@ class C400_Tester(Tester):
         poll(evt=1.e-5, iot=0.01)
 
         util.put_check(low_3, 0.0)
-        util.put_check(trig_buffer,1000)
+        util.put_check(trig_buffer, 1000)
         int_time.put(10e-5)
         poll(evt=1.e-5, iot=0.01)
 
@@ -81,32 +82,26 @@ class C400_Tester(Tester):
         print data
         return non_accum, accum, data[0]
 
-    def buffering(self):
+    def buffering(self, value):
         if not self.connected:
             print "Device not connected"
             return False
         count3 = PV('in_counts_3')
-        count4 = PV('in_counts_4')
         low3 = PV('low_limit_3')
-        low4 = PV('low_limit_4')
         trig_buffer = PV('trig_buffer')
         int_time = PV('analog_out_period')
         init = PV('initiate')
         poll(evt=1.e-5, iot=0.01)
-        data1 = []
-        data2 = []
+        data = []
 
         def getCount1(pvname, value, **kw):
-            data1.append(value)
+            data.append(value)
 
-        def getCount2(pvname, value, **kw):
-            data2.append(value)
-
-        if util.put_check(low3, 0.0) and util.put_check(low4, 0.0) and util.put_check(trig_buffer, 1000) and util.put_fuzzy('analog_out_period', 10e-5, 0.05):
+        if util.put_check(low3, 0.0) and util.put_check(trig_buffer, value) and util.put_fuzzy('analog_out_period', 10e-5, 0.05):
             pass
         else:
             print "setting not taking place"
-            return False, False
+            return False
 
         time.sleep(1)
         count3.add_callback(getCount1)
@@ -116,24 +111,11 @@ class C400_Tester(Tester):
 
             poll(evt=1.e-5, iot=0.01)
 
-        run1 = len(data1)
-        count3.remove_callback(1)
-        count3.add_callback(getCount2)
-        if util.put_check(trig_buffer, 500):
-            pass
-        else:
-            print "setting 2nd time not taking place"
-            return False, False
-        init.put(1)
-        t1 = time.time()
-        while time.time() - t1 < 3:
-            poll(evt=1.e-5, iot=0.01)
+        run1 = len(data)
 
-        run2 = len(data2)
+        return run1
 
-        return run1, run2
-
-    def burst_size(self):
+    def burst_size(self, value):
         if not self.connected:
             print "Device not connected"
             return False
@@ -151,8 +133,8 @@ class C400_Tester(Tester):
         util.put_check(trig_mode, 0)
         low3.put(0.0)
         int_time.put(10e-4)
-        util.put_check(trig_buffer, 0)
-        util.put_check(trig_burst, 1000)
+        util.put_check(trig_burst, value)
+        util.put_check(trig_buffer, value)
         poll(evt=1.e-5, iot=0.01)
 
         def getCount(pvname, value, **kw):
@@ -160,41 +142,19 @@ class C400_Tester(Tester):
 
         count.add_callback(getCount)
 
+        init.put(1)
         t0 = time.time()
+        while time.time() - t0 < 3:
 
-        init.put(1)
-
-        t1 = time.time()
-        # while caget('paused_state') != 1:
-        #     if time.time() - t1 > 30:
-        #         return "pause state never reached"
-        #     else:
-        #         pass
-
-        pass1 = len(data)
-
-        util.put_check(trig_burst, 10000)
-
-        time.sleep(0.1)
-        t2 = time.time()
-
-        init.put(1)
-
-        t3 = time.time()
-        # while caget('paused_state') != 1:
-        #     if time.time() - t3 > 30:
-        #         return "pause state never reached 2nd time"
-        #     else:
-        #         pass
-        pass2 = len(data) - pass1
-
+            poll(evt=1.e-5, iot=0.01)
         # teardown
 
         util.put_check(trig_burst, 0)
+        util.put_check(trig_buffer, 0)
 
-        return pass1, pass2
+        return len(data)
 
-    def io(self):
+    def io(self, value1, value2):
         if not self.connected:
             print "Device not connected"
             return False
@@ -202,10 +162,10 @@ class C400_Tester(Tester):
         low1, low2, low3, low4 = PV('low_limit_1'), PV(
             'low_limit_2'), PV('low_limit_3'), PV('low_limit_4')
         poll(evt=1.e-5, iot=0.01)
-        low1.put(0.0)
-        low2.put(0.0)
-        low3.put(0.0)
-        low4.put(0.0)
+        util.put_check(low1, 0.0)
+        util.put_check(low2, 0.0)
+        util.put_check(low3, 0.0)
+        util.put_check(low4, 0.0)
 
         count1, count2, count3, count4 = PV('in_counts_1'), PV(
             'in_counts_2'), PV('in_counts_3'), PV('in_counts_4')
@@ -213,29 +173,39 @@ class C400_Tester(Tester):
         rate1, rate2, rate3, rate4 = PV('analog_in_rate_1'), PV(
             'analog_in_rate_2'), PV('analog_in_rate_3'), PV('analog_in_rate_4')
 
-        bias1, bias2, bias3, bias4 = PV('analog_in_bias_1'), PV(
+        bias1_in, bias2_in, bias3_in, bias4_in = PV('analog_in_bias_1'), PV(
             'analog_in_bias_2'), PV('analog_in_bias_3'), PV('analog_in_bias_4')
+
+        bias1_out, bias2_out, bias3_out, bias4_out = PV('analog_out_bias_1'), PV(
+            'analog_out_bias_2'), PV('analog_out_bias_3'), PV('analog_out_bias_4')
+
 
         init.put(1)
 
-        time.sleep(5)
+        poll(evt=1.0, iot=0.01)
 
-        caput('analog_out_bias_1', 100)
-        caput('analog_out_bias_2', 200)
-        caput('analog_out_bias_3', 300)
-        caput('analog_out_bias_4', 400)
+        util.put_check(bias1_out, value1)
+        util.put_check(bias2_out, value2)
 
-        time.sleep(2)
+        counts = [count1.get(), count2.get(), count3.get(), count4.get()]
+        rates = [rate1.get(), rate2.get(), rate3.get(), rate4.get()]
+        bias_ins = [bias1_in.get(), bias2_in.get(), bias3_in.get(), bias4_in.get()]
+        bias_outs = [bias1_out.get(), bias2_out.get(), bias3_out.get(), bias4_out.get()]
 
-        counts = [count1.value, count2.value, count3.value, count4.value]
-        rates = [rate1.value, rate2.value, rate3.value, rate4.value]
-        biases = [bias1.value == 100, bias2.value ==
-                  200, bias3.value == 300, bias4.value == 400]
+        
+        return [counts, rates, bias_ins, bias_outs]
 
-        print counts, rates, biases
-        return all(x != None for x in (counts + rates + biases))
+    def set_integration(self, value):
+        if not self.connected:
+            return False
+        
+        int_time = PV('analog_out_period')
 
-    def integration_set(self):
+        util.put_check(int_time, value)
+
+        return int_time.get()
+
+    def integration_test(self):
         data = []
         if not self.connected:
             print "Device not connected"
@@ -396,7 +366,7 @@ class C400_Tester(Tester):
 
         return sum(data)
 
-    def pulse(self):
+    def pulse(self, period, width):
         data = []
         if not self.connected:
             print "Device not connected"
@@ -404,8 +374,8 @@ class C400_Tester(Tester):
         pulse_period, pulse_width, p_enable1, p_enable2, p_enable3, p_enable4 = PV('pulse_period'), PV('pulse_width'), PV(
             'digital_out_pulse_enable_1'), PV('digital_out_pulse_enable_2'), PV('digital_out_pulse_enable_3'), PV('digital_out_pulse_enable_4')
 
-        util.put_check(pulse_period, 10000)
-        util.put_check(pulse_width, 100)
+        util.put_check(pulse_period, period)
+        util.put_check(pulse_width, width)
         util.put_check(p_enable1, 1)
         util.put_check(p_enable2, 1)
         util.put_check(p_enable3, 1)
@@ -427,12 +397,16 @@ class C400_Tester(Tester):
         util.put_check(p_enable4, 0)
         return [period, width, p1, p2, p3, p4]
 
-    def start_stop(self):
+    def start_stop(self, stop):
         data = []
         if not self.connected:
             print "Device not connected"
             return False
-        count, trig_mode, trig_buffer, int_time, low3, init = PV('in_counts_3'), PV('trig_mode'), PV('trig_buffer'), PV('analog_out_period'), PV('low_limit_3'), PV('initiate')
+        count, trig_mode, trig_buffer, int_time, low3, init = PV('in_counts_3'), PV(
+            'trig_mode'), PV('trig_buffer'), PV('analog_out_period'), PV('low_limit_3'), PV('initiate')
+
+        stop_state = PV('stopped_state')
+        running_state = PV('running_state')
 
         util.put_check(trig_mode, 1)
         util.put_check(low3, 0.0)
@@ -449,14 +423,14 @@ class C400_Tester(Tester):
         poll(evt=0.5, iot=0.5)
 
         t0 = time.time()
-        while time.time() - t0 < 30 and len(data) < 500:
+        while time.time() - t0 < 30 and len(data) < stop:
             pass
 
         init.put(0)
 
         poll(evt=0.5, iot=0.5)
 
-        return len(data), caget('stopped_state'), caget('running_state')
+        return len(data), stop_state.get(), running_state.get()
 
     def state(self):
         if not self.connected:
@@ -473,7 +447,8 @@ class C400_Tester(Tester):
         if not self.connected:
             print "Device not connected"
             return False
-        start_trig, pause_trig, stop_trig, trig_mode, trig_burst = PV('trig_source_start'), PV('trig_source_pause'), PV('trig_source_stop'), PV('trig_mode'), PV('trig_burst')
+        start_trig, pause_trig, stop_trig, trig_mode, trig_burst = PV('trig_source_start'), PV(
+            'trig_source_pause'), PV('trig_source_stop'), PV('trig_mode'), PV('trig_burst')
         poll(evt=0.5, iot=0.5)
         util.put_check(start_trig, 0)
         util.put_check(pause_trig, 0)
@@ -510,7 +485,7 @@ class C400_Tester(Tester):
 
             util.put_check(trig_mode, i)
             time.sleep(1)
-            data.append(trig_mode.get()==i)
+            data.append(trig_mode.get() == i)
         # teardown
 
         util.put_check(trig_mode, 1)

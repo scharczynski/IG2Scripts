@@ -70,6 +70,7 @@ def check_device(device_name, proc):
     if connect == 2:
         return True
     else:
+        print "check_device fail"
         print proc.after
         print proc.before
         return False

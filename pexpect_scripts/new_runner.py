@@ -3,7 +3,7 @@ import pexpect
 import epics
 import hypos
 import time
-from hypothesis import given
+from hypothesis import given, settings
 from tests.Tester import Tester as tester
 from tests.M10_Tester import M10_Tester
 from tests.M40_Tester import M40_Tester
@@ -221,11 +221,14 @@ class Test_Config(object):
         tester.kill_pexpect()
         assert results == "[EXCEPTION] [ERROR] Could not add channel with the name 'c_name', already exists"
 
-    def test_same_wire(self):
+    @given(value=hypos.valid_memblock_a_o())
+    def test_same_wire(self, value):
         tester = Config_Tester(path, "config_samewire.xml")
-        results = tester.same_wire()
+        results = tester.same_wire(value)
         tester.kill_pexpect()
-        assert results ==  (65.0, 65.0)
+        print value
+        print results
+        np.testing.assert_almost_equal(results, value, decimal=4)
 
 class Test_C400(object):
     
@@ -235,31 +238,59 @@ class Test_C400(object):
         tester.kill_pexpect()    
         assert results[0]+results[2] < results[1]
 
-    def test_buffer_size(self):
+    @given(value=hypos.valid_buffer_size())
+    def test_buffer_size(self, value):
         tester = C400_Tester(path, "c400_buffering.xml")
-        results = tester.buffering()
+        results = tester.buffering(value)
         tester.kill_pexpect()
-        print results
-        assert results[0] == 1000 and results[1] == 500
+        assert results == value
     
-    def test_burst_size(self):
+    @given(value=hypos.valid_buffer_size())
+    #@settings(timeout=-1)
+    def test_burst_size(self, value):
         tester = C400_Tester(path, "c400_burst.xml")
-        results = tester.burst_size()
+        results = tester.burst_size(value)
         tester.kill_pexpect()
-        assert results[0] < results[1]
+        assert results == value
 
-    def test_io(self):
+    def test_get_counts(self):
         tester = C400_Tester(path, "c400_input.xml")
-        results = tester.io()
+        results = tester.io(100, 200)
         tester.kill_pexpect()
-        print results
-        assert results == True
+        assert all(x!=None for x in results[0]) == True
+
+    def test_get_rates(self):
+        tester = C400_Tester(path, "c400_input.xml")
+        results = tester.io(100, 200)
+        tester.kill_pexpect()
+        assert all(x!=None for x in results[1]) == True
+
+    @given(value1=hypos.c400_bias_out_1000(), value2=hypos.c400_bias_out_2000())
+    def test_set_bias(self, value1, value2):
+        tester = C400_Tester(path, "c400_input.xml")
+        results = tester.io(value1, value2)
+        tester.kill_pexpect()
+        print results, value1, value2
+        assert results[3] == [value1, value2, 0, 0]
+
+    def test_get_bias(self):
+        tester = C400_Tester(path, "c400_input.xml")
+        results = tester.io(100, 200)
+        tester.kill_pexpect()
+        assert all(x!=None for x in results[2]) == True
     
-    def test_integration_set(self):
+    def test_integration_test(self):
         tester = C400_Tester(path, "c400_integration.xml")
-        results = tester.integration_set()
+        results = tester.integration_test()
         tester.kill_pexpect()
         assert results[0] >= 100 or results[1] >= 100
+
+    @given(value=hypos.valid_int_time())
+    def test_set_integration(self, value):
+        tester = C400_Tester(path, "c400_integration.xml")
+        results = tester.set_integration(value)
+        tester.kill_pexpect()
+        np.testing.assert_almost_equal(results, value, decimal=4)
     
     def test_discriminator_limits(self):
         tester = C400_Tester(path, "c400_limits.xml")
@@ -273,20 +304,23 @@ class Test_C400(object):
         results = tester.polarity()
         tester.kill_pexpect()
         assert results == 4
-
-    def test_pulse(self):
+    
+    @given(width=hypos.c400_pulse_width(), period=hypos.c400_pulse_period())
+    def test_pulse(self, width, period):
         tester = C400_Tester(path, "c400_pulse.xml")
-        results = tester.pulse()
+        results = tester.pulse(period, width)
         tester.kill_pexpect()
-        assert results == [10000, 100, 1, 1, 1, 1]
-
-    def test_init_abort(self):
+        np.testing.assert_almost_equal(results, [period, width], decimal=3)
+    
+    @given(stop=hypos.data_stop_range())
+    @settings(timeout=100)
+    def test_init_abort(self, stop):
         tester = C400_Tester(path, "c400_startstop.xml")
-        results = tester.start_stop()
+        results = tester.start_stop(stop)
         tester.kill_pexpect()
         print results
-        assert results[0] < 510 and results[1] == 1 and results[2] == 0
-
+        assert pytest.approx(results[0], rel=0.05) == stop and results[1] == 1 and results[2] == 0
+    
     def test_state(self):
         tester = C400_Tester(path, "c400_state.xml")
         results = tester.state()
@@ -302,20 +336,21 @@ class Test_C400(object):
 
 class Test_F460(object):
     
-    def test_buffer_mode(self, use_server):
+    @given(stop=hypos.valid_buffer_size())
+    def test_buffer_mode(self, use_server, stop):
         # epics_tester = F460_Tester(use_server, 'epics')
         # epics_results = epics_tester.buffer_mode()
         tester = F460_Tester(path, "f460_buffer.xml")
-        results = tester.buffer_mode()
+        results = tester.buffer_mode(stop)
         tester.kill_pexpect()
-        #epics.ca.clear_cache()
-        assert results[0] == pytest.approx(500, abs=5)  and results[1] < 300
+        assert results == stop
 
-    def test_burst_size(self):
+    @given(burst=hypos.valid_buffer_size())
+    def test_burst_size(self, burst):
         tester = F460_Tester(path, "f460_burst.xml")
-        results = tester.burst_size()
+        results = tester.burst2(burst)
         tester.kill_pexpect()
-        assert results == 2000
+        assert results == burst
 
     def test_io(self):
         tester = F460_Tester(path, "f460_input.xml")
@@ -323,12 +358,15 @@ class Test_F460(object):
         tester.kill_pexpect()
         assert all(x != None for x in results) == True
 
-    
-    def test_initiate_abort(self):
+    @given(values = hypos.f460buff_and_stop())
+    @settings(timeout=100)
+    def test_initiate_abort(self, values):
         tester = F460_Tester(path, "f460_startstop.xml")
-        results = tester.initiate_abort()
+        results = tester.initiate_abort(values)
         tester.kill_pexpect()
-        assert results <= 1100 and results > 1
+        print values
+        print results
+        assert results == values[1]
 
     def test_version_numbers(self):
         tester = F460_Tester(path, "f460_versions.xml")

@@ -19,13 +19,14 @@ class F460_Tester(Tester):
             self.connected = True
         else:
             t0 = time.time()
-            while self.status not in range(0, 4):
+            while self.status.get() not in (0, 2):
                 poll(evt=1.e-5, iot=0.01)
                 if time.time() - t0 > 10:
                     print "status bad " + str(self.status.get())
                     break
-            self.connected = util.check_device(
-                'F1', self.proc) and self.status.get() in range(0, 4)
+            check = util.check_device('F1', self.proc)
+            state_check = self.status.get() in (0, 2)
+            self.connected = check and state_check
 
     def stress_test(self):
         if not self.connected:
@@ -44,9 +45,8 @@ class F460_Tester(Tester):
                 return self.proc.after, self.proc.before
         return "passed all"
 
-    def buffer_mode(self):
+    def buffer_mode(self, value):
         data = []
-        data2 = []
 
         if not self.connected:
             print "Device not connected"
@@ -56,21 +56,14 @@ class F460_Tester(Tester):
 
         acquisition_mode = PV('acquisition_mode')
         buffered_mode = PV('buffered_acquisition')
-        #stop_trig_source = PV('stop_trigger_source')
         stopcount = PV('stop_count')
         current1 = PV('current_in_1')
         init = PV('initiate')
-
-        #util.put_check(acquisition_mode, 1)
-        #util.put_check(buffered_mode, 1)
-        #util.put_check(stop_trig_source, 0)
-        #util.put_check(stopcount, 500)
         acquisition_mode.put(1)
         poll(evt=1.0, iot=1.0)
-        #stop_trig_source.put(1)
         buffered_mode.put(1)
         poll(evt=1.0, iot=1.0)
-        stopcount.put(500)
+        stopcount.put(value)
     
         poll(evt=1.0, iot=1.0)
         buff1 = buffered_mode.get()
@@ -78,54 +71,17 @@ class F460_Tester(Tester):
         def getCount(pvname, value, **kw):
             data.append(value)
 
-        def getCount2(pvname, value, **kw):
-            data2.append(value)
-
-        print caget('buffered_acquisition')
-        print caget('stop_count')
-        print caget('acquisition_mode')
         current1.add_callback(getCount)
-
-        #caput('initiate', 1)
         init.put(1)
         poll(evt=1.e-5, iot=0.01)
         t0 = time.time()
-        while time.time() - t0 < 12:
+        while time.time() - t0 < 4:
             poll(evt=1.e-5, iot=0.01)
 
-        #caput('initiate', 0)
-        poll(evt=1.e-5, iot=0.01)
-        #util.put_check(buffered_mode, 0)
-        poll(evt=1.e-5, iot=0.01)
-        #util.put_check(stopcount, 0)
-        buffered_mode.put(0)
-        stopcount.put(0)
-        poll(evt=1.e-5, iot=0.01)
-        # print current1.callbacks
-        current1.remove_callback(1)
-        current1.add_callback(getCount2)
-        poll(evt=1.e-5, iot=0.01)
+        return len(data)
 
-        #caput('initiate', 1)
-        init.put(1)
-        poll(evt=1.e-5, iot=0.01)
-        buff2 = buffered_mode.get()
-        t1 = time.time()
-        while time.time() - t1 < 10:
-            if len(data2) >= 250:
-                #caput('initiate', 0)
-                init.put(0)
-                break
-            poll(evt=1.e-5, iot=0.01)
-
-        current1.remove_callback(1)
-        # stopcount.disconnect()
-        # buffered_mode.disconnect()
-        # current1.disconnect()
-
-        return len(data), len(data2), buff1, buff2
-
-    def burst_size(self):
+    def burst_size(self, value):
+        print self.connected
         data = []
         if not self.connected:
             print "Device not connected"
@@ -140,43 +96,31 @@ class F460_Tester(Tester):
         buffered_mode.put(1)
         poll(evt=1.e-5, iot=0.01)
         t0 = time.time()
-        #util.put_check(burst_count, 100)
-        
-        #burst_count.put(2000)
-        while burst_count.get() != 2000:
-            burst_count.put(2000)
-            poll(evt=0.01, iot=0.01)
-            connect = self.proc.expect([pexpect.TIMEOUT, pexpect.EOF, 'Announce\(\) success'], timeout=1)
-            print self.proc.before
-            print self.proc.after
-        print time.time() - t0
-        
-        #poll(evt=2.0, iot=2.01)
+
+        burst_count.put(value)
+        poll(evt=0.01, iot=0.01)
+        connect = self.proc.expect([pexpect.TIMEOUT, pexpect.EOF, 'Announce\(\) success'], timeout=1)
 
         output = burst_count.get()
-        #print burst_count.info
-        #print acquisition_mode.info
-        #print buffered_mode.info
-        # teardown
-        # util.put_check('burst_count', 0)
+
         burst_count.put(0, wait=True)
         poll(evt=1.0, iot=1.01)
-        # if not util.pv_check(burst_count, 0):
-        #     print "BURST COUNT NOT SET AGAIN"
-        #     caput('burst_count', 0)
+
         return output
 
-    def burst2(self):
+    def burst2(self, value): 
+        #connect = self.proc.expect([pexpect.TIMEOUT, pexpect.EOF, 'Announce\(\) success'], timeout=1)
+        if not self.connected:
+            print "Device not connected"
+            return False
         burst = PV('burst_count')
-        burst.put(100)
+        poll(evt=1.01, iot=1.01)
+        util.put_check(burst, value)
         poll(evt=1.0, iot=1.01)
-        t0 = time.time()
-        while burst.get() != 100:
-            burst.put(100)
-            poll(evt=1.0, iot=1.01)
-            print burst.get()
-        caput('burst_count', 100)
-        print time.time()-t0
+        caput('burst_count', value)
+        # while burst.get() != 100:
+        #     burst.put(100)
+        #     poll(evt=1.0, iot=1.01)
         return burst.get()
 
     def io(self):
@@ -524,8 +468,9 @@ class F460_Tester(Tester):
 
         return caget('firmware_version'), caget('fpga_version'), caget('serial_number'), caget('software_rev'), caget('secondary_fpga_version'), caget('rpt_revision'), caget('hardware_revision')
 
-    def initiate_abort(self):
-
+    def initiate_abort(self, values):
+        buff = values[0]
+        stop = values[1]
         data = []
         if not self.connected:
             print "Device not connected"
@@ -537,7 +482,7 @@ class F460_Tester(Tester):
         buffered_mode = PV('buffered_acquisition')
         current1 = PV('current_in_1')
         init = PV('initiate')
-        poll(evt=1.e-5, iot=0.01)
+        poll(evt=1.0, iot=1.01)
         util.put_check(acquisition_mode, 1)
         poll(evt=1.e-5, iot=0.01)
 
@@ -545,24 +490,23 @@ class F460_Tester(Tester):
 
         poll(evt=1.e-5, iot=0.01)
 
-        util.put_check(stopcount, 10000)
+        util.put_check(stopcount, buff)
 
         poll(evt=1.e-5, iot=0.01)
 
         def getCount(pvname, value, **kw):
             #print value
             data.append(value)
-        current1.add_callback(getCount)
-        poll(evt=1.e-5, iot=0.01)
-        init.put(0)
-        poll(evt=1.0, iot=1.01)
+
+        #poll(evt=1.0, iot=1.01)
         
 
         t0 = time.time()
+        current1.add_callback(getCount)
         init.put(1)
-        while time.time() - t0 < 15 and len(data) < 1000:
-            #print current1.get(use_monitor=True)
-            poll(evt=1.e-5, iot=0.01)
+        while time.time() - t0 < 15 and len(data) < stop:
+            poll(evt=0.5, iot=0.01)
+            print len(data)
         init.put(0)
         poll(evt=1.e-5, iot=0.01)
         time.sleep(5)
